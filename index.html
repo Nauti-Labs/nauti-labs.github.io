@@ -371,18 +371,25 @@
       <h2>Let's Talk</h2>
       <div class="section-divider" style="margin: 0 auto 3rem;"></div>
       <div class="contact-form">
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div data-fs-success style="display:none; padding:2rem; border:1px solid var(--cyan); color:var(--cyan); text-align:center; margin-bottom:1.5rem;">
+          Message received — I'll be in touch within 24 hours.
+        </div>
+        <div data-fs-error style="display:none; padding:1rem; border:1px solid #ff4444; color:#ff4444; margin-bottom:1.5rem;"></div>
+
+        <form id="contact-form">
           <div class="form-group">
             <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Captain or Company Name" required />
+            <input type="text" id="name" name="name" placeholder="Captain or Company Name" required data-fs-field />
+            <span data-fs-error="name" style="color:#ff4444; font-size:0.8rem;"></span>
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="you@company.com" required />
+            <input type="email" id="email" name="email" placeholder="you@company.com" required data-fs-field />
+            <span data-fs-error="email" style="color:#ff4444; font-size:0.8rem;"></span>
           </div>
           <div class="form-group">
             <label for="service">Service Needed</label>
-            <select id="service" name="service">
+            <select id="service" name="service" data-fs-field>
               <option value="">Select a service...</option>
               <option>Chemical Tanker Agent Coaching</option>
               <option>Pre-Arrival / Port Call Workflow</option>
@@ -397,14 +404,21 @@
           </div>
           <div class="form-group">
             <label for="message">Tell me about your operation</label>
-            <textarea id="message" name="message" placeholder="What's the problem you're trying to solve?"></textarea>
+            <textarea id="message" name="message" placeholder="What's the problem you're trying to solve?" data-fs-field></textarea>
+            <span data-fs-error="message" style="color:#ff4444; font-size:0.8rem;"></span>
           </div>
-          <button type="submit" class="btn-submit">Send Message</button>
+          <button type="submit" class="btn-submit" data-fs-submit-btn>Send Message</button>
         </form>
         <p class="contact-alt">
           Or email directly: <a href="mailto:consulting@nauti-labs.com">consulting@nauti-labs.com</a>
         </p>
       </div>
+
+      <script>
+        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+        formspree('initForm', { formElement: '#contact-form', formId: 'xgopdqbg' });
+      </script>
+      <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
     </div>
   </section>
 

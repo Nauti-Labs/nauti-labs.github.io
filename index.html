@@ -139,6 +139,47 @@
     .service-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
     .service-card p { font-size: 0.85rem; color: var(--muted); }
 
+    /* ── TRITON ── */
+    #triton { background: var(--bg); }
+    .triton-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+      margin-bottom: 3rem;
+    }
+    .triton-lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+    .triton-lead strong { color: var(--white); }
+    .triton-modules { display: flex; flex-direction: column; gap: 1px; background: var(--border); }
+    .triton-module {
+      background: var(--surface);
+      padding: 1.5rem;
+      display: flex; gap: 1rem; align-items: flex-start;
+      transition: background 0.2s;
+    }
+    .triton-module:hover { background: #161f2b; }
+    .triton-module-icon { font-size: 1.4rem; flex-shrink: 0; line-height: 1; margin-top: 0.1rem; }
+    .triton-module h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .triton-module p { font-size: 0.82rem; color: var(--muted); }
+    .triton-cta {
+      display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .triton-badge {
+      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--cyan); border: 1px solid var(--cyan-dim);
+      padding: 0.25rem 0.75rem; border-radius: 2px;
+    }
+    @media (max-width: 700px) {
+      .triton-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
     /* ── RATE ── */
     #rate { text-align: center; }
     .rate-box {
@@ -227,6 +268,7 @@
     <a class="nav-logo" href="#">NAUTI-LABS</a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
+      <li><a href="#triton">Triton</a></li>
       <li><a href="#rate">Rates</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -307,6 +349,76 @@
           <div>
             <h3>Process Improvement for Agency Teams</h3>
             <p>Identify bottlenecks, reduce errors, and build a team that scales without chaos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRITON -->
+  <section id="triton">
+    <div class="container">
+      <p class="section-label">Open Source · Built in Public</p>
+      <h2>Triton + Nauti-Vision</h2>
+      <div class="section-divider"></div>
+      <div class="triton-grid">
+        <div>
+          <p class="triton-lead">
+            Maritime agency work runs on information — vessel ETAs, CBP forms, cargo docs, terminal updates.
+            Most of it moves by email, phone, and memory. <strong>Triton is the system we built to change that.</strong>
+          </p>
+          <p class="triton-lead">
+            It's a web-based AI command center that orchestrates a fleet of purpose-built agents.
+            Every action goes through a <strong>human-in-the-loop approval layer</strong> — the AI proposes, you approve.
+            Nothing moves without a captain at the helm.
+          </p>
+          <p class="triton-lead">
+            <strong>Nauti-Vision</strong> is the eyes. Built on the same visual intelligence stack used in modern mobile devices,
+            it processes live camera feeds to identify vessels, inspect cargo, and flag anomalies at the dock —
+            in real time, without a specialist on site.
+          </p>
+          <div class="triton-cta">
+            <a href="https://github.com/Nauti-Labs/triton" target="_blank" class="btn">View on GitHub</a>
+            <span class="triton-badge">Open Source</span>
+            <span class="triton-badge">FastAPI + Claude</span>
+            <span class="triton-badge">PyTorch Vision</span>
+          </div>
+        </div>
+        <div class="triton-modules">
+          <div class="triton-module">
+            <div class="triton-module-icon">🧠</div>
+            <div>
+              <h3>AI Agent Orchestration</h3>
+              <p>A single command center for every Nauti-Labs agent. Monitor fleet health, issue commands, and track operations from one dashboard.</p>
+            </div>
+          </div>
+          <div class="triton-module">
+            <div class="triton-module-icon">✋</div>
+            <div>
+              <h3>Human-in-the-Loop Approval</h3>
+              <p>AI proposes the action. You approve it. PIN-verified execution for sensitive operations means nothing runs without your sign-off.</p>
+            </div>
+          </div>
+          <div class="triton-module">
+            <div class="triton-module-icon">👁️</div>
+            <div>
+              <h3>Nauti-Vision — Live Visual Intelligence</h3>
+              <p>WebRTC camera feeds with real-time object detection and subject isolation. Identify vessels, cargo, and equipment at the terminal without a specialist present.</p>
+            </div>
+          </div>
+          <div class="triton-module">
+            <div class="triton-module-icon">📱</div>
+            <div>
+              <h3>Mobile-Ready PWA</h3>
+              <p>Installable on any device. Run your ops from the dock, the office, or the truck — the same interface everywhere.</p>
+            </div>
+          </div>
+          <div class="triton-module">
+            <div class="triton-module-icon">🔒</div>
+            <div>
+              <h3>Session Auth + Access Control</h3>
+              <p>Passcode-protected sessions with authorized user lists. Built for small agency teams — not enterprise overhead.</p>
+            </div>
           </div>
         </div>
       </div>

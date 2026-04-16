@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nauti-Labs Demo | Fleet Command Preview</title>
+  <meta name="description" content="Interactive Nauti-Labs demo showing Triton orchestration, vessel operations, approvals, and AI fleet coordination.">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #07111a;
+      --panel: rgba(9, 22, 33, 0.9);
+      --panel-strong: rgba(6, 17, 27, 0.98);
+      --line: rgba(111, 224, 255, 0.18);
+      --cyan: #6fe0ff;
+      --sea: #2ca58d;
+      --amber: #ffbb55;
+      --rose: #ff7b7b;
+      --ink: #e8f6fb;
+      --muted: #92a8b4;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
+      --display: "Avenir Next Condensed", "Franklin Gothic Medium", "Arial Narrow", sans-serif;
+      --body: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      --mono: "SFMono-Regular", "Consolas", "Liberation Mono", monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background:
+        radial-gradient(circle at top, rgba(111, 224, 255, 0.12), transparent 30%),
+        radial-gradient(circle at 85% 15%, rgba(255, 187, 85, 0.12), transparent 18%),
+        linear-gradient(180deg, #08131d 0%, #050c13 100%);
+      color: var(--ink);
+      font-family: var(--body);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(111, 224, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(111, 224, 255, 0.05) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.9), transparent 75%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .shell {
+      width: min(1380px, calc(100vw - 32px));
+      margin: 22px auto 40px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: rgba(4, 12, 18, 0.72);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(10, 25, 37, 0.95), rgba(8, 19, 29, 0.85));
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      border: 1px solid rgba(111, 224, 255, 0.28);
+      color: var(--cyan);
+      font: 700 1.2rem var(--display);
+      background: radial-gradient(circle at 30% 30%, rgba(111, 224, 255, 0.18), rgba(5, 15, 23, 0.95));
+    }
+
+    .brand-copy h1,
+    .hero-copy h2,
+    .section-title,
+    .metric-value,
+    .kpi-number,
+    .panel-title,
+    .queue-tag,
+    .agent-name {
+      font-family: var(--display);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .brand-copy h1 {
+      font-size: 1rem;
+      line-height: 1.1;
+    }
+
+    .brand-copy p,
+    .hero-copy p,
+    .status-strip,
+    .muted,
+    .queue-copy,
+    .log-line,
+    .timeline-copy,
+    .tile-copy,
+    .footer-copy {
+      color: var(--muted);
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(12, 26, 37, 0.66);
+      font: 600 0.75rem var(--display);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 0;
+    }
+
+    .left,
+    .right {
+      padding: 26px;
+    }
+
+    .left {
+      border-right: 1px solid var(--line);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .hero-card,
+    .panel,
+    .metric,
+    .agent-card,
+    .timeline-card,
+    .footer-card {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--panel);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-card {
+      padding: 26px;
+      min-height: 320px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -20% -40% auto;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(111, 224, 255, 0.24), transparent 70%);
+      filter: blur(10px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 7px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(111, 224, 255, 0.24);
+      color: var(--cyan);
+      font: 700 0.7rem var(--display);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero-copy h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 0.94;
+      max-width: 10ch;
+      margin-bottom: 16px;
+    }
+
+    .hero-copy p {
+      font-size: 1.02rem;
+      line-height: 1.65;
+      max-width: 54ch;
+      margin-bottom: 22px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    .btn {
+      padding: 14px 18px;
+      border-radius: 14px;
+      font: 700 0.8rem var(--display);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cyan), #3ab9ff);
+      color: #041018;
+      box-shadow: 0 10px 30px rgba(58, 185, 255, 0.25);
+    }
+
+    .btn-secondary {
+      background: rgba(13, 31, 44, 0.8);
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 16px;
+    }
+
+    .metric {
+      padding: 20px;
+    }
+
+    .metric-label {
+      color: var(--muted);
+      font: 700 0.72rem var(--display);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .metric-value {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .metric-bar {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+
+    .metric-bar > span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--sea), var(--cyan));
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .kpi-number {
+      font-size: 1.85rem;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      margin-bottom: 14px;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .panel {
+      padding: 20px;
+    }
+
+    .panel-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .panel-title {
+      font-size: 0.92rem;
+    }
+
+    .tiny {
+      font: 700 0.68rem var(--display);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .job-list,
+    .queue-list,
+    .log-list,
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .job-card,
+    .queue-card,
+    .timeline-card {
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(111, 224, 255, 0.11);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .job-top,
+    .queue-top,
+    .timeline-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .job-name,
+    .queue-tag {
+      font: 700 0.86rem var(--display);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .badge {
+      padding: 6px 10px;
+      border-radius: 999px;
+      font: 700 0.66rem var(--display);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+    }
+
+    .badge-warn {
+      color: #ffdca7;
+      background: rgba(255, 187, 85, 0.1);
+      border-color: rgba(255, 187, 85, 0.22);
+    }
+
+    .badge-good {
+      color: #bff3d2;
+      background: rgba(44, 165, 141, 0.14);
+      border-color: rgba(44, 165, 141, 0.24);
+    }
+
+    .badge-risk {
+      color: #ffc3c3;
+      background: rgba(255, 123, 123, 0.12);
+      border-color: rgba(255, 123, 123, 0.25);
+    }
+
+    .progress {
+      margin-top: 12px;
+      height: 8px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .progress > span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--amber), var(--cyan));
+    }
+
+    .queue-copy,
+    .timeline-copy,
+    .tile-copy {
+      line-height: 1.55;
+      font-size: 0.96rem;
+    }
+
+    .queue-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .queue-actions .btn {
+      padding: 11px 14px;
+      font-size: 0.68rem;
+    }
+
+    .fleet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .agent-card {
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .agent-copy {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .agent-orb {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      box-shadow: 0 0 0 5px rgba(255,255,255,0.03);
+      transition: background 220ms ease, box-shadow 220ms ease;
+    }
+
+    .agent-name {
+      font-size: 0.8rem;
+      margin-bottom: 4px;
+    }
+
+    .status-ok .agent-orb {
+      background: var(--sea);
+      box-shadow: 0 0 18px rgba(44, 165, 141, 0.6);
+    }
+
+    .status-busy .agent-orb {
+      background: var(--amber);
+      box-shadow: 0 0 18px rgba(255, 187, 85, 0.55);
+    }
+
+    .status-alert .agent-orb {
+      background: var(--rose);
+      box-shadow: 0 0 18px rgba(255, 123, 123, 0.55);
+    }
+
+    .log-list {
+      max-height: 280px;
+      overflow: auto;
+      padding-right: 4px;
+    }
+
+    .log-line {
+      padding: 11px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      font: 0.85rem/1.45 var(--mono);
+    }
+
+    .log-line strong {
+      color: var(--cyan);
+      font-weight: 700;
+    }
+
+    .timeline {
+      margin-top: 18px;
+    }
+
+    .tiles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .footer-card {
+      margin-top: 20px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      max-width: 64ch;
+      line-height: 1.6;
+    }
+
+    .footer-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .status-strip {
+      padding: 13px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(111, 224, 255, 0.12);
+      background: rgba(255,255,255,0.03);
+      font: 0.83rem/1.5 var(--mono);
+    }
+
+    .flash {
+      animation: flash 380ms ease;
+    }
+
+    @keyframes flash {
+      0% { transform: scale(1); box-shadow: 0 0 0 rgba(111, 224, 255, 0); }
+      40% { transform: scale(1.015); box-shadow: 0 0 34px rgba(111, 224, 255, 0.18); }
+      100% { transform: scale(1); box-shadow: 0 0 0 rgba(111, 224, 255, 0); }
+    }
+
+    @media (max-width: 1120px) {
+      .layout,
+      .hero,
+      .board {
+        grid-template-columns: 1fr;
+      }
+
+      .left {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .metrics-grid,
+      .tiles,
+      .fleet {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .shell {
+        width: min(100vw - 16px, 100%);
+        margin-top: 8px;
+        border-radius: 22px;
+      }
+
+      .topbar,
+      .left,
+      .right {
+        padding: 18px;
+      }
+
+      .metrics-grid,
+      .tiles,
+      .fleet {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy h2 {
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">NL</div>
+        <div class="brand-copy">
+          <h1>Nauti-Labs Demo Deck</h1>
+          <p>Fleet orchestration for chemical tanker operations</p>
+        </div>
+      </div>
+      <div class="top-actions">
+        <div class="pill">Demo Mode</div>
+        <div class="pill">Human Approval Required</div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="left">
+        <div class="hero">
+          <article class="hero-card">
+            <div class="eyebrow">Triton Command Layer</div>
+            <div class="hero-copy">
+              <h2>See the fleet think before it acts.</h2>
+              <p>
+                This is a focused Nauti-Labs demo: a captain sees vessels, risks, AI recommendations,
+                and approval-gated actions in one place instead of across texts, email, and tribal memory.
+              </p>
+            </div>
+            <div class="hero-actions">
+              <button class="btn btn-primary" id="run-demo">Run Demo Sequence</button>
+              <button class="btn btn-secondary" id="reset-demo">Reset Board</button>
+            </div>
+          </article>
+
+          <div class="hero-side">
+            <article class="metric">
+              <div class="metric-label">Current Port Call</div>
+              <div class="metric-value" id="hero-vessel">MT Chem Navigator</div>
+              <div class="tile-copy" id="hero-summary">Pre-arrival docs cleared. Berth allocation under review due to weather and tug congestion.</div>
+            </article>
+            <article class="metric">
+              <div class="metric-label">Operational Confidence</div>
+              <div class="metric-value" id="confidence">72%</div>
+              <div class="metric-bar"><span id="confidence-bar" style="width: 72%;"></span></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="metrics-grid">
+          <article class="metric">
+            <div class="metric-label">Active Vessels</div>
+            <div class="kpi-number" id="kpi-vessels">03</div>
+            <div class="tile-copy">Two loading, one inbound with approval pending.</div>
+          </article>
+          <article class="metric">
+            <div class="metric-label">Queued Actions</div>
+            <div class="kpi-number" id="kpi-queue">01</div>
+            <div class="tile-copy">No autonomous execution. Triton proposes, captain decides.</div>
+          </article>
+          <article class="metric">
+            <div class="metric-label">Delay Exposure</div>
+            <div class="kpi-number" id="kpi-delay">$18k</div>
+            <div class="tile-copy">Estimated if berth change misses terminal window.</div>
+          </article>
+          <article class="metric">
+            <div class="metric-label">Fleet Health</div>
+            <div class="kpi-number" id="kpi-fleet">5/5</div>
+            <div class="tile-copy">Triton, Glaucus, Turbo, Castle, and NaviSales online.</div>
+          </article>
+        </div>
+
+        <div class="board">
+          <article class="panel">
+            <div class="panel-head">
+              <div>
+                <div class="panel-title">Glaucus Operations Board</div>
+                <div class="tiny">Vessels, berth status, and cargo windows</div>
+              </div>
+              <div class="badge badge-good" id="board-badge">Stable Flow</div>
+            </div>
+            <div class="job-list">
+              <div class="job-card">
+                <div class="job-top">
+                  <div class="job-name">MT Chem Navigator</div>
+                  <div class="badge badge-warn" id="job-status-1">Awaiting Berth</div>
+                </div>
+                <div class="tile-copy">Cargo: Methanol • ETA 08:10 • Suggested move from Berth 12 to Berth 15</div>
+                <div class="progress"><span id="progress-1" style="width: 42%;"></span></div>
+              </div>
+              <div class="job-card">
+                <div class="job-top">
+                  <div class="job-name">Atlantic Chemical</div>
+                  <div class="badge badge-good">Loading</div>
+                </div>
+                <div class="tile-copy">Ethylene Glycol • Fire watch clear • Completion tracking on schedule</div>
+                <div class="progress"><span style="width: 68%;"></span></div>
+              </div>
+              <div class="job-card">
+                <div class="job-top">
+                  <div class="job-name">Gulf Carrier</div>
+                  <div class="badge badge-good">Discharging</div>
+                </div>
+                <div class="tile-copy">Benzene • Tank cleaning complete • Survey certificate attached</div>
+                <div class="progress"><span style="width: 76%;"></span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <div>
+                <div class="panel-title">Approval Queue</div>
+                <div class="tiny">Captain review before execution</div>
+              </div>
+              <div class="badge badge-risk" id="queue-state">Pending</div>
+            </div>
+            <div class="queue-list">
+              <div class="queue-card" id="queue-card">
+                <div class="queue-top">
+                  <div class="queue-tag">Recommend Berth Reassignment</div>
+                  <div class="badge badge-warn" id="queue-risk">Medium Risk</div>
+                </div>
+                <div class="queue-copy" id="queue-copy">
+                  Triton suggests moving MT Chem Navigator to Berth 15 based on tug availability,
+                  weather window, and terminal slot protection.
+                </div>
+                <div class="queue-actions">
+                  <button class="btn btn-primary" id="approve-action">Approve Action</button>
+                  <button class="btn btn-secondary" id="hold-action">Hold For Review</button>
+                </div>
+              </div>
+              <div class="status-strip" id="approval-log">
+                [QUEUE] Triton is waiting for captain approval before notifying operations and updating the job board.
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <div class="panel-title">Demo Timeline</div>
+              <div class="tiny">What the system is proving</div>
+            </div>
+          </div>
+          <div class="timeline" id="timeline">
+            <div class="timeline-card">
+              <div class="timeline-top">
+                <div class="queue-tag">1. Ingest the situation</div>
+                <div class="badge badge-good">Ready</div>
+              </div>
+              <div class="timeline-copy">Glaucus holds the live operational picture: vessel status, cargo phase, berth occupancy, and document readiness.</div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-top">
+                <div class="queue-tag">2. Ask Triton for the decision</div>
+                <div class="badge badge-warn">Queued</div>
+              </div>
+              <div class="timeline-copy">Triton pulls fleet health, wraps context around the user request, and proposes the safest operational move.</div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-top">
+                <div class="queue-tag">3. Captain approves</div>
+                <div class="badge badge-risk">Required</div>
+              </div>
+              <div class="timeline-copy">No silent automation. Approval is visible, auditable, and obvious to the operator.</div>
+            </div>
+          </div>
+
+          <div class="tiles">
+            <article class="metric">
+              <div class="metric-label">Turbo</div>
+              <div class="tile-copy">Advises on risk, priorities, and next-best action for the project and operation.</div>
+            </article>
+            <article class="metric">
+              <div class="metric-label">Castle</div>
+              <div class="tile-copy">Monitors security posture, local system state, and process health during the demo.</div>
+            </article>
+            <article class="metric">
+              <div class="metric-label">NaviSales</div>
+              <div class="tile-copy">Turns this operational story into client-facing proposals, demos, and ROI positioning.</div>
+            </article>
+          </div>
+        </article>
+      </section>
+
+      <aside class="right">
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <div class="panel-title">Fleet Health</div>
+              <div class="tiny">Simulated live board</div>
+            </div>
+            <div class="badge badge-good" id="fleet-badge">All Systems Nominal</div>
+          </div>
+          <div class="fleet" id="fleet">
+            <div class="agent-card status-ok" data-agent="triton">
+              <div class="agent-copy">
+                <div class="agent-orb"></div>
+                <div>
+                  <div class="agent-name">Triton</div>
+                  <div class="muted">Orchestration hub</div>
+                </div>
+              </div>
+              <div class="tiny" id="agent-triton">Idle</div>
+            </div>
+            <div class="agent-card status-ok" data-agent="glaucus">
+              <div class="agent-copy">
+                <div class="agent-orb"></div>
+                <div>
+                  <div class="agent-name">Glaucus</div>
+                  <div class="muted">Ops desk</div>
+                </div>
+              </div>
+              <div class="tiny" id="agent-glaucus">Stable</div>
+            </div>
+            <div class="agent-card status-ok" data-agent="turbo">
+              <div class="agent-copy">
+                <div class="agent-orb"></div>
+                <div>
+                  <div class="agent-name">Turbo</div>
+                  <div class="muted">Strategic advisor</div>
+                </div>
+              </div>
+              <div class="tiny" id="agent-turbo">Listening</div>
+            </div>
+            <div class="agent-card status-ok" data-agent="castle">
+              <div class="agent-copy">
+                <div class="agent-orb"></div>
+                <div>
+                  <div class="agent-name">Castle</div>
+                  <div class="muted">Security monitor</div>
+                </div>
+              </div>
+              <div class="tiny" id="agent-castle">Watching</div>
+            </div>
+            <div class="agent-card status-ok" data-agent="navisales">
+              <div class="agent-copy">
+                <div class="agent-orb"></div>
+                <div>
+                  <div class="agent-name">NaviSales</div>
+                  <div class="muted">Commercial layer</div>
+                </div>
+              </div>
+              <div class="tiny" id="agent-navisales">Ready</div>
+            </div>
+            <div class="agent-card status-busy" data-agent="nautivision">
+              <div class="agent-copy">
+                <div class="agent-orb"></div>
+                <div>
+                  <div class="agent-name">Nauti-Vision</div>
+                  <div class="muted">Terminal eyes</div>
+                </div>
+              </div>
+              <div class="tiny" id="agent-nautivision">Scanning</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel" style="margin-top: 18px;">
+          <div class="panel-head">
+            <div>
+              <div class="panel-title">Event Feed</div>
+              <div class="tiny">Live-style narrative</div>
+            </div>
+          </div>
+          <div class="log-list" id="log-list">
+            <div class="log-line"><strong>07:42</strong> Glaucus ingested updated ETA for MT Chem Navigator.</div>
+            <div class="log-line"><strong>07:44</strong> Castle confirms local system health and session integrity.</div>
+            <div class="log-line"><strong>07:45</strong> Triton requested berth recommendation with approval gating enabled.</div>
+            <div class="log-line"><strong>07:46</strong> Turbo flagged delay exposure if Berth 12 misses tug window.</div>
+            <div class="log-line"><strong>07:47</strong> Queue created for captain review.</div>
+          </div>
+        </article>
+
+        <div class="footer-card">
+          <div>
+            <div class="section-title">Why this demo matters</div>
+            <div class="footer-copy">
+              The product story becomes tangible when you can watch an ops decision move from context,
+              to recommendation, to approval, to coordinated action in one board.
+            </div>
+          </div>
+          <div class="footer-actions">
+            <a class="btn btn-secondary" href="./index.html">Back to Main Site</a>
+            <a class="btn btn-primary" href="#top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Replay Pitch</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    const demoState = {
+      running: false,
+      approved: false,
+      timers: []
+    };
+
+    const els = {
+      confidence: document.getElementById("confidence"),
+      confidenceBar: document.getElementById("confidence-bar"),
+      heroSummary: document.getElementById("hero-summary"),
+      queueState: document.getElementById("queue-state"),
+      queueRisk: document.getElementById("queue-risk"),
+      queueCopy: document.getElementById("queue-copy"),
+      approvalLog: document.getElementById("approval-log"),
+      boardBadge: document.getElementById("board-badge"),
+      fleetBadge: document.getElementById("fleet-badge"),
+      jobStatus1: document.getElementById("job-status-1"),
+      progress1: document.getElementById("progress-1"),
+      kpiQueue: document.getElementById("kpi-queue"),
+      kpiDelay: document.getElementById("kpi-delay"),
+      kpiFleet: document.getElementById("kpi-fleet"),
+      logList: document.getElementById("log-list")
+    };
+
+    function setAgentState(name, mode, label) {
+      const card = document.querySelector(`[data-agent="${name}"]`);
+      const text = document.getElementById(`agent-${name}`);
+      if (!card || !text) return;
+      card.classList.remove("status-ok", "status-busy", "status-alert");
+      card.classList.add(`status-${mode}`);
+      text.textContent = label;
+      card.classList.add("flash");
+      setTimeout(() => card.classList.remove("flash"), 420);
+    }
+
+    function appendLog(message) {
+      const line = document.createElement("div");
+      line.className = "log-line flash";
+      line.innerHTML = `<strong>${new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</strong> ${message}`;
+      els.logList.prepend(line);
+    }
+
+    function setStatus(el, text, className) {
+      el.textContent = text;
+      el.className = `badge ${className}`;
+      el.classList.add("flash");
+      setTimeout(() => el.classList.remove("flash"), 420);
+    }
+
+    function clearTimers() {
+      demoState.timers.forEach(clearTimeout);
+      demoState.timers = [];
+    }
+
+    function schedule(delay, fn) {
+      const timer = setTimeout(fn, delay);
+      demoState.timers.push(timer);
+    }
+
+    function resetBoard() {
+      clearTimers();
+      demoState.running = false;
+      demoState.approved = false;
+      els.confidence.textContent = "72%";
+      els.confidenceBar.style.width = "72%";
+      els.heroSummary.textContent = "Pre-arrival docs cleared. Berth allocation under review due to weather and tug congestion.";
+      setStatus(els.queueState, "Pending", "badge badge-risk");
+      setStatus(els.queueRisk, "Medium Risk", "badge badge-warn");
+      els.queueCopy.textContent = "Triton suggests moving MT Chem Navigator to Berth 15 based on tug availability, weather window, and terminal slot protection.";
+      els.approvalLog.textContent = "[QUEUE] Triton is waiting for captain approval before notifying operations and updating the job board.";
+      setStatus(els.boardBadge, "Stable Flow", "badge badge-good");
+      setStatus(els.fleetBadge, "All Systems Nominal", "badge badge-good");
+      setStatus(els.jobStatus1, "Awaiting Berth", "badge badge-warn");
+      els.progress1.style.width = "42%";
+      els.kpiQueue.textContent = "01";
+      els.kpiDelay.textContent = "$18k";
+      els.kpiFleet.textContent = "5/5";
+      setAgentState("triton", "ok", "Idle");
+      setAgentState("glaucus", "ok", "Stable");
+      setAgentState("turbo", "ok", "Listening");
+      setAgentState("castle", "ok", "Watching");
+      setAgentState("navisales", "ok", "Ready");
+      setAgentState("nautivision", "busy", "Scanning");
+      els.logList.innerHTML = `
+        <div class="log-line"><strong>07:42</strong> Glaucus ingested updated ETA for MT Chem Navigator.</div>
+        <div class="log-line"><strong>07:44</strong> Castle confirms local system health and session integrity.</div>
+        <div class="log-line"><strong>07:45</strong> Triton requested berth recommendation with approval gating enabled.</div>
+        <div class="log-line"><strong>07:46</strong> Turbo flagged delay exposure if Berth 12 misses tug window.</div>
+        <div class="log-line"><strong>07:47</strong> Queue created for captain review.</div>
+      `;
+    }
+
+    function runDemo() {
+      resetBoard();
+      demoState.running = true;
+      setAgentState("triton", "busy", "Thinking");
+      setAgentState("nautivision", "busy", "Reviewing Dock");
+      setStatus(els.boardBadge, "Decision Assist Active", "badge badge-warn");
+      appendLog("Triton is correlating berth pressure, tug availability, and vessel readiness.");
+
+      schedule(1300, () => {
+        els.confidence.textContent = "84%";
+        els.confidenceBar.style.width = "84%";
+        setAgentState("turbo", "busy", "Advising");
+        appendLog("Turbo recommends immediate review to avoid terminal compression later in the morning.");
+      });
+
+      schedule(2600, () => {
+        els.heroSummary.textContent = "Weather trend improved. Berth 15 now protects the slot and shortens idle exposure.";
+        setStatus(els.queueRisk, "Low Risk", "badge badge-good");
+        appendLog("Nauti-Vision confirms berth area clear for reassignment window.");
+      });
+
+      schedule(4200, () => {
+        setAgentState("glaucus", "busy", "Preparing Update");
+        setStatus(els.queueState, "Ready For Approval", "badge badge-warn");
+        appendLog("Glaucus packaged the berth change and communication draft for the captain.");
+      });
+    }
+
+    function approveAction() {
+      if (!demoState.running) {
+        runDemo();
+      }
+      demoState.approved = true;
+      clearTimers();
+      setStatus(els.queueState, "Approved", "badge badge-good");
+      setStatus(els.jobStatus1, "Berth 15 Assigned", "badge badge-good");
+      setStatus(els.boardBadge, "Action Executed", "badge badge-good");
+      setStatus(els.fleetBadge, "Coordinated Response", "badge badge-good");
+      els.queueCopy.textContent = "Captain approved. Triton notified Glaucus, updated the job board, and preserved the berth window.";
+      els.approvalLog.textContent = "[EXECUTED] Approval received. Operations updated, berth reassigned, stakeholders notified.";
+      els.progress1.style.width = "88%";
+      els.confidence.textContent = "96%";
+      els.confidenceBar.style.width = "96%";
+      els.kpiQueue.textContent = "00";
+      els.kpiDelay.textContent = "$4k";
+      els.kpiFleet.textContent = "5/5";
+      setAgentState("triton", "ok", "Executed");
+      setAgentState("glaucus", "ok", "Updated");
+      setAgentState("turbo", "ok", "Closed Loop");
+      setAgentState("castle", "ok", "Audit Logged");
+      setAgentState("navisales", "busy", "ROI Framing");
+      setAgentState("nautivision", "ok", "Confirmed");
+      appendLog("Captain approved berth reassignment. Triton closed the loop and preserved the operational window.");
+      appendLog("NaviSales can now turn this exact story into a product demo and ROI pitch.");
+    }
+
+    function holdAction() {
+      clearTimers();
+      setStatus(els.queueState, "Held", "badge badge-risk");
+      setStatus(els.boardBadge, "Waiting On Captain", "badge badge-risk");
+      els.approvalLog.textContent = "[HOLD] Queue remains visible. Nothing executes until the captain approves.";
+      setAgentState("triton", "alert", "Waiting");
+      appendLog("Approval held. The system stayed disciplined and did not execute autonomously.");
+    }
+
+    document.getElementById("run-demo").addEventListener("click", runDemo);
+    document.getElementById("reset-demo").addEventListener("click", resetBoard);
+    document.getElementById("approve-action").addEventListener("click", approveAction);
+    document.getElementById("hold-action").addEventListener("click", holdAction);
+
+    resetBoard();
+  </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+{
+  "version": "1.0",
+  "product": {
+    "id": "triton-pilot",
+    "name": "Triton Pilot",
+    "summary": "A human-supervised command center with owner-approved agent spending and monthly subscription support.",
+    "category": "human-agent-operations",
+    "deployment_time": "90-day pilot",
+    "audiences": [
+      "operations leaders",
+      "dispatchers",
+      "small teams",
+      "software agents operating within owner-defined budgets"
+    ],
+    "pricing": {
+      "model": "pilot_then_subscription",
+      "pilot": {
+        "currency": "USD",
+        "range": {
+          "min": 18000,
+          "max": 45000
+        },
+        "duration_days": 90
+      },
+      "subscription": {
+        "billing": "monthly",
+        "starting_at_usd": 1500,
+        "scope_factors": [
+          "user_count",
+          "workflow_count",
+          "support_cadence",
+          "deployment_footprint"
+        ]
+      }
+    },
+    "payments": {
+      "fiat": [
+        "invoice"
+      ],
+      "crypto": [
+        "USDC",
+        "USDT",
+        "ETH",
+        "WBTC",
+        "BTC",
+        "SOL"
+      ],
+      "preferred_recurring_asset": "USDC",
+      "preferred_settlement_identity": "spacegravy.base.eth",
+      "primary_evm_address": "0x369301753a2372304ba4e159bab852339d760989",
+      "preferred_network": "Base",
+      "supported_networks": [
+        "Base",
+        "Ethereum",
+        "Polygon",
+        "Solana",
+        "other_supported_rails_by_invoice"
+      ],
+      "settlement_mode": "invoice_or_owner_confirmed_wallet",
+      "settlement_wallets": [
+        {
+          "network": "Base",
+          "asset": "USDC",
+          "address": "spacegravy.base.eth",
+          "resolved_address": "0x369301753a2372304ba4e159bab852339d760989",
+          "status": "primary_identity"
+        },
+        {
+          "network": "EVM",
+          "asset": "USDC",
+          "address": "0x369301753a2372304ba4e159bab852339d760989",
+          "status": "raw_address_fallback"
+        }
+      ],
+      "note": "Use invoice or owner-confirmed settlement instructions for non-default assets or networks.",
+      "support_email": "consulting@nauti-labs.com",
+      "fulfillment_policy": {
+        "keys_released_automatically": false,
+        "release_condition": "Funds must be verified on Base or by invoice before any credentials or access are released.",
+        "release_mode": "manual_human_release_after_verified_payment"
+      }
+    },
+    "agent_spending": {
+      "supported": true,
+      "owner_controlled": true,
+      "required_controls": [
+        "spending_limit",
+        "allowed_products",
+        "renewal_policy",
+        "audit_log"
+      ],
+      "approval_policy": "Agent can only purchase or renew inside the explicit rights granted by the owner."
+    },
+    "features": [
+      "Human-in-the-loop approvals",
+      "Shared command center for humans and agents",
+      "Machine-readable product manifest",
+      "Monthly subscription path in USD or crypto",
+      "Audit trail for owner-authorized spending"
+    ],
+    "links": {
+      "landing_page": "./triton-pilot.html",
+      "demo": "./lab-demo.html",
+      "contact": "./index.html#contact",
+      "buy_now_email": "mailto:consulting@nauti-labs.com?subject=Start%20Triton",
+      "agent_policy_template": "./agent-spend-policy.example.json"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "version": "1.0",
+  "owner_id": "owner-example",
+  "wallet_id": "wallet-example",
+  "product_id": "triton-pilot",
+  "allowed_actions": [
+    "subscribe",
+    "renew"
+  ],
+  "allowed_products": [
+    "triton-core-subscription"
+  ],
+  "currency_preferences": [
+    "USDC",
+    "USD",
+    "ETH",
+    "BTC",
+    "SOL"
+  ],
+  "preferred_settlement_identity": "spacegravy.base.eth",
+  "primary_evm_address": "0x369301753a2372304ba4e159bab852339d760989",
+  "preferred_network": "Base",
+  "supported_networks": [
+    "Base",
+    "Ethereum",
+    "Polygon",
+    "Solana"
+  ],
+  "settlement_wallet": {
+    "network": "Base",
+    "address": "spacegravy.base.eth",
+    "resolved_address": "0x369301753a2372304ba4e159bab852339d760989"
+  },
+  "fallback_settlement_wallet": {
+    "network": "Base",
+    "address": "0x369301753a2372304ba4e159bab852339d760989"
+  },
+  "monthly_limit_usd": 1500,
+  "single_transaction_limit_usd": 500,
+  "renewal_policy": {
+    "mode": "auto_renew",
+    "max_cycles": 12,
+    "notify_days_before": 5
+  },
+  "approval_rules": {
+    "require_owner_approval_above_usd": 500,
+    "require_invoice_for_networks": [
+      "Solana"
+    ],
+    "require_owner_approval_for_assets": [
+      "BTC",
+      "ETH",
+      "SOL"
+    ]
+  },
+  "audit": {
+    "enabled": true,
+    "log_format": "json",
+    "retention_days": 365
+  }
+}

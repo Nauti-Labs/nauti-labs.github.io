@@ -180,6 +180,9 @@
       .triton-grid { grid-template-columns: 1fr; gap: 2rem; }
     }
 
+    /* ── CLEARANCE ── */
+    #clearance { background: var(--surface); }
+
     /* ── RATE ── */
     #rate { text-align: center; }
     .rate-box {
@@ -269,6 +272,7 @@
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#triton">Triton</a></li>
+      <li><a href="#clearance">Clearance</a></li>
       <li><a href="./triton-pilot.html">Pilot</a></li>
       <li><a href="#rate">Rates</a></li>
       <li><a href="#about">About</a></li>
@@ -287,6 +291,7 @@
       <a href="#services" class="btn">See Services</a>
       <a href="./lab-demo.html" class="btn">View Demo</a>
       <a href="./triton-pilot.html" class="btn">Pilot Offer</a>
+      <a href="https://clearance-production-5081.up.railway.app/" class="btn">Clearance Live</a>
       <a href="#contact" class="btn btn-solid">Get in Touch</a>
     </div>
   </section>
@@ -352,6 +357,13 @@
           <div>
             <h3>Process Improvement for Agency Teams</h3>
             <p>Identify bottlenecks, reduce errors, and build a team that scales without chaos.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛂</div>
+          <div>
+            <h3>Clearance API</h3>
+            <p>Human approval API for agent commerce. Free tier live now, with signed clearance tokens and verifiable decisions for bots and services.</p>
           </div>
         </div>
       </div>
@@ -422,6 +434,68 @@
             <div>
               <h3>Session Auth + Access Control</h3>
               <p>Passcode-protected sessions with authorized user lists. Built for small agency teams — not enterprise overhead.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLEARANCE -->
+  <section id="clearance">
+    <div class="container">
+      <p class="section-label">Live Product</p>
+      <h2>Clearance</h2>
+      <div class="section-divider"></div>
+      <div class="triton-grid">
+        <div>
+          <p class="triton-lead">
+            <strong>Clearance</strong> is the human approval API for agent commerce. If an agent needs to buy something,
+            send something, or trigger a sensitive action, it asks for a human sign-off first.
+          </p>
+          <p class="triton-lead">
+            The result is a signed clearance token that any service can verify. That gives teams a clean approval layer
+            between human intent and automated execution instead of relying on blind trust.
+          </p>
+          <p class="triton-lead">
+            Free tier is live now. Preferred paid settlement is <strong>USDC on Base</strong>, with any non-default asset
+            handled only through invoice-confirmed instructions priced to a USD-equivalent amount.
+          </p>
+          <div class="triton-cta">
+            <a href="https://clearance-production-5081.up.railway.app/" target="_blank" class="btn">Open App</a>
+            <a href="https://clearance-production-5081.up.railway.app/v1/docs" target="_blank" class="btn">API Docs</a>
+            <a href="https://clearance-production-5081.up.railway.app/v1/payments/info" target="_blank" class="btn">Payment Info</a>
+            <span class="triton-badge">Free Tier Live</span>
+            <span class="triton-badge">Agent Governance</span>
+          </div>
+        </div>
+        <div class="triton-modules">
+          <div class="triton-module">
+            <div class="triton-module-icon">✋</div>
+            <div>
+              <h3>One-Tap Human Approval</h3>
+              <p>Create a clearance request and send the approver to a simple decision page instead of building custom approval logic every time.</p>
+            </div>
+          </div>
+          <div class="triton-module">
+            <div class="triton-module-icon">🎟️</div>
+            <div>
+              <h3>Signed Clearance Tokens</h3>
+              <p>Approved actions return a signed token that downstream services can verify without private coordination or shared session state.</p>
+            </div>
+          </div>
+          <div class="triton-module">
+            <div class="triton-module-icon">🤖</div>
+            <div>
+              <h3>Built For Agent Commerce</h3>
+              <p>Use it when bots need human sign-off for payments, outbound messages, service bookings, or other sensitive steps.</p>
+            </div>
+          </div>
+          <div class="triton-module">
+            <div class="triton-module-icon">💸</div>
+            <div>
+              <h3>Default Checkout Policy</h3>
+              <p>USDC on Base is the default rail. Other assets or networks require invoice-confirmed instructions and manual release after confirmed funds.</p>
             </div>
           </div>
         </div>
@@ -517,6 +591,7 @@
               <option>Process Improvement</option>
               <option>Triton Pilot</option>
               <option>Triton Core Subscription</option>
+              <option>Clearance API</option>
               <option>Ready to buy now</option>
               <option>Not sure — let's talk</option>
             </select>

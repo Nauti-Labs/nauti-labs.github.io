@@ -493,7 +493,7 @@
             </div>
             <div class="metric">
               <div class="stat-value">PAY</div>
-              <div class="stat-label">Base app identity `spacegravy.base.eth` acts as the payment hub, with USDC preferred for recurring billing.</div>
+              <div class="stat-label">USDC on Base is preferred for recurring billing, with payment instructions issued per invoice or verified intent.</div>
             </div>
             <div class="metric">
               <div class="stat-value">Owner</div>
@@ -640,7 +640,7 @@
               <li>Monthly billing</li>
               <li>USD or crypto settlement</li>
               <li>Owner-controlled agent renewals</li>
-              <li>Preferred recurring settlement: USDC to `spacegravy.base.eth`</li>
+              <li>Preferred recurring settlement: USDC on Base by verified payment instructions</li>
             </ul>
           </article>
           <article class="pricing-card">
@@ -660,18 +660,17 @@
         <div class="section-head">
           <div>
             <div class="section-label">Crypto Billing</div>
-            <h3>Spacegravy.Base.eth Is The Payment Hub</h3>
+            <h3>Verified Payment Instructions Only</h3>
           </div>
           <p class="section-copy">
-            If a customer or owner-authorized agent wants to settle in crypto, the safest path is to invoice against the active wallet and network instructions for `spacegravy.base.eth`. That lets you accept broad payment types without sending people to the wrong chain.
+            If a customer or owner-authorized agent wants to settle in crypto, the safest path is to use invoice-confirmed or intent-confirmed payment instructions. That keeps settlement flexible without publishing wallet details broadly on the public site.
           </p>
         </div>
         <ul class="policy-list">
-          <li><strong>Primary settlement identity:</strong> <code>spacegravy.base.eth</code></li>
-          <li><strong>Canonical raw address:</strong> <code>0x369301753a2372304ba4e159bab852339d760989</code></li>
           <li><strong>Preferred recurring asset:</strong> USDC</li>
-          <li><strong>Supported rails:</strong> Base, Ethereum, Polygon, Solana, and other supported invoice rails by agreement.</li>
-          <li><strong>Safety rule:</strong> non-default assets or networks should use invoice-confirmed settlement instructions.</li>
+          <li><strong>Preferred network:</strong> Base</li>
+          <li><strong>Supported rails:</strong> Base by default, with other rails handled by invoice or agreement.</li>
+          <li><strong>Safety rule:</strong> payment instructions are issued per buyer, per invoice, or per verified payment intent.</li>
         </ul>
       </section>
 

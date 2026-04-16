@@ -46,33 +46,14 @@
         "SOL"
       ],
       "preferred_recurring_asset": "USDC",
-      "preferred_settlement_identity": "spacegravy.base.eth",
-      "primary_evm_address": "0x369301753a2372304ba4e159bab852339d760989",
       "preferred_network": "Base",
       "supported_networks": [
         "Base",
-        "Ethereum",
-        "Polygon",
-        "Solana",
         "other_supported_rails_by_invoice"
       ],
-      "settlement_mode": "invoice_or_owner_confirmed_wallet",
-      "settlement_wallets": [
-        {
-          "network": "Base",
-          "asset": "USDC",
-          "address": "spacegravy.base.eth",
-          "resolved_address": "0x369301753a2372304ba4e159bab852339d760989",
-          "status": "primary_identity"
-        },
-        {
-          "network": "EVM",
-          "asset": "USDC",
-          "address": "0x369301753a2372304ba4e159bab852339d760989",
-          "status": "raw_address_fallback"
-        }
-      ],
-      "note": "Use invoice or owner-confirmed settlement instructions for non-default assets or networks.",
+      "settlement_mode": "invoice_or_verified_payment_intent",
+      "settlement_wallets": [],
+      "note": "Payment instructions are issued per invoice or verified payment intent instead of publishing raw wallet details broadly.",
       "support_email": "consulting@nauti-labs.com",
       "fulfillment_policy": {
         "keys_released_automatically": false,

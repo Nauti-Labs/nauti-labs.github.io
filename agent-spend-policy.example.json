@@ -17,23 +17,14 @@
     "BTC",
     "SOL"
   ],
-  "preferred_settlement_identity": "spacegravy.base.eth",
-  "primary_evm_address": "0x369301753a2372304ba4e159bab852339d760989",
   "preferred_network": "Base",
   "supported_networks": [
     "Base",
-    "Ethereum",
-    "Polygon",
-    "Solana"
+    "other_supported_rails_by_invoice"
   ],
   "settlement_wallet": {
     "network": "Base",
-    "address": "spacegravy.base.eth",
-    "resolved_address": "0x369301753a2372304ba4e159bab852339d760989"
-  },
-  "fallback_settlement_wallet": {
-    "network": "Base",
-    "address": "0x369301753a2372304ba4e159bab852339d760989"
+    "address": "issued-per-invoice-or-verified-intent"
   },
   "monthly_limit_usd": 1500,
   "single_transaction_limit_usd": 500,
@@ -45,7 +36,7 @@
   "approval_rules": {
     "require_owner_approval_above_usd": 500,
     "require_invoice_for_networks": [
-      "Solana"
+      "other_supported_rails_by_invoice"
     ],
     "require_owner_approval_for_assets": [
       "BTC",

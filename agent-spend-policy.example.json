@@ -13,9 +13,7 @@
   "currency_preferences": [
     "USDC",
     "USD",
-    "ETH",
-    "BTC",
-    "SOL"
+    "invoice_confirmed_other_assets"
   ],
   "preferred_network": "Base",
   "supported_networks": [
@@ -38,10 +36,11 @@
     "require_invoice_for_networks": [
       "other_supported_rails_by_invoice"
     ],
+    "require_invoice_for_assets": [
+      "invoice_confirmed_other_assets"
+    ],
     "require_owner_approval_for_assets": [
-      "BTC",
-      "ETH",
-      "SOL"
+      "invoice_confirmed_other_assets"
     ]
   },
   "audit": {

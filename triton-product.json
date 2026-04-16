@@ -39,11 +39,7 @@
       ],
       "crypto": [
         "USDC",
-        "USDT",
-        "ETH",
-        "WBTC",
-        "BTC",
-        "SOL"
+        "invoice_confirmed_other_assets"
       ],
       "preferred_recurring_asset": "USDC",
       "preferred_network": "Base",
@@ -54,10 +50,16 @@
       "settlement_mode": "invoice_or_verified_payment_intent",
       "settlement_wallets": [],
       "note": "Payment instructions are issued per invoice or verified payment intent instead of publishing raw wallet details broadly.",
+      "checkout_policy": {
+        "default_payment_method": "USDC on Base",
+        "other_assets_policy": "Other assets or networks are accepted only through invoice-confirmed instructions.",
+        "pricing_rule": "Non-default payments must be priced to a clear USD-equivalent amount before fulfillment.",
+        "release_rule": "Credentials or access are released only after funds are confirmed, spendable, and manually approved."
+      },
       "support_email": "consulting@nauti-labs.com",
       "fulfillment_policy": {
         "keys_released_automatically": false,
-        "release_condition": "Funds must be verified on Base or by invoice before any credentials or access are released.",
+        "release_condition": "Funds must be verified on Base or by invoice, be spendable, and be manually approved before any credentials or access are released.",
         "release_mode": "manual_human_release_after_verified_payment"
       }
     },
@@ -76,7 +78,7 @@
       "Human-in-the-loop approvals",
       "Shared command center for humans and agents",
       "Machine-readable product manifest",
-      "Monthly subscription path in USD or crypto",
+      "Monthly subscription path in USD or invoice-confirmed crypto",
       "Audit trail for owner-authorized spending"
     ],
     "links": {

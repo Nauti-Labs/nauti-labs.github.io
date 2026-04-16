@@ -493,7 +493,7 @@
             </div>
             <div class="metric">
               <div class="stat-value">PAY</div>
-              <div class="stat-label">USDC on Base is preferred for recurring billing, with payment instructions issued per invoice or verified intent.</div>
+              <div class="stat-label">USDC on Base is the default recurring rail. Other assets are handled only by invoice-confirmed instructions priced to USD value.</div>
             </div>
             <div class="metric">
               <div class="stat-value">Owner</div>
@@ -515,7 +515,7 @@
             <div class="manifest-preview">{
   "id": "triton-pilot",
   "billing": "monthly",
-  "crypto": ["USDC", "BTC", "ETH", "SOL"],
+  "crypto": ["USDC", "invoice_confirmed_other_assets"],
   "agent_spending": {
     "owner_controlled": true,
     "required_controls": [
@@ -561,7 +561,7 @@
             <ul>
               <li>Monthly subscription path is defined before the pilot starts.</li>
               <li>USD invoices stay available for normal procurement.</li>
-              <li>Crypto settlement is supported, with USDC preferred for recurring billing.</li>
+              <li>USDC on Base is the default billing rail, with other assets accepted only through invoice-confirmed settlement.</li>
             </ul>
           </article>
         </div>
@@ -638,9 +638,10 @@
             <p class="pricing-copy">For teams that want the command center, approval model, and continued workflow support after the pilot.</p>
             <ul>
               <li>Monthly billing</li>
-              <li>USD or crypto settlement</li>
+              <li>USD invoices or verified crypto settlement</li>
               <li>Owner-controlled agent renewals</li>
               <li>Preferred recurring settlement: USDC on Base by verified payment instructions</li>
+              <li>Other assets accepted only at invoice-confirmed USD-equivalent pricing</li>
             </ul>
           </article>
           <article class="pricing-card">
@@ -663,14 +664,16 @@
             <h3>Verified Payment Instructions Only</h3>
           </div>
           <p class="section-copy">
-            If a customer or owner-authorized agent wants to settle in crypto, the safest path is to use invoice-confirmed or intent-confirmed payment instructions. That keeps settlement flexible without publishing wallet details broadly on the public site.
+            If a customer or owner-authorized agent wants to settle in crypto, the safest path is to use invoice-confirmed or intent-confirmed payment instructions. That keeps settlement flexible, values non-default assets against dollars cleanly, and avoids publishing wallet details broadly on the public site.
           </p>
         </div>
         <ul class="policy-list">
           <li><strong>Preferred recurring asset:</strong> USDC</li>
           <li><strong>Preferred network:</strong> Base</li>
-          <li><strong>Supported rails:</strong> Base by default, with other rails handled by invoice or agreement.</li>
+          <li><strong>Supported rails:</strong> Base by default, with other assets or networks handled only by invoice or agreement.</li>
+          <li><strong>Dollar rule:</strong> non-default payments must map to a clear USD-equivalent amount before fulfillment.</li>
           <li><strong>Safety rule:</strong> payment instructions are issued per buyer, per invoice, or per verified payment intent.</li>
+          <li><strong>Release rule:</strong> access ships only after funds are confirmed, spendable, and manually approved.</li>
         </ul>
       </section>
 
@@ -681,13 +684,14 @@
             <h3>Fastest Path To Revenue Today</h3>
           </div>
           <p class="section-copy">
-            If a buyer is ready now, do not wait for a perfect checkout stack. Send the quote, issue the invoice or Base USDC instructions, and release access only after the payment is verified and manually approved.
+            If a buyer is ready now, do not wait for a perfect checkout stack. Send the quote, issue the invoice or verified payment instructions, and release access only after the payment is confirmed, spendable, and manually approved.
           </p>
         </div>
         <ul class="policy-list">
           <li><strong>Start today:</strong> email <code>consulting@nauti-labs.com</code> with the subject <code>Start Triton</code>.</li>
           <li><strong>Same-day payment path:</strong> invoice in USD or verified USDC settlement on Base.</li>
-          <li><strong>No automatic credential release:</strong> keys and access wait for confirmed funds and manual human approval.</li>
+          <li><strong>Other payment path:</strong> approved assets or networks can be accepted when the invoice locks the USD-equivalent amount and settlement instructions.</li>
+          <li><strong>No automatic credential release:</strong> keys and access wait for confirmed, spendable funds and manual human approval.</li>
           <li><strong>Support:</strong> if there is a real problem, the buyer can email directly and work it out with a human.</li>
         </ul>
         <div class="cta-row" style="margin-top:18px;">

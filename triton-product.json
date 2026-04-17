@@ -49,7 +49,7 @@
       ],
       "settlement_mode": "invoice_or_verified_payment_intent",
       "settlement_wallets": [],
-      "note": "Payment instructions are issued per invoice or verified payment intent instead of publishing raw wallet details broadly.",
+      "note": "Triton remains invoice or verified-intent only because it is a custom sales-led product. Fixed-price self-serve products in the ecosystem can publish a public payment identity when price, asset, and verification rules are standardized.",
       "checkout_policy": {
         "default_payment_method": "USDC on Base",
         "other_assets_policy": "Other assets or networks are accepted only through invoice-confirmed instructions.",
@@ -66,6 +66,8 @@
     "agent_spending": {
       "supported": true,
       "owner_controlled": true,
+      "purchase_mode": "sales_led_human_review_required",
+      "self_serve_checkout": false,
       "required_controls": [
         "spending_limit",
         "allowed_products",
@@ -86,7 +88,13 @@
       "demo": "./lab-demo.html",
       "contact": "./index.html#contact",
       "buy_now_email": "mailto:consulting@nauti-labs.com?subject=Start%20Triton",
-      "agent_policy_template": "./agent-spend-policy.example.json"
+      "agent_policy_template": "./agent-spend-policy.example.json",
+      "related_clearance": {
+        "landing_page": "https://clearance-production-5081.up.railway.app/",
+        "docs": "https://clearance-production-5081.up.railway.app/v1/docs",
+        "payment_info": "https://clearance-production-5081.up.railway.app/v1/payments/info",
+        "role": "Self-serve approval API and fixed-price USDC checkout layer for agents and humans."
+      }
     }
   }
 }

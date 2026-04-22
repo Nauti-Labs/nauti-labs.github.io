@@ -86,7 +86,7 @@
     "links": {
       "landing_page": "./triton-pilot.html",
       "demo": "./lab-demo.html",
-      "contact": "./index.html#contact",
+      "contact": "/labs/#contact",
       "buy_now_email": "mailto:consulting@nauti-labs.com?subject=Start%20Triton",
       "agent_policy_template": "./agent-spend-policy.example.json",
       "related_clearance": {

@@ -4,8 +4,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nauti-Labs | Labs — Agent Commerce, AI Tools &amp; Open Source</title>
-  <meta name="description" content="Triton, Clearance API, Felipe. Agent-authorized commerce and AI operations from Nauti-Labs. Open source where it counts." />
+  <title>Nauti-Labs Labs | Approval-Gated AI Tools, Agent Commerce &amp; Open Source</title>
+  <meta name="description" content="Clearance API, Triton, and approval-gated AI tooling from Nauti-Labs. Built for operators who need audit trails, human sign-off, and practical deployments." />
+  <link rel="canonical" href="https://nauti-labs.com/labs/" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:site_name" content="Nauti-Labs" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nauti-Labs Labs | Approval-Gated AI Tools and Agent Commerce" />
+  <meta property="og:description" content="Clearance API, Triton, and approval-gated AI tooling from Nauti-Labs. Built for operators who need audit trails and human sign-off." />
+  <meta property="og:url" content="https://nauti-labs.com/labs/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Nauti-Labs Labs | Approval-Gated AI Tools and Agent Commerce" />
+  <meta name="twitter:description" content="Approval-gated AI tooling, agent commerce, and practical deployments from Nauti-Labs." />
   <meta name="theme-color" content="#00c8f0" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -481,6 +491,13 @@
       font-size: 0.88rem; color: var(--text-muted);
       max-width: 380px; margin: 0 auto;
     }
+    .demo-actions {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+    }
 
     /* ── SCREENSHOT GALLERY ── */
     .gallery-section {
@@ -770,8 +787,12 @@
         <div class="demo-video-wrap">
           <div class="demo-placeholder">
             <div class="demo-play">▶</div>
-            <div class="caption">Video coming soon</div>
-            <div class="sub">A 60-second Loom walkthrough demonstrating a real agent-to-human-to-downstream clearance cycle. Swap this placeholder for the iframe when uploaded.</div>
+            <div class="caption">Private walkthrough available now</div>
+            <div class="sub">The live product, docs, and payment rail are already public. Use those today, or request a guided walkthrough for the full request → approve → token flow.</div>
+            <div class="demo-actions">
+              <a href="https://clearance-production-5081.up.railway.app/" target="_blank" rel="noopener" class="btn btn-solid">Open Clearance</a>
+              <a href="https://clearance-production-5081.up.railway.app/v1/docs" target="_blank" rel="noopener" class="btn">API Docs</a>
+            </div>
           </div>
         </div>
       </div>
@@ -880,23 +901,22 @@
   <!-- FELIPE -->
   <section id="felipe">
     <div class="container">
-      <p class="section-label">Autonomous Trading · Phase 2</p>
-      <h2>Felipe — Domain Trader.</h2>
+      <p class="section-label">Internal Product Lab · Phase 2</p>
+      <h2>Felipe — Domain Acquisition Lab.</h2>
       <div class="section-divider"></div>
       <div class="product">
         <div>
-          <p class="product-headline">An autonomous agent that hunts, values, and acquires domains.</p>
+          <p class="product-headline">An approval-gated research tool for sourcing and valuing domain acquisitions.</p>
           <p class="product-lead">
-            <strong>Felipe</strong> is a full-stack domain trading platform — built on Python + FastAPI.
-            It watches auctions, values candidates against signals, proposes acquisitions, and routes
-            high-stakes buys through <strong>Clearance</strong> for human approval. Agents that make
-            money with boundaries.
+            <strong>Felipe</strong> is an internal acquisition research platform built on Python + FastAPI.
+            It watches auctions, scores candidates against signals, proposes acquisitions, and routes
+            higher-stakes buys through <strong>Clearance</strong> for explicit human approval.
           </p>
           <ul class="product-features">
-            <li>Scrapers + value models for GoDaddy, Sedo, DropCatch auctions</li>
+            <li>Auction monitoring + value models for GoDaddy, Sedo, and DropCatch</li>
             <li>Signal stack: SEO metrics, keyword demand, comparable sales</li>
-            <li>Clearance-integrated buy flow for sensitive-threshold purchases</li>
-            <li>Python · FastAPI · SQLite + optional Postgres</li>
+            <li>Clearance-integrated approval flow for sensitive-threshold purchases</li>
+            <li>Python · FastAPI · SQLite + optional Postgres · internal lab use</li>
           </ul>
           <div class="badges">
             <span class="badge">Python 3.12</span>
@@ -953,10 +973,11 @@
       <h2>Want to integrate, pilot, or hire?</h2>
       <div class="section-divider" style="margin: 0 auto 2rem;"></div>
       <p class="contact-lead">
-        Clearance integrations, Triton pilots, custom agent builds, or just "hey this is interesting, coffee?" — all welcome.
+        Clearance integrations, approval-gated workflows, Triton pilots, and guided product walkthroughs all start here. Send the workflow, target users, and timeline, and you'll get a direct reply with the next best step.
       </p>
       <div class="contact-cta">
-        <a href="mailto:consulting@nauti-labs.com?subject=Nauti-Labs%20/%20Labs%20inquiry" class="btn btn-solid">Email consulting@nauti-labs.com</a>
+        <a href="mailto:consulting@nauti-labs.com?subject=Nauti-Labs%20Labs%20Inquiry&amp;body=Company%20or%20project%3A%0AWhat%20you%20want%20to%20pilot%3A%0AWorkflow%20or%20integration%3A%0ATarget%20timeline%3A%0A" class="btn btn-solid">Send an Integration Brief</a>
+        <a href="https://clearance-production-5081.up.railway.app/" target="_blank" rel="noopener" class="btn">Open Clearance</a>
         <a href="https://github.com/Nauti-Labs" target="_blank" rel="noopener" class="btn btn-green">GitHub</a>
       </div>
     </div>
@@ -965,7 +986,7 @@
   <!-- CROSS-DOOR -->
   <section id="cross-door">
     <p>Looking for chemical tanker consulting or maritime ops software?</p>
-    <a href="/maritime" class="btn">For Maritime Operations →</a>
+    <a href="/maritime/" class="btn">For Maritime Operations →</a>
   </section>
 
   <!-- FOOTER -->

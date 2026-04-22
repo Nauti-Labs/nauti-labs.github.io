@@ -29,6 +29,7 @@
       --amber-dim:   rgba(255, 170, 0, 0.08);
       --amber-glow:  rgba(255, 170, 0, 0.18);
       --green:       #00d97e;
+      --red:         #ff5c5c;
       --bg:          #06090f;
       --bg2:         #0b1018;
       --bg3:         #101722;
@@ -324,6 +325,11 @@
       color: var(--green);
       flex-shrink: 0;
     }
+    .scope-card.not-fit h3 { color: var(--red); }
+    .scope-card.not-fit .scope-list li::before {
+      content: '×';
+      color: var(--red);
+    }
 
     .pricing-box {
       max-width: 780px;
@@ -550,7 +556,7 @@
             <li>People in Mont Belvieu, Baytown, or the Barbers Hill orbit who want someone nearby</li>
           </ul>
         </div>
-        <div class="scope-card">
+        <div class="scope-card not-fit">
           <h3>Not This Offer</h3>
           <ul class="scope-list">
             <li>Full managed IT for larger companies</li>

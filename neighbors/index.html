@@ -332,7 +332,7 @@
     }
 
     .pricing-box {
-      max-width: 780px;
+      max-width: 980px;
       margin: 0 auto;
       background: var(--bg2);
       border: 1px solid var(--border);
@@ -347,6 +347,66 @@
     .pricing-box p {
       color: var(--text-muted);
       margin-bottom: 1rem;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin: 1.8rem 0 1.4rem;
+      text-align: left;
+    }
+    .price-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.2rem;
+      background:
+        linear-gradient(180deg, rgba(255, 170, 0, 0.05), rgba(0, 119, 255, 0.02)),
+        rgba(255,255,255,0.02);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+    .price-card.featured {
+      border-color: rgba(255, 170, 0, 0.34);
+      box-shadow:
+        0 12px 30px rgba(255, 170, 0, 0.08),
+        inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+    .price-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.55rem;
+    }
+    .price-amount {
+      font-size: 2rem;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.35rem;
+      color: var(--text);
+    }
+    .price-sub {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+      min-height: 2.5rem;
+    }
+    .price-list {
+      list-style: none;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .price-list li {
+      display: flex;
+      gap: 0.45rem;
+      padding: 0.2rem 0;
+    }
+    .price-list li::before {
+      content: '•';
+      color: var(--amber);
+      flex-shrink: 0;
     }
     .payment-row {
       display: flex;
@@ -398,6 +458,7 @@
 
     @media (max-width: 900px) {
       .services, .scope-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
       nav { padding: 0.9rem 1rem; }
       .nav-links { display: none; }
       #hero { padding: 7rem 1.2rem 3.5rem; }
@@ -572,10 +633,52 @@
   <section id="contact">
     <div class="container">
       <div class="pricing-box">
-        <h3>Simple local billing for now.</h3>
+        <h3>Simple upfront pricing.</h3>
         <p>
-          No Stripe account yet, so this starts clean and manual. One-time work is easy. Monthly support can be arranged by agreement once the fit is clear.
+          Clear enough for a first yes or no. If the job is outside these lanes, you still get a written quote before any work starts.
         </p>
+        <div class="pricing-grid">
+          <div class="price-card">
+            <div class="price-label">Coffee Chat</div>
+            <div class="price-amount">Free</div>
+            <div class="price-sub">30-minute first conversation to figure out fit and next step.</div>
+            <ul class="price-list">
+              <li>No pressure</li>
+              <li>Local only</li>
+              <li>Written follow-up if needed</li>
+            </ul>
+          </div>
+          <div class="price-card featured">
+            <div class="price-label">House Call</div>
+            <div class="price-amount">$95<span style="font-size:0.95rem; font-weight:600;">/hr</span></div>
+            <div class="price-sub">Best for device help, account cleanup, Wi-Fi fixes, and same-week troubleshooting.</div>
+            <ul class="price-list">
+              <li>1-hour minimum</li>
+              <li>Travel included inside 30 miles</li>
+              <li>Residents and owner-operators</li>
+            </ul>
+          </div>
+          <div class="price-card">
+            <div class="price-label">Business Tune-Up</div>
+            <div class="price-amount">$350</div>
+            <div class="price-sub">A focused cleanup for one small business system, workflow, or digital footprint problem.</div>
+            <ul class="price-list">
+              <li>Google Business and email cleanup</li>
+              <li>Website/contact flow review</li>
+              <li>Simple fix list included</li>
+            </ul>
+          </div>
+          <div class="price-card">
+            <div class="price-label">Website Starter</div>
+            <div class="price-amount">From $850</div>
+            <div class="price-sub">A clean local business site with real contact flow, mobile polish, and owner handoff.</div>
+            <ul class="price-list">
+              <li>Brochure-style small business site</li>
+              <li>Fast launch for owner-operators</li>
+              <li>Scope confirmed before build</li>
+            </ul>
+          </div>
+        </div>
         <div class="payment-row">
           <span class="payment-pill">Coinbase USDC</span>
           <span class="payment-pill">Cash App</span>
@@ -583,7 +686,7 @@
           <span class="payment-pill">Invoice by agreement</span>
         </div>
         <p class="pricing-note">
-          Start by email with what you need, where you are, and whether you are a resident or the owner of the business.
+          Monthly support is by agreement only. Start by email with what you need, where you are, and whether you are a resident or the owner of the business.
         </p>
         <div class="hero-cta" style="margin-top:1.4rem;">
           <a href="mailto:consulting@nauti-labs.com?subject=Neighbors%20Tech%20Help&amp;body=Name%3A%0AArea%20(Mont%20Belvieu%20%2F%20Baytown%20%2F%20Barbers%20Hill)%3A%0AResident%20or%20business%20owner%3A%0AWhat%20you%20need%20help%20with%3A%0AHow%20urgent%20is%20it%3A%0A" class="btn btn-solid">Email Nauti-Labs</a>

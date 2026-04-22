@@ -658,7 +658,7 @@
           <article class="metric">
             <div class="metric-label">Fleet Health</div>
             <div class="kpi-number" id="kpi-fleet">5/5</div>
-            <div class="tile-copy">Triton, Glaucus, Turbo, Castle, and NaviSales online.</div>
+            <div class="tile-copy">Triton, Nauti-Ops, Turbo, Castle, and NaviSales online.</div>
           </article>
         </div>
 
@@ -666,7 +666,7 @@
           <article class="panel">
             <div class="panel-head">
               <div>
-                <div class="panel-title">Glaucus Operations Board</div>
+                <div class="panel-title">Nauti-Ops Operations Board</div>
                 <div class="tiny">Vessels, berth status, and cargo windows</div>
               </div>
               <div class="badge badge-good" id="board-badge">Stable Flow</div>
@@ -742,7 +742,7 @@
                 <div class="queue-tag">1. Ingest the situation</div>
                 <div class="badge badge-good">Ready</div>
               </div>
-              <div class="timeline-copy">Glaucus holds the live operational picture: vessel status, cargo phase, berth occupancy, and document readiness.</div>
+              <div class="timeline-copy">Nauti-Ops holds the live operational picture: vessel status, cargo phase, berth occupancy, and document readiness.</div>
             </div>
             <div class="timeline-card">
               <div class="timeline-top">
@@ -797,15 +797,15 @@
               </div>
               <div class="tiny" id="agent-triton">Idle</div>
             </div>
-            <div class="agent-card status-ok" data-agent="glaucus">
+            <div class="agent-card status-ok" data-agent="nauti-ops">
               <div class="agent-copy">
                 <div class="agent-orb"></div>
                 <div>
-                  <div class="agent-name">Glaucus</div>
+                  <div class="agent-name">Nauti-Ops</div>
                   <div class="muted">Ops desk</div>
                 </div>
               </div>
-              <div class="tiny" id="agent-glaucus">Stable</div>
+              <div class="tiny" id="agent-nauti-ops">Stable</div>
             </div>
             <div class="agent-card status-ok" data-agent="turbo">
               <div class="agent-copy">
@@ -858,7 +858,7 @@
             </div>
           </div>
           <div class="log-list" id="log-list">
-            <div class="log-line"><strong>07:42</strong> Glaucus ingested updated ETA for MT Chem Navigator.</div>
+            <div class="log-line"><strong>07:42</strong> Nauti-Ops ingested updated ETA for MT Chem Navigator.</div>
             <div class="log-line"><strong>07:44</strong> Castle confirms local system health and session integrity.</div>
             <div class="log-line"><strong>07:45</strong> Triton requested berth recommendation with approval gating enabled.</div>
             <div class="log-line"><strong>07:46</strong> Turbo flagged delay exposure if Berth 12 misses tug window.</div>
@@ -962,13 +962,13 @@
       els.kpiDelay.textContent = "$18k";
       els.kpiFleet.textContent = "5/5";
       setAgentState("triton", "ok", "Idle");
-      setAgentState("glaucus", "ok", "Stable");
+      setAgentState("nauti-ops", "ok", "Stable");
       setAgentState("turbo", "ok", "Listening");
       setAgentState("castle", "ok", "Watching");
       setAgentState("navisales", "ok", "Ready");
       setAgentState("nautivision", "busy", "Scanning");
       els.logList.innerHTML = `
-        <div class="log-line"><strong>07:42</strong> Glaucus ingested updated ETA for MT Chem Navigator.</div>
+        <div class="log-line"><strong>07:42</strong> Nauti-Ops ingested updated ETA for MT Chem Navigator.</div>
         <div class="log-line"><strong>07:44</strong> Castle confirms local system health and session integrity.</div>
         <div class="log-line"><strong>07:45</strong> Triton requested berth recommendation with approval gating enabled.</div>
         <div class="log-line"><strong>07:46</strong> Turbo flagged delay exposure if Berth 12 misses tug window.</div>
@@ -998,9 +998,9 @@
       });
 
       schedule(4200, () => {
-        setAgentState("glaucus", "busy", "Preparing Update");
+        setAgentState("nauti-ops", "busy", "Preparing Update");
         setStatus(els.queueState, "Ready For Approval", "badge badge-warn");
-        appendLog("Glaucus packaged the berth change and communication draft for the captain.");
+        appendLog("Nauti-Ops packaged the berth change and communication draft for the captain.");
       });
     }
 
@@ -1014,7 +1014,7 @@
       setStatus(els.jobStatus1, "Berth 15 Assigned", "badge badge-good");
       setStatus(els.boardBadge, "Action Executed", "badge badge-good");
       setStatus(els.fleetBadge, "Coordinated Response", "badge badge-good");
-      els.queueCopy.textContent = "Captain approved. Triton notified Glaucus, updated the job board, and preserved the berth window.";
+      els.queueCopy.textContent = "Captain approved. Triton notified Nauti-Ops, updated the job board, and preserved the berth window.";
       els.approvalLog.textContent = "[EXECUTED] Approval received. Operations updated, berth reassigned, stakeholders notified.";
       els.progress1.style.width = "88%";
       els.confidence.textContent = "96%";
@@ -1023,7 +1023,7 @@
       els.kpiDelay.textContent = "$4k";
       els.kpiFleet.textContent = "5/5";
       setAgentState("triton", "ok", "Executed");
-      setAgentState("glaucus", "ok", "Updated");
+      setAgentState("nauti-ops", "ok", "Updated");
       setAgentState("turbo", "ok", "Closed Loop");
       setAgentState("castle", "ok", "Audit Logged");
       setAgentState("navisales", "busy", "ROI Framing");

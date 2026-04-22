@@ -1,638 +1,299 @@
+<!-- Copyright (c) 2026 Nauti-Labs LLC. All rights reserved. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nauti-Labs | Maritime Systems Built for Speed, Clarity, and Profit</title>
-  <meta name="description" content="Chemical Tanker Ops Consulting + Systems Design. Houston Ship Channel area. $125/hr." />
+  <title>Nauti-Labs | Maritime Systems &amp; Agent Tooling</title>
+  <meta name="description" content="Chemical tanker software, agent-authorized commerce, and the rare builder who speaks both cargo and code. Pick your path." />
+  <meta name="theme-color" content="#0077ff" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:       #0a0d12;
-      --surface:  #111720;
-      --border:   #1e2d40;
-      --cyan:     #00c8f0;
-      --cyan-dim: #007fa3;
-      --white:    #f0f4f8;
-      --muted:    #8a9bb0;
-      --font:     'Segoe UI', system-ui, sans-serif;
+      --blue:       #0077ff;
+      --blue-glow:  rgba(0, 119, 255, 0.25);
+      --amber:      #ffaa00;
+      --cyan:       #00c8f0;
+      --cyan-glow:  rgba(0, 200, 240, 0.25);
+      --green:      #00ff9c;
+      --magenta:    #ff4dc4;
+      --bg:         #04060b;
+      --bg2:        #0a0f1a;
+      --text:       #e6f0fa;
+      --text-muted: rgba(200, 220, 240, 0.55);
+      --border:     rgba(255, 255, 255, 0.1);
+      --font:       'Inter', system-ui, sans-serif;
+      --mono:       'JetBrains Mono', monospace;
     }
-
-    html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
-      color: var(--white);
+      background-image:
+        radial-gradient(ellipse 70% 60% at 25% 30%, rgba(0, 119, 255, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 60% at 75% 70%, rgba(0, 200, 240, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 100%, rgba(255, 170, 0, 0.03) 0%, transparent 55%);
+      color: var(--text);
       font-family: var(--font);
       line-height: 1.6;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; width: 100%; z-index: 100;
-      background: rgba(10, 13, 18, 0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 2rem;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .nav-logo {
-      font-size: 1.2rem; font-weight: 800; letter-spacing: 0.12em;
-      color: var(--cyan); text-decoration: none;
-    }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      color: var(--muted); text-decoration: none; font-size: 0.9rem;
-      letter-spacing: 0.04em; transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--cyan); }
-
-    /* ── HERO ── */
-    #hero {
       min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center;
-      padding: 6rem 2rem 4rem;
-      background:
-        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,200,240,0.06) 0%, transparent 70%),
-        var(--bg);
-      position: relative; overflow: hidden;
+      overflow-x: hidden;
+      display: flex; flex-direction: column;
     }
-    .hero-grid {
-      position: absolute; inset: 0; opacity: 0.04;
+
+    .grid-overlay {
+      position: fixed; inset: 0;
       background-image:
-        linear-gradient(var(--cyan) 1px, transparent 1px),
-        linear-gradient(90deg, var(--cyan) 1px, transparent 1px);
-      background-size: 60px 60px;
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none; z-index: 0;
     }
-    .hero-content { position: relative; max-width: 800px; }
+
+    .hero {
+      flex: 1;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 5rem 2rem 2rem;
+      position: relative; z-index: 1;
+    }
     .hero-label {
       display: inline-block;
-      font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--cyan); border: 1px solid var(--cyan-dim);
-      padding: 0.3rem 1rem; border-radius: 2px; margin-bottom: 1.5rem;
+      font-size: 0.72rem; letter-spacing: 0.25em;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      padding: 0.35rem 1.1rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+    }
+    .hero-label .accent { color: var(--amber); }
+    .logo-mark {
+      width: 88px; height: 88px;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 18px var(--blue-glow));
     }
     h1 {
-      font-size: clamp(3rem, 8vw, 6rem);
-      font-weight: 900; letter-spacing: 0.06em;
-      text-transform: uppercase; line-height: 1;
-      background: linear-gradient(135deg, #fff 40%, var(--cyan));
+      font-size: clamp(3rem, 9vw, 7rem);
+      font-weight: 900; letter-spacing: -0.04em;
+      line-height: 0.95;
+      margin-bottom: 1.25rem;
+      text-align: center;
+      background: linear-gradient(135deg, #fff 0%, var(--blue) 40%, var(--cyan) 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 1rem;
     }
-    .hero-sub {
-      font-size: clamp(1rem, 2.5vw, 1.3rem);
-      color: var(--muted); letter-spacing: 0.08em;
-      text-transform: uppercase; margin-bottom: 2.5rem;
+    .tagline {
+      font-size: clamp(1rem, 2.2vw, 1.3rem);
+      color: var(--text-muted);
+      text-align: center; max-width: 640px;
+      margin-bottom: 4rem;
+      letter-spacing: 0.02em;
+      line-height: 1.5;
     }
-    .hero-tagline {
-      font-size: 1.1rem; color: var(--white); margin-bottom: 3rem;
-      font-style: italic; opacity: 0.7;
-    }
-    .btn {
-      display: inline-block; padding: 0.85rem 2.5rem;
-      background: transparent; color: var(--cyan);
-      border: 1px solid var(--cyan); border-radius: 2px;
-      text-decoration: none; font-size: 0.9rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      transition: background 0.2s, color 0.2s;
-    }
-    .btn:hover { background: var(--cyan); color: var(--bg); }
-    .btn-solid {
-      background: var(--cyan); color: var(--bg); margin-left: 1rem;
-    }
-    .btn-solid:hover { background: #00a8cc; }
+    .tagline strong { color: var(--text); }
 
-    /* ── SECTIONS ── */
-    section { padding: 5rem 2rem; }
-    .container { max-width: 1000px; margin: 0 auto; }
-    .section-label {
-      font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--cyan); margin-bottom: 0.75rem;
-    }
-    h2 {
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      font-weight: 800; letter-spacing: 0.04em;
-      text-transform: uppercase; margin-bottom: 1rem;
-    }
-    .section-divider {
-      width: 60px; height: 2px; background: var(--cyan);
+    /* ── DOORS ── */
+    .doors {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      width: 100%; max-width: 1000px;
       margin-bottom: 3rem;
     }
+    .door {
+      display: block; text-decoration: none;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2.5rem 2rem;
+      color: var(--text);
+      position: relative; overflow: hidden;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+    .door::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      opacity: 0.7; transition: opacity 0.25s, height 0.25s;
+    }
+    .door.maritime::before { background: linear-gradient(90deg, var(--blue), var(--amber)); }
+    .door.labs::before     { background: linear-gradient(90deg, var(--cyan), var(--magenta)); }
+    .door::after {
+      content: '→';
+      position: absolute; top: 1.5rem; right: 1.75rem;
+      font-size: 1.4rem; color: var(--text-muted);
+      transition: transform 0.25s, color 0.25s;
+    }
+    .door:hover {
+      transform: translateY(-4px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
+    }
+    .door.maritime:hover { border-color: rgba(0, 119, 255, 0.45); box-shadow: 0 12px 40px rgba(0, 119, 255, 0.15); }
+    .door.labs:hover     { border-color: rgba(0, 200, 240, 0.45); box-shadow: 0 12px 40px rgba(0, 200, 240, 0.15); }
+    .door:hover::after   { transform: translateX(6px); }
+    .door:hover::before  { opacity: 1; height: 4px; }
+    .door.maritime:hover::after { color: var(--blue); }
+    .door.labs:hover::after     { color: var(--cyan); }
 
-    /* ── SERVICES ── */
-    #services { background: var(--surface); }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1px; background: var(--border);
+    .door-icon { width: 52px; height: 52px; margin-bottom: 1.25rem; }
+    .door-label {
+      font-size: 0.72rem; letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-family: var(--mono);
+      margin-bottom: 0.5rem;
     }
-    .service-card {
-      background: var(--surface);
-      padding: 2rem; display: flex; align-items: flex-start; gap: 1.25rem;
-      transition: background 0.2s;
-    }
-    .service-card:hover { background: #161f2b; }
-    .service-icon { font-size: 1.8rem; flex-shrink: 0; line-height: 1; }
-    .service-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
-    .service-card p { font-size: 0.85rem; color: var(--muted); }
+    .door.maritime .door-label { color: var(--amber); }
+    .door.labs .door-label     { color: var(--magenta); }
 
-    /* ── TRITON ── */
-    #triton { background: var(--bg); }
-    .triton-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-      margin-bottom: 3rem;
+    .door-title {
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-weight: 800; letter-spacing: -0.01em;
+      margin-bottom: 0.6rem;
+      line-height: 1.15;
     }
-    .triton-lead {
-      font-size: 1.05rem;
-      color: var(--muted);
-      line-height: 1.8;
-      margin-bottom: 1.25rem;
+    .door.maritime .door-title {
+      background: linear-gradient(135deg, #fff, var(--blue));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-    .triton-lead strong { color: var(--white); }
-    .triton-modules { display: flex; flex-direction: column; gap: 1px; background: var(--border); }
-    .triton-module {
-      background: var(--surface);
-      padding: 1.5rem;
-      display: flex; gap: 1rem; align-items: flex-start;
-      transition: background 0.2s;
+    .door.labs .door-title {
+      background: linear-gradient(135deg, #fff, var(--cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-    .triton-module:hover { background: #161f2b; }
-    .triton-module-icon { font-size: 1.4rem; flex-shrink: 0; line-height: 1; margin-top: 0.1rem; }
-    .triton-module h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.2rem; }
-    .triton-module p { font-size: 0.82rem; color: var(--muted); }
-    .triton-cta {
-      display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
+    .door-sub {
+      font-size: 0.95rem;
+      color: var(--text-muted); margin-bottom: 1.5rem;
+      line-height: 1.55;
     }
-    .triton-badge {
-      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--cyan); border: 1px solid var(--cyan-dim);
-      padding: 0.25rem 0.75rem; border-radius: 2px;
+    .door-features {
+      list-style: none; padding: 0;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
     }
-    @media (max-width: 700px) {
-      .triton-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .door-features li {
+      padding: 0.2rem 0;
+      display: flex; align-items: center; gap: 0.55rem;
+    }
+    .door.maritime .door-features li::before { content: '◆'; color: var(--amber); }
+    .door.labs .door-features li::before     { content: '▸'; color: var(--green); }
+
+    @media (max-width: 780px) {
+      .doors { grid-template-columns: 1fr; }
+      .door { padding: 2rem 1.5rem; }
     }
 
-    /* ── CLEARANCE ── */
-    #clearance { background: var(--surface); }
-
-    /* ── RATE ── */
-    #rate { text-align: center; }
-    .rate-box {
-      display: inline-block;
-      border: 1px solid var(--cyan); padding: 3rem 4rem;
-      position: relative; margin-top: 1rem;
-    }
-    .rate-box::before, .rate-box::after {
-      content: ''; position: absolute;
-      width: 12px; height: 12px;
-      border: 2px solid var(--cyan);
-    }
-    .rate-box::before { top: -6px; left: -6px; border-right: 0; border-bottom: 0; }
-    .rate-box::after  { bottom: -6px; right: -6px; border-left: 0; border-top: 0; }
-    .rate-amount {
-      font-size: clamp(3rem, 8vw, 5rem);
-      font-weight: 900; color: var(--cyan); line-height: 1;
-    }
-    .rate-per { font-size: 1.2rem; color: var(--muted); margin-bottom: 1.5rem; }
-    .rate-min {
-      font-size: 1rem; color: var(--white); opacity: 0.8;
-      border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 1.5rem;
-    }
-    .rate-min strong { color: var(--cyan); }
-
-    /* ── ABOUT ── */
-    #about { background: var(--surface); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-    .about-text p { color: var(--muted); margin-bottom: 1rem; font-size: 1rem; }
-    .about-text p strong { color: var(--white); }
-    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .stat { border: 1px solid var(--border); padding: 1.5rem; text-align: center; }
-    .stat-number { font-size: 2.5rem; font-weight: 900; color: var(--cyan); line-height: 1; }
-    .stat-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.25rem; }
-
-    /* ── CONTACT ── */
-    #contact { text-align: center; }
-    .contact-form {
-      max-width: 560px; margin: 0 auto; text-align: left;
-    }
-    .form-group { margin-bottom: 1.25rem; }
-    label { display: block; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
-    input, textarea, select {
-      width: 100%; background: var(--surface);
-      border: 1px solid var(--border); color: var(--white);
-      padding: 0.85rem 1rem; font-size: 0.95rem; font-family: var(--font);
-      border-radius: 2px; transition: border-color 0.2s;
-      outline: none;
-    }
-    input:focus, textarea:focus, select:focus { border-color: var(--cyan); }
-    textarea { resize: vertical; min-height: 120px; }
-    select option { background: var(--surface); }
-    .btn-submit {
-      width: 100%; padding: 1rem;
-      background: var(--cyan); color: var(--bg);
-      border: none; font-size: 1rem; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      cursor: pointer; border-radius: 2px;
-      transition: background 0.2s;
-    }
-    .btn-submit:hover { background: #00a8cc; }
-    .contact-alt { margin-top: 2rem; color: var(--muted); font-size: 0.9rem; }
-    .contact-alt a { color: var(--cyan); text-decoration: none; }
-
-    /* ── FOOTER ── */
     footer {
+      padding: 1.5rem 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.72rem; letter-spacing: 0.1em;
+      font-family: var(--mono);
       border-top: 1px solid var(--border);
-      padding: 2rem; text-align: center;
-      color: var(--muted); font-size: 0.8rem; letter-spacing: 0.08em;
+      position: relative; z-index: 1;
     }
-    footer span { color: var(--cyan); }
+    footer .accent { color: var(--blue); }
+    footer .amber  { color: var(--amber); }
+    footer a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--cyan); }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 700px) {
-      .nav-links { display: none; }
-      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .rate-box { padding: 2rem; }
-      .btn-solid { margin-left: 0; margin-top: 0.75rem; }
+    @keyframes scan { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.65; } }
+    .scan {
+      position: fixed; left: 0; right: 0; top: 30%; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--blue), transparent);
+      opacity: 0.4;
+      animation: scan 6s ease-in-out infinite;
+      pointer-events: none; z-index: 0;
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a class="nav-logo" href="#">NAUTI-LABS</a>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#triton">Triton</a></li>
-      <li><a href="#clearance">Clearance</a></li>
-      <li><a href="./triton-pilot.html">Pilot</a></li>
-      <li><a href="#rate">Rates</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <div class="grid-overlay"></div>
+  <div class="scan"></div>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-grid"></div>
-    <div class="hero-content">
-      <div class="hero-label">Houston Ship Channel &nbsp;·&nbsp; Mont Belvieu, TX</div>
-      <h1>Nauti-Labs</h1>
-      <p class="hero-sub">Chemical Tanker Ops Consulting + Systems Design</p>
-      <p class="hero-tagline">"Maritime systems built for speed, clarity, and profit."</p>
-      <a href="#services" class="btn">See Services</a>
-      <a href="./lab-demo.html" class="btn">View Demo</a>
-      <a href="./triton-pilot.html" class="btn">Pilot Offer</a>
-      <a href="https://clearance-production-5081.up.railway.app/" class="btn">Clearance Live</a>
-      <a href="#contact" class="btn btn-solid">Get in Touch</a>
+  <section class="hero">
+
+    <!-- Helm logo SVG (same wheel used in Nauti-Ops) -->
+    <svg class="logo-mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="22" cy="22" r="18" stroke="#0077ff" stroke-width="2.2" fill="none"/>
+      <circle cx="22" cy="22" r="4.5" stroke="#0077ff" stroke-width="2" fill="none"/>
+      <circle cx="22" cy="22" r="2" fill="#ffaa00"/>
+      <line x1="22" y1="17.5" x2="22" y2="4"   stroke="#0077ff" stroke-width="2" stroke-linecap="round"/>
+      <line x1="22" y1="26.5" x2="22" y2="40"  stroke="#0077ff" stroke-width="2" stroke-linecap="round"/>
+      <line x1="17.5" y1="22" x2="4"  y2="22"  stroke="#0077ff" stroke-width="2" stroke-linecap="round"/>
+      <line x1="26.5" y1="22" x2="40" y2="22"  stroke="#0077ff" stroke-width="2" stroke-linecap="round"/>
+      <line x1="19.5" y1="19.5" x2="9.5" y2="9.5"   stroke="#ffaa00" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="24.5" y1="24.5" x2="34.5" y2="34.5" stroke="#ffaa00" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="24.5" y1="19.5" x2="34.5" y2="9.5"  stroke="#ffaa00" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="19.5" y1="24.5" x2="9.5"  y2="34.5" stroke="#ffaa00" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+
+    <div class="hero-label">Houston Ship Channel <span class="accent">·</span> Mont Belvieu, TX</div>
+    <h1>Nauti-Labs</h1>
+    <p class="tagline">
+      Maritime systems built for speed. Agent tooling built for humans.<br>
+      <strong>Pick your path.</strong>
+    </p>
+
+    <div class="doors">
+
+      <a href="/maritime/" class="door maritime">
+        <svg class="door-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="22" r="18" stroke="#0077ff" stroke-width="2" fill="none"/>
+          <circle cx="22" cy="22" r="4.5" stroke="#0077ff" stroke-width="2" fill="none"/>
+          <circle cx="22" cy="22" r="2" fill="#ffaa00"/>
+          <line x1="22" y1="17.5" x2="22" y2="4"   stroke="#0077ff" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="22" y1="26.5" x2="22" y2="40"  stroke="#0077ff" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="17.5" y1="22" x2="4"  y2="22"  stroke="#0077ff" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="26.5" y1="22" x2="40" y2="22"  stroke="#0077ff" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="19.5" y1="19.5" x2="9.5" y2="9.5"   stroke="#ffaa00" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="24.5" y1="24.5" x2="34.5" y2="34.5" stroke="#ffaa00" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="24.5" y1="19.5" x2="34.5" y2="9.5"  stroke="#ffaa00" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="19.5" y1="24.5" x2="9.5"  y2="34.5" stroke="#ffaa00" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <div class="door-label">For Maritime Professionals</div>
+        <div class="door-title">Chemical Tanker Ops.<br>Delivered.</div>
+        <div class="door-sub">
+          Agency software, port-call workflows, and consulting from someone who's worked the dock.
+          Nauti-Ops flagship platform included.
+        </div>
+        <ul class="door-features">
+          <li>Nauti-Ops — maritime platform, live demo</li>
+          <li>Port-call &amp; pre-arrival workflows</li>
+          <li>$125 / hr · $1,250 starter engagement</li>
+          <li>Houston Ship Channel &amp; beyond</li>
+        </ul>
+      </a>
+
+      <a href="/labs/" class="door labs">
+        <svg class="door-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="6" width="32" height="32" rx="4" stroke="#00c8f0" stroke-width="2" fill="none"/>
+          <path d="M12 16 L18 22 L12 28" stroke="#00ff9c" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="20" y1="30" x2="32" y2="30" stroke="#ff4dc4" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="22" cy="22" r="1.5" fill="#00c8f0" opacity="0.6"/>
+        </svg>
+        <div class="door-label">For Builders &amp; AI</div>
+        <div class="door-title">Agent Commerce.<br>Human-in-the-Loop.</div>
+        <div class="door-sub">
+          Clearance API, Triton orchestration, Felipe autonomous trading. Open source where it counts,
+          premium where it pays.
+        </div>
+        <ul class="door-features">
+          <li>Clearance — signed human-approval tokens</li>
+          <li>Triton — AI command center (open source)</li>
+          <li>Felipe — autonomous domain trader</li>
+          <li>USDC on Base · JWT · FastAPI</li>
+        </ul>
+      </a>
+
     </div>
+
   </section>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="container">
-      <p class="section-label">What We Do</p>
-      <h2>What I Can Help With</h2>
-      <div class="section-divider"></div>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">⚓</div>
-          <div>
-            <h3>Chemical Tanker Agent Coaching</h3>
-            <p>Hands-on guidance for agency staff navigating chemical tanker operations from first contact to final port log.</p>
-          </div>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">📋</div>
-          <div>
-            <h3>Pre-Arrival / Port Call Workflow Setup</h3>
-            <p>Standardized workflows that keep vessel arrivals organized, compliant, and on schedule.</p>
-          </div>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🗂️</div>
-          <div>
-            <h3>Document Package & File Structure</h3>
-            <p>Clean, audit-ready document standards so your team can find anything in seconds.</p>
-          </div>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">📨</div>
-          <div>
-            <h3>Owner / Charterer Update Templates</h3>
-            <p>Professional communication templates that protect relationships and reduce back-and-forth.</p>
-          </div>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">✅</div>
-          <div>
-            <h3>SOPs, Checklists & Ops Playbooks</h3>
-            <p>Written procedures your team can actually follow — not binders that collect dust.</p>
-          </div>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">⏱️</div>
-          <div>
-            <h3>Terminal Efficiency / Delay Reduction</h3>
-            <p>Review your current operations and identify where time and money are being lost at the terminal.</p>
-          </div>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🔗</div>
-          <div>
-            <h3>CRM / Workflow Design</h3>
-            <p>Custom-built systems that match how your team actually works — not generic software demos.</p>
-          </div>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">👥</div>
-          <div>
-            <h3>Process Improvement for Agency Teams</h3>
-            <p>Identify bottlenecks, reduce errors, and build a team that scales without chaos.</p>
-          </div>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🛂</div>
-          <div>
-            <h3>Clearance API</h3>
-            <p>Human approval API for agent commerce. Free tier live now, with signed clearance tokens and verifiable decisions for bots and services.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TRITON -->
-  <section id="triton">
-    <div class="container">
-      <p class="section-label">Open Source · Built in Public</p>
-      <h2>Triton + Nauti-Vision</h2>
-      <div class="section-divider"></div>
-      <div class="triton-grid">
-        <div>
-          <p class="triton-lead">
-            Maritime agency work runs on information — vessel ETAs, CBP forms, cargo docs, terminal updates.
-            Most of it moves by email, phone, and memory. <strong>Triton is the system we built to change that.</strong>
-          </p>
-          <p class="triton-lead">
-            It's a web-based AI command center that orchestrates a fleet of purpose-built agents.
-            Every action goes through a <strong>human-in-the-loop approval layer</strong> — the AI proposes, you approve.
-            Nothing moves without a captain at the helm.
-          </p>
-          <p class="triton-lead">
-            <strong>Nauti-Vision</strong> is the eyes. Built on the same visual intelligence stack used in modern mobile devices,
-            it processes live camera feeds to identify vessels, inspect cargo, and flag anomalies at the dock —
-            in real time, without a specialist on site.
-          </p>
-          <div class="triton-cta">
-            <a href="https://github.com/Nauti-Labs/triton" target="_blank" class="btn">View on GitHub</a>
-            <a href="./triton-pilot.html" class="btn">90-Day Pilot</a>
-            <span class="triton-badge">Open Source</span>
-            <span class="triton-badge">FastAPI + Claude</span>
-            <span class="triton-badge">PyTorch Vision</span>
-          </div>
-        </div>
-        <div class="triton-modules">
-          <div class="triton-module">
-            <div class="triton-module-icon">🧠</div>
-            <div>
-              <h3>AI Agent Orchestration</h3>
-              <p>A single command center for every Nauti-Labs agent. Monitor fleet health, issue commands, and track operations from one dashboard.</p>
-            </div>
-          </div>
-          <div class="triton-module">
-            <div class="triton-module-icon">✋</div>
-            <div>
-              <h3>Human-in-the-Loop Approval</h3>
-              <p>AI proposes the action. You approve it. PIN-verified execution for sensitive operations means nothing runs without your sign-off.</p>
-            </div>
-          </div>
-          <div class="triton-module">
-            <div class="triton-module-icon">👁️</div>
-            <div>
-              <h3>Nauti-Vision — Live Visual Intelligence</h3>
-              <p>WebRTC camera feeds with real-time object detection and subject isolation. Identify vessels, cargo, and equipment at the terminal without a specialist present.</p>
-            </div>
-          </div>
-          <div class="triton-module">
-            <div class="triton-module-icon">📱</div>
-            <div>
-              <h3>Mobile-Ready PWA</h3>
-              <p>Installable on any device. Run your ops from the dock, the office, or the truck — the same interface everywhere.</p>
-            </div>
-          </div>
-          <div class="triton-module">
-            <div class="triton-module-icon">🔒</div>
-            <div>
-              <h3>Session Auth + Access Control</h3>
-              <p>Passcode-protected sessions with authorized user lists. Built for small agency teams — not enterprise overhead.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CLEARANCE -->
-  <section id="clearance">
-    <div class="container">
-      <p class="section-label">Live Product</p>
-      <h2>Clearance</h2>
-      <div class="section-divider"></div>
-      <div class="triton-grid">
-        <div>
-          <p class="triton-lead">
-            <strong>Clearance</strong> is the human approval API for agent commerce. If an agent needs to buy something,
-            send something, or trigger a sensitive action, it asks for a human sign-off first.
-          </p>
-          <p class="triton-lead">
-            The result is a signed clearance token that any service can verify. That gives teams a clean approval layer
-            between human intent and automated execution instead of relying on blind trust.
-          </p>
-          <p class="triton-lead">
-            Free tier is live now. Preferred paid settlement is <strong>USDC on Base</strong>, with any non-default asset
-            handled only through invoice-confirmed instructions priced to a USD-equivalent amount.
-          </p>
-          <div class="triton-cta">
-            <a href="https://clearance-production-5081.up.railway.app/" target="_blank" class="btn">Open App</a>
-            <a href="https://clearance-production-5081.up.railway.app/v1/docs" target="_blank" class="btn">API Docs</a>
-            <a href="https://clearance-production-5081.up.railway.app/v1/payments/info" target="_blank" class="btn">Payment Info</a>
-            <span class="triton-badge">Free Tier Live</span>
-            <span class="triton-badge">Agent Governance</span>
-          </div>
-        </div>
-        <div class="triton-modules">
-          <div class="triton-module">
-            <div class="triton-module-icon">✋</div>
-            <div>
-              <h3>One-Tap Human Approval</h3>
-              <p>Create a clearance request and send the approver to a simple decision page instead of building custom approval logic every time.</p>
-            </div>
-          </div>
-          <div class="triton-module">
-            <div class="triton-module-icon">🎟️</div>
-            <div>
-              <h3>Signed Clearance Tokens</h3>
-              <p>Approved actions return a signed token that downstream services can verify without private coordination or shared session state.</p>
-            </div>
-          </div>
-          <div class="triton-module">
-            <div class="triton-module-icon">🤖</div>
-            <div>
-              <h3>Built For Agent Commerce</h3>
-              <p>Use it when bots need human sign-off for payments, outbound messages, service bookings, or other sensitive steps.</p>
-            </div>
-          </div>
-          <div class="triton-module">
-            <div class="triton-module-icon">💸</div>
-            <div>
-              <h3>Default Checkout Policy</h3>
-              <p>USDC on Base is the default rail. Other assets or networks require invoice-confirmed instructions and manual release after confirmed funds.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RATE -->
-  <section id="rate">
-    <div class="container">
-      <p class="section-label">Consulting Rate</p>
-      <h2>Simple, Transparent Pricing</h2>
-      <div class="section-divider" style="margin: 0 auto 3rem;"></div>
-      <div class="rate-box">
-        <div class="rate-amount">$125</div>
-        <div class="rate-per">per hour</div>
-        <div class="rate-min">
-          Minimum Engagement: <strong>10 hours paid up front</strong><br>
-          <span style="font-size:0.85rem; color: var(--muted); display:block; margin-top:0.5rem;">No retainers. No surprise invoices. You know the cost before we start.</span>
-        </div>
-      </div>
-      <div class="triton-grid" style="margin-top: 2rem;">
-        <div class="triton-module">
-          <div class="triton-module-icon">⚓</div>
-          <div>
-            <h3>$1,250 Starter Engagement</h3>
-            <p>Ten paid hours up front. Best for a workflow audit, written recommendations, and a same-day kickoff without making the buyer do mental math.</p>
-            <div class="triton-cta" style="margin-top: 1rem;">
-              <a href="mailto:consulting@nauti-labs.com?subject=Book%20%241250%20Starter%20Engagement" class="btn">Book $1,250 Starter</a>
-              <a href="#contact" class="btn">Ask A Question</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-text">
-          <p class="section-label">About</p>
-          <h2>Built From the Dock Up</h2>
-          <div class="section-divider"></div>
-          <p>Nauti-Labs was founded by <strong>Justin LeBlanc</strong>, a maritime operations professional with direct experience managing chemical tanker agency operations on the Houston Ship Channel.</p>
-          <p>We combine <strong>deep industry knowledge</strong> with modern software and AI tools to solve the operational problems that slow maritime agencies down — delays, document chaos, communication breakdowns, and workflow gaps.</p>
-          <p>Based in <strong>Mont Belvieu, TX</strong> — we're local to the operations we serve.</p>
-        </div>
-        <div class="about-stats">
-          <div class="stat">
-            <div class="stat-number">7</div>
-            <div class="stat-label">Day Deployments</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">$125</div>
-            <div class="stat-label">Hourly Rate</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">HSC</div>
-            <div class="stat-label">Houston Ship Channel</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">LLC</div>
-            <div class="stat-label">Nauti-Labs 2026</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <p class="section-label">Get Started</p>
-      <h2>Let's Talk</h2>
-      <div class="section-divider" style="margin: 0 auto 3rem;"></div>
-      <div class="contact-form">
-        <div data-fs-success style="display:none; padding:2rem; border:1px solid var(--cyan); color:var(--cyan); text-align:center; margin-bottom:1.5rem;">
-          Message received — I'll reply with a quote or payment instructions within 24 hours.
-        </div>
-        <div data-fs-error style="display:none; padding:1rem; border:1px solid #ff4444; color:#ff4444; margin-bottom:1.5rem;"></div>
-
-        <form id="contact-form">
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Captain or Company Name" required data-fs-field />
-            <span data-fs-error="name" style="color:#ff4444; font-size:0.8rem;"></span>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="you@company.com" required data-fs-field />
-            <span data-fs-error="email" style="color:#ff4444; font-size:0.8rem;"></span>
-          </div>
-          <div class="form-group">
-            <label for="service">Service Needed</label>
-            <select id="service" name="service" data-fs-field>
-              <option value="">Select a service...</option>
-              <option>Chemical Tanker Agent Coaching</option>
-              <option>Pre-Arrival / Port Call Workflow</option>
-              <option>Document Package & File Structure</option>
-              <option>Owner / Charterer Update Templates</option>
-              <option>SOPs, Checklists & Ops Playbooks</option>
-              <option>Terminal Efficiency Review</option>
-              <option>CRM / Workflow Design</option>
-              <option>Process Improvement</option>
-              <option>Triton Pilot</option>
-              <option>Triton Core Subscription</option>
-              <option>Clearance API</option>
-              <option>Ready to buy now</option>
-              <option>Not sure — let's talk</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Tell me about your operation</label>
-            <textarea id="message" name="message" placeholder="What's the problem you're trying to solve?" data-fs-field></textarea>
-            <span data-fs-error="message" style="color:#ff4444; font-size:0.8rem;"></span>
-          </div>
-          <button type="submit" class="btn-submit" data-fs-submit-btn>Send Message</button>
-        </form>
-        <p class="contact-alt">
-          Or email directly: <a href="mailto:consulting@nauti-labs.com?subject=Start%20Triton">consulting@nauti-labs.com</a><br />
-          Preferred settlement is <strong>USDC on Base</strong>. Fixed-price self-serve products like <strong>Clearance</strong> can publish a payment identity and verify on-chain automatically. Custom services and any non-default asset or network stay invoice-confirmed, priced to a USD-equivalent amount, and released only after funds are confirmed and manually approved.
-        </p>
-      </div>
-
-      <script>
-        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-        formspree('initForm', { formElement: '#contact-form', formId: 'xgopdqbg' });
-      </script>
-      <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer>
-    <span>NAUTI-LABS LLC</span> &nbsp;·&nbsp; Maritime systems built for speed, clarity, and profit &nbsp;·&nbsp; Mont Belvieu, TX &nbsp;·&nbsp; Est. 2026
+    <span class="accent">NAUTI-LABS LLC</span> · Mont Belvieu, TX · <span class="amber">Est. 2026</span> · <a href="mailto:hello@nauti-labs.com">hello@nauti-labs.com</a>
   </footer>
 
 </body>

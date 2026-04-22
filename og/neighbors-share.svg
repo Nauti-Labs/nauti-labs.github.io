@@ -1,0 +1,51 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#060A12"/>
+  <rect width="1200" height="630" fill="url(#bgGlow)"/>
+  <g opacity="0.16">
+    <path d="M0 74H1200M0 154H1200M0 234H1200M0 314H1200M0 394H1200M0 474H1200M0 554H1200" stroke="#194031"/>
+    <path d="M88 0V630M208 0V630M328 0V630M448 0V630M568 0V630M688 0V630M808 0V630M928 0V630M1048 0V630M1168 0V630" stroke="#194031"/>
+  </g>
+
+  <g transform="translate(88 92)">
+    <path d="M18 88L88 28L158 88V186H18V88Z" stroke="#FFAA00" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M60 110H116C126 110 134 118 134 128V160C134 170 126 178 116 178H60C50 178 42 170 42 160V128C42 118 50 110 60 110Z" stroke="#00D97E" stroke-width="8"/>
+    <circle cx="142" cy="28" r="22" stroke="#1677FF" stroke-width="6"/>
+    <circle cx="142" cy="28" r="7" fill="#FFAA00"/>
+    <path d="M142 6V-8M142 64V50M178 28H192M92 28H106" stroke="#1677FF" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <text x="320" y="176" fill="#F4F8FD" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" letter-spacing="7">NAUTI-LABS NEIGHBORS</text>
+  <text x="84" y="332" fill="#FFB02A" font-family="Arial, Helvetica, sans-serif" font-size="104" font-weight="800">Built Here.</text>
+  <text x="84" y="422" fill="#8CD56A" font-family="Arial, Helvetica, sans-serif" font-size="104" font-weight="800">For Here.</text>
+
+  <g transform="translate(84 474)">
+    <rect width="362" height="84" rx="18" fill="#101821" stroke="#2A463C"/>
+    <text x="28" y="34" fill="#FFAA00" font-family="Courier New, monospace" font-size="18" font-weight="700" letter-spacing="3">PATHWAY</text>
+    <text x="28" y="62" fill="#F5F8FD" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">nauti-labs.com/neighbors</text>
+  </g>
+
+  <g transform="translate(746 90)">
+    <path d="M58 336L132 274L208 312L286 236L358 278" stroke="#00D97E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="58" cy="336" r="11" fill="#00D97E"/>
+    <circle cx="132" cy="274" r="11" fill="#00D97E"/>
+    <circle cx="208" cy="312" r="11" fill="#00D97E"/>
+    <circle cx="286" cy="236" r="11" fill="#00D97E"/>
+    <circle cx="358" cy="278" r="11" fill="#00D97E"/>
+    <path d="M84 420H360" stroke="#355046" stroke-width="4" stroke-linecap="round"/>
+    <path d="M128 420V314H208V420" stroke="#FFAA00" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M114 314L168 268L222 314" stroke="#FFAA00" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M264 420V336H334V420" stroke="#1677FF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M248 336L300 288L350 336" stroke="#1677FF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="376" cy="136" r="54" stroke="#355046" stroke-width="6"/>
+    <path d="M344 138C360 120 392 120 408 138M356 164C368 152 384 152 396 164" stroke="#8CD56A" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="376" cy="186" r="10" fill="#8CD56A"/>
+  </g>
+
+  <defs>
+    <radialGradient id="bgGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(922 418) rotate(-160.238) scale(724.653 462.517)">
+      <stop stop-color="#2C2417"/>
+      <stop offset="0.52" stop-color="#09111B" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#060A12" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

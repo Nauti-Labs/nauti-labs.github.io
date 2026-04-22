@@ -1,0 +1,51 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#040810"/>
+  <rect width="1200" height="630" fill="url(#bgGlow)"/>
+  <g opacity="0.2">
+    <path d="M0 74H1200M0 154H1200M0 234H1200M0 314H1200M0 394H1200M0 474H1200M0 554H1200" stroke="#0E3B4A"/>
+    <path d="M88 0V630M208 0V630M328 0V630M448 0V630M568 0V630M688 0V630M808 0V630M928 0V630M1048 0V630M1168 0V630" stroke="#0E3B4A"/>
+  </g>
+  <g transform="translate(86 90)">
+    <rect x="0" y="8" width="86" height="86" rx="18" stroke="#00C8F0" stroke-width="8"/>
+    <path d="M22 30L42 50L22 70" stroke="#00FF9C" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M54 72H74" stroke="#FF4DC4" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <text x="196" y="154" fill="#F2F8FF" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" letter-spacing="6">NAUTI-LABS LABS</text>
+  <text x="84" y="292" fill="#F2F8FF" font-family="Arial, Helvetica, sans-serif" font-size="84" font-weight="800">Approval-Gated</text>
+  <text x="84" y="372" fill="#00C8F0" font-family="Arial, Helvetica, sans-serif" font-size="74" font-weight="800">AI for Operators.</text>
+
+  <g transform="translate(84 466)">
+    <rect width="334" height="82" rx="18" fill="#09131D" stroke="#124B5D"/>
+    <text x="28" y="33" fill="#00FF9C" font-family="Courier New, monospace" font-size="18" font-weight="700" letter-spacing="3">PATHWAY</text>
+    <text x="28" y="61" fill="#F5F8FD" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">nauti-labs.com/labs</text>
+  </g>
+
+  <g transform="translate(748 96)">
+    <rect width="368" height="414" rx="26" fill="#07111C" stroke="#114153" stroke-width="3"/>
+    <rect x="28" y="32" width="312" height="76" rx="18" fill="#0C1827" stroke="#163E59"/>
+    <text x="52" y="66" fill="#00C8F0" font-family="Courier New, monospace" font-size="20" font-weight="700">CLEARANCE FLOW</text>
+    <text x="52" y="94" fill="#D9F4FF" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Request → Approve → Execute</text>
+
+    <circle cx="102" cy="190" r="18" fill="#00C8F0"/>
+    <circle cx="184" cy="190" r="18" fill="#00FF9C"/>
+    <circle cx="266" cy="190" r="18" fill="#FF4DC4"/>
+    <path d="M120 190H166M202 190H248" stroke="#00C8F0" stroke-width="6" stroke-linecap="round"/>
+    <text x="72" y="234" fill="#D9F4FF" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">Agent</text>
+    <text x="142" y="234" fill="#D9F4FF" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">Human</text>
+    <text x="234" y="234" fill="#D9F4FF" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">Audit</text>
+
+    <rect x="42" y="274" width="286" height="84" rx="18" fill="#0C1827" stroke="#163E59"/>
+    <path d="M76 316H140M76 336H176" stroke="#00C8F0" stroke-width="6" stroke-linecap="round"/>
+    <path d="M250 320L268 338L300 306" stroke="#00FF9C" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="76" y="392" fill="#F5F8FD" font-family="Courier New, monospace" font-size="18" font-weight="700">HUMAN-IN-THE-LOOP</text>
+  </g>
+
+  <defs>
+    <radialGradient id="bgGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(953 191) rotate(144.063) scale(753.816 534.455)">
+      <stop stop-color="#0A2530"/>
+      <stop offset="0.62" stop-color="#040810" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#040810" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

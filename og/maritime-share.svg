@@ -1,0 +1,45 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#050A12"/>
+  <rect width="1200" height="630" fill="url(#bgGlow)"/>
+  <g opacity="0.24">
+    <path d="M0 70H1200M0 150H1200M0 230H1200M0 310H1200M0 390H1200M0 470H1200M0 550H1200" stroke="#123A63"/>
+    <path d="M80 0V630M200 0V630M320 0V630M440 0V630M560 0V630M680 0V630M800 0V630M920 0V630M1040 0V630M1160 0V630" stroke="#123A63"/>
+  </g>
+  <circle cx="936" cy="190" r="166" stroke="#0D4E93" stroke-width="2" opacity="0.34"/>
+  <circle cx="936" cy="190" r="102" stroke="#0D4E93" stroke-width="2" opacity="0.22"/>
+  <circle cx="936" cy="190" r="42" stroke="#0D4E93" stroke-width="2" opacity="0.22"/>
+  <path d="M866 118H1006M936 48V332M876 250H996" stroke="#0D4E93" stroke-width="2" opacity="0.22"/>
+
+  <g transform="translate(84 88)">
+    <circle cx="72" cy="72" r="62" stroke="#1677FF" stroke-width="10"/>
+    <circle cx="72" cy="72" r="16" fill="#050A12" stroke="#1677FF" stroke-width="6"/>
+    <path d="M72 16V48M72 96V128M16 72H48M96 72H128" stroke="#1677FF" stroke-width="8" stroke-linecap="round"/>
+    <path d="M34 34L52 52M92 92L110 110M110 34L92 52M52 92L34 110" stroke="#FFAA00" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <text x="252" y="138" fill="#F5F8FD" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" letter-spacing="7">NAUTI-LABS</text>
+  <text x="252" y="176" fill="#FFAA00" font-family="Courier New, monospace" font-size="24" font-weight="700" letter-spacing="5">MARITIME OPERATIONS</text>
+  <text x="84" y="292" fill="#F2F7FF" font-family="Arial, Helvetica, sans-serif" font-size="84" font-weight="800">Chemical Tanker Ops.</text>
+  <text x="84" y="374" fill="#1677FF" font-family="Arial, Helvetica, sans-serif" font-size="60" font-weight="800">Built and Delivered.</text>
+
+  <g transform="translate(84 468)">
+    <rect width="318" height="82" rx="18" fill="#0B1524" stroke="#17456F"/>
+    <text x="28" y="33" fill="#FFAA00" font-family="Courier New, monospace" font-size="18" font-weight="700" letter-spacing="3">PATHWAY</text>
+    <text x="28" y="61" fill="#F5F8FD" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">nauti-labs.com/maritime</text>
+  </g>
+
+  <g transform="translate(848 318)">
+    <path d="M60 138H296L274 176H82L60 138Z" fill="#07101C" stroke="#1A5AA9" stroke-width="4"/>
+    <path d="M104 138V72H204L236 102V138" stroke="#1A5AA9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M206 72V104" stroke="#1A5AA9" stroke-width="4" stroke-linecap="round"/>
+    <path d="M92 190C110 202 128 202 146 190C164 178 182 178 200 190C218 202 236 202 254 190C272 178 290 178 308 190" stroke="#FFAA00" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <defs>
+    <radialGradient id="bgGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(228 114) rotate(28.997) scale(667.383 421.885)">
+      <stop stop-color="#0A2A46"/>
+      <stop offset="0.62" stop-color="#050A12" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#050A12" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

@@ -4,18 +4,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nauti-Labs | Maritime Ops Systems &amp; Approval-Gated AI Tools</title>
-  <meta name="description" content="Maritime operations systems, chemical tanker workflows, and approval-gated AI tools from Mont Belvieu, Texas. Choose maritime consulting or Labs products." />
+  <title>Nauti-Labs | Maritime Ops, Applied AI &amp; Local Digital Help</title>
+  <meta name="description" content="Maritime operations systems, approval-gated AI tools, and local digital help for Mont Belvieu, Baytown, and the Barbers Hill area. Choose maritime, Labs, or Neighbors." />
   <link rel="canonical" href="https://nauti-labs.com/" />
   <meta name="robots" content="index,follow" />
   <meta property="og:site_name" content="Nauti-Labs" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Nauti-Labs | Maritime Ops Systems &amp; Approval-Gated AI Tools" />
-  <meta property="og:description" content="Maritime operations systems, chemical tanker workflows, and approval-gated AI tools from Mont Belvieu, Texas." />
+  <meta property="og:title" content="Nauti-Labs | Maritime Ops, Applied AI &amp; Local Digital Help" />
+  <meta property="og:description" content="Maritime operations systems, approval-gated AI tools, and local digital help for Mont Belvieu, Baytown, and the Barbers Hill area." />
   <meta property="og:url" content="https://nauti-labs.com/" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Nauti-Labs | Maritime Ops Systems &amp; Approval-Gated AI Tools" />
-  <meta name="twitter:description" content="Maritime operations systems and approval-gated AI tools from Mont Belvieu, Texas." />
+  <meta name="twitter:title" content="Nauti-Labs | Maritime Ops, Applied AI &amp; Local Digital Help" />
+  <meta name="twitter:description" content="Maritime operations systems, approval-gated AI tools, and local digital help for Mont Belvieu, Baytown, and the Barbers Hill area." />
   <meta name="theme-color" content="#00c8f0" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -162,9 +162,9 @@
 
     /* ── DOORS ── */
     .doors {
-      display: grid; grid-template-columns: 1fr 1fr;
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1.5rem;
-      width: 100%; max-width: 1000px;
+      width: 100%; max-width: 1240px;
       margin-bottom: 3rem;
     }
     .door {
@@ -184,6 +184,7 @@
     }
     .door.maritime::before { background: linear-gradient(90deg, var(--blue), var(--amber)); }
     .door.labs::before     { background: linear-gradient(90deg, var(--cyan), var(--magenta)); }
+    .door.neighbors::before { background: linear-gradient(90deg, var(--amber), var(--green)); }
     .door::after {
       content: '→';
       position: absolute; top: 1.5rem; right: 1.75rem;
@@ -196,10 +197,12 @@
     }
     .door.maritime:hover { border-color: rgba(0, 119, 255, 0.45); box-shadow: 0 12px 40px rgba(0, 119, 255, 0.18); }
     .door.labs:hover     { border-color: rgba(0, 200, 240, 0.5);  box-shadow: 0 12px 40px rgba(0, 200, 240, 0.22); }
+    .door.neighbors:hover { border-color: rgba(255, 170, 0, 0.45); box-shadow: 0 12px 40px rgba(255, 170, 0, 0.18); }
     .door:hover::after   { transform: translateX(6px); }
     .door:hover::before  { opacity: 1; height: 4px; }
     .door.maritime:hover::after { color: var(--blue); }
     .door.labs:hover::after     { color: var(--cyan); }
+    .door.neighbors:hover::after { color: var(--amber); }
 
     .door-icon { width: 52px; height: 52px; margin-bottom: 1.25rem; }
     .door-label {
@@ -210,6 +213,7 @@
     }
     .door.maritime .door-label { color: var(--amber); }
     .door.labs .door-label     { color: var(--magenta); }
+    .door.neighbors .door-label { color: var(--green); }
 
     .door-title {
       font-size: clamp(1.3rem, 2.5vw, 1.8rem);
@@ -224,6 +228,10 @@
       background: linear-gradient(135deg, #fff, var(--cyan));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
+    .door.neighbors .door-title {
+      background: linear-gradient(135deg, #fff, var(--amber));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
     .door-sub { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.55; }
     .door-features {
       list-style: none; padding: 0;
@@ -234,9 +242,12 @@
     .door-features li { padding: 0.2rem 0; display: flex; align-items: center; gap: 0.55rem; }
     .door.maritime .door-features li::before { content: '◆'; color: var(--amber); }
     .door.labs .door-features li::before     { content: '▸'; color: var(--green); }
+    .door.neighbors .door-features li::before { content: '●'; color: var(--amber); }
 
+    @media (max-width: 1120px) {
+      .doors { grid-template-columns: 1fr; max-width: 760px; }
+    }
     @media (max-width: 780px) {
-      .doors { grid-template-columns: 1fr; }
       .door { padding: 2rem 1.5rem; }
       .logo-mark { width: 140px; height: 100px; }
     }
@@ -366,7 +377,7 @@
       <circle cx="126" cy="50" r="1.6" fill="#66e5ff" opacity="0.85"/>
     </svg>
 
-    <div class="hero-label">Houston Ship Channel <span class="accent">·</span> Mont Belvieu, TX</div>
+    <div class="hero-label">Houston Ship Channel <span class="accent">·</span> Mont Belvieu / Baytown / Barbers Hill</div>
     <h1>Nauti-Labs</h1>
     <p class="tagline">
       Maritime systems built for speed. Agent tooling built for humans.<br>
@@ -374,8 +385,8 @@
     </p>
     <div class="trust-strip" aria-label="Nauti-Labs trust highlights">
       <div class="trust-chip"><strong>Live now:</strong> <a href="https://ops.nauti-labs.com" target="_blank" rel="noopener">Nauti-Ops</a> and <a href="https://clearance-production-5081.up.railway.app/" target="_blank" rel="noopener">Clearance</a></div>
-      <div class="trust-chip"><strong>Primary offers:</strong> maritime ops consulting, workflow systems, approval-gated AI tooling</div>
-      <div class="trust-chip"><strong>Location:</strong> Mont Belvieu, TX · Houston Ship Channel</div>
+      <div class="trust-chip"><strong>Primary offers:</strong> maritime ops consulting, workflow systems, applied AI, and local digital help</div>
+      <div class="trust-chip"><strong>Local area:</strong> Mont Belvieu · Baytown · Barbers Hill</div>
     </div>
 
     <div class="doors">
@@ -429,12 +440,33 @@
         </ul>
       </a>
 
+      <a href="/neighbors/" class="door neighbors">
+        <svg class="door-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="18" width="28" height="18" rx="2" stroke="#ffaa00" stroke-width="2"/>
+          <path d="M12 18L22 10L32 18" stroke="#ffaa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M17 36V25H27V36" stroke="#00ff9c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="34" cy="12" r="4" stroke="#00ff9c" stroke-width="1.8"/>
+          <path d="M34 10V14M32 12H36" stroke="#00ff9c" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <div class="door-label">For Neighbors</div>
+        <div class="door-title">Local AI Help.<br>Plain English.</div>
+        <div class="door-sub">
+          Practical device, account, website, and AI setup help for residents and owner-operated businesses in Mont Belvieu, Baytown, and the Barbers Hill area.
+        </div>
+        <ul class="door-features">
+          <li>Anchor and Ollama setup on your own machine</li>
+          <li>Security hardening for devices, Wi-Fi, and accounts</li>
+          <li>Google Business, website, email, and domain cleanup</li>
+          <li>Local only · residents and owners only</li>
+        </ul>
+      </a>
+
     </div>
 
   </section>
 
   <footer>
-    <span class="accent">NAUTI-LABS LLC</span> · Mont Belvieu, TX · <span class="amber">Est. 2026</span> · <a href="mailto:consulting@nauti-labs.com">consulting@nauti-labs.com</a>
+    <span class="accent">NAUTI-LABS LLC</span> · Mont Belvieu / Baytown, TX · <span class="amber">Est. 2026</span> · <a href="mailto:consulting@nauti-labs.com">consulting@nauti-labs.com</a>
   </footer>
 
 </body>

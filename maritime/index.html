@@ -331,7 +331,26 @@
       transition: background 0.2s;
     }
     .service-card:hover { background: #161f2b; }
-    .service-icon { font-size: 1.5rem; flex-shrink: 0; line-height: 1; }
+    .service-icon,
+    .starter-box .starter-icon {
+      width: 2.9rem;
+      height: 2.9rem;
+      border-radius: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--blue);
+      background: rgba(0, 119, 255, 0.08);
+      border: 1px solid rgba(0, 119, 255, 0.12);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    }
+    .service-icon svg,
+    .starter-box .starter-icon svg {
+      width: 1.35rem;
+      height: 1.35rem;
+      display: block;
+    }
     .service-card h3 {
       font-size: 0.98rem; font-weight: 600;
       margin-bottom: 0.3rem; color: var(--text);
@@ -376,14 +395,25 @@
       text-align: left;
       display: flex; gap: 1.5rem; align-items: center;
     }
-    .starter-box .starter-icon {
-      font-size: 2rem; flex-shrink: 0;
-    }
     .starter-box h3 {
       color: var(--amber); font-size: 1.1rem;
       margin-bottom: 0.35rem; letter-spacing: 0.02em;
     }
     .starter-box p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.85rem; }
+    .case-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1.5rem;
+    }
+    .case-note {
+      margin-top: 1rem;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      max-width: 36rem;
+      line-height: 1.7;
+    }
+    .case-note strong { color: var(--text); }
 
     /* ── ABOUT ── */
     #about { background: var(--bg); }
@@ -459,6 +489,40 @@
   </style>
 </head>
 <body>
+
+  <svg aria-hidden="true" style="position:absolute; width:0; height:0; overflow:hidden">
+    <symbol id="icon-vessel" viewBox="0 0 24 24">
+      <path d="M4 15.5h16l-1.8 3H5.8L4 15.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M8 15.5V9.5h5.5l2 2v4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M13.5 9.5v3M6 20c1 .5 2 .5 3 0s2-.5 3 0 2 .5 3 0 2-.5 3 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-checklist" viewBox="0 0 24 24">
+      <rect x="6" y="4" width="12" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M9 4.5h6M9 10l1.3 1.3L13 8.8M14.5 10H9M14.5 14H9M14.5 18H9" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-barrel" viewBox="0 0 24 24">
+      <path d="M7 5.5c0 1 2.2 1.8 5 1.8s5-.8 5-1.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M7 5.5v13c0 1 2.2 1.8 5 1.8s5-.8 5-1.8v-13" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M7 12c0 1 2.2 1.8 5 1.8s5-.8 5-1.8M7.8 8.6h8.4M7.8 15.4h8.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-document" viewBox="0 0 24 24">
+      <path d="M8 4.5h6l4 4v11H8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M14 4.5v4h4M10 12h6M10 15h6M10 18h4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-chart" viewBox="0 0 24 24">
+      <path d="M5 19.5h14M8 17v-4M12 17V9M16 17V6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-anchor" viewBox="0 0 24 24">
+      <path d="M12 4.5a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6ZM12 8.2v8.1M8.5 12.4H15.5M6.3 14.2A5.9 5.9 0 0 0 12 19a5.9 5.9 0 0 0 5.7-4.8M6.3 14.2H4.8M17.7 14.2h1.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-ledger" viewBox="0 0 24 24">
+      <path d="M7 4.5h10v15H7z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M10 9h4M10 12.5h4M10 16h2.5M8.5 4.5v15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-houston" viewBox="0 0 24 24">
+      <path d="M4.5 18.5h15M6.5 18.5v-5.5h4v5.5M13.5 18.5V6h2.8v12.5M17.5 18.5v-8h2v8M14.9 9.2h1.4M18.4 12.4h1.1" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
 
   <!-- NAV -->
   <nav>
@@ -575,7 +639,13 @@
             <span class="case-badge">7-Day Build</span>
             <span class="case-badge">Agency Brandable</span>
           </div>
-          <a href="https://ops.nauti-labs.com" class="btn btn-solid" target="_blank" rel="noopener">Open Nauti-Ops Demo →</a>
+          <div class="case-actions">
+            <a href="https://ops.nauti-labs.com" class="btn btn-solid" target="_blank" rel="noopener">Open Nauti-Ops Demo →</a>
+            <a href="https://ops.nauti-labs.com/vision/" class="btn btn-amber" target="_blank" rel="noopener">Open Nauti-Vision →</a>
+          </div>
+          <p class="case-note">
+            <strong>Nauti-Vision</strong> extends the operating picture with live vessel traffic, weather context, and channel intelligence so the suite reads as one coordinated desk, not separate tools.
+          </p>
         </div>
         <div class="case-visual">
           <div class="case-visual-header">
@@ -633,56 +703,56 @@
       <div class="section-divider"></div>
       <div class="services-grid">
         <div class="service-card">
-          <div class="service-icon">⚓</div>
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-anchor"/></svg></div>
           <div>
             <h3>Custom Agency Systems</h3>
             <p>Nauti-Ops deployments — agency management software customized and branded for your team, deployed to your cloud.</p>
           </div>
         </div>
         <div class="service-card">
-          <div class="service-icon">📋</div>
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-checklist"/></svg></div>
           <div>
             <h3>Pre-Arrival / Port Call Workflow</h3>
             <p>Standardized workflows that keep vessel arrivals organized, compliant, and on schedule.</p>
           </div>
         </div>
         <div class="service-card">
-          <div class="service-icon">🗂️</div>
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-document"/></svg></div>
           <div>
             <h3>Document Package &amp; File Structure</h3>
             <p>Clean, audit-ready document standards so your team can find anything in seconds.</p>
           </div>
         </div>
         <div class="service-card">
-          <div class="service-icon">🚢</div>
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-vessel"/></svg></div>
           <div>
             <h3>Chemical Tanker Agent Coaching</h3>
             <p>Hands-on guidance for agency staff navigating chemical tanker operations from first contact to final port log.</p>
           </div>
         </div>
         <div class="service-card">
-          <div class="service-icon">✅</div>
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-checklist"/></svg></div>
           <div>
             <h3>SOPs, Checklists &amp; Ops Playbooks</h3>
             <p>Written procedures your team can actually follow — not binders that collect dust.</p>
           </div>
         </div>
         <div class="service-card">
-          <div class="service-icon">⏱️</div>
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-chart"/></svg></div>
           <div>
             <h3>Terminal Efficiency Review</h3>
             <p>Review your current operations and identify where time and money are being lost at the terminal.</p>
           </div>
         </div>
         <div class="service-card">
-          <div class="service-icon">🔗</div>
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-houston"/></svg></div>
           <div>
             <h3>CRM / Workflow Design</h3>
             <p>Custom-built systems that match how your team actually works — not generic software demos.</p>
           </div>
         </div>
         <div class="service-card">
-          <div class="service-icon">📨</div>
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-ledger"/></svg></div>
           <div>
             <h3>Owner / Charterer Updates</h3>
             <p>Professional communication templates that protect relationships and reduce back-and-forth.</p>
@@ -707,7 +777,7 @@
         </div>
       </div>
       <div class="starter-box">
-        <div class="starter-icon">⚓</div>
+        <div class="starter-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-anchor"/></svg></div>
         <div style="flex:1;">
           <h3>$1,250 Starter Engagement</h3>
           <p>Ten paid hours up front. Best for a workflow audit, written recommendations, and a same-day kickoff.</p>
@@ -769,8 +839,11 @@
 
   <!-- CROSS-DOOR -->
   <section id="cross-door">
-    <p>Looking for AI products, Clearance API, or Triton?</p>
-    <a href="/labs/" class="btn">For Builders &amp; AI →</a>
+    <p>Looking for AI products, Clearance API, Triton, or local digital help?</p>
+    <div class="case-actions">
+      <a href="/labs/" class="btn">For Builders &amp; AI →</a>
+      <a href="/neighbors/" class="btn btn-amber">For Neighbors →</a>
+    </div>
   </section>
 
   <!-- FOOTER -->

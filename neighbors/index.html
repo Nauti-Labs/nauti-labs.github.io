@@ -1,0 +1,490 @@
+<!-- Copyright (c) 2026 Nauti-Labs LLC. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nauti-Labs Neighbors | Local AI, Security &amp; Digital Cleanup</title>
+  <meta name="description" content="Local AI setup, security hardening, and digital cleanup for residents and owner-operated businesses in Mont Belvieu, Baytown, and the Barbers Hill area." />
+  <link rel="canonical" href="https://nauti-labs.com/neighbors/" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:site_name" content="Nauti-Labs" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nauti-Labs Neighbors | Local AI, Security &amp; Digital Cleanup" />
+  <meta property="og:description" content="Practical local tech help for Mont Belvieu, Baytown, and the Barbers Hill area." />
+  <meta property="og:url" content="https://nauti-labs.com/neighbors/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Nauti-Labs Neighbors | Local AI, Security &amp; Digital Cleanup" />
+  <meta name="twitter:description" content="Practical local tech help for Mont Belvieu, Baytown, and the Barbers Hill area." />
+  <meta name="theme-color" content="#ffaa00" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:        #0077ff;
+      --amber:       #ffaa00;
+      --amber-dim:   rgba(255, 170, 0, 0.08);
+      --amber-glow:  rgba(255, 170, 0, 0.18);
+      --green:       #00d97e;
+      --bg:          #06090f;
+      --bg2:         #0b1018;
+      --bg3:         #101722;
+      --glass:       rgba(255, 170, 0, 0.04);
+      --border:      rgba(255, 170, 0, 0.16);
+      --text:        #e0f0ff;
+      --text-muted:  rgba(200, 225, 255, 0.48);
+      --font:        'Inter', system-ui, sans-serif;
+      --mono:        'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      background-image:
+        radial-gradient(ellipse at 20% 10%, rgba(255,170,0,0.08) 0%, transparent 55%),
+        radial-gradient(ellipse at 82% 88%, rgba(0,119,255,0.05) 0%, transparent 55%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(6, 9, 15, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-back {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--amber); }
+    .nav-brand {
+      color: var(--text);
+      text-decoration: none;
+      font-family: var(--mono);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      font-size: 0.92rem;
+    }
+    .nav-brand .accent { color: var(--amber); }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-family: var(--mono);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--amber); }
+
+    #hero {
+      min-height: 100vh;
+      padding: 8rem 2rem 4rem;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .hero-grid {
+      position: absolute; inset: 0; opacity: 0.04; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,170,0,0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,170,0,0.5) 1px, transparent 1px);
+      background-size: 72px 72px;
+    }
+    .hero-content { position: relative; max-width: 920px; text-align: center; }
+    .eyebrow {
+      display: inline-block;
+      font-family: var(--mono);
+      color: var(--amber);
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      background: var(--amber-dim);
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 5.2rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.02;
+      margin-bottom: 1.2rem;
+    }
+    h1 .accent {
+      background: linear-gradient(135deg, #fff 0%, var(--amber) 70%, var(--green) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2.2vw, 1.22rem);
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 2rem;
+    }
+    .hero-sub strong { color: var(--text); }
+    .hero-chips {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 0.7rem;
+      margin-bottom: 2rem;
+    }
+    .hero-chip {
+      padding: 0.55rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.02);
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+    }
+    .hero-chip strong { color: var(--text); }
+    .hero-cta { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 0.95rem 2rem;
+      border: 1px solid var(--amber);
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: var(--mono);
+      color: var(--amber);
+      transition: all 0.2s;
+    }
+    .btn:hover { background: var(--amber); color: var(--bg); box-shadow: 0 0 24px var(--amber-glow); }
+    .btn-solid { background: var(--amber); color: var(--bg); }
+    .btn-solid:hover { background: #ffbb33; }
+
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1120px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      font-family: var(--mono);
+      margin-bottom: 0.8rem;
+    }
+    h2 {
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .section-lead {
+      max-width: 760px;
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .service {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .service h3 {
+      font-size: 1rem;
+      margin-bottom: 0.55rem;
+      color: var(--text);
+    }
+    .service p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 0.9rem;
+    }
+    .service ul {
+      list-style: none;
+      font-family: var(--mono);
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+    .service li {
+      padding: 0.18rem 0;
+      display: flex;
+      gap: 0.5rem;
+    }
+    .service li::before {
+      content: '●';
+      color: var(--amber);
+      flex-shrink: 0;
+    }
+
+    .scope-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1rem;
+    }
+    .scope-card {
+      background: linear-gradient(180deg, var(--glass), transparent);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.6rem;
+    }
+    .scope-card h3 {
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-family: var(--mono);
+      color: var(--amber);
+      margin-bottom: 0.9rem;
+    }
+    .scope-card p {
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+    }
+    .scope-list {
+      list-style: none;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+    .scope-list li {
+      padding: 0.3rem 0;
+      display: flex;
+      gap: 0.6rem;
+    }
+    .scope-list li::before {
+      content: '—';
+      color: var(--green);
+      flex-shrink: 0;
+    }
+
+    .pricing-box {
+      max-width: 780px;
+      margin: 0 auto;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      text-align: center;
+    }
+    .pricing-box h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+    }
+    .pricing-box p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .payment-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin: 1.2rem 0;
+    }
+    .payment-pill {
+      padding: 0.45rem 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.02);
+    }
+    .pricing-note {
+      font-family: var(--mono);
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    #cross-door {
+      text-align: center;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+    #cross-door p {
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+      font-size: 0.95rem;
+    }
+    .cross-actions {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 0.9rem;
+    }
+
+    footer {
+      padding: 1.8rem 2rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-family: var(--mono);
+    }
+    footer .accent { color: var(--amber); }
+    footer a { color: var(--text-muted); text-decoration: none; }
+    footer a:hover { color: var(--amber); }
+
+    @media (max-width: 900px) {
+      .services, .scope-grid { grid-template-columns: 1fr; }
+      nav { padding: 0.9rem 1rem; }
+      .nav-links { display: none; }
+      #hero { padding: 7rem 1.2rem 3.5rem; }
+      section { padding: 4rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-back">← nauti-labs.com</a>
+    <a href="#hero" class="nav-brand">NAUTI-LABS <span class="accent">/ NEIGHBORS</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#scope">Scope</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="eyebrow">Mont Belvieu · Baytown · Barbers Hill Area</div>
+      <h1>Local tech help.<br><span class="accent">No fake IT jargon.</span></h1>
+      <p class="hero-sub">
+        This is for <strong>residents</strong> and <strong>owner-operated businesses</strong> who want practical help with AI setup,
+        account security, device hardening, websites, email, and digital cleanup without hiring a giant MSP or sitting through a sales script.
+      </p>
+      <div class="hero-chips">
+        <div class="hero-chip"><strong>Local only:</strong> Mont Belvieu, Baytown, and the Barbers Hill area</div>
+        <div class="hero-chip"><strong>Good fit:</strong> families, trades, and owner-operators</div>
+        <div class="hero-chip"><strong>Not offered:</strong> enterprise IT outsourcing</div>
+      </div>
+      <div class="hero-cta">
+        <a href="mailto:consulting@nauti-labs.com?subject=Neighbors%20Tech%20Help&amp;body=Name%3A%0AArea%20(Mont%20Belvieu%20%2F%20Baytown%20%2F%20Barbers%20Hill)%3A%0AResident%20or%20business%20owner%3A%0AWhat%20you%20need%20help%20with%3A%0AHow%20urgent%20is%20it%3A%0A" class="btn btn-solid">Request Local Help</a>
+        <a href="#services" class="btn">See Services</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <p class="section-label">Services</p>
+      <h2>What this local offer actually covers.</h2>
+      <p class="section-lead">
+        Tight scope on purpose. This is practical help you can actually use, not a vague promise to “handle all your tech.”
+      </p>
+      <div class="services">
+        <div class="service">
+          <h3>AI Setup and Plain-English Training</h3>
+          <p>Get a real working setup for ChatGPT-style tools, prompts that fit your daily work, and a clear explanation of what AI should and should not touch.</p>
+          <ul>
+            <li>Daily-use prompt setup for real tasks</li>
+            <li>Family or owner training in plain language</li>
+            <li>Guardrails for privacy and common mistakes</li>
+          </ul>
+        </div>
+        <div class="service">
+          <h3>Anchor and Ollama on Your Own Machine</h3>
+          <p>If you want a local LLM setup, I can install and configure it on hardware you already own and make it usable without a developer standing nearby.</p>
+          <ul>
+            <li>Ollama install and basic model setup</li>
+            <li>Anchor-style local workflow guidance</li>
+            <li>Simple handoff notes so it stays usable</li>
+          </ul>
+        </div>
+        <div class="service">
+          <h3>Security and Hardening</h3>
+          <p>Accounts, passwords, 2FA, Wi-Fi, laptop basics, and digital hygiene for people who know they need to tighten things up but do not want drama.</p>
+          <ul>
+            <li>Password and account cleanup</li>
+            <li>Wi-Fi and device security review</li>
+            <li>Practical hardening, not fear marketing</li>
+          </ul>
+        </div>
+        <div class="service">
+          <h3>Small Business Digital Cleanup</h3>
+          <p>For lawn care, pool service, trades, shops, and one-owner outfits that need their online footprint to stop looking half-finished.</p>
+          <ul>
+            <li>Google Business and review presence cleanup</li>
+            <li>Website, email, and domain sanity check</li>
+            <li>Contact forms, inbox flow, and basic lead hygiene</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="scope">
+    <div class="container">
+      <p class="section-label">Scope</p>
+      <h2>Who this is for and who it is not for.</h2>
+      <div class="scope-grid">
+        <div class="scope-card">
+          <h3>Good Fit</h3>
+          <ul class="scope-list">
+            <li>Residents who want help setting up AI or cleaning up digital life</li>
+            <li>Business owners who want their website, email, and Google presence tightened up</li>
+            <li>Owner-operators who need a practical local tech hand, not a managed service contract</li>
+            <li>People in Mont Belvieu, Baytown, or the Barbers Hill orbit who want someone nearby</li>
+          </ul>
+        </div>
+        <div class="scope-card">
+          <h3>Not This Offer</h3>
+          <ul class="scope-list">
+            <li>Full managed IT for larger companies</li>
+            <li>Enterprise compliance or formal security audits</li>
+            <li>Employee-level side work without owner involvement</li>
+            <li>Broad remote support outside the local area</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="pricing-box">
+        <h3>Simple local billing for now.</h3>
+        <p>
+          No Stripe account yet, so this starts clean and manual. One-time work is easy. Monthly support can be arranged by agreement once the fit is clear.
+        </p>
+        <div class="payment-row">
+          <span class="payment-pill">Coinbase USDC</span>
+          <span class="payment-pill">Cash App</span>
+          <span class="payment-pill">Apple Cash</span>
+          <span class="payment-pill">Invoice by agreement</span>
+        </div>
+        <p class="pricing-note">
+          Start by email with what you need, where you are, and whether you are a resident or the owner of the business.
+        </p>
+        <div class="hero-cta" style="margin-top:1.4rem;">
+          <a href="mailto:consulting@nauti-labs.com?subject=Neighbors%20Tech%20Help&amp;body=Name%3A%0AArea%20(Mont%20Belvieu%20%2F%20Baytown%20%2F%20Barbers%20Hill)%3A%0AResident%20or%20business%20owner%3A%0AWhat%20you%20need%20help%20with%3A%0AHow%20urgent%20is%20it%3A%0A" class="btn btn-solid">Email Nauti-Labs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cross-door">
+    <div class="container">
+      <p>Need chemical tanker systems or approval-gated AI tooling instead?</p>
+      <div class="cross-actions">
+        <a href="/maritime/" class="btn">For Maritime Operations →</a>
+        <a href="/labs/" class="btn">For Builders &amp; AI →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="accent">NAUTI-LABS LLC</span> · Mont Belvieu / Baytown, TX · Local help for neighbors and owner-operators · <a href="mailto:consulting@nauti-labs.com">consulting@nauti-labs.com</a>
+  </footer>
+
+</body>
+</html>

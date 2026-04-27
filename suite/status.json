@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-27T04:25:52.845185Z",
-  "summary": "8/8 services online",
+  "generated_at": "2026-04-27T04:30:53.023119Z",
+  "summary": "7/7 services online",
   "watchdog": {
     "online": true,
     "awake_guard": true
@@ -69,14 +69,6 @@
       "label": "Clearance",
       "role": "Approval gate",
       "port": 8700,
-      "online": true,
-      "private": true
-    },
-    {
-      "id": "factory",
-      "label": "Factory",
-      "role": "Build room",
-      "port": 3000,
       "online": true,
       "private": true
     }

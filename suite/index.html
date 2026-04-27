@@ -1,0 +1,206 @@
+<!-- Copyright (c) 2026 Nauti-Labs LLC. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nauti-Labs Suite Status</title>
+  <meta name="description" content="Public Nauti-Labs suite status: Triton, Castle, Nauti-Ops, Turbo, Navisales, Felipe, Clearance, Factory, Ollama, and always-on watchdog state." />
+  <link rel="canonical" href="https://nauti-labs.com/suite/" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#c9a84c" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #c9a84c;
+      --gold-hi: #f3d66b;
+      --purple: #a855f7;
+      --green: #34d399;
+      --cyan: #06b6d4;
+      --rose: #f472b6;
+      --red: #ef4444;
+      --blue: #3b82f6;
+      --bg: #050508;
+      --panel: rgba(12, 12, 18, 0.78);
+      --border: rgba(201, 168, 76, 0.18);
+      --text: rgba(255, 255, 255, 0.9);
+      --muted: rgba(255, 255, 255, 0.52);
+      --mono: "SF Mono", "Menlo", "Consolas", monospace;
+      --sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 18%, rgba(201,168,76,0.12) 0 1px, transparent 2px),
+        radial-gradient(circle at 70% 12%, rgba(255,255,255,0.12) 0 1px, transparent 2px),
+        radial-gradient(circle at 86% 74%, rgba(6,182,212,0.12) 0 1px, transparent 2px),
+        radial-gradient(1000px 640px at 20% 0%, rgba(201,168,76,0.12), transparent 58%),
+        radial-gradient(900px 620px at 94% 18%, rgba(168,85,247,0.10), transparent 54%),
+        linear-gradient(180deg, #07070b 0%, #000 100%);
+    }
+
+    .wrap { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 38px 0 42px; }
+    header { display: flex; align-items: flex-end; justify-content: space-between; gap: 22px; margin-bottom: 28px; }
+    .eyebrow { font-family: var(--mono); color: var(--gold); font-size: 0.76rem; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 10px; }
+    h1 { font-size: clamp(2.5rem, 7vw, 5.4rem); line-height: 0.92; letter-spacing: 0; color: #fff; }
+    .sub { color: var(--muted); max-width: 660px; margin-top: 14px; line-height: 1.55; }
+    .top-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+    a.button {
+      color: var(--gold-hi); text-decoration: none; font-family: var(--mono); font-size: 0.78rem;
+      border: 1px solid var(--border); background: rgba(201,168,76,0.06);
+      padding: 10px 12px; border-radius: 7px;
+    }
+
+    .summary {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 22px;
+    }
+    .stat, .card {
+      background: var(--panel); border: 1px solid var(--border); border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.03);
+      backdrop-filter: blur(14px);
+    }
+    .stat { padding: 18px; min-height: 110px; }
+    .stat-label { color: var(--muted); font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; }
+    .stat-value { margin-top: 12px; font-size: 1.65rem; font-weight: 800; color: var(--gold-hi); }
+    .stat-note { color: var(--muted); font-size: 0.82rem; margin-top: 4px; }
+
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .card { padding: 16px; min-height: 132px; position: relative; overflow: hidden; }
+    .card::before { content: ""; position: absolute; inset: 0 0 auto; height: 2px; background: var(--accent, var(--gold)); opacity: 0.8; }
+    .card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+    .name { font-weight: 800; letter-spacing: 0.02em; }
+    .role { color: var(--muted); font-size: 0.82rem; line-height: 1.35; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.25); box-shadow: 0 0 12px rgba(255,255,255,0.12); flex: 0 0 auto; }
+    .online .dot { background: var(--green); box-shadow: 0 0 16px rgba(52,211,153,0.6); }
+    .offline .dot { background: var(--red); box-shadow: 0 0 16px rgba(239,68,68,0.5); }
+    .meta { margin-top: 14px; color: var(--muted); font-family: var(--mono); font-size: 0.72rem; }
+    .status { color: var(--green); font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    .offline .status { color: var(--red); }
+
+    .panel-row { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 12px; margin-top: 12px; }
+    .wide { padding: 18px; }
+    .wide h2 { font-size: 1rem; margin-bottom: 10px; color: var(--gold-hi); }
+    .wide p, .wide li { color: var(--muted); line-height: 1.55; }
+    .wide ul { list-style: none; display: grid; gap: 8px; }
+    .wide li::before { content: "• "; color: var(--gold); }
+    code { font-family: var(--mono); color: rgba(255,255,255,0.78); }
+    footer { color: var(--muted); font-family: var(--mono); font-size: 0.72rem; margin-top: 22px; }
+
+    @media (max-width: 900px) {
+      header { display: block; }
+      .top-actions { justify-content: flex-start; margin-top: 20px; }
+      .summary, .grid, .panel-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div>
+        <div class="eyebrow">Nauti-Labs Live Suite</div>
+        <h1>Suite Status</h1>
+        <p class="sub">Public heartbeat for the Nauti-Labs agent suite. The Mac mini checks the private fleet continuously and publishes a safe status snapshot here.</p>
+      </div>
+      <div class="top-actions">
+        <a class="button" href="/">Nauti-Labs</a>
+        <a class="button" href="/labs/">Labs</a>
+        <a class="button" href="/suite/status.json">JSON</a>
+      </div>
+    </header>
+
+    <section class="summary" aria-label="Status summary">
+      <div class="stat"><div class="stat-label">Fleet</div><div class="stat-value" id="fleetValue">Checking</div><div class="stat-note" id="fleetNote">Loading status.json</div></div>
+      <div class="stat"><div class="stat-label">Watchdog</div><div class="stat-value" id="watchdogValue">--</div><div class="stat-note">Mac mini self-check layer</div></div>
+      <div class="stat"><div class="stat-label">Model Layer</div><div class="stat-value" id="modelValue">--</div><div class="stat-note">Ollama local models</div></div>
+      <div class="stat"><div class="stat-label">Updated</div><div class="stat-value" id="updatedValue">--</div><div class="stat-note" id="updatedNote">Awaiting first publish</div></div>
+    </section>
+
+    <section class="grid" id="serviceGrid" aria-label="Services"></section>
+
+    <section class="panel-row">
+      <div class="card wide">
+        <h2>What This Page Is</h2>
+        <p>This is the public operational surface for Nauti-Labs. It reports service health, watchdog state, and local model readiness without exposing private dashboards or control endpoints to the open internet.</p>
+      </div>
+      <div class="card wide">
+        <h2>Operator Access</h2>
+        <ul>
+          <li>Private dashboards stay behind Mac mini auth/Tailscale.</li>
+          <li>Triton remains the command hub.</li>
+          <li>Clearance remains approval-gated.</li>
+          <li>Castle/Blacksmith uses local Ollama.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>NAUTI-LABS LLC · status generated by Project Anchor · <span id="footerTime">waiting for first heartbeat</span></footer>
+  </main>
+
+  <script>
+    const accents = {
+      triton: '#c9a84c',
+      nauti_ops: '#3b82f6',
+      turbo: '#94a3b8',
+      castle: '#a855f7',
+      navisales: '#f472b6',
+      felipe: '#ef4444',
+      clearance: '#34d399',
+      factory: '#06b6d4'
+    };
+
+    function ago(iso) {
+      if (!iso) return '--';
+      const ms = Date.now() - new Date(iso).getTime();
+      if (!Number.isFinite(ms)) return '--';
+      const mins = Math.max(0, Math.round(ms / 60000));
+      if (mins < 1) return 'just now';
+      if (mins === 1) return '1 min ago';
+      if (mins < 60) return mins + ' min ago';
+      const hrs = Math.round(mins / 60);
+      return hrs + ' hr ago';
+    }
+
+    function serviceCard(service) {
+      const state = service.online ? 'online' : 'offline';
+      const accent = accents[service.id] || '#c9a84c';
+      return `<article class="card ${state}" style="--accent:${accent}">
+        <div class="card-head">
+          <div>
+            <div class="name">${service.label}</div>
+            <div class="role">${service.role || service.id}</div>
+          </div>
+          <span class="dot"></span>
+        </div>
+        <div class="status">${state}</div>
+        <div class="meta">port ${service.port || '--'} · ${service.private ? 'private operator route' : 'public route'}</div>
+      </article>`;
+    }
+
+    async function boot() {
+      try {
+        const res = await fetch('/suite/status.json?ts=' + Date.now(), { cache: 'no-store' });
+        if (!res.ok) throw new Error('status unavailable');
+        const data = await res.json();
+        const services = data.services || [];
+        const online = services.filter(s => s.online).length;
+        document.getElementById('fleetValue').textContent = `${online}/${services.length}`;
+        document.getElementById('fleetNote').textContent = data.summary || 'Fleet status loaded';
+        document.getElementById('watchdogValue').textContent = data.watchdog?.online ? 'Online' : 'Check';
+        document.getElementById('modelValue').textContent = data.ollama?.online ? 'Online' : 'Offline';
+        document.getElementById('updatedValue').textContent = ago(data.generated_at);
+        document.getElementById('updatedNote').textContent = data.generated_at || '';
+        document.getElementById('footerTime').textContent = 'last heartbeat ' + (data.generated_at || 'unknown');
+        document.getElementById('serviceGrid').innerHTML = services.map(serviceCard).join('');
+      } catch (err) {
+        document.getElementById('fleetValue').textContent = 'Pending';
+        document.getElementById('fleetNote').textContent = 'Waiting for Mac mini publisher';
+        document.getElementById('serviceGrid').innerHTML = '';
+      }
+    }
+    boot();
+  </script>
+</body>
+</html>

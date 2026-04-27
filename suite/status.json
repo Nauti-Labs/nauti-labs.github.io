@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-04-27T04:00:00Z",
+  "summary": "Awaiting first Mac mini heartbeat.",
+  "watchdog": {
+    "online": false
+  },
+  "ollama": {
+    "online": false,
+    "models": []
+  },
+  "services": [
+    { "id": "triton", "label": "Triton", "role": "Command hub", "port": 8600, "online": false, "private": true },
+    { "id": "nauti_ops", "label": "Nauti-Ops", "role": "Maritime operations", "port": 8200, "online": false, "private": true },
+    { "id": "turbo", "label": "Turbo", "role": "Strategic advisor", "port": 8301, "online": false, "private": true },
+    { "id": "castle", "label": "Castle", "role": "Security and Blacksmith", "port": 8080, "online": false, "private": true },
+    { "id": "navisales", "label": "Navi-Sales", "role": "Sales intelligence", "port": 8500, "online": false, "private": true },
+    { "id": "felipe", "label": "Felipe", "role": "Finance and domains", "port": 8100, "online": false, "private": true },
+    { "id": "clearance", "label": "Clearance", "role": "Approval gate", "port": 8700, "online": false, "private": true },
+    { "id": "factory", "label": "Factory", "role": "Build room", "port": 3000, "online": false, "private": true }
+  ]
+}

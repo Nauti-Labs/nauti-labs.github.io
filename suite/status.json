@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-27T04:20:50.840330Z",
-  "summary": "7/8 services online",
+  "generated_at": "2026-04-27T04:25:52.845185Z",
+  "summary": "8/8 services online",
   "watchdog": {
     "online": true,
     "awake_guard": true
@@ -45,7 +45,7 @@
       "label": "Castle",
       "role": "Security and Blacksmith",
       "port": 8080,
-      "online": false,
+      "online": true,
       "private": true
     },
     {

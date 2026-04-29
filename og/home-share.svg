@@ -1,0 +1,62 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#020711"/>
+  <rect width="1200" height="630" fill="url(#bgGlow)"/>
+  <g opacity="0.22">
+    <path d="M0 78H1200M0 158H1200M0 238H1200M0 318H1200M0 398H1200M0 478H1200M0 558H1200" stroke="#123A46"/>
+    <path d="M88 0V630M208 0V630M328 0V630M448 0V630M568 0V630M688 0V630M808 0V630M928 0V630M1048 0V630M1168 0V630" stroke="#123A46"/>
+  </g>
+
+  <g transform="translate(76 70)">
+    <path d="M0 0H1048V490" stroke="#0C4555" stroke-width="2" opacity="0.7"/>
+    <path d="M0 0H300" stroke="#00C8F0" stroke-width="5"/>
+  </g>
+
+  <g transform="translate(82 92)">
+    <circle cx="64" cy="64" r="54" stroke="#00C8F0" stroke-width="9"/>
+    <path d="M42 48C58 34 78 34 94 48C78 62 58 62 42 48Z" fill="#00C8F0" opacity="0.35"/>
+    <path d="M34 72C54 92 78 92 98 72" stroke="#66E5FF" stroke-width="8" stroke-linecap="round"/>
+    <path d="M64 16V34M64 94V112M16 64H34M94 64H112" stroke="#00FF9C" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <text x="222" y="128" fill="#F4FAFF" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="800" letter-spacing="7">NAUTI-LABS</text>
+  <text x="222" y="166" fill="#66E5FF" font-family="Courier New, monospace" font-size="22" font-weight="700" letter-spacing="4">MARITIME OPS · APPLIED AI · DIGITAL TRUST</text>
+
+  <text x="82" y="296" fill="#F5F8FD" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="900">Systems for humans</text>
+  <text x="82" y="370" fill="#00C8F0" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="900">and the agents they trust.</text>
+
+  <g transform="translate(82 444)">
+    <rect width="292" height="88" rx="16" fill="#07131E" stroke="#155A72" stroke-width="2"/>
+    <text x="24" y="34" fill="#FFAA00" font-family="Courier New, monospace" font-size="18" font-weight="700" letter-spacing="3">MARITIME</text>
+    <text x="24" y="64" fill="#F4FAFF" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800">Ops consulting</text>
+  </g>
+
+  <g transform="translate(406 444)">
+    <rect width="292" height="88" rx="16" fill="#07131E" stroke="#155A72" stroke-width="2"/>
+    <text x="24" y="34" fill="#FF4DC4" font-family="Courier New, monospace" font-size="18" font-weight="700" letter-spacing="3">CLEARANCE</text>
+    <text x="24" y="64" fill="#F4FAFF" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800">Approval API</text>
+  </g>
+
+  <g transform="translate(730 444)">
+    <rect width="292" height="88" rx="16" fill="#07131E" stroke="#155A72" stroke-width="2"/>
+    <text x="24" y="34" fill="#00FF9C" font-family="Courier New, monospace" font-size="18" font-weight="700" letter-spacing="3">LOCAL</text>
+    <text x="24" y="64" fill="#F4FAFF" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800">Digital help</text>
+  </g>
+
+  <g transform="translate(876 104)">
+    <circle cx="120" cy="120" r="104" stroke="#0D4E93" stroke-width="2" opacity="0.45"/>
+    <circle cx="120" cy="120" r="64" stroke="#0D4E93" stroke-width="2" opacity="0.32"/>
+    <circle cx="120" cy="120" r="18" fill="#00C8F0"/>
+    <path d="M120 18V222M18 120H222M48 48L192 192M192 48L48 192" stroke="#0D4E93" stroke-width="2" opacity="0.36"/>
+    <path d="M78 122L112 156L174 86" stroke="#00FF9C" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <text x="82" y="590" fill="#8FB7C4" font-family="Courier New, monospace" font-size="22" font-weight="700">nauti-labs.com</text>
+
+  <defs>
+    <radialGradient id="bgGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(906 144) rotate(144.561) scale(764.197 527.743)">
+      <stop stop-color="#0A3040"/>
+      <stop offset="0.58" stop-color="#020711" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#020711" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

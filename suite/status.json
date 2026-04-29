@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-29T01:00:31.759324Z",
+  "generated_at": "2026-04-29T01:05:33.762473Z",
   "summary": "7/7 services online",
   "watchdog": {
     "online": true,
@@ -9,8 +9,8 @@
     "online": true,
     "models": [
       "daredevil-8b-abliterated:latest",
-      "qwen2.5-coder:7b",
       "nomic-embed-text:latest",
+      "qwen2.5-coder:7b",
       "gemma3:latest",
       "qwen3:14b"
     ]

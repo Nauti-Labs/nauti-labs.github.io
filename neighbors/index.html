@@ -22,7 +22,7 @@
   <meta name="twitter:title" content="Nauti-Labs Neighbors | Local AI, Security &amp; Digital Cleanup" />
   <meta name="twitter:description" content="Practical local tech help for Mont Belvieu, Baytown, and the Barbers Hill area." />
   <meta name="twitter:image" content="https://nauti-labs.com/og/neighbors-share.png" />
-  <meta name="theme-color" content="#ffaa00" />
+  <meta name="theme-color" content="#00c8f0" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -31,19 +31,23 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
+      --cyan:       #00c8f0;
+      --cyan-hi:    #66e5ff;
       --blue:        #0077ff;
       --amber:       #ffaa00;
+      --amber-hi:    #ffd166;
       --amber-dim:   rgba(255, 170, 0, 0.08);
       --amber-glow:  rgba(255, 170, 0, 0.18);
       --green:       #00ff9c;
       --red:         #ff5c5c;
-      --bg:          #06090f;
-      --bg2:         #0b1018;
-      --bg3:         #101722;
-      --glass:       rgba(255, 170, 0, 0.04);
-      --border:      rgba(255, 170, 0, 0.16);
-      --text:        #e0f0ff;
-      --text-muted:  rgba(200, 225, 255, 0.48);
+      --bg:          #01020a;
+      --bg2:         #060a14;
+      --bg3:         #0a1322;
+      --glass:       rgba(255, 255, 255, 0.035);
+      --border:      rgba(255, 255, 255, 0.08);
+      --border-hi:   rgba(0, 200, 240, 0.18);
+      --text:        #e6f0fa;
+      --text-muted:  rgba(200, 220, 240, 0.55);
       --font:        'Inter', system-ui, sans-serif;
       --mono:        'JetBrains Mono', monospace;
     }
@@ -53,8 +57,9 @@
       font-family: var(--font);
       background: var(--bg);
       background-image:
-        radial-gradient(ellipse at 20% 10%, rgba(255,170,0,0.08) 0%, transparent 55%),
-        radial-gradient(ellipse at 82% 88%, rgba(0,119,255,0.05) 0%, transparent 55%);
+        radial-gradient(ellipse 58% 48% at 22% 12%, rgba(0,200,240,0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 52% 46% at 78% 82%, rgba(255,170,0,0.07) 0%, transparent 58%),
+        radial-gradient(ellipse 44% 40% at 50% 58%, rgba(0,255,156,0.035) 0%, transparent 62%);
       color: var(--text);
       min-height: 100vh;
       line-height: 1.6;
@@ -77,24 +82,38 @@
       letter-spacing: 0.08em;
       transition: color 0.2s;
     }
-    .nav-back:hover { color: var(--amber); }
+    .nav-back:hover { color: var(--cyan-hi); }
     .nav-brand {
       display: inline-flex;
       align-items: center;
-      gap: 0.65rem;
+      gap: 0.7rem;
       color: var(--text);
       text-decoration: none;
-      font-family: var(--mono);
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      font-size: 0.92rem;
+      min-width: 0;
     }
-    .nav-brand-icon {
-      width: 1.15rem;
-      height: 1.15rem;
+    .nav-brand svg {
+      width: 44px;
+      height: 44px;
       flex-shrink: 0;
+      filter: drop-shadow(0 0 13px rgba(0, 200, 240, 0.34));
     }
-    .nav-brand .accent { color: var(--amber); }
+    .nav-brand strong {
+      display: block;
+      font-size: 0.95rem;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+    .nav-brand span span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
     .nav-links { display: flex; gap: 1.5rem; list-style: none; }
     .nav-links a {
       color: var(--text-muted);
@@ -107,40 +126,51 @@
 
     #hero {
       min-height: 100vh;
-      padding: 8rem 2rem 4rem;
+      padding: 7.6rem 2rem 4rem;
       display: flex; align-items: center; justify-content: center;
       position: relative;
     }
-    .hero-mark-wrap {
-      display: flex;
+    .hero-lockup {
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
-      margin-bottom: 1.6rem;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+      text-align: left;
     }
     .hero-mark {
-      width: 108px;
-      height: 108px;
-      padding: 1.1rem;
-      border-radius: 28px;
-      border: 1px solid rgba(255, 170, 0, 0.2);
-      background:
-        radial-gradient(circle at 30% 25%, rgba(255, 170, 0, 0.12), transparent 58%),
-        linear-gradient(180deg, rgba(255, 170, 0, 0.06), rgba(0, 217, 126, 0.03)),
-        rgba(255, 255, 255, 0.02);
-      box-shadow:
-        0 18px 50px rgba(0, 0, 0, 0.32),
-        inset 0 1px 0 rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(10px);
+      width: 92px;
+      height: 92px;
+      flex: 0 0 auto;
+      filter: drop-shadow(0 0 18px rgba(0, 200, 240, 0.34));
     }
     .hero-mark svg {
       width: 100%;
       height: 100%;
       display: block;
     }
+    .hero-lockup strong {
+      display: block;
+      color: var(--text);
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1;
+    }
+    .hero-lockup span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
     .hero-grid {
       position: absolute; inset: 0; opacity: 0.04; pointer-events: none;
       background-image:
-        linear-gradient(rgba(255,170,0,0.5) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,170,0,0.5) 1px, transparent 1px);
+        linear-gradient(rgba(0,200,240,0.55) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,200,240,0.55) 1px, transparent 1px);
       background-size: 72px 72px;
     }
     .hero-content { position: relative; max-width: 920px; text-align: center; }
@@ -165,7 +195,7 @@
       margin-bottom: 1.2rem;
     }
     h1 .accent {
-      background: linear-gradient(135deg, #fff 0%, var(--amber) 70%, var(--green) 100%);
+      background: linear-gradient(135deg, #fff 0%, var(--cyan-hi) 34%, var(--amber) 74%, var(--green) 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
     .hero-sub {
@@ -181,7 +211,7 @@
     }
     .hero-chip {
       padding: 0.55rem 0.9rem;
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-hi);
       border-radius: 999px;
       background: rgba(255,255,255,0.02);
       color: var(--text-muted);
@@ -193,20 +223,26 @@
     .btn {
       display: inline-block;
       padding: 0.95rem 2rem;
-      border: 1px solid var(--amber);
-      border-radius: 4px;
+      border: 1px solid rgba(0, 200, 240, 0.46);
+      border-radius: 6px;
       text-decoration: none;
       font-size: 0.82rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-family: var(--mono);
-      color: var(--amber);
+      color: var(--cyan-hi);
+      background: rgba(0, 200, 240, 0.04);
       transition: all 0.2s;
     }
-    .btn:hover { background: var(--amber); color: var(--bg); box-shadow: 0 0 24px var(--amber-glow); }
-    .btn-solid { background: var(--amber); color: var(--bg); }
-    .btn-solid:hover { background: #ffbb33; }
+    .btn:hover { background: rgba(0, 200, 240, 0.10); color: var(--text); box-shadow: 0 0 24px rgba(0, 200, 240, 0.18); }
+    .btn-solid {
+      background: linear-gradient(135deg, var(--amber-hi), var(--amber));
+      border-color: transparent;
+      color: #160c00;
+      box-shadow: 0 16px 42px rgba(255, 170, 0, 0.16);
+    }
+    .btn-solid:hover { background: linear-gradient(135deg, #ffe09a, #ffbb33); color: #160c00; }
 
     section { padding: 5rem 2rem; }
     .container { max-width: 1120px; margin: 0 auto; }
@@ -214,7 +250,7 @@
       font-size: 0.72rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--amber);
+      color: var(--cyan);
       font-family: var(--mono);
       margin-bottom: 0.8rem;
     }
@@ -239,7 +275,7 @@
     .service {
       background: var(--bg2);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 8px;
       padding: 1.5rem;
     }
     .service-head {
@@ -255,9 +291,9 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid rgba(255, 170, 0, 0.16);
+      border: 1px solid var(--border-hi);
       background:
-        linear-gradient(180deg, rgba(255, 170, 0, 0.08), rgba(0, 119, 255, 0.04)),
+        linear-gradient(180deg, rgba(0, 200, 240, 0.08), rgba(255, 170, 0, 0.04)),
         rgba(255, 255, 255, 0.02);
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
       flex-shrink: 0;
@@ -266,7 +302,7 @@
       width: 1.3rem;
       height: 1.3rem;
       display: block;
-      color: var(--amber);
+      color: var(--cyan-hi);
     }
     .service h3 {
       font-size: 1rem;
@@ -302,7 +338,7 @@
     .scope-card {
       background: linear-gradient(180deg, var(--glass), transparent);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 8px;
       padding: 1.6rem;
     }
     .scope-card h3 {
@@ -310,7 +346,7 @@
       text-transform: uppercase;
       letter-spacing: 0.14em;
       font-family: var(--mono);
-      color: var(--amber);
+      color: var(--cyan);
       margin-bottom: 0.9rem;
     }
     .scope-card p {
@@ -343,7 +379,7 @@
       margin: 0 auto;
       background: var(--bg2);
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 8px;
       padding: 2rem;
       text-align: center;
     }
@@ -364,10 +400,10 @@
     }
     .price-card {
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 8px;
       padding: 1.2rem;
       background:
-        linear-gradient(180deg, rgba(255, 170, 0, 0.05), rgba(0, 119, 255, 0.02)),
+        linear-gradient(180deg, rgba(0, 200, 240, 0.05), rgba(255, 170, 0, 0.025)),
         rgba(255,255,255,0.02);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
     }
@@ -424,7 +460,7 @@
     }
     .payment-pill {
       padding: 0.45rem 0.8rem;
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-hi);
       border-radius: 999px;
       font-family: var(--mono);
       font-size: 0.74rem;
@@ -474,19 +510,48 @@
   </style>
 </head>
 <body>
+  <svg width="0" height="0" style="position:absolute; overflow:hidden;" aria-hidden="true" focusable="false">
+    <symbol id="mark-neighbors" viewBox="0 0 140 140">
+      <g transform="translate(70 60)">
+        <ellipse cx="0" cy="38" rx="36" ry="5" stroke="#00c8f0" stroke-width="1.4" fill="none" opacity="0.45"/>
+        <rect x="-24" y="28" width="48" height="10" stroke="#00c8f0" stroke-width="2" fill="rgba(0,200,240,0.05)"/>
+        <line x1="-18" y1="32" x2="-12" y2="32" stroke="#00c8f0" stroke-width="1" opacity="0.5"/>
+        <line x1="-6" y1="34" x2="2" y2="34" stroke="#00c8f0" stroke-width="1" opacity="0.5"/>
+        <line x1="10" y1="32" x2="18" y2="32" stroke="#00c8f0" stroke-width="1" opacity="0.5"/>
+        <path d="M -14 28 L -10 -10 L 10 -10 L 14 28 Z" stroke="#00c8f0" stroke-width="2.6" fill="rgba(0,200,240,0.04)"/>
+        <line x1="-13" y1="14" x2="13" y2="14" stroke="#00c8f0" stroke-width="1.2" opacity="0.55"/>
+        <line x1="-12" y1="0" x2="12" y2="0" stroke="#00c8f0" stroke-width="1.2" opacity="0.55"/>
+        <path d="M -3 28 L -3 18 Q -3 14 0 14 Q 3 14 3 18 L 3 28 Z" stroke="#00c8f0" stroke-width="1.6" fill="rgba(0,200,240,0.08)"/>
+        <circle cx="0" cy="6" r="1.6" fill="#66e5ff"/>
+        <line x1="-15" y1="-10" x2="15" y2="-10" stroke="#00c8f0" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="-12" cy="-12" r="0.8" fill="#66e5ff"/>
+        <circle cx="-6" cy="-12" r="0.8" fill="#66e5ff"/>
+        <circle cx="0" cy="-12" r="0.8" fill="#66e5ff"/>
+        <circle cx="6" cy="-12" r="0.8" fill="#66e5ff"/>
+        <circle cx="12" cy="-12" r="0.8" fill="#66e5ff"/>
+        <rect x="-9" y="-24" width="18" height="14" stroke="#00c8f0" stroke-width="2.2" fill="rgba(0,255,156,0.08)"/>
+        <line x1="0" y1="-24" x2="0" y2="-10" stroke="#00c8f0" stroke-width="1" opacity="0.4"/>
+        <circle cx="0" cy="-17" r="3.6" fill="#00ff9c"/>
+        <circle cx="0" cy="-17" r="6.5" fill="rgba(0,255,156,0.35)"/>
+        <circle cx="0" cy="-17" r="11" fill="rgba(0,255,156,0.12)"/>
+        <line x1="-18" y1="-22" x2="-30" y2="-30" stroke="#00ff9c" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+        <line x1="18" y1="-22" x2="30" y2="-30" stroke="#00ff9c" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+        <path d="M -10 -24 L 0 -34 L 10 -24 Z" stroke="#00c8f0" stroke-width="2" fill="rgba(0,200,240,0.08)" stroke-linejoin="round"/>
+        <line x1="0" y1="-34" x2="0" y2="-40" stroke="#00c8f0" stroke-width="1.4" stroke-linecap="round"/>
+        <circle cx="0" cy="-41" r="1.6" fill="#66e5ff"/>
+      </g>
+      <path d="M 26 122 Q 47 104, 70 122 T 114 122" stroke="#66e5ff" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+    </symbol>
+  </svg>
 
   <nav>
     <a href="/" class="nav-back">← nauti-labs.com</a>
     <a href="#hero" class="nav-brand">
-      <svg class="nav-brand-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M10 19.5L22 10L34 19.5V31.5C34 33.1569 32.6569 34.5 31 34.5H13C11.3431 34.5 10 33.1569 10 31.5V19.5Z" stroke="#ffaa00" stroke-width="2" stroke-linejoin="round"/>
-        <path d="M17 21.5H27C28.1046 21.5 29 22.3954 29 23.5V29.5C29 30.6046 28.1046 31.5 27 31.5H17C15.8954 31.5 15 30.6046 15 29.5V23.5C15 22.3954 15.8954 21.5 17 21.5Z" stroke="#00d97e" stroke-width="1.9"/>
-        <path d="M19 34.5V30.5H25V34.5" stroke="#00d97e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="32.5" cy="13" r="4.5" stroke="#0077ff" stroke-width="1.8"/>
-        <circle cx="32.5" cy="13" r="1.4" fill="#ffaa00"/>
-        <path d="M32.5 8.5V6.5M32.5 19.5V17.5M37 13H39M26 13H28" stroke="#0077ff" stroke-width="1.4" stroke-linecap="round"/>
-      </svg>
-      <span>NAUTI-LABS <span class="accent">/ NEIGHBORS</span></span>
+      <svg viewBox="0 0 140 140" aria-hidden="true"><use href="#mark-neighbors"/></svg>
+      <span>
+        <strong>Neighbors</strong>
+        <span>by Nauti-Labs</span>
+      </span>
     </a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
@@ -498,20 +563,17 @@
   <section id="hero">
     <div class="hero-grid"></div>
     <div class="hero-content">
-      <div class="hero-mark-wrap">
+      <div class="hero-lockup" aria-label="Neighbors by Nauti-Labs">
         <div class="hero-mark" aria-hidden="true">
-          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 19.5L22 10L34 19.5V31.5C34 33.1569 32.6569 34.5 31 34.5H13C11.3431 34.5 10 33.1569 10 31.5V19.5Z" stroke="#ffaa00" stroke-width="2" stroke-linejoin="round"/>
-            <path d="M17 21.5H27C28.1046 21.5 29 22.3954 29 23.5V29.5C29 30.6046 28.1046 31.5 27 31.5H17C15.8954 31.5 15 30.6046 15 29.5V23.5C15 22.3954 15.8954 21.5 17 21.5Z" stroke="#00d97e" stroke-width="1.9"/>
-            <path d="M19 34.5V30.5H25V34.5" stroke="#00d97e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="32.5" cy="13" r="4.5" stroke="#0077ff" stroke-width="1.8"/>
-            <circle cx="32.5" cy="13" r="1.4" fill="#ffaa00"/>
-            <path d="M32.5 8.5V6.5M32.5 19.5V17.5M37 13H39M26 13H28" stroke="#0077ff" stroke-width="1.4" stroke-linecap="round"/>
-          </svg>
+          <svg viewBox="0 0 140 140" aria-hidden="true"><use href="#mark-neighbors"/></svg>
+        </div>
+        <div>
+          <strong>Neighbors</strong>
+          <span>by Nauti-Labs</span>
         </div>
       </div>
       <div class="eyebrow">Mont Belvieu · Baytown · Barbers Hill Area</div>
-      <h1>Local tech help.<br><span class="accent">No fake IT jargon.</span></h1>
+      <h1>Local AI help.<br><span class="accent">Plain English.</span></h1>
       <p class="hero-sub">
         This is for <strong>residents</strong> and <strong>owner-operated businesses</strong> who want practical help with AI setup,
         account security, device hardening, websites, email, and digital cleanup without hiring a giant MSP or sitting through a sales script.
@@ -541,7 +603,7 @@
             <div class="service-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 6.5A2.5 2.5 0 0 1 7.5 4h9A2.5 2.5 0 0 1 19 6.5v6A2.5 2.5 0 0 1 16.5 15H11l-3.5 3V15h0A2.5 2.5 0 0 1 5 12.5v-6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                <path d="M9 8.5h6M9 11.5h4" stroke="#00d97e" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M9 8.5h6M9 11.5h4" stroke="#00ff9c" stroke-width="1.7" stroke-linecap="round"/>
               </svg>
             </div>
             <h3>AI Setup and Plain-English Training</h3>
@@ -558,9 +620,9 @@
             <div class="service-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="4.5" y="6" width="15" height="10" rx="2" stroke="currentColor" stroke-width="1.8"/>
-                <path d="M8 19.5h8M12 16v3.5M7.5 9.5h9M7.5 12.5h5" stroke="#00d97e" stroke-width="1.7" stroke-linecap="round"/>
-                <circle cx="18.5" cy="8" r="3" stroke="#0077ff" stroke-width="1.5"/>
-                <path d="M18.5 6.8v2.4M17.3 8h2.4" stroke="#0077ff" stroke-width="1.3" stroke-linecap="round"/>
+                <path d="M8 19.5h8M12 16v3.5M7.5 9.5h9M7.5 12.5h5" stroke="#00ff9c" stroke-width="1.7" stroke-linecap="round"/>
+                <circle cx="18.5" cy="8" r="3" stroke="#66e5ff" stroke-width="1.5"/>
+                <path d="M18.5 6.8v2.4M17.3 8h2.4" stroke="#66e5ff" stroke-width="1.3" stroke-linecap="round"/>
               </svg>
             </div>
             <h3>Anchor and Ollama on Your Own Machine</h3>
@@ -577,7 +639,7 @@
             <div class="service-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 4.5 18 7v4.8c0 3.3-2 6.2-6 7.7-4-1.5-6-4.4-6-7.7V7l6-2.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                <path d="M9.3 12.2 11 13.9l3.7-3.7" stroke="#00d97e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9.3 12.2 11 13.9l3.7-3.7" stroke="#00ff9c" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
             <h3>Security and Hardening</h3>
@@ -594,7 +656,7 @@
             <div class="service-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 19.5h14M7 19.5V8l5-3 5 3v11.5M9.5 10.5h1.5M13 10.5h1.5M9.5 13.5h1.5M13 13.5h1.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 6.5h8" stroke="#00d97e" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M8 6.5h8" stroke="#00ff9c" stroke-width="1.6" stroke-linecap="round"/>
               </svg>
             </div>
             <h3>Small Business Digital Cleanup</h3>

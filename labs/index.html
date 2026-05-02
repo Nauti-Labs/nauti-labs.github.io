@@ -4,1005 +4,834 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nauti-Labs Labs | Approval-Gated AI Tools, AI Commerce &amp; Open Source</title>
-  <meta name="description" content="Clearance API, Bridge, and approval-gated AI tooling from Nauti-Labs. Built for operators who need audit trails, human sign-off, and practical deployments." />
+  <title>Nauti-Labs Labs | Bridge, Clearance, Felipe</title>
+  <meta name="description" content="Nauti-Labs Labs is the approval-aware AI product family behind Bridge, Clearance, Felipe, and the Nauti-Labs crew workflow." />
   <link rel="canonical" href="https://nauti-labs.com/labs/" />
   <meta name="robots" content="index,follow" />
   <meta property="og:site_name" content="Nauti-Labs" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Nauti-Labs Labs | Approval-Gated AI Tools and AI Commerce" />
-  <meta property="og:description" content="Clearance API, Bridge, and approval-gated AI tooling from Nauti-Labs. Built for operators who need audit trails and human sign-off." />
+  <meta property="og:title" content="Nauti-Labs Labs | Bridge, Clearance, Felipe" />
+  <meta property="og:description" content="One ship. Many stations. The Nauti-Labs product lab for Bridge, Clearance, Felipe, and approval-aware AI work." />
   <meta property="og:url" content="https://nauti-labs.com/labs/" />
   <meta property="og:image" content="https://nauti-labs.com/og/labs-share.png" />
   <meta property="og:image:secure_url" content="https://nauti-labs.com/og/labs-share.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Nauti-Labs Labs share card" />
+  <meta property="og:image:alt" content="Nauti-Labs Labs product family." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Nauti-Labs Labs | Approval-Gated AI Tools and AI Commerce" />
-  <meta name="twitter:description" content="Approval-gated AI tooling, AI commerce, and practical deployments from Nauti-Labs." />
+  <meta name="twitter:title" content="Nauti-Labs Labs | Bridge, Clearance, Felipe" />
+  <meta name="twitter:description" content="One ship. Many stations. Approval-aware AI products by Nauti-Labs." />
   <meta name="twitter:image" content="https://nauti-labs.com/og/labs-share.png" />
   <meta name="theme-color" content="#00c8f0" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/nauti-brand.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --cyan:     #00c8f0;
-      --cyan-dim: rgba(0,200,240,0.45);
-      --cyan-glow:rgba(0,200,240,0.2);
-      --green:    #00ff9c;
-      --magenta:  #ff4dc4;
-      --bg:       #05070c;
-      --bg2:      #0a0f1a;
-      --bg3:      #0f1522;
-      --glass:    rgba(0,200,240,0.04);
-      --border:   rgba(0,200,240,0.14);
-      --text:     #e6f4ff;
-      --text-muted: rgba(200,220,240,0.55);
-      --font:     'Inter', system-ui, sans-serif;
-      --mono:     'JetBrains Mono', monospace;
-    }
-
     html { scroll-behavior: smooth; }
     body {
-      background: var(--bg);
-      background-image:
-        radial-gradient(ellipse at 80% 10%, rgba(0,200,240,0.06) 0%, transparent 55%),
-        radial-gradient(ellipse at 10% 90%, rgba(255,77,196,0.03) 0%, transparent 55%);
+      min-height: 100vh;
       color: var(--text);
       font-family: var(--font);
-      line-height: 1.6; min-height: 100vh;
+      line-height: 1.55;
+      background:
+        radial-gradient(ellipse 60% 50% at 18% 4%, rgba(0, 200, 240, 0.14), transparent 62%),
+        radial-gradient(ellipse 52% 46% at 88% 12%, rgba(255, 170, 0, 0.08), transparent 58%),
+        linear-gradient(180deg, var(--bg) 0%, #00030a 100%);
       overflow-x: hidden;
     }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(5,7,12,0.88); backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 2rem;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .nav-back { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.08em; transition: color 0.2s; font-family: var(--mono); }
-    .nav-back:hover { color: var(--cyan); }
-    .nav-brand {
-      color: var(--text); text-decoration: none;
-      font-weight: 800; letter-spacing: 0.12em; font-size: 0.95rem;
-      font-family: var(--mono);
-    }
-    .nav-brand .accent { color: var(--cyan); }
-    .nav-links { display: flex; gap: 1.6rem; list-style: none; }
-    .nav-links a {
-      color: var(--text-muted); text-decoration: none;
-      font-size: 0.82rem; letter-spacing: 0.06em; transition: color 0.2s;
-      font-family: var(--mono);
-    }
-    .nav-links a:hover { color: var(--cyan); }
-
-    /* ── HERO ── */
-    #hero {
-      min-height: 100vh;
-      padding: 8rem 2rem 4rem;
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-    }
-    .hero-grid {
-      position: absolute; inset: 0; opacity: 0.04; pointer-events: none;
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
       background-image:
-        linear-gradient(var(--cyan) 1px, transparent 1px),
-        linear-gradient(90deg, var(--cyan) 1px, transparent 1px);
-      background-size: 60px 60px;
+        linear-gradient(rgba(0, 200, 240, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 200, 240, 0.02) 1px, transparent 1px);
+      background-size: 100% 112px, 112px 100%;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.82), transparent 78%);
+      z-index: 0;
     }
-    .hero-content { position: relative; max-width: 880px; text-align: center; }
-    .terminal-bracket {
-      display: inline-block;
-      font-family: var(--mono);
-      color: var(--cyan);
-      font-size: 0.85rem; letter-spacing: 0.2em;
-      margin-bottom: 1.5rem;
-      padding: 0.35rem 1.1rem;
-      border: 1px solid var(--cyan-dim);
-      border-radius: 2px;
+    a { color: inherit; }
+    .site {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
     }
-    .terminal-bracket::before { content: '> '; color: var(--green); }
-    h1 {
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
-      font-weight: 900; letter-spacing: -0.02em;
-      line-height: 1.02; margin-bottom: 1.2rem;
-      background: linear-gradient(135deg, #fff 0%, var(--cyan) 60%, var(--magenta) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .mark-sprite {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
     }
-    .hero-sub {
-      font-size: clamp(1rem, 2.2vw, 1.3rem);
-      color: var(--text-muted); max-width: 680px; margin: 0 auto 2.5rem;
-      line-height: 1.6;
-    }
-    .hero-sub strong { color: var(--text); }
-    .hero-sub code {
-      font-family: var(--mono); font-size: 0.92em;
-      color: var(--green);
-      background: rgba(0,255,156,0.08);
-      padding: 0.1rem 0.45rem; border-radius: 3px;
-      border: 1px solid rgba(0,255,156,0.2);
-    }
-    .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn {
-      display: inline-block; padding: 0.95rem 2.2rem;
-      background: transparent; color: var(--cyan);
-      border: 1px solid var(--cyan); border-radius: 2px;
-      text-decoration: none; font-size: 0.82rem; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      transition: all 0.2s;
-      font-family: var(--mono);
-      cursor: pointer;
-    }
-    .btn:hover { background: var(--cyan); color: var(--bg); box-shadow: 0 0 24px var(--cyan-glow); }
-    .btn-solid { background: var(--cyan); color: var(--bg); box-shadow: 0 0 18px var(--cyan-glow); }
-    .btn-solid:hover { background: #33d8ff; }
-    .btn-green { color: var(--green); border-color: var(--green); }
-    .btn-green:hover { background: var(--green); color: var(--bg); box-shadow: 0 0 24px rgba(0,255,156,0.25); }
-
-    /* ── SECTIONS ── */
-    section { padding: 6rem 2rem; position: relative; }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .section-label {
-      font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--cyan); margin-bottom: 0.75rem;
-      font-family: var(--mono);
-    }
-    .section-label::before { content: '// '; color: var(--green); }
-    h2 { font-size: clamp(1.9rem, 4.2vw, 2.8rem); font-weight: 800; letter-spacing: -0.01em; margin-bottom: 1rem; }
-    .section-divider { width: 60px; height: 2px; background: var(--cyan); margin-bottom: 3rem; box-shadow: 0 0 12px var(--cyan-glow); }
-
-    /* ── PRODUCT CARDS ── */
-    .product {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
-      align-items: center; margin-bottom: 5rem;
-    }
-    .product:last-child { margin-bottom: 0; }
-    .product.reverse { direction: rtl; }
-    .product.reverse > * { direction: ltr; }
-    @media (max-width: 820px) {
-      .product, .product.reverse { grid-template-columns: 1fr; direction: ltr; }
-    }
-    .product-headline {
-      font-size: clamp(1.5rem, 3vw, 2.2rem);
-      font-weight: 800; margin-bottom: 1rem;
-      background: linear-gradient(135deg, var(--cyan) 0%, #66e5ff 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .product-lead {
-      font-size: 1.02rem; color: var(--text-muted);
-      margin-bottom: 1.25rem; line-height: 1.7;
-    }
-    .product-lead strong { color: var(--text); }
-    .product-features { list-style: none; margin: 1.25rem 0 1.5rem; }
-    .product-features li {
-      display: flex; align-items: flex-start; gap: 0.7rem;
-      padding: 0.4rem 0; font-size: 0.92rem; color: var(--text-muted);
-    }
-    .product-features li::before { content: '▸'; color: var(--green); flex-shrink: 0; }
-    .badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
-    .badge {
-      font-family: var(--mono);
-      font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--cyan); border: 1px solid var(--cyan-dim);
-      padding: 0.25rem 0.65rem; border-radius: 2px;
-    }
-    .badge.green { color: var(--green); border-color: rgba(0,255,156,0.3); }
-    .badge.magenta { color: var(--magenta); border-color: rgba(255,77,196,0.3); }
-
-    /* ── TERMINAL-ISH VISUAL ── */
-    .visual {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 1.5rem;
-      font-family: var(--mono); font-size: 0.85rem;
-      min-height: 300px;
-      box-shadow: 0 10px 40px rgba(0, 200, 240, 0.08);
-      position: relative; overflow: hidden;
-    }
-    .visual::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 30px;
-      background: var(--bg3); border-bottom: 1px solid var(--border);
-    }
-    .visual-dots {
-      position: absolute; top: 10px; left: 12px;
-      display: flex; gap: 6px;
-    }
-    .visual-dots span {
-      width: 9px; height: 9px; border-radius: 50%;
-      background: rgba(255,71,87,0.5);
-    }
-    .visual-dots span:nth-child(2) { background: rgba(255,170,0,0.5); }
-    .visual-dots span:nth-child(3) { background: rgba(0,255,156,0.5); }
-    .visual-title {
-      position: absolute; top: 7px; left: 50%; transform: translateX(-50%);
-      font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.1em;
-    }
-    .visual-body { margin-top: 2.5rem; line-height: 1.8; }
-    .visual-body .prompt { color: var(--green); }
-    .visual-body .string { color: #ffaa00; }
-    .visual-body .key   { color: var(--cyan); }
-    .visual-body .comment { color: var(--text-muted); }
-    .visual-body .ok    { color: var(--green); }
-
-    /* ── CLEARANCE SEAL LOGO ── */
-    .clearance-brand {
-      display: flex; align-items: center; gap: 1rem;
-      margin-bottom: 0.75rem;
-    }
-    .seal-logo {
-      width: 56px; height: 56px; flex-shrink: 0;
-      filter: drop-shadow(0 0 12px rgba(255, 77, 196, 0.35));
-    }
-    .clearance-brand .brand-text {
-      display: flex; flex-direction: column; gap: 0.1rem;
-    }
-    .clearance-brand .brand-mono {
-      font-family: var(--mono); font-size: 0.7rem;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--magenta);
-    }
-    .clearance-brand .brand-title {
-      font-size: 1.35rem; font-weight: 800; letter-spacing: -0.01em;
-      color: var(--text);
-    }
-
-    /* ── SPLIT-SCREEN HANDOFF ── */
-    .handoff {
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
       display: grid;
       grid-template-columns: 1fr auto 1fr;
-      gap: 1rem;
-      align-items: stretch;
-      margin-top: 1.5rem;
+      align-items: center;
+      gap: 18px;
+      min-height: 76px;
+      padding: 0 36px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(1, 2, 10, 0.88);
+      backdrop-filter: blur(16px);
     }
-    .handoff-panel {
-      background: var(--bg2);
+    .back-link {
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .back-link:hover { color: var(--cyan-hi); }
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      justify-self: center;
+      gap: 11px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-brand svg {
+      width: 44px;
+      height: 32px;
+      filter: drop-shadow(0 0 13px rgba(0, 200, 240, 0.35));
+    }
+    .nav-brand strong {
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+    .nav-brand span {
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      justify-self: end;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .nav-links a:hover { color: var(--cyan-hi); }
+    .hero {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      min-height: calc(100vh - 76px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
+      align-items: center;
+      gap: 44px;
+      padding: 70px 0 64px;
+    }
+    .eyebrow {
+      color: var(--cyan);
+      font-family: var(--mono);
+      font-size: 0.76rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 740px;
+      color: transparent;
+      background: linear-gradient(135deg, #fff 0%, var(--cyan-hi) 48%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: clamp(3.5rem, 8.6vw, 7rem);
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 0.92;
+      margin-bottom: 24px;
+    }
+    .hero-copy {
+      max-width: 660px;
+      color: var(--text-muted);
+      font-size: clamp(1.02rem, 2vw, 1.24rem);
+    }
+    .hero-copy strong { color: var(--text); }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 1px solid var(--border-hi);
+      border-radius: 8px;
+      background: rgba(0, 200, 240, 0.06);
+      color: var(--cyan-hi);
+      font-family: var(--mono);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(102, 229, 255, 0.55);
+      background: rgba(0, 200, 240, 0.12);
+      box-shadow: 0 14px 36px rgba(0, 200, 240, 0.16);
+      outline: none;
+    }
+    .button.primary {
+      color: #001018;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--cyan-hi), var(--cyan));
+      box-shadow: 0 18px 46px rgba(0, 200, 240, 0.22);
+    }
+    .button.amber {
+      color: #160c00;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--amber-hi), var(--amber));
+      box-shadow: 0 18px 46px rgba(255, 170, 0, 0.16);
+    }
+    .hero-panel {
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.25rem 1.1rem;
-      position: relative; overflow: hidden;
-      min-height: 260px;
-      display: flex; flex-direction: column;
+      border-radius: 8px;
+      background: rgba(6, 10, 20, 0.72);
+      box-shadow: var(--shadow-panel);
+      overflow: hidden;
     }
-    .handoff-panel.agent {
-      background: linear-gradient(180deg, rgba(0,200,240,0.04), rgba(0,200,240,0));
-    }
-    .handoff-panel.human {
-      background: linear-gradient(180deg, rgba(255,77,196,0.04), rgba(255,77,196,0));
-      border-color: rgba(255, 77, 196, 0.2);
+    .panel-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px 18px 16px;
+      border-bottom: 1px solid var(--border);
     }
     .panel-label {
-      font-family: var(--mono); font-size: 0.62rem;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--text-muted);
-      padding-bottom: 0.75rem; margin-bottom: 0.9rem;
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .panel-label .dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 8px var(--green);
-      animation: pulse-dot 2s ease-in-out infinite;
-    }
-    @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-
-    .agent-request {
-      background: rgba(0,0,0,0.3);
-      border: 1px solid rgba(0,200,240,0.15);
-      border-radius: 6px;
-      padding: 0.8rem;
-      font-family: var(--mono); font-size: 0.78rem;
-      color: var(--text);
-    }
-    .agent-request .muted { color: var(--text-muted); font-size: 0.72rem; }
-    .agent-request .who { color: var(--green); font-weight: 600; }
-    .agent-request .amount { color: var(--amber); font-weight: 700; font-size: 1.05rem; }
-    .agent-request .vendor { color: var(--cyan); }
-    .agent-note {
-      margin-top: 0.75rem; font-size: 0.72rem; color: var(--text-muted);
-      font-style: italic;
-    }
-
-    /* Arrow between panels */
-    .handoff-arrow {
-      display: flex; align-items: center; justify-content: center;
       color: var(--text-muted);
       font-family: var(--mono);
-      font-size: 0.68rem; letter-spacing: 0.12em;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      min-width: 80px;
-      position: relative;
     }
-    .handoff-arrow-line {
-      position: relative; width: 100%; height: 2px;
-      background: linear-gradient(90deg, var(--cyan), var(--magenta));
-      opacity: 0.4;
-    }
-    .handoff-arrow-label {
-      position: absolute; top: -1.6rem; left: 50%; transform: translateX(-50%);
-      white-space: nowrap;
-      color: var(--cyan);
-    }
-    .handoff-arrow-tip {
-      position: absolute; right: -1px; top: 50%;
-      transform: translate(0, -50%) rotate(45deg);
-      width: 8px; height: 8px;
-      border-top: 2px solid var(--magenta);
-      border-right: 2px solid var(--magenta);
-      opacity: 0.6;
-    }
-
-    /* Phone mockup */
-    .phone-frame {
-      margin: 0 auto;
-      width: 170px; height: auto;
-      background: #06090f;
-      border: 2px solid rgba(255,255,255,0.15);
-      border-radius: 18px;
-      padding: 0.55rem 0.5rem 0.75rem;
-      position: relative;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,77,196,0.03);
-    }
-    .phone-notch {
-      width: 58px; height: 10px;
-      background: #000; border-radius: 0 0 8px 8px;
-      margin: -0.55rem auto 0.5rem;
-    }
-    .phone-screen {
-      border-radius: 10px;
-      padding: 0.75rem 0.55rem;
-      background: linear-gradient(180deg, rgba(255,77,196,0.06), rgba(0,200,240,0.02));
-      font-size: 0.7rem; color: var(--text);
-      min-height: 170px;
-      display: flex; flex-direction: column; gap: 0.55rem;
-    }
-    .phone-app-bar {
-      display: flex; justify-content: space-between; align-items: center;
-      font-family: var(--mono); font-size: 0.55rem; color: var(--text-muted);
-      letter-spacing: 0.08em; text-transform: uppercase;
-    }
-    .phone-title {
-      font-size: 0.78rem; font-weight: 700; color: var(--magenta);
-      letter-spacing: 0.02em;
-    }
-    .phone-detail {
-      font-size: 0.66rem; color: var(--text-muted); line-height: 1.5;
-    }
-    .phone-detail strong { color: var(--text); }
-    .phone-btn-row { display: flex; gap: 0.4rem; margin-top: auto; }
-    .phone-btn {
-      flex: 1; padding: 0.55rem 0.4rem;
-      border-radius: 6px; border: none;
-      font-family: var(--mono); font-size: 0.65rem; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      cursor: pointer;
-    }
-    .phone-btn.approve {
-      background: var(--green); color: #04060b;
-      box-shadow: 0 0 14px rgba(0,255,156,0.35);
-    }
-    .phone-btn.deny {
-      background: transparent; color: rgba(255, 71, 87, 0.8);
-      border: 1px solid rgba(255, 71, 87, 0.4);
-    }
-
-    /* Token result card below handoff */
-    .token-result {
-      margin-top: 1.25rem;
-      background: var(--bg2);
-      border: 1px solid rgba(0, 255, 156, 0.25);
-      border-radius: 10px;
-      padding: 1.1rem 1.3rem;
-      display: flex; align-items: center; gap: 1rem;
+    .pulse {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
       font-family: var(--mono);
-      position: relative; overflow: hidden;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
-    .token-result::before {
-      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-      width: 3px; background: var(--green);
-      box-shadow: 0 0 12px var(--green);
+    .pulse::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cyan-hi);
+      box-shadow: 0 0 14px rgba(102, 229, 255, 0.8);
     }
-    .token-check {
-      width: 32px; height: 32px; border-radius: 50%;
-      background: rgba(0,255,156,0.12);
-      border: 1px solid rgba(0,255,156,0.35);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--green); font-size: 1rem; font-weight: 900;
-      flex-shrink: 0;
+    .stack-list {
+      display: grid;
+      gap: 1px;
+      background: var(--border);
     }
-    .token-text { font-size: 0.78rem; color: var(--text); }
-    .token-text .muted { color: var(--text-muted); font-size: 0.72rem; }
-    .token-snippet {
-      margin-left: auto;
-      font-size: 0.68rem; color: var(--text-muted);
-      padding: 0.3rem 0.6rem;
-      background: rgba(0,0,0,0.3);
-      border: 1px solid var(--border);
-      border-radius: 4px;
+    .stack-card {
+      display: grid;
+      grid-template-columns: 74px 1fr auto;
+      gap: 16px;
+      align-items: center;
+      min-height: 116px;
+      padding: 18px;
+      color: var(--text);
+      background: rgba(1, 2, 10, 0.84);
+      text-decoration: none;
     }
-    .token-snippet .green { color: var(--green); }
-
-    @media (max-width: 820px) {
-      .handoff { grid-template-columns: 1fr; }
-      .handoff-arrow { height: 48px; }
-      .handoff-arrow-line { transform: rotate(90deg); width: 48px; }
-      .token-result { flex-wrap: wrap; }
-      .token-snippet { margin-left: 0; width: 100%; text-align: center; }
+    .stack-card:hover { background: rgba(0, 200, 240, 0.055); }
+    .stack-card svg {
+      width: 66px;
+      height: 66px;
+      filter: drop-shadow(0 0 14px rgba(0, 200, 240, 0.32));
     }
-
-    /* ── DEMO VIDEO ── */
-    .demo-section {
-      margin-top: 5rem;
-      padding-top: 3rem;
+    .stack-name {
+      font-size: 1.42rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+    .stack-by {
+      margin-top: 2px;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .stack-role {
+      margin-top: 8px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .stack-state {
+      align-self: start;
+      color: var(--cyan-hi);
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .band {
       border-top: 1px solid var(--border);
+      padding: 74px 0;
     }
-    .demo-heading {
-      text-align: center; margin-bottom: 2rem;
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
     }
-    .demo-heading h3 {
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 800; letter-spacing: -0.01em;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(135deg, #fff 0%, var(--cyan) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 26px;
     }
-    .demo-heading p { color: var(--text-muted); font-size: 0.95rem; }
-    .demo-video-wrap {
-      max-width: 820px; margin: 0 auto;
-      aspect-ratio: 16 / 9;
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      position: relative;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 10px 40px rgba(0, 200, 240, 0.08);
+    h2 {
+      max-width: 720px;
+      color: var(--text);
+      font-size: clamp(2rem, 4.8vw, 3.25rem);
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1.02;
     }
-    .demo-video-wrap iframe, .demo-video-wrap video {
-      width: 100%; height: 100%; border: none;
-    }
-    .demo-placeholder {
-      text-align: center; padding: 2rem;
+    .section-note {
+      max-width: 520px;
       color: var(--text-muted);
     }
-    .demo-play {
-      width: 70px; height: 70px; border-radius: 50%;
-      background: var(--cyan);
-      display: inline-flex; align-items: center; justify-content: center;
-      color: var(--bg); font-size: 1.6rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 30px var(--cyan-glow);
-      animation: demo-pulse 2s ease-in-out infinite;
-    }
-    @keyframes demo-pulse {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 20px var(--cyan-glow); }
-      50%      { transform: scale(1.06); box-shadow: 0 0 40px var(--cyan-glow); }
-    }
-    .demo-placeholder .caption {
-      font-family: var(--mono); font-size: 0.78rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--cyan);
-      margin-bottom: 0.4rem;
-    }
-    .demo-placeholder .sub {
-      font-size: 0.88rem; color: var(--text-muted);
-      max-width: 380px; margin: 0 auto;
-    }
-    .demo-actions {
-      display: flex;
-      justify-content: center;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-      margin-top: 1.25rem;
-    }
-
-    /* ── SCREENSHOT GALLERY ── */
-    .gallery-section {
-      margin-top: 5rem;
-    }
-    .gallery-heading { text-align: center; margin-bottom: 2rem; }
-    .gallery-grid {
+    .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
     }
-    .gallery-tile {
-      aspect-ratio: 4 / 3;
-      background: var(--bg2);
+    .card {
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1rem;
-      position: relative; overflow: hidden;
-      display: flex; flex-direction: column; justify-content: flex-end;
-      transition: border-color 0.2s, transform 0.2s;
-      cursor: default;
+      border-radius: 8px;
+      padding: 22px;
+      background: rgba(6, 10, 20, 0.72);
+      box-shadow: 0 18px 56px rgba(0, 0, 0, 0.28);
     }
-    .gallery-tile:hover {
-      border-color: rgba(255, 77, 196, 0.3);
-      transform: translateY(-2px);
+    .card-mark {
+      width: 86px;
+      height: 86px;
+      margin-bottom: 18px;
+      filter: drop-shadow(0 0 18px rgba(0, 200, 240, 0.32));
     }
-    .gallery-tile::before {
-      content: 'IMG';
-      position: absolute; top: 0.75rem; right: 0.9rem;
-      font-family: var(--mono); font-size: 0.6rem;
-      letter-spacing: 0.15em; color: var(--text-muted);
-      opacity: 0.5;
+    h3 {
+      color: transparent;
+      background: linear-gradient(135deg, #fff 0%, var(--cyan-hi) 55%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 1.7rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1.05;
     }
-    .gallery-tile::after {
-      content: ''; position: absolute; inset: 0;
-      background-image:
-        linear-gradient(135deg, rgba(255,77,196,0.08) 0%, transparent 40%),
-        radial-gradient(circle at 30% 40%, rgba(0,200,240,0.08) 0%, transparent 50%);
-      pointer-events: none;
+    .byline {
+      margin-top: 5px;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
-    .gallery-tile .tile-label {
-      position: relative; z-index: 1;
-      font-family: var(--mono); font-size: 0.62rem;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--magenta);
-      margin-bottom: 0.3rem;
+    .card p {
+      margin-top: 16px;
+      color: var(--text-muted);
+      line-height: 1.58;
     }
-    .gallery-tile .tile-title {
-      position: relative; z-index: 1;
-      font-size: 0.92rem; font-weight: 700; color: var(--text);
-      letter-spacing: -0.005em;
+    .mini-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 18px;
+      list-style: none;
+      color: var(--text-muted);
+      font-size: 0.9rem;
     }
-    .gallery-tile .tile-caption {
-      position: relative; z-index: 1;
-      font-size: 0.75rem; color: var(--text-muted);
-      margin-top: 0.25rem;
+    .mini-list li {
+      display: flex;
+      gap: 8px;
     }
-
-    /* ── SECTION BACKGROUNDS ── */
-    #bridge    { background: var(--bg2); }
-    #clearance { background: var(--bg); }
-    #felipe    { background: var(--bg2); }
-
-    /* ── ABOUT ── */
-    #about { background: var(--bg); text-align: center; }
-    .about-lead {
-      font-size: 1.1rem; color: var(--text-muted);
-      max-width: 720px; margin: 0 auto 2.5rem; line-height: 1.7;
+    .mini-list li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      margin-top: 0.58em;
+      border-radius: 50%;
+      background: var(--amber);
+      box-shadow: 0 0 10px rgba(255, 170, 0, 0.4);
+      flex: 0 0 auto;
     }
-    .about-lead strong { color: var(--text); }
-    .about-stats {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
-      max-width: 760px; margin: 0 auto;
+    .card-link {
+      margin-top: 22px;
+      color: var(--cyan-hi);
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      text-transform: uppercase;
     }
-    .stat {
-      border: 1px solid var(--border); padding: 1.5rem 1rem;
-      background: var(--glass);
-      transition: border-color 0.2s;
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
     }
-    .stat:hover { border-color: var(--cyan-dim); }
-    .stat-number { font-size: 1.8rem; font-weight: 900; color: var(--cyan); line-height: 1; font-family: var(--mono); }
-    .stat-number.green { color: var(--green); }
-    .stat-label { font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.4rem; font-family: var(--mono); }
-    @media (max-width: 700px) { .about-stats { grid-template-columns: repeat(2, 1fr); } }
-
-    /* ── CONTACT ── */
-    #contact { background: var(--bg2); text-align: center; }
-    .contact-lead { font-size: 1.05rem; color: var(--text-muted); max-width: 620px; margin: 0 auto 2.5rem; }
-    .contact-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-
-    /* ── CROSS-DOOR ── */
-    #cross-door { text-align: center; padding: 4rem 2rem 5rem; background: var(--bg); border-top: 1px solid var(--border); }
-    #cross-door p { color: var(--text-muted); margin-bottom: 1.2rem; font-size: 0.95rem; }
-
-    /* ── FOOTER ── */
+    .flow-step {
+      min-height: 190px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.025);
+      position: relative;
+      overflow: hidden;
+    }
+    .flow-step::before {
+      content: attr(data-step);
+      color: rgba(102, 229, 255, 0.18);
+      font-family: var(--mono);
+      font-size: 3.2rem;
+      font-weight: 900;
+      line-height: 1;
+      position: absolute;
+      right: 14px;
+      top: 12px;
+    }
+    .flow-step strong {
+      display: block;
+      color: var(--text);
+      font-size: 1.05rem;
+      margin-bottom: 9px;
+      position: relative;
+      z-index: 1;
+    }
+    .flow-step p {
+      color: var(--text-muted);
+      position: relative;
+      z-index: 1;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+      align-items: center;
+      gap: 36px;
+    }
+    .console {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: rgba(1, 2, 10, 0.78);
+      overflow: hidden;
+      box-shadow: 0 22px 66px rgba(0, 0, 0, 0.34);
+    }
+    .console-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .console-body {
+      display: grid;
+      gap: 12px;
+      padding: 18px;
+      font-family: var(--mono);
+    }
+    .log-row {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 14px;
+      align-items: start;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+    .log-row span {
+      color: var(--cyan-hi);
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .approval-card {
+      border: 1px solid rgba(255, 170, 0, 0.28);
+      border-radius: 8px;
+      padding: 18px;
+      background: rgba(255, 170, 0, 0.06);
+    }
+    .approval-card strong {
+      color: var(--amber-hi);
+      display: block;
+      margin-bottom: 7px;
+    }
+    .approval-card p {
+      color: var(--text-muted);
+    }
+    .contact-panel {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px;
+      background: rgba(6, 10, 20, 0.72);
+    }
+    .contact-panel p {
+      margin-top: 10px;
+      max-width: 780px;
+      color: var(--text-muted);
+    }
     footer {
       border-top: 1px solid var(--border);
-      padding: 2rem; text-align: center;
-      color: var(--text-muted); font-size: 0.78rem;
-      letter-spacing: 0.06em; font-family: var(--mono);
+      padding: 28px 32px;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-align: center;
+      text-transform: uppercase;
     }
-    footer .accent { color: var(--cyan); }
-    footer .green  { color: var(--green); }
-
-    @media (max-width: 700px) {
-      nav { padding: 0.8rem 1rem; }
-      .nav-links { display: none; }
-      section { padding: 4rem 1.2rem; }
+    footer a {
+      color: var(--cyan-hi);
+      text-decoration: none;
+    }
+    @media (max-width: 980px) {
+      .topbar {
+        grid-template-columns: 1fr;
+        justify-items: start;
+        gap: 10px;
+        padding: 16px;
+      }
+      .nav-brand { justify-self: start; }
+      .nav-links {
+        justify-self: start;
+        flex-wrap: wrap;
+      }
+      .hero,
+      .split,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        min-height: auto;
+        padding-top: 52px;
+      }
+      .cards,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+      .section-head {
+        display: block;
+      }
+      .section-note {
+        margin-top: 12px;
+      }
+      .stack-card {
+        grid-template-columns: 56px 1fr;
+      }
+      .stack-card svg {
+        width: 54px;
+        height: 54px;
+      }
+      .stack-state {
+        grid-column: 2;
+      }
     }
   </style>
 </head>
 <body>
-
-  <!-- NAV -->
-  <nav>
-    <a href="/" class="nav-back">← nauti-labs.com</a>
-    <a href="#hero" class="nav-brand">NAUTI<span class="accent">-LABS</span> · LABS</a>
-    <ul class="nav-links">
-      <li><a href="#bridge">Bridge</a></li>
-      <li><a href="#clearance">Clearance</a></li>
-      <li><a href="#felipe">Felipe</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-grid"></div>
-    <div class="hero-content">
-      <div class="terminal-bracket">BUILDERS &amp; AI · AI COMMERCE · OPEN SOURCE</div>
-      <h1>Tools for a World<br>Where AI Needs Approval.</h1>
-      <p class="hero-sub">
-        We build the rails between <strong>human intent</strong> and <strong>automated execution</strong>.
-        Clearance receipts, Bridge crew workflows, domain trading, and human-in-the-loop primitives for the tools you already run.
-      </p>
-      <div class="hero-cta">
-        <a href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener" class="btn btn-solid">Try Clearance Live →</a>
-        <a href="https://github.com/Nauti-Labs" target="_blank" rel="noopener" class="btn btn-green">View on GitHub</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CLEARANCE -->
-  <section id="clearance">
-    <div class="container">
-
-      <div class="clearance-brand">
-        <!-- Clearance seal/signet logo -->
-        <svg class="seal-logo" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Clearance">
-          <!-- Outer notched ring -->
-          <circle cx="32" cy="32" r="26" stroke="#ff4dc4" stroke-width="2.2" fill="none"/>
-          <circle cx="32" cy="32" r="21" stroke="#ff4dc4" stroke-width="0.8" fill="none" opacity="0.5"/>
-          <!-- Notches (12 around) -->
-          <g stroke="#ff4dc4" stroke-width="1.6" stroke-linecap="round">
-            <line x1="32" y1="2"  x2="32" y2="7"/>
-            <line x1="32" y1="57" x2="32" y2="62"/>
-            <line x1="2"  y1="32" x2="7"  y2="32"/>
-            <line x1="57" y1="32" x2="62" y2="32"/>
-            <line x1="11" y1="11" x2="14.5" y2="14.5"/>
-            <line x1="49.5" y1="49.5" x2="53" y2="53"/>
-            <line x1="53" y1="11" x2="49.5" y2="14.5"/>
-            <line x1="14.5" y1="49.5" x2="11" y2="53"/>
+  <div class="site">
+    <svg class="mark-sprite" aria-hidden="true" focusable="false">
+      <symbol id="mark-parent" viewBox="0 0 140 100">
+        <path d="M 38 22 L 14 50 L 38 78" stroke="#00c8f0" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M 50 50 Q 60 30, 70 50 T 90 50" stroke="#66e5ff" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+        <path d="M 102 22 L 126 50 L 102 78" stroke="#00c8f0" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="mark-bridge" viewBox="0 0 140 140">
+        <g transform="translate(70 60)" fill="none">
+          <circle cx="0" cy="0" r="40" stroke="#00c8f0" stroke-width="3"/>
+          <circle cx="0" cy="0" r="3.6" fill="#ffaa00" stroke="none"/>
+          <g stroke="#00c8f0" stroke-width="2.8" stroke-linecap="round">
+            <line x1="0" y1="-32" x2="0" y2="-12"/><line x1="0" y1="32" x2="0" y2="12"/>
+            <line x1="-32" y1="0" x2="-12" y2="0"/><line x1="32" y1="0" x2="12" y2="0"/>
+            <line x1="-22.6" y1="-22.6" x2="-8.5" y2="-8.5"/><line x1="22.6" y1="22.6" x2="8.5" y2="8.5"/>
+            <line x1="22.6" y1="-22.6" x2="8.5" y2="-8.5"/><line x1="-22.6" y1="22.6" x2="-8.5" y2="8.5"/>
           </g>
-          <!-- Center shield with check -->
-          <path d="M 32 14 L 46 20 L 46 34 Q 46 44 32 50 Q 18 44 18 34 L 18 20 Z"
-                fill="rgba(255,77,196,0.08)" stroke="#ff4dc4" stroke-width="1.4"/>
-          <!-- Checkmark -->
-          <path d="M 24 32 L 30 38 L 42 26"
-                stroke="#00ff9c" stroke-width="3" fill="none"
-                stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <div class="brand-text">
-          <div class="brand-mono">Live Product · Premium Tier Coming</div>
-          <div class="brand-title">Clearance — Human Approval API.</div>
+        </g>
+        <path d="M 26 122 Q 47 104, 70 122 T 114 122" stroke="#66e5ff" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="mark-clearance" viewBox="0 0 140 140">
+        <g transform="translate(70 58)" fill="none">
+          <circle cx="0" cy="0" r="38" stroke="#00c8f0" stroke-width="2.8"/>
+          <circle cx="0" cy="0" r="30" stroke="#66e5ff" stroke-width="1.2" opacity="0.55"/>
+          <path d="M 0 -24 L 22 -14 L 22 4 Q 22 22 0 31 Q -22 22 -22 4 L -22 -14 Z" stroke="#00c8f0" stroke-width="2.5" fill="rgba(0,200,240,0.06)"/>
+          <path d="M -10 3 L -2 11 L 15 -8" stroke="#ffaa00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <path d="M 26 122 Q 47 104, 70 122 T 114 122" stroke="#66e5ff" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="mark-felipe" viewBox="0 0 140 140">
+        <g transform="translate(70 60)" stroke="#00c8f0" stroke-width="2.6" stroke-linecap="round" fill="none">
+          <path d="M -34 18 A 42 42 0 0 1 34 18"/>
+          <line x1="-24" y1="12" x2="0" y2="-28"/>
+          <line x1="24" y1="12" x2="0" y2="-28"/>
+          <circle cx="0" cy="-28" r="7"/>
+          <circle cx="0" cy="-28" r="2.8" fill="#ffaa00" stroke="none"/>
+          <path d="M -28 18 L 28 18"/>
+        </g>
+        <path d="M 26 122 Q 47 104, 70 122 T 114 122" stroke="#66e5ff" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="mark-castle" viewBox="0 0 140 140">
+        <g transform="translate(70 60)" fill="none">
+          <line x1="-40" y1="34" x2="40" y2="34" stroke="#00c8f0" stroke-width="2" opacity="0.5" stroke-linecap="round"/>
+          <rect x="-32" y="0" width="64" height="34" stroke="#00c8f0" stroke-width="2.6"/>
+          <g stroke="#00c8f0" stroke-width="2.6" stroke-linecap="square">
+            <rect x="-32" y="-14" width="14" height="14"/>
+            <rect x="-7" y="-22" width="14" height="22"/>
+            <rect x="18" y="-14" width="14" height="14"/>
+            <line x1="-18" y1="-4" x2="-7" y2="-4"/>
+            <line x1="7" y1="-4" x2="18" y2="-4"/>
+          </g>
+          <rect x="-9" y="14" width="18" height="20" stroke="#ffaa00" stroke-width="2" fill="rgba(255,170,0,0.1)"/>
+          <line x1="0" y1="-22" x2="0" y2="-32" stroke="#00c8f0" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M 0 -32 L 7 -29 L 0 -26 Z" fill="#66e5ff"/>
+        </g>
+        <path d="M 26 122 Q 47 104, 70 122 T 114 122" stroke="#66e5ff" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+      </symbol>
+    </svg>
+
+    <nav class="topbar" aria-label="Labs navigation">
+      <a class="back-link" href="/">← nauti-labs.com</a>
+      <a class="nav-brand" href="#top" aria-label="Nauti-Labs Labs">
+        <svg viewBox="0 0 140 100" aria-hidden="true"><use href="#mark-parent"/></svg>
+        <strong>Nauti-Labs</strong>
+        <span>Labs</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#bridge">Bridge</a></li>
+        <li><a href="#clearance">Clearance</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <header class="hero" id="top">
+      <div>
+        <div class="eyebrow">Nauti-Labs Labs · One ship. Many stations.</div>
+        <h1>Approval-aware AI products.</h1>
+        <p class="hero-copy">
+          Labs is where the Nauti-Labs product family gets built: <strong>Bridge</strong> for AI crew work,
+          <strong>Clearance</strong> for human approval, <strong>Felipe</strong> for acquisition research, and
+          <strong>Castle</strong> for permission boundaries. Same mark system. Same voice. Same captain in control.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="https://triton.nauti-labs.com/" target="_blank" rel="noopener">Open Bridge</a>
+          <a class="button" href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener">Open Clearance</a>
+          <a class="button amber" href="/brand/">Brand System</a>
         </div>
       </div>
+      <aside class="hero-panel" aria-label="Nauti-Labs Labs product stack">
+        <div class="panel-top">
+          <span class="panel-label">Labs stack</span>
+          <span class="pulse">Crew ready</span>
+        </div>
+        <div class="stack-list">
+          <a class="stack-card" href="https://triton.nauti-labs.com/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 140 140" aria-hidden="true"><use href="#mark-bridge"/></svg>
+            <div>
+              <div class="stack-name">Bridge</div>
+              <div class="stack-by">by Nauti-Labs</div>
+              <div class="stack-role">The command surface for AI crew, stations, approval, and logs.</div>
+            </div>
+            <span class="stack-state">Live</span>
+          </a>
+          <a class="stack-card" href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 140 140" aria-hidden="true"><use href="#mark-clearance"/></svg>
+            <div>
+              <div class="stack-name">Clearance</div>
+              <div class="stack-by">by Nauti-Labs</div>
+              <div class="stack-role">The approval rail for sensitive actions and signed receipts.</div>
+            </div>
+            <span class="stack-state">Live</span>
+          </a>
+          <a class="stack-card" href="#felipe">
+            <svg viewBox="0 0 140 140" aria-hidden="true"><use href="#mark-felipe"/></svg>
+            <div>
+              <div class="stack-name">Felipe</div>
+              <div class="stack-by">by Nauti-Labs</div>
+              <div class="stack-role">Researches acquisition candidates and routes approval needs.</div>
+            </div>
+            <span class="stack-state">Lab</span>
+          </a>
+        </div>
+      </aside>
+    </header>
 
-      <div class="section-divider"></div>
+    <section class="band" id="stack">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">01 · Product family</div>
+            <h2>Every Labs surface belongs to the same ship.</h2>
+          </div>
+          <p class="section-note">The old page made each tool feel like a separate experiment. This version keeps the whole family in one Nauti-Labs system with product marks, shared language, and a single approval posture.</p>
+        </div>
+        <div class="cards">
+          <article class="card" id="bridge">
+            <div>
+              <svg class="card-mark" viewBox="0 0 140 140" aria-hidden="true"><use href="#mark-bridge"/></svg>
+              <h3>Bridge</h3>
+              <div class="byline">by Nauti-Labs</div>
+              <p>The bridge of your computer. Send crew to stations, watch work become visible, and keep every important action under Captain&apos;s Approval.</p>
+              <ul class="mini-list">
+                <li>Crew Mode for AI workflows</li>
+                <li>Captain&apos;s Log and approval queue</li>
+                <li>Color Bomb ready, brand locked</li>
+              </ul>
+            </div>
+            <a class="card-link" href="https://triton.nauti-labs.com/" target="_blank" rel="noopener">Open Bridge →</a>
+          </article>
+          <article class="card" id="clearance">
+            <div>
+              <svg class="card-mark" viewBox="0 0 140 140" aria-hidden="true"><use href="#mark-clearance"/></svg>
+              <h3>Clearance</h3>
+              <div class="byline">by Nauti-Labs</div>
+              <p>The human approval rail. When AI work needs to send, spend, publish, or trigger a sensitive step, Clearance turns that moment into a clear yes or hold.</p>
+              <ul class="mini-list">
+                <li>Human sign-off before consequence</li>
+                <li>Signed approval receipts</li>
+                <li>Free tier live now</li>
+              </ul>
+            </div>
+            <a class="card-link" href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener">Open Clearance →</a>
+          </article>
+          <article class="card" id="felipe">
+            <div>
+              <svg class="card-mark" viewBox="0 0 140 140" aria-hidden="true"><use href="#mark-felipe"/></svg>
+              <h3>Felipe</h3>
+              <div class="byline">by Nauti-Labs</div>
+              <p>The acquisition research lab. Felipe watches candidates, prepares rationale, and routes higher-stakes decisions back to the captain.</p>
+              <ul class="mini-list">
+                <li>Domain candidate research</li>
+                <li>Signal scoring and notes</li>
+                <li>Approval-aware purchase flow</li>
+              </ul>
+            </div>
+            <a class="card-link" href="#contact">Ask about Felipe →</a>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      <div class="product">
+    <section class="band">
+      <div class="container split">
         <div>
-          <p class="product-headline">The approval layer for AI commerce.</p>
-          <p class="product-lead">
-            When AI needs to <strong>buy something, send something, or trigger a sensitive action</strong>,
-            it asks for human sign-off first. Approved actions return a signed clearance receipt any downstream
-            service can verify. Clean boundary between AI intent and real-world consequences.
-          </p>
-          <ul class="product-features">
-            <li>One-tap human approval — works on any device</li>
-            <li>Signed JWT clearance receipts, downstream-verifiable</li>
-            <li>USDC on Base payment rail, on-chain verified</li>
-            <li>Free tier live · Pro tier $19/mo · Scale tier $49/mo</li>
-            <li>FastAPI backend, SQLite state, deployed on Railway</li>
-          </ul>
-          <div class="badges">
-            <span class="badge green">Live · Free Tier</span>
-            <span class="badge">JWT HS256</span>
-            <span class="badge">USDC · Base</span>
-            <span class="badge magenta">Human Governance</span>
+          <div class="eyebrow">02 · Operating model</div>
+          <h2>Simple enough to explain. Strict enough to trust.</h2>
+          <p class="section-note">The system language is public-friendly: AI work starts from Bridge, moves through stations, writes to the log, and stops at approval when the real world is involved.</p>
+        </div>
+        <div class="flow" aria-label="Labs operating flow">
+          <div class="flow-step" data-step="01">
+            <strong>Send crew</strong>
+            <p>Bridge sends the right crew member to the right station.</p>
           </div>
-          <div style="display:flex; gap:0.8rem; flex-wrap:wrap;">
-            <a href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener" class="btn btn-solid">Open App</a>
-            <a href="https://clearance.nauti-labs.com/v1/docs" target="_blank" rel="noopener" class="btn">API Docs</a>
+          <div class="flow-step" data-step="02">
+            <strong>Prepare work</strong>
+            <p>The station reads, drafts, checks, or prepares a safe next step.</p>
+          </div>
+          <div class="flow-step" data-step="03">
+            <strong>Ask approval</strong>
+            <p>Anything sensitive waits in Captain&apos;s Approval or Clearance.</p>
+          </div>
+          <div class="flow-step" data-step="04">
+            <strong>Log it</strong>
+            <p>The Captain&apos;s Log keeps the action readable and reviewable.</p>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- ── SPLIT-SCREEN HANDOFF VISUAL ── -->
+    <section class="band">
+      <div class="container split">
         <div>
-          <div class="handoff">
-
-            <!-- AGENT PANEL (left) -->
-            <div class="handoff-panel agent">
-              <div class="panel-label">
-                <span>▸ AI Tool</span>
-                <span class="dot"></span>
-              </div>
-              <div class="agent-request">
-                <div class="muted"># clearance request</div>
-                <div><span class="who">felipe-trader</span></div>
-                <div style="margin-top:0.35rem;">wants to spend</div>
-                <div class="amount">$49.00</div>
-                <div>at <span class="vendor">stripe://domain-purchase</span></div>
-              </div>
-              <div class="agent-note">Blocked until human approves</div>
-            </div>
-
-            <!-- ARROW -->
-            <div class="handoff-arrow">
-              <div class="handoff-arrow-line">
-                <div class="handoff-arrow-tip"></div>
-                <div class="handoff-arrow-label">clearance/v1/request</div>
-              </div>
-            </div>
-
-            <!-- HUMAN (phone) PANEL (right) -->
-            <div class="handoff-panel human">
-              <div class="panel-label">
-                <span>◆ Human</span>
-                <span style="color: var(--magenta); font-size: 0.55rem;">YOUR PHONE</span>
-              </div>
-              <div class="phone-frame">
-                <div class="phone-notch"></div>
-                <div class="phone-screen">
-                  <div class="phone-app-bar">
-                    <span>Clearance</span>
-                    <span>1 pending</span>
-                  </div>
-                  <div class="phone-title">Approval needed</div>
-                  <div class="phone-detail">
-                    <strong>felipe-trader</strong> wants to spend<br>
-                    <strong style="color: var(--amber);">$49.00</strong> at Stripe
-                  </div>
-                  <div class="phone-detail" style="font-size:0.58rem; opacity:0.7;">
-                    for domain: agentlog.io
-                  </div>
-                  <div class="phone-btn-row">
-                    <button class="phone-btn approve" aria-label="Approve">Approve</button>
-                    <button class="phone-btn deny" aria-label="Deny">Deny</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+          <div class="eyebrow">03 · Live preview</div>
+          <h2>Bridge is the front door.</h2>
+          <p class="section-note">This is the Labs promise in one sentence: your computer is the ship, Bridge is the command surface, and every tool waits for the captain before anything consequential happens.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://triton.nauti-labs.com/" target="_blank" rel="noopener">Open Bridge</a>
+            <a class="button" href="/suite/">Suite Status</a>
           </div>
-
-          <!-- Token result card -->
-          <div class="token-result">
-            <div class="token-check">OK</div>
-            <div class="token-text">
-              <div><strong>Signed clearance receipt returned.</strong></div>
-              <div class="muted">AI proceeds · downstream verifies signature · audit trail stored.</div>
-            </div>
-            <div class="token-snippet">
-              <span class="green">eyJhbGci</span>...<span class="green">sig</span>
+        </div>
+        <div class="console" aria-label="Bridge preview">
+          <div class="console-head">
+            <span>Bridge watch</span>
+            <span>crew ready</span>
+          </div>
+          <div class="console-body">
+            <div class="log-row"><span>Bridge</span><p>Code Mate prepared a change plan and returned to Captain&apos;s Approval.</p></div>
+            <div class="log-row"><span>Clearance</span><p>Action is held until the captain approves the receipt.</p></div>
+            <div class="log-row"><span>Felipe</span><p>Candidate research is ready for review before any purchase step.</p></div>
+            <div class="approval-card">
+              <strong>Captain&apos;s Approval</strong>
+              <p>Prepared actions can be approved, held, or recalled. This public demo does not perform destructive or external actions.</p>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- ── DEMO VIDEO ── -->
-      <div class="demo-section">
-        <div class="demo-heading">
-          <p class="section-label">60-Second Walkthrough</p>
-          <h3>See it in action.</h3>
-          <p>The complete request → approve → receipt cycle. Two terminals, one phone, zero code knowledge required.</p>
-        </div>
-        <div class="demo-video-wrap">
-          <div class="demo-placeholder">
-            <div class="demo-play">▶</div>
-            <div class="caption">Private walkthrough available now</div>
-            <div class="sub">The live product, docs, and payment rail are already public. Use those today, or request a guided walkthrough for the full request → approve flow.</div>
-            <div class="demo-actions">
-              <a href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener" class="btn btn-solid">Open Clearance</a>
-              <a href="https://clearance.nauti-labs.com/v1/docs" target="_blank" rel="noopener" class="btn">API Docs</a>
-            </div>
+    <section class="band" id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <div class="eyebrow">04 · Contact</div>
+            <h2>Bring a workflow to the bridge.</h2>
+            <p>Clearance integrations, Bridge pilots, Felipe research workflows, and Nauti-Labs product demos all start with a short brief. Send the workflow, what needs approval, and the fastest useful deadline.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:consulting@nauti-labs.com?subject=Nauti-Labs%20Labs%20Inquiry&amp;body=Project%3A%0AWorkflow%20to%20bring%20to%20Bridge%3A%0AWhat%20needs%20approval%3A%0ATimeline%3A%0A">Send Brief</a>
+            <a class="button" href="https://github.com/Nauti-Labs" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- ── SCREENSHOT GALLERY ── -->
-      <div class="gallery-section">
-        <div class="gallery-heading">
-          <p class="section-label">Inside the App</p>
-          <h3 style="font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.01em; margin-bottom: 0.5rem; background: linear-gradient(135deg, #fff 0%, var(--magenta) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-            Every surface, every screen.
-          </h3>
-        </div>
-        <div class="gallery-grid">
-          <div class="gallery-tile">
-            <div class="tile-label">01 · Request Page</div>
-            <div class="tile-title">AI submits clearance</div>
-            <div class="tile-caption">POST /v1/request · returns pending_id + approval URL</div>
-          </div>
-          <div class="gallery-tile">
-            <div class="tile-label">02 · Approval Page</div>
-            <div class="tile-title">One-tap human approval</div>
-            <div class="tile-caption">Mobile-first · approve or deny, signed receipt returned</div>
-          </div>
-          <div class="gallery-tile">
-            <div class="tile-label">03 · Success Page</div>
-            <div class="tile-title">Receipt issued</div>
-            <div class="tile-caption">JWT HS256 · verifiable from any service, any chain</div>
-          </div>
-          <div class="gallery-tile">
-            <div class="tile-label">04 · API Docs</div>
-            <div class="tile-title">OpenAPI 3.1 spec</div>
-            <div class="tile-caption">Full reference · interactive try-it-live · code samples</div>
-          </div>
-          <div class="gallery-tile">
-            <div class="tile-label">05 · Payment Info</div>
-            <div class="tile-title">USDC on Base rail</div>
-            <div class="tile-caption">spacegravy.base.eth · on-chain verified · 12+ confirmations</div>
-          </div>
-          <div class="gallery-tile">
-            <div class="tile-label">06 · Audit Trail</div>
-            <div class="tile-title">Every decision logged</div>
-            <div class="tile-caption">Signed timestamp · approver · scope · nonce · chain-of-custody</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- BRIDGE -->
-  <section id="bridge">
-    <div class="container">
-      <p class="section-label">Open Source · Built in Public</p>
-      <h2>Bridge — AI Crew Command.</h2>
-      <div class="section-divider"></div>
-      <div class="product reverse">
-        <div>
-          <p class="product-headline">Send the crew. Approve every move.</p>
-          <p class="product-lead">
-            <strong>Bridge</strong> is a web-based command surface for AI crew. Monitor health,
-            issue orders, and track work from one dashboard — all through a
-            <strong>human-in-the-loop approval layer</strong>. The AI proposes. You approve. PIN-verified
-            execution for sensitive ops.
-          </p>
-          <p class="product-lead">
-            <strong>Nauti-Vision</strong> adds WebRTC-based visual intelligence — live camera feeds with
-            real-time object detection for field operations.
-          </p>
-          <ul class="product-features">
-            <li>Crew health monitoring from one command surface</li>
-            <li>Human approval layer for every sensitive action</li>
-            <li>Nauti-Vision: WebRTC live visual intelligence</li>
-            <li>Installable PWA — works on mobile in the field</li>
-            <li>Session auth with passcode + authorized user lists</li>
-          </ul>
-          <div class="badges">
-            <span class="badge">FastAPI + Claude</span>
-            <span class="badge">PyTorch Vision</span>
-            <span class="badge green">Open Source</span>
-            <span class="badge magenta">90-Day Pilot</span>
-          </div>
-          <div style="display:flex; gap:0.8rem; flex-wrap:wrap;">
-            <a href="https://github.com/Nauti-Labs/triton" target="_blank" rel="noopener" class="btn btn-green">View Bridge GitHub</a>
-            <a href="https://triton.nauti-labs.com/" target="_blank" rel="noopener" class="btn">Open Bridge</a>
-          </div>
-        </div>
-        <div class="visual">
-          <div class="visual-dots"><span></span><span></span><span></span></div>
-          <div class="visual-title">bridge · crew-status</div>
-          <div class="visual-body">
-            <div><span class="comment"># Active crew</span></div>
-            <div><span class="key">▸</span> nauti-ops         <span class="ok">running</span></div>
-            <div><span class="key">▸</span> felipe-trader     <span class="ok">running</span></div>
-            <div><span class="key">▸</span> navi-sales        <span class="ok">running</span></div>
-            <div><span class="key">▸</span> castle-security   <span class="ok">running</span></div>
-            <br>
-            <div><span class="comment"># Pending approval</span></div>
-            <div><span class="prompt">!</span> felipe-trader → buy <span class="string">"nauti-ai.com"</span> <span class="string">$2,400</span></div>
-            <div>&nbsp;&nbsp;&nbsp;<span class="key">[a]</span>pprove  <span class="key">[d]</span>eny  <span class="key">[i]</span>nvestigate</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FELIPE -->
-  <section id="felipe">
-    <div class="container">
-      <p class="section-label">Internal Product Lab · Phase 2</p>
-      <h2>Felipe — Domain Acquisition Lab.</h2>
-      <div class="section-divider"></div>
-      <div class="product">
-        <div>
-          <p class="product-headline">An approval-gated research tool for sourcing and valuing domain acquisitions.</p>
-          <p class="product-lead">
-            <strong>Felipe</strong> is an internal acquisition research platform built on Python + FastAPI.
-            It watches auctions, scores candidates against signals, proposes acquisitions, and routes
-            higher-stakes buys through <strong>Clearance</strong> for explicit human approval.
-          </p>
-          <ul class="product-features">
-            <li>Auction monitoring + value models for GoDaddy, Sedo, and DropCatch</li>
-            <li>Signal stack: SEO metrics, keyword demand, comparable sales</li>
-            <li>Clearance-integrated approval flow for sensitive-threshold purchases</li>
-            <li>Python · FastAPI · SQLite + optional Postgres · internal lab use</li>
-          </ul>
-          <div class="badges">
-            <span class="badge">Python 3.12</span>
-            <span class="badge">FastAPI</span>
-            <span class="badge magenta">Phase 2A/2B</span>
-          </div>
-        </div>
-        <div class="visual">
-          <div class="visual-dots"><span></span><span></span><span></span></div>
-          <div class="visual-title">felipe · acquisition-cycle</div>
-          <div class="visual-body">
-            <div><span class="comment"># Candidate found</span></div>
-            <div><span class="key">domain:</span> <span class="string">"agentlog.io"</span></div>
-            <div><span class="key">score:</span>  <span class="ok">8.4 / 10</span></div>
-            <div><span class="key">est:</span>    <span class="string">$1,850</span></div>
-            <div><span class="key">ask:</span>    <span class="string">$2,100</span></div>
-            <br>
-            <div><span class="comment"># Above threshold → Clearance</span></div>
-            <div><span class="prompt">→</span> POST clearance/request</div>
-            <div><span class="ok">operator approved</span></div>
-            <div><span class="ok">settlement confirmed</span></div>
-            <div><span class="ok">→ domain secured</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-      <p class="section-label">About</p>
-      <h2>Built by an Operator Who Ships Code.</h2>
-      <div class="section-divider" style="margin: 0 auto 3rem;"></div>
-      <p class="about-lead">
-        Nauti-Labs is run by <strong>Justin LeBlanc</strong> — maritime operations background, now shipping
-        AI tooling with the discipline of someone who's been on call at 2am for a missed window.
-        These products exist because we use them. They ship in weeks because the gap between
-        "idea" and "deployed" is where most builders stall.
-      </p>
-      <div class="about-stats">
-        <div class="stat"><div class="stat-number">7</div><div class="stat-label">Day Builds</div></div>
-        <div class="stat"><div class="stat-number green">OSS</div><div class="stat-label">Where It Counts</div></div>
-        <div class="stat"><div class="stat-number">TX</div><div class="stat-label">Mont Belvieu</div></div>
-        <div class="stat"><div class="stat-number green">LLC</div><div class="stat-label">Est. 2026</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <p class="section-label">Get in Touch</p>
-      <h2>Want to integrate, pilot, or hire?</h2>
-      <div class="section-divider" style="margin: 0 auto 2rem;"></div>
-      <p class="contact-lead">
-        Clearance integrations, approval-gated workflows, Bridge pilots, and guided product walkthroughs all start here. Send the workflow, target users, and timeline, and you'll get a direct reply with the next best step.
-      </p>
-      <div class="contact-cta">
-        <a href="mailto:consulting@nauti-labs.com?subject=Nauti-Labs%20Labs%20Inquiry&amp;body=Company%20or%20project%3A%0AWhat%20you%20want%20to%20pilot%3A%0AWorkflow%20or%20integration%3A%0ATarget%20timeline%3A%0A" class="btn btn-solid">Send an Integration Brief</a>
-        <a href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener" class="btn">Open Clearance</a>
-        <a href="https://github.com/Nauti-Labs" target="_blank" rel="noopener" class="btn btn-green">GitHub</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CROSS-DOOR -->
-  <section id="cross-door">
-    <p>Looking for chemical tanker consulting, maritime ops software, or local hands-on tech help?</p>
-    <div class="contact-cta">
-      <a href="/maritime/" class="btn">For Maritime Operations →</a>
-      <a href="/neighbors/" class="btn btn-green">For Neighbors →</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <span class="accent">NAUTI-LABS LLC</span> · Tools for a world where AI needs approval · Mont Belvieu, TX · <span class="green">Est. 2026</span>
-  </footer>
-
+    <footer>
+      Nauti-Labs LLC · Labs · One ship. Many stations. · <a href="/brand/">Brand system locked</a>
+    </footer>
+  </div>
 </body>
 </html>

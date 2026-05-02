@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BRIDGE | Nauti-Labs</title>
-  <meta name="description" content="BRIDGE is the Nauti-Labs command layer for running AI across your machine, your apps, and your team with human-supervised approvals.">
+  <title>Bridge | Nauti-Labs</title>
+  <meta name="description" content="Bridge is the Nauti-Labs command layer for running AI across your machine, your apps, and your team with human-supervised approvals.">
   <link rel="canonical" href="https://triton.nauti-labs.com/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23060b14'/%3E%3Cg fill='none' stroke='%2367dfff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='32' cy='23' r='13'/%3E%3Cpath d='M32 10v8M32 28v8M19 23h8M37 23h8M23 14l6 6M35 26l6 6M41 14l-6 6M29 26l-6 6'/%3E%3C/g%3E%3Ccircle cx='32' cy='23' r='5' fill='%23060b14' stroke='%2367dfff' stroke-width='2'/%3E%3Ccircle cx='32' cy='23' r='2.5' fill='%23ffaa00'/%3E%3Cpath d='M16 48c6-6 12-6 18 0s12 6 18 0' fill='none' stroke='%23edf7f5' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
   <meta name="robots" content="index,follow">
   <meta property="og:site_name" content="Nauti-Labs">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="BRIDGE by Nauti-Labs">
-  <meta property="og:description" content="Your computer is the ship. BRIDGE is the command room. Send crew to stations and keep every action under Captain's Approval.">
+  <meta property="og:title" content="Bridge by Nauti-Labs">
+  <meta property="og:description" content="Your computer is the ship. Bridge is the command room. Send crew to stations and keep every action under Captain's Approval.">
   <meta property="og:url" content="https://triton.nauti-labs.com/">
   <meta property="og:image" content="https://nauti-labs.com/og/triton-coming-soon-telegram.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BRIDGE by Nauti-Labs">
-  <meta name="twitter:description" content="Your computer is the ship. BRIDGE is the command room. Send crew to stations and keep every action under Captain's Approval.">
+  <meta name="twitter:title" content="Bridge by Nauti-Labs">
+  <meta name="twitter:description" content="Your computer is the ship. Bridge is the command room. Send crew to stations and keep every action under Captain's Approval.">
   <meta name="twitter:image" content="https://nauti-labs.com/og/triton-coming-soon-telegram.png">
   <meta name="theme-color" content="#061514">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -163,8 +164,19 @@
     .nav-brand strong {
       color: var(--text);
       font-family: var(--sans);
-      font-size: 15px;
-      letter-spacing: 0.12em;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .brand-byline {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .launch-mark {
@@ -525,8 +537,9 @@
       text-align: center;
       color: #bffefa;
       font-size: 36px;
-      font-weight: 300;
-      letter-spacing: 0.13em;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: none;
       margin-bottom: 4px;
     }
 
@@ -2173,9 +2186,32 @@
 </head>
 <body>
 
-  <!-- ═══ TRIDENT MARK (single source, reused via <use href="#triton-trident">) ═══ -->
+  <!-- ═══ BRIDGE MARK (helm above the Nauti-Labs wave) ═══ -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
+      <symbol id="bridge-helm-wave" viewBox="0 0 64 64">
+        <filter id="bridgeMarkGlow" x="-35%" y="-35%" width="170%" height="170%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
+          <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.15 0 0 0 0 0.78 0 0 0 0 1 0 0 0 0.72 0" result="glow"/>
+          <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <g filter="url(#bridgeMarkGlow)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="32" cy="23" r="13.2" stroke="var(--nauti-blue-2, #67dfff)" stroke-width="3.2"/>
+          <circle cx="32" cy="23" r="4.7" fill="var(--bridge-ink-deep, #060b14)" stroke="var(--nauti-blue-2, #67dfff)" stroke-width="1.8"/>
+          <circle cx="32" cy="23" r="2.4" fill="var(--nauti-amber, #ffaa00)" stroke="none"/>
+          <g stroke="var(--nauti-blue-2, #67dfff)" stroke-width="2.4">
+            <path d="M32 9.8v7.9M32 28.3v7.9M18.8 23h7.9M37.3 23h7.9"/>
+            <path d="M22.6 13.6l5.6 5.6M35.8 26.8l5.6 5.6M41.4 13.6l-5.6 5.6M28.2 26.8l-5.6 5.6"/>
+          </g>
+          <g fill="var(--nauti-blue-2, #67dfff)" stroke="var(--bridge-ink-deep, #060b14)" stroke-width="0.8">
+            <circle cx="32" cy="9.8" r="2"/>
+            <circle cx="32" cy="36.2" r="2"/>
+            <circle cx="18.8" cy="23" r="2"/>
+            <circle cx="45.2" cy="23" r="2"/>
+          </g>
+          <path d="M15.8 48.2c6.4-6 12.5-6 18.6 0s12.2 6 18.6 0" stroke="var(--bridge-logo-wave, #edf7f5)" stroke-width="4.2"/>
+        </g>
+      </symbol>
       <symbol id="triton-trident" viewBox="0 0 44 44">
         <linearGradient id="tmBP" x1="0" x2="1" y1="0" y2="1">
           <stop offset="0" stop-color="var(--nauti-blue-2, #4099ff)"/>
@@ -2268,10 +2304,26 @@
 
   <!-- ═══ COLOR BOMB STYLES (matches ops.nauti-labs.com) ═══ -->
   <style>
+    .bridge-mark-svg,
+    .bridge-brand-mark,
+    .bridge-mini-mark,
     .trident-svg, .trident-mark {
       display: block;
-      filter: drop-shadow(0 0 14px rgba(0, 119, 255, 0.45));
+      filter: drop-shadow(0 0 14px rgba(103, 223, 255, 0.45));
     }
+    .launch-mark.bridge-mark-svg {
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      overflow: visible;
+    }
+    .nav-brand .bridge-mark-svg { width: 38px; height: 38px; }
+    .crew-wordmark .bridge-mark-svg { width: 40px; height: 40px; }
+    .login-screen .bridge-brand-mark { width: 92px; height: 92px; margin: 0 auto 12px; }
+    .bridge-mini-mark { width: 36px; height: 36px; flex: 0 0 36px; }
     .nav-brand .trident-svg { width: 32px; height: 32px; }
     .login-screen .trident-mark { width: 76px; height: 76px; margin: 0 auto 14px; }
 
@@ -2593,9 +2645,10 @@
     .crew-wordmark h1 {
       color: var(--bridge-parchment);
       font-family: var(--display);
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: none;
     }
     .crew-wordmark p {
       margin-top: 2px;
@@ -3052,7 +3105,7 @@
           '--nauti-blue':'#0077ff','--nauti-blue-2':'#4099ff','--nauti-amber':'#ffaa00','--nauti-amber-2':'#ffcc4d',
           '--aqua':'#63fff4','--gold':'#dbc36c','--green':'#62f2b4','--line':'rgba(0,119,255,0.20)','--line-strong':'rgba(255,170,0,0.34)',
           '--bridge-ink-deep':'#060b14','--bridge-ink':'#0a1322','--bridge-panel-soft':'rgba(15,28,48,0.78)','--bridge-line':'rgba(95,168,163,0.28)',
-          '--bridge-line-strong':'rgba(201,168,106,0.42)','--bridge-brass':'#c9a86a','--bridge-brass-warm':'#e0c084','--bridge-mist':'#9aa9c2'
+          '--bridge-line-strong':'rgba(201,168,106,0.42)','--bridge-brass':'#c9a86a','--bridge-brass-warm':'#e0c084','--bridge-mist':'#9aa9c2','--bridge-logo-wave':'#edf7f5'
         }
       },
       'black-ice': {
@@ -3063,7 +3116,7 @@
           '--nauti-blue':'#38bdf8','--nauti-blue-2':'#7dd3fc','--nauti-amber':'#e2e8f0','--nauti-amber-2':'#f8fafc',
           '--aqua':'#38bdf8','--gold':'#e2e8f0','--green':'#2dd4bf','--line':'rgba(56,189,248,0.22)','--line-strong':'rgba(226,232,240,0.34)',
           '--bridge-ink-deep':'#030712','--bridge-ink':'#07111f','--bridge-panel-soft':'rgba(7,17,31,0.82)','--bridge-line':'rgba(56,189,248,0.28)',
-          '--bridge-line-strong':'rgba(226,232,240,0.42)','--bridge-brass':'#cbd5e1','--bridge-brass-warm':'#f8fafc','--bridge-mist':'#94a3b8'
+          '--bridge-line-strong':'rgba(226,232,240,0.42)','--bridge-brass':'#cbd5e1','--bridge-brass-warm':'#f8fafc','--bridge-mist':'#94a3b8','--bridge-logo-wave':'#f8fafc'
         }
       },
       'harbor-steel': {
@@ -3074,7 +3127,7 @@
           '--nauti-blue':'#2563eb','--nauti-blue-2':'#60a5fa','--nauti-amber':'#14b8a6','--nauti-amber-2':'#5eead4',
           '--aqua':'#5eead4','--gold':'#f59e0b','--green':'#14b8a6','--line':'rgba(37,99,235,0.22)','--line-strong':'rgba(20,184,166,0.36)',
           '--bridge-ink-deep':'#05070b','--bridge-ink':'#0a1018','--bridge-panel-soft':'rgba(10,16,24,0.82)','--bridge-line':'rgba(37,99,235,0.24)',
-          '--bridge-line-strong':'rgba(20,184,166,0.42)','--bridge-brass':'#14b8a6','--bridge-brass-warm':'#5eead4','--bridge-mist':'#93a4b8'
+          '--bridge-line-strong':'rgba(20,184,166,0.42)','--bridge-brass':'#14b8a6','--bridge-brass-warm':'#5eead4','--bridge-mist':'#93a4b8','--bridge-logo-wave':'#edf7f5'
         }
       },
       'carbon-copper': {
@@ -3085,7 +3138,7 @@
           '--nauti-blue':'#0891b2','--nauti-blue-2':'#22d3ee','--nauti-amber':'#d6a15f','--nauti-amber-2':'#f0c987',
           '--aqua':'#22d3ee','--gold':'#d6a15f','--green':'#34d399','--line':'rgba(8,145,178,0.22)','--line-strong':'rgba(214,161,95,0.36)',
           '--bridge-ink-deep':'#07090a','--bridge-ink':'#0e1214','--bridge-panel-soft':'rgba(14,18,20,0.82)','--bridge-line':'rgba(8,145,178,0.26)',
-          '--bridge-line-strong':'rgba(214,161,95,0.42)','--bridge-brass':'#d6a15f','--bridge-brass-warm':'#f0c987','--bridge-mist':'#9aa5a8'
+          '--bridge-line-strong':'rgba(214,161,95,0.42)','--bridge-brass':'#d6a15f','--bridge-brass-warm':'#f0c987','--bridge-mist':'#9aa5a8','--bridge-logo-wave':'#edf7f5'
         }
       },
       'monaco-teal': {
@@ -3096,7 +3149,7 @@
           '--nauti-blue':'#0f766e','--nauti-blue-2':'#2dd4bf','--nauti-amber':'#f5d06f','--nauti-amber-2':'#fde68a',
           '--aqua':'#2dd4bf','--gold':'#f5d06f','--green':'#2dd4bf','--line':'rgba(45,212,191,0.20)','--line-strong':'rgba(245,208,111,0.34)',
           '--bridge-ink-deep':'#031310','--bridge-ink':'#071b18','--bridge-panel-soft':'rgba(7,27,24,0.82)','--bridge-line':'rgba(45,212,191,0.26)',
-          '--bridge-line-strong':'rgba(245,208,111,0.42)','--bridge-brass':'#f5d06f','--bridge-brass-warm':'#fde68a','--bridge-mist':'#99bdb8'
+          '--bridge-line-strong':'rgba(245,208,111,0.42)','--bridge-brass':'#f5d06f','--bridge-brass-warm':'#fde68a','--bridge-mist':'#99bdb8','--bridge-logo-wave':'#edf7f5'
         }
       },
       'redline-carbon': {
@@ -3107,7 +3160,7 @@
           '--nauti-blue':'#64748b','--nauti-blue-2':'#94a3b8','--nauti-amber':'#f43f5e','--nauti-amber-2':'#fb7185',
           '--aqua':'#94a3b8','--gold':'#f43f5e','--green':'#38bdf8','--line':'rgba(148,163,184,0.18)','--line-strong':'rgba(244,63,94,0.36)',
           '--bridge-ink-deep':'#06070a','--bridge-ink':'#0c1016','--bridge-panel-soft':'rgba(12,16,22,0.82)','--bridge-line':'rgba(148,163,184,0.24)',
-          '--bridge-line-strong':'rgba(244,63,94,0.42)','--bridge-brass':'#f43f5e','--bridge-brass-warm':'#fb7185','--bridge-mist':'#94a3b8'
+          '--bridge-line-strong':'rgba(244,63,94,0.42)','--bridge-brass':'#f43f5e','--bridge-brass-warm':'#fb7185','--bridge-mist':'#94a3b8','--bridge-logo-wave':'#edf7f5'
         }
       },
       'radar-glass': {
@@ -3118,7 +3171,7 @@
           '--nauti-blue':'#22d3ee','--nauti-blue-2':'#67e8f9','--nauti-amber':'#a3e635','--nauti-amber-2':'#bef264',
           '--aqua':'#22d3ee','--gold':'#a3e635','--green':'#a3e635','--line':'rgba(34,211,238,0.20)','--line-strong':'rgba(163,230,53,0.34)',
           '--bridge-ink-deep':'#04100f','--bridge-ink':'#081a18','--bridge-panel-soft':'rgba(8,26,24,0.82)','--bridge-line':'rgba(34,211,238,0.26)',
-          '--bridge-line-strong':'rgba(163,230,53,0.42)','--bridge-brass':'#a3e635','--bridge-brass-warm':'#bef264','--bridge-mist':'#a7bda5'
+          '--bridge-line-strong':'rgba(163,230,53,0.42)','--bridge-brass':'#a3e635','--bridge-brass-warm':'#bef264','--bridge-mist':'#a7bda5','--bridge-logo-wave':'#edf7f5'
         }
       },
       'random': {
@@ -3264,7 +3317,7 @@
       document.body.insertAdjacentHTML('beforeend',
         '<div class="cb-panel" id="cb-panel" role="dialog" aria-label="Color theme presets">' +
           '<div class="cb-head"><div class="cb-title-block"><div class="cb-kicker">Palette bombs</div><h3>Color Bomb</h3></div><button class="cb-close" id="cb-close" aria-label="Close Color Bomb panel">×</button></div>' +
-          '<div class="cb-body"><div class="cb-hint"><span class="cb-hint-pip"></span><span>Colorways are armed for this BRIDGE watch.</span></div><div id="cb-presets"></div></div>' +
+          '<div class="cb-body"><div class="cb-hint"><span class="cb-hint-pip"></span><span>Colorways are armed for this Bridge watch.</span></div><div id="cb-presets"></div></div>' +
         '</div>'
       );
       cbBuildPanel();
@@ -3310,11 +3363,12 @@
 
   <!-- ═══ PUBLIC LAUNCH SURFACE ═══ -->
   <main class="launch-screen" id="launchScreen">
-    <section class="launch-hero" aria-label="BRIDGE by Nauti-Labs">
+    <section class="launch-hero" aria-label="Bridge by Nauti-Labs">
       <nav class="launch-nav" aria-label="Launch navigation">
         <div class="nav-brand">
-          <svg class="launch-mark trident-svg" aria-hidden="true" viewBox="0 0 44 44"><use href="#triton-trident"/></svg>
-          <strong>BRIDGE</strong>
+          <svg class="launch-mark bridge-mark-svg" aria-hidden="true" viewBox="0 0 64 64"><use href="#bridge-helm-wave"/></svg>
+          <strong>Bridge</strong>
+          <span class="brand-byline">By Nauti-Labs</span>
         </div>
         <button class="cb-btn" type="button" title="Color Bomb · change theme" aria-label="Open Color Bomb panel" aria-expanded="false">
           <svg class="cb-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -3327,10 +3381,10 @@
       </nav>
 
       <div class="launch-copy">
-        <div class="eyebrow">Nauti-Labs</div>
-        <h1 class="launch-title">Send the crew, keep the wheel.</h1>
-        <p class="launch-subtitle">Your computer is the ship. BRIDGE is the command room. Crew members travel to stations, prepare work, and wait for the captain before anything consequential happens.</p>
-        <div class="launch-points" aria-label="BRIDGE trust signals">
+        <div class="eyebrow">By Nauti-Labs</div>
+        <h1 class="launch-title">Bridge</h1>
+        <p class="launch-subtitle">Send the crew, keep the wheel. Your computer is the ship. Bridge is the command room. Crew members travel to stations, prepare work, and wait for the captain before anything consequential happens.</p>
+        <div class="launch-points" aria-label="Bridge trust signals">
           <span class="launch-pill gold">The Bridge</span>
           <span class="launch-pill">Crew</span>
           <span class="launch-pill">Stations</span>
@@ -3344,21 +3398,21 @@
       </div>
     </section>
 
-    <section class="launch-strip" aria-label="BRIDGE operating posture">
+    <section class="launch-strip" aria-label="Bridge operating posture">
       <div class="launch-stat"><strong>7</strong><span>crew members ready to help with code, browser notes, files, messages, memory, and permissions</span></div>
       <div class="launch-stat"><strong>7</strong><span>computer stations where work is prepared in plain view</span></div>
       <div class="launch-stat"><strong>1</strong><span>captain in control before prepared work can move forward</span></div>
       <div class="launch-stat"><strong>0</strong><span>outside actions without Captain's Approval</span></div>
     </section>
 
-    <section class="launch-band" aria-label="BRIDGE command flow">
+    <section class="launch-band" aria-label="Bridge command flow">
       <div class="launch-band-inner">
         <div>
           <span class="eyebrow">Tonight's Surface</span>
           <h2>A clearer way to understand AI work.</h2>
           <p>Crew Mode turns invisible computer work into a simple bridge view: send crew, watch stations change, review prepared items, and approve or hold without losing control.</p>
         </div>
-          <div class="fleet-grid" aria-label="BRIDGE command modules">
+          <div class="fleet-grid" aria-label="Bridge command modules">
           <article class="fleet-row">
             <span class="fleet-avatar">BR</span>
             <div><h3>The Bridge</h3><p>Crew starts from one calm command surface.</p></div>
@@ -3389,9 +3443,9 @@
     <div class="crew-shell">
       <header class="crew-topbar">
         <div class="crew-wordmark">
-          <svg class="launch-mark trident-svg" aria-hidden="true" viewBox="0 0 44 44"><use href="#triton-trident"/></svg>
+          <svg class="launch-mark bridge-mark-svg" aria-hidden="true" viewBox="0 0 64 64"><use href="#bridge-helm-wave"/></svg>
           <div>
-            <h1 id="crewModeTitle">BRIDGE</h1>
+            <h1 id="crewModeTitle">Bridge</h1>
             <p>Crew Mode turns computer work into visible station work.</p>
           </div>
         </div>
@@ -3413,7 +3467,7 @@
         </div>
       </header>
 
-      <section class="crew-layout" aria-label="BRIDGE Crew Mode">
+      <section class="crew-layout" aria-label="Bridge Crew Mode">
         <section class="crew-panel bridge-panel" aria-labelledby="bridgeTitle">
           <div class="crew-panel-header">
             <div>
@@ -3423,7 +3477,7 @@
           </div>
           <div class="crew-order-card">
             <label class="crew-order-label" for="captainOrder">Captain's Order</label>
-            <textarea class="crew-order-input" id="captainOrder">Make this easier than Rocky: get the BRIDGE demo clear, Nauti themed, and ready for captain review.</textarea>
+            <textarea class="crew-order-input" id="captainOrder">Make this easier than Rocky: get the Bridge demo clear, Nauti themed, and ready for captain review.</textarea>
             <div class="crew-order-foot" id="crewOrderHint">7 crew ready</div>
           </div>
           <div class="crew-actions">
@@ -3469,9 +3523,9 @@
 
   <!-- ═══ LOGIN SCREEN ═══ -->
   <main class="login-screen hidden" id="loginScreen">
-    <section class="iris-card" aria-label="BRIDGE Iris Authentication">
-      <svg class="trident-mark" aria-hidden="true" viewBox="0 0 44 44"><use href="#triton-trident"/></svg>
-      <h1 class="login-title">BRIDGE</h1>
+    <section class="iris-card" aria-label="Bridge Iris Authentication">
+      <svg class="bridge-brand-mark" aria-hidden="true" viewBox="0 0 64 64"><use href="#bridge-helm-wave"/></svg>
+      <h1 class="login-title">Bridge</h1>
       <div class="login-subtitle">IRIS AUTHENTICATION</div>
 
       <div class="scanner" id="scanner">
@@ -3507,7 +3561,7 @@
     <div class="left">
       <span class="status-indicator">
         <span class="status-dot" id="healthDot"></span>
-        <span id="healthLabel">BRIDGE Online</span>
+        <span id="healthLabel">Bridge Online</span>
       </span>
       <span class="stat-chip" id="agentCount">0 agents</span>
       <span class="stat-chip warn" id="pendingCount" style="display:none">0 pending</span>
@@ -3525,8 +3579,8 @@
 
     <header class="dash-header">
       <div class="dash-brand">
-        <span class="mini-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-        <h1>BRIDGE Blackwater OS</h1>
+        <svg class="bridge-mini-mark" aria-hidden="true" viewBox="0 0 64 64"><use href="#bridge-helm-wave"/></svg>
+        <h1>Bridge Blackwater OS</h1>
       </div>
     </header>
 
@@ -3555,7 +3609,7 @@
             <span class="count">cross-assist</span>
           </div>
           <div class="assist-composer">
-            <textarea id="assistPrompt">Ollama assist Claude with this BRIDGE project and report back with the safest next step.</textarea>
+            <textarea id="assistPrompt">Ollama assist Claude with this Bridge project and report back with the safest next step.</textarea>
             <div class="assist-row">
               <select class="select-lite" id="assistFrom"></select>
               <select class="select-lite" id="assistTo"></select>
@@ -3604,7 +3658,7 @@
             <h2>Red Shutdown</h2>
             <span class="count" id="shutdownState">armed</span>
           </div>
-          <p class="shutdown-copy">Stops the BRIDGE command rail, pauses all AI workflow cards, and preserves the last visible command state for resume.</p>
+          <p class="shutdown-copy">Stops the Bridge command rail, pauses all AI workflow cards, and preserves the last visible command state for resume.</p>
           <button class="red-button" id="redShutdown" type="button">Stop All AI</button>
           <button class="resume-button hidden" id="resumeAll" type="button">Resume Exact Position</button>
         </section>
@@ -3675,7 +3729,7 @@
 
   <script>
     // ═══════════════════════════════════════
-    // BRIDGE AGENT CONTROLLER — FRONTEND
+    // Bridge agent controller frontend
     // ═══════════════════════════════════════
 
     const API_BASE = (() => {
@@ -3718,7 +3772,7 @@
     let crewTimers = [];
 
     const demoAgents = [
-      { name: 'BRIDGE Ops', status: 'active', current_project: 'Operational recommendation: plan adjustment can move if Clearance signs.', accent_color: 'var(--aqua)' },
+      { name: 'Bridge Ops', status: 'active', current_project: 'Operational recommendation: plan adjustment can move if Clearance signs.', accent_color: 'var(--aqua)' },
       { name: 'Turbo', status: 'active', current_project: 'Voice lane healthy. Commercial impact: $18K delay exposure, customer memo ready.', accent_color: 'var(--gold)' },
       { name: 'Nauti-Vision', status: 'active', current_project: 'Visual evidence: work path obstruction observed, 86% confidence.', accent_color: '#7cf7d4' },
       { name: 'Castle', status: 'idle', current_project: 'Session integrity clean. Local presence gate required before execution.', accent_color: '#8b7dff' },
@@ -3736,9 +3790,9 @@
         statusClass: 'hold',
         active: true,
         logo: './assets/agent-icons/claude.png',
-        copy: 'Colorbomb and logo lane only. BRIDGE structure remains locked.',
+        copy: 'Colorbomb and logo lane only. Bridge structure remains locked.',
         tools: ['surgery lock', 'visual review', 'report back'],
-        prompt: 'Stay inside logo and colorbomb surgery. Report what changed without moving BRIDGE files.'
+        prompt: 'Stay inside logo and colorbomb surgery. Report what changed without moving Bridge files.'
       },
       {
         id: 'codex',
@@ -3748,7 +3802,7 @@
         statusClass: 'live',
         active: true,
         logo: './assets/agent-icons/codex.png',
-        copy: 'Codex app and local browser tools are active. Owns the live BRIDGE surface.',
+        copy: 'Codex app and local browser tools are active. Owns the live Bridge surface.',
         tools: ['edit live shell', 'verify deploy', 'review diff'],
         prompt: 'Review triton.nauti-labs.com for broken controls and report the next fix.'
       },
@@ -3762,7 +3816,7 @@
         logo: './assets/agent-icons/chatgpt.png',
         copy: 'ChatGPT desktop is running. Best used for positioning, launch copy, and synthesis.',
         tools: ['brief', 'copy pass', 'decision memo'],
-        prompt: 'Turn the latest BRIDGE feature set into three launch bullets for X.'
+        prompt: 'Turn the latest Bridge feature set into three launch bullets for X.'
       },
       {
         id: 'ollama',
@@ -3774,7 +3828,7 @@
         logo: './assets/agent-icons/ollama.png',
         copy: 'Ollama is serving locally on 127.0.0.1:11434 for private model assistance.',
         tools: ['local reason', 'assist Claude', 'summarize'],
-        prompt: 'Assist Claude with this BRIDGE project and report back with risks.'
+        prompt: 'Assist Claude with this Bridge project and report back with risks.'
       },
       {
         id: 'openclaw',
@@ -3786,7 +3840,7 @@
         logo: './assets/agent-icons/openclaw.svg',
         copy: 'OpenClaw gateway is listening locally. Use for cross-app task routing after approval.',
         tools: ['route task', 'watch tools', 'handoff'],
-        prompt: 'Create a safe handoff packet for Codex and Ollama to coordinate on BRIDGE.'
+        prompt: 'Create a safe handoff packet for Codex and Ollama to coordinate on Bridge.'
       },
       {
         id: 'nautiOps',
@@ -4189,7 +4243,7 @@
       workflow.active = input.checked;
       workflow.status = input.checked ? workflow.resumeStatus : 'paused';
       workflow.statusClass = input.checked ? workflow.resumeClass : 'off';
-      pushLogEntry(`${workflow.name} ${input.checked ? 'resumed' : 'paused'} from BRIDGE.`);
+      pushLogEntry(`${workflow.name} ${input.checked ? 'resumed' : 'paused'} from Bridge.`);
       renderWorkflows();
       if (!bridgeOnline) return;
       try {
@@ -4264,7 +4318,7 @@
     });
 
     $redShutdown.addEventListener('click', async () => {
-      const code = window.prompt('Type STOP to freeze managed AI processes. BRIDGE stays awake for resume.');
+      const code = window.prompt('Type STOP to freeze managed AI processes. Bridge stays awake for resume.');
       if (code !== 'STOP') {
         pushLogEntry('Red Shutdown canceled before process control.');
         return;
@@ -4365,7 +4419,7 @@
       if (demoMode) {
         loadDemoData();
         setOnline(true);
-        $healthLabel.textContent = 'BRIDGE Blackwater OS';
+        $healthLabel.textContent = 'Bridge Blackwater OS';
         connectWorkflowBridge();
         return;
       }
@@ -4797,7 +4851,7 @@
           populateAssistSelectors(false);
         }
         setOnline(true);
-        $healthLabel.textContent = 'BRIDGE Live';
+        $healthLabel.textContent = 'Bridge Live';
         $shutdownState.textContent = data.bridge?.shutdownActive ? 'paused' : 'armed';
         if (data.bridge?.shutdownActive) {
           $redShutdown.classList.add('hidden');
@@ -4808,14 +4862,14 @@
         }
         if (!bridgeAnnounced && !options.quiet) {
           bridgeAnnounced = true;
-          pushLogEntry('Local BRIDGE workflow bridge connected to this dashboard.');
+          pushLogEntry('Local Bridge workflow bridge connected to this dashboard.');
         }
       } catch (err) {
         if (bridgeOnline && !options.quiet) {
           pushLogEntry(`Local workflow bridge disconnected: ${err.message}`);
         } else if (!bridgeAnnounced && !options.quiet) {
           bridgeAnnounced = true;
-          pushLogEntry('Static preview is live. Start the local BRIDGE backend to enable process control.');
+          pushLogEntry('Static preview is live. Start the local Bridge backend to enable process control.');
         }
         bridgeOnline = false;
       }
@@ -4876,7 +4930,7 @@
 
         if (statusRes.status === 'fulfilled') {
           const st = statusRes.value;
-          $healthLabel.textContent = st.status === 'ok' ? 'BRIDGE Online' : (st.message || 'BRIDGE');
+          $healthLabel.textContent = st.status === 'ok' ? 'Bridge Online' : (st.message || 'Bridge');
         }
       } catch (err) {
         setOnline(false);
@@ -4957,7 +5011,7 @@
           }
           break;
         case 'status':
-          if (msg.status) $healthLabel.textContent = msg.status === 'ok' ? 'BRIDGE Online' : msg.message || 'BRIDGE';
+          if (msg.status) $healthLabel.textContent = msg.status === 'ok' ? 'Bridge Online' : msg.message || 'Bridge';
           break;
         default:
           if (msg.message) pushLogEntry(msg.message);
@@ -4969,7 +5023,7 @@
     function setOnline(online) {
       isOnline = online;
       $healthDot.classList.toggle('offline', !online);
-      $healthLabel.textContent = online ? 'BRIDGE Online' : 'BRIDGE Offline';
+      $healthLabel.textContent = online ? 'Bridge Online' : 'Bridge Offline';
       $offlineBanner.classList.toggle('hidden', online);
     }
 
@@ -5044,7 +5098,7 @@
       $assistTo.value = workflows.some((workflow) => workflow.id === previousTo) ? previousTo : 'claude';
       if (resetHandoff || !$handoffList.children.length) {
         $handoffList.innerHTML = `
-          <div class="handoff-item">Ollama -> Claude assist lane is primed for the BRIDGE visual surgery watch.</div>
+          <div class="handoff-item">Ollama -> Claude assist lane is primed for the Bridge visual surgery watch.</div>
           <div class="handoff-item">Codex owns live-site changes. Claude stays in logo/colorbomb scope.</div>
         `;
       }

@@ -3,21 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Triton | Nauti-Labs</title>
-  <meta name="description" content="Triton is the Nauti-Labs command layer for running AI across your machine, your apps, and your team with human-supervised approvals.">
+  <title>BRIDGE | Nauti-Labs</title>
+  <meta name="description" content="BRIDGE is the Nauti-Labs command layer for running AI across your machine, your apps, and your team with human-supervised approvals.">
   <link rel="canonical" href="https://triton.nauti-labs.com/">
   <meta name="robots" content="index,follow">
   <meta property="og:site_name" content="Nauti-Labs">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Triton by Nauti-Labs">
-  <meta property="og:description" content="Your computer is the ship. Triton is the bridge. Send crew to stations and keep every action under Captain's Approval.">
+  <meta property="og:title" content="BRIDGE by Nauti-Labs">
+  <meta property="og:description" content="Your computer is the ship. BRIDGE is the command room. Send crew to stations and keep every action under Captain's Approval.">
   <meta property="og:url" content="https://triton.nauti-labs.com/">
   <meta property="og:image" content="https://nauti-labs.com/og/triton-coming-soon-telegram.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Triton by Nauti-Labs">
-  <meta name="twitter:description" content="Your computer is the ship. Triton is the bridge. Send crew to stations and keep every action under Captain's Approval.">
+  <meta name="twitter:title" content="BRIDGE by Nauti-Labs">
+  <meta name="twitter:description" content="Your computer is the ship. BRIDGE is the command room. Send crew to stations and keep every action under Captain's Approval.">
   <meta name="twitter:image" content="https://nauti-labs.com/og/triton-coming-soon-telegram.png">
   <meta name="theme-color" content="#061514">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -40,6 +43,17 @@
       --faint: rgba(237, 247, 245, 0.38);
       --mono: "SFMono-Regular", "Consolas", "Liberation Mono", monospace;
       --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --display: Fraunces, Georgia, serif;
+      --bridge-ink-deep: #060b14;
+      --bridge-ink: #0a1322;
+      --bridge-panel: rgba(10, 19, 34, 0.88);
+      --bridge-panel-soft: rgba(15, 28, 48, 0.78);
+      --bridge-line: rgba(95, 168, 163, 0.28);
+      --bridge-line-strong: rgba(201, 168, 106, 0.42);
+      --bridge-brass: #c9a86a;
+      --bridge-brass-warm: #e0c084;
+      --bridge-parchment: #f4ecdc;
+      --bridge-mist: #9aa9c2;
       --shadow: 0 34px 110px rgba(0, 0, 0, 0.62);
     }
 
@@ -2159,22 +2173,1164 @@
 </head>
 <body>
 
+  <!-- ═══ TRIDENT MARK (single source, reused via <use href="#triton-trident">) ═══ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="triton-trident" viewBox="0 0 44 44">
+        <linearGradient id="tmBP" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0" stop-color="var(--nauti-blue-2, #4099ff)"/>
+          <stop offset="0.55" stop-color="var(--nauti-blue, #0077ff)"/>
+          <stop offset="1" stop-color="#03346f"/>
+        </linearGradient>
+        <linearGradient id="tmBS" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0" stop-color="var(--nauti-blue, #0077ff)"/>
+          <stop offset="1" stop-color="#01173a"/>
+        </linearGradient>
+        <linearGradient id="tmAP" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="#ffeaa0"/>
+          <stop offset="0.5" stop-color="var(--nauti-amber-2, #ffcc4d)"/>
+          <stop offset="1" stop-color="var(--nauti-amber, #ffaa00)"/>
+        </linearGradient>
+        <linearGradient id="tmAS" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="var(--nauti-amber, #ffaa00)"/>
+          <stop offset="1" stop-color="#6b3d00"/>
+        </linearGradient>
+        <radialGradient id="tmPG" cx="35%" cy="32%" r="65%">
+          <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
+          <stop offset="0.55" stop-color="#ffffff" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="tmGG" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="#ffffff" stop-opacity="0.45"/>
+          <stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/>
+          <stop offset="1" stop-color="#000000" stop-opacity="0.32"/>
+        </linearGradient>
+        <filter id="tmGlow" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="0.95" result="b"/>
+          <feFlood flood-color="var(--nauti-blue, #0077ff)" flood-opacity="0.6" result="c"/>
+          <feComposite in="c" in2="b" operator="in" result="g"/>
+          <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <g filter="url(#tmGlow)">
+          <circle cx="22" cy="22" r="18" fill="#06090f" stroke="var(--nauti-blue, #0077ff)" stroke-width="1.4"/>
+          <circle cx="22" cy="22" r="13.5" fill="none" stroke="var(--nauti-blue-2, #4099ff)" stroke-width="0.5" opacity="0.45"/>
+          <g stroke="var(--nauti-blue-2, #4099ff)" stroke-linecap="round" opacity="0.85">
+            <line x1="22" y1="2.6" x2="22" y2="4.6" stroke-width="1.4"/>
+            <line x1="22" y1="39.4" x2="22" y2="41.4" stroke-width="1.1"/>
+            <line x1="2.6" y1="22" x2="4.6" y2="22" stroke-width="1.1"/>
+            <line x1="39.4" y1="22" x2="41.4" y2="22" stroke-width="1.1"/>
+          </g>
+          <g stroke="var(--nauti-blue-2, #4099ff)" stroke-linecap="round" stroke-width="0.8" opacity="0.55">
+            <line x1="9" y1="9" x2="10.4" y2="10.4"/>
+            <line x1="33.6" y1="9" x2="35" y2="10.4"/>
+            <line x1="9" y1="35" x2="10.4" y2="33.6"/>
+            <line x1="33.6" y1="35" x2="35" y2="33.6"/>
+          </g>
+          <path d="M 6.4 4.4 Q 9 11 12.6 18.4 L 15 18.4 Q 11 10 7.4 5 Z" fill="url(#tmBP)"/>
+          <path d="M 6.4 4.4 Q 11 10 15 18.4 L 17.4 18.4 Q 13 10 7.4 5 Z" fill="url(#tmBS)"/>
+          <path d="M 7.4 5.5 L 8.4 6 L 12.4 16 L 11.5 16.5 Z" fill="#ffffff" opacity="0.18"/>
+          <path d="M 6.6 4.6 Q 9 11 12.7 18.4" stroke="#7ad3ff" stroke-width="0.4" fill="none" opacity="0.7"/>
+          <path d="M 37.6 4.4 Q 35 11 31.4 18.4 L 29 18.4 Q 33 10 36.6 5 Z" fill="url(#tmBP)"/>
+          <path d="M 37.6 4.4 Q 33 10 29 18.4 L 26.6 18.4 Q 31 10 36.6 5 Z" fill="url(#tmBS)"/>
+          <path d="M 36.6 5.5 L 35.6 6 L 31.6 16 L 32.5 16.5 Z" fill="#ffffff" opacity="0.18"/>
+          <path d="M 37.4 4.6 Q 35 11 31.3 18.4" stroke="#7ad3ff" stroke-width="0.4" fill="none" opacity="0.7"/>
+          <path d="M 22 2 Q 20.6 9 19.2 18.4 L 22 18.4 Z" fill="url(#tmAP)"/>
+          <path d="M 22 2 Q 23.4 9 24.8 18.4 L 22 18.4 Z" fill="url(#tmAS)"/>
+          <line x1="22" y1="3.2" x2="22" y2="17.8" stroke="#fff2c0" stroke-width="0.4" opacity="0.7"/>
+          <path d="M 21.6 3 L 22 2 L 22.4 3 L 22 3.5 Z" fill="#ffffff" opacity="0.85"/>
+          <path d="M 21.4 4.5 L 22 5 L 20.4 16 L 19.8 16 Z" fill="#fff8d8" opacity="0.4"/>
+          <path d="M 22 2 Q 20.6 9 19.3 18.4" stroke="#ffd76b" stroke-width="0.32" fill="none" opacity="0.65"/>
+          <path d="M 22 2 Q 23.4 9 24.7 18.4" stroke="var(--nauti-amber, #ffaa00)" stroke-width="0.32" fill="none" opacity="0.5"/>
+          <path d="M 10.6 18.6 Q 13.5 17.4 22 17.4 Q 30.5 17.4 33.4 18.6 L 33.6 19.5 L 32.4 20.6 Q 27 21.4 22 21.4 Q 17 21.4 11.6 20.6 L 10.4 19.5 Z" fill="url(#tmBS)"/>
+          <path d="M 11.4 18.6 Q 14 17.7 22 17.7 Q 30 17.7 32.6 18.6 L 32.4 19.4 Q 28 19.9 22 19.9 Q 16 19.9 11.6 19.4 Z" fill="var(--nauti-blue-2, #4099ff)" opacity="0.92"/>
+          <path d="M 11.4 18.6 Q 14 17.7 22 17.7 Q 30 17.7 32.6 18.6 L 33.4 19 Q 28 18.4 22 18.4 Q 16 18.4 10.6 19 Z" fill="url(#tmGG)" opacity="0.6"/>
+          <line x1="11.4" y1="18.6" x2="32.6" y2="18.6" stroke="#ffffff" stroke-width="0.3" opacity="0.55"/>
+          <circle cx="11.5" cy="19.5" r="0.55" fill="var(--nauti-amber, #ffaa00)" opacity="0.9"/>
+          <circle cx="32.5" cy="19.5" r="0.55" fill="var(--nauti-amber, #ffaa00)" opacity="0.9"/>
+          <path d="M 20.6 20.7 L 22 20.7 L 22 32.4 L 21.3 32.4 Z" fill="url(#tmBP)"/>
+          <path d="M 22 20.7 L 23.4 20.7 L 22.7 32.4 L 22 32.4 Z" fill="url(#tmBS)"/>
+          <line x1="22" y1="21" x2="22" y2="32" stroke="#ffffff" stroke-width="0.32" opacity="0.5"/>
+          <rect x="20.4" y="25.2" width="3.2" height="1.6" rx="0.6" fill="#06090f" stroke="var(--nauti-blue-2, #4099ff)" stroke-width="0.35"/>
+          <line x1="20.5" y1="25.55" x2="23.5" y2="25.55" stroke="#ffffff" stroke-width="0.18" opacity="0.5"/>
+          <line x1="20.5" y1="26.45" x2="23.5" y2="26.45" stroke="#000000" stroke-width="0.18" opacity="0.6"/>
+          <circle cx="22" cy="34.2" r="2" fill="#06090f" stroke="var(--nauti-blue, #0077ff)" stroke-width="0.7"/>
+          <circle cx="22" cy="34.2" r="1.4" fill="none" stroke="var(--nauti-blue-2, #4099ff)" stroke-width="0.35" opacity="0.7"/>
+          <circle cx="22" cy="34.2" r="2" fill="url(#tmPG)"/>
+          <circle cx="22" cy="34.2" r="0.85" fill="var(--nauti-amber, #ffaa00)"/>
+          <circle cx="21.7" cy="33.95" r="0.3" fill="#fff7d8" opacity="0.85"/>
+          <polygon points="21.4,36 22.6,36 22,37.4" fill="url(#tmBP)"/>
+          <circle cx="22" cy="19.5" r="1.55" fill="#06090f" stroke="var(--nauti-blue, #0077ff)" stroke-width="0.55"/>
+          <circle cx="22" cy="19.5" r="0.6" fill="var(--nauti-amber, #ffaa00)"/>
+          <circle cx="21.85" cy="19.35" r="0.18" fill="#fff7d8" opacity="0.85"/>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ═══ COLOR BOMB STYLES (matches ops.nauti-labs.com) ═══ -->
+  <style>
+    .trident-svg, .trident-mark {
+      display: block;
+      filter: drop-shadow(0 0 14px rgba(0, 119, 255, 0.45));
+    }
+    .nav-brand .trident-svg { width: 32px; height: 32px; }
+    .login-screen .trident-mark { width: 76px; height: 76px; margin: 0 auto 14px; }
+
+    .cb-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 14px 7px 9px;
+      color: #fff; font-weight: 800; letter-spacing: 0.02em;
+      border: 1px solid rgba(0, 119, 255, 0.30); border-radius: 999px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0)),
+        linear-gradient(135deg, var(--nauti-blue, #0077ff), var(--nauti-amber, #ffaa00));
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.24), 0 0 22px rgba(0, 119, 255, 0.45);
+      cursor: pointer; transition: transform 0.14s ease, box-shadow 0.14s ease;
+      font-family: inherit; font-size: 13px; white-space: nowrap;
+    }
+    .cb-btn:hover { transform: translateY(-1px); box-shadow: 0 14px 34px rgba(0, 0, 0, 0.30), 0 0 28px rgba(255, 170, 0, 0.45); }
+    .cb-btn .cb-icon { width: 22px; height: 22px; flex-shrink: 0; filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.35)); }
+
+    .cb-explosion { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 1035; }
+    .cb-explosion::before {
+      content: ""; position: absolute; inset: -12%;
+      background:
+        radial-gradient(circle at var(--cb-x) var(--cb-y), var(--cb-a) 0 2%, transparent 20%),
+        radial-gradient(circle at calc(var(--cb-x) + 18vw) calc(var(--cb-y) + 12vh), var(--cb-b) 0 1.6%, transparent 18%),
+        radial-gradient(circle at calc(var(--cb-x) - 22vw) calc(var(--cb-y) + 18vh), var(--cb-c) 0 1.4%, transparent 17%);
+      opacity: 0; animation: cbWash 900ms ease-out forwards;
+    }
+    .cb-explosion-burst { position: absolute; left: var(--cb-x); top: var(--cb-y); width: 18px; height: 18px; transform: translate(-50%, -50%); }
+    .cb-explosion-burst::before, .cb-explosion-burst::after {
+      content: ""; position: absolute; inset: -12px; border-radius: 50%;
+      border: 3px solid var(--cb-b); box-shadow: 0 0 28px var(--cb-a), inset 0 0 24px var(--cb-c);
+      animation: cbRing 780ms cubic-bezier(0.12, 0.84, 0.33, 1) forwards;
+    }
+    .cb-explosion-burst::after { border-color: var(--cb-a); animation-delay: 90ms; }
+    .cb-splatter {
+      position: absolute; left: var(--cb-x); top: var(--cb-y); width: var(--size); height: var(--size);
+      border-radius: 58% 42% 64% 36%;
+      background: radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.86), var(--c) 23%, var(--c) 70%, transparent 72%);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.22), 0 0 18px var(--c);
+      opacity: 0; transform: translate(-50%, -50%) scale(0.35) rotate(var(--spin));
+      animation: cbSplatter 920ms cubic-bezier(0.18, 0.86, 0.32, 1) forwards;
+    }
+    @keyframes cbWash    { 0% { opacity: 0; transform: scale(0.82); } 26% { opacity: 0.34; } 100% { opacity: 0; transform: scale(1.08); } }
+    @keyframes cbRing    { 0% { opacity: 0.95; transform: scale(0.35); } 100% { opacity: 0; transform: scale(18); } }
+    @keyframes cbSplatter {
+      0%   { opacity: 0.98; transform: translate(-50%, -50%) scale(0.35) rotate(var(--spin)); }
+      72%  { opacity: 0.88; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1) rotate(calc(var(--spin) + 80deg)); }
+      100% { opacity: 0;    transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0.38) rotate(calc(var(--spin) + 120deg)); }
+    }
+    .cb-btn[aria-expanded="true"] {
+      border-color: var(--bridge-brass-warm);
+      box-shadow: 0 0 0 3px rgba(201, 168, 106, 0.16), 0 14px 34px rgba(0, 0, 0, 0.30);
+    }
+    .cb-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1040;
+      width: min(420px, calc(100vw - 16px));
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      color: var(--text);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0)),
+        linear-gradient(180deg, var(--bridge-panel-soft), var(--bridge-ink-deep));
+      border-left: 1px solid var(--bridge-line-strong);
+      box-shadow: -22px 0 60px rgba(0,0,0,0.58);
+      pointer-events: none;
+      transform: translateX(calc(100% + 24px));
+      transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .cb-panel.open {
+      pointer-events: auto;
+      transform: translateX(0);
+    }
+    .cb-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(0,119,255,0.10), transparent 42%),
+        linear-gradient(315deg, rgba(255,170,0,0.10), transparent 44%);
+      pointer-events: none;
+    }
+    .cb-head,
+    .cb-body {
+      position: relative;
+      z-index: 1;
+    }
+    .cb-head {
+      padding: 18px;
+      border-bottom: 1px solid var(--bridge-line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .cb-kicker {
+      color: var(--bridge-brass-warm);
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .cb-head h3 {
+      margin-top: 3px;
+      color: #fff;
+      font-family: var(--display);
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1;
+    }
+    .cb-close {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--bridge-line);
+      border-radius: 8px;
+      color: var(--bridge-mist);
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+      line-height: 1;
+    }
+    .cb-close:hover,
+    .cb-close:focus-visible {
+      color: #fff;
+      border-color: var(--bridge-brass-warm);
+      background: rgba(201,168,106,0.10);
+      outline: none;
+    }
+    .cb-body {
+      padding: 16px;
+      overflow-y: auto;
+      display: grid;
+      gap: 12px;
+    }
+    .cb-hint {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 12px;
+      border: 1px solid var(--bridge-line);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.04);
+      color: var(--bridge-mist);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .cb-hint-pip {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--bridge-brass-warm);
+      box-shadow: 0 0 0 4px rgba(201,168,106,0.12), 0 0 18px rgba(201,168,106,0.42);
+      flex: 0 0 auto;
+    }
+    #cb-presets {
+      display: grid;
+      gap: 12px;
+    }
+    .cb-preset {
+      width: 100%;
+      min-height: 86px;
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 13px;
+      padding: 13px;
+      border: 1px solid var(--bridge-line);
+      border-radius: 8px;
+      color: var(--text);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.01)),
+        rgba(3, 8, 12, 0.64);
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      transition: transform 0.14s ease, border-color 0.14s ease, box-shadow 0.14s ease;
+    }
+    .cb-preset::after {
+      content: "";
+      position: absolute;
+      inset: auto -20% -48% 26%;
+      height: 78px;
+      background: linear-gradient(90deg, var(--cb-a), var(--cb-b), var(--cb-c));
+      opacity: 0.18;
+      filter: blur(14px);
+      transform: rotate(-5deg);
+      z-index: -1;
+    }
+    .cb-preset:hover,
+    .cb-preset:focus-visible {
+      transform: translateX(-3px);
+      border-color: var(--cb-b);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.28);
+      outline: none;
+    }
+    .cb-preset.active {
+      border-color: var(--bridge-brass-warm);
+      box-shadow: 0 0 0 3px rgba(201,168,106,0.14), 0 14px 34px rgba(0,0,0,0.24);
+    }
+    .cb-bomb {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: conic-gradient(from 135deg, var(--cb-a), var(--cb-b), var(--cb-c), var(--cb-a));
+      border: 1px solid rgba(255,255,255,0.28);
+      box-shadow: inset 0 0 18px rgba(255,255,255,0.22), 0 10px 22px rgba(0,0,0,0.32);
+      position: relative;
+    }
+    .cb-bomb::after {
+      content: "";
+      position: absolute;
+      inset: 9px auto auto 10px;
+      width: 17px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.55);
+      filter: blur(2px);
+    }
+    .cb-name {
+      color: #fff;
+      font-size: 15px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+    .cb-desc {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .cb-swatches {
+      display: flex;
+      gap: 5px;
+      margin-top: 8px;
+    }
+    .cb-sw {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.55);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.24);
+    }
+    .cb-arm {
+      justify-self: end;
+      padding: 5px 8px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.07);
+      color: var(--bridge-mist);
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .cb-preset.active .cb-arm {
+      background: var(--bridge-brass-warm);
+      color: #061111;
+    }
+    .cb-splashed {
+      animation: cbSurfaceSplash 760ms ease-out;
+    }
+    @keyframes cbSurfaceSplash {
+      0% { border-color: var(--bridge-line); }
+      38% { border-color: var(--bridge-brass-warm); box-shadow: 0 0 0 2px rgba(201,168,106,0.12), 0 18px 44px rgba(0,0,0,0.34); }
+      100% { border-color: var(--bridge-line); }
+    }
+
+    .crew-mode {
+      min-height: 100vh;
+      height: 100vh;
+      padding: 0;
+      overflow: hidden;
+      color: var(--bridge-parchment);
+      background:
+        radial-gradient(circle at 18% 62%, rgba(95, 168, 163, 0.16), transparent 30%),
+        radial-gradient(circle at 78% 24%, rgba(201, 168, 106, 0.10), transparent 28%),
+        linear-gradient(135deg, var(--bridge-ink-deep), #03070b 52%, #050607);
+    }
+    .crew-shell {
+      width: 100%;
+      height: 100vh;
+      max-width: none;
+      margin: 0;
+      display: grid;
+      grid-template-columns: minmax(286px, 320px) minmax(440px, 1fr) minmax(300px, 360px);
+      grid-template-rows: 58px minmax(0, 1fr) auto;
+      grid-template-areas:
+        "topbar topbar topbar"
+        "bridge stations approval"
+        "log log log";
+      gap: 0;
+    }
+    .crew-topbar,
+    .crew-panel,
+    .crew-log-panel {
+      border-radius: 0;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+    .crew-topbar {
+      grid-area: topbar;
+      min-height: 58px;
+      padding: 0 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      border: 0;
+      border-bottom: 1px solid var(--bridge-line);
+      background: linear-gradient(180deg, var(--bridge-ink), var(--bridge-ink-deep));
+    }
+    .crew-wordmark h1 {
+      color: var(--bridge-parchment);
+      font-family: var(--display);
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+    }
+    .crew-wordmark p {
+      margin-top: 2px;
+      color: var(--bridge-mist);
+      font-size: 12px;
+    }
+    .crew-top-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .crew-layout { display: contents; }
+    .crew-panel {
+      min-height: 0;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 0;
+      background: linear-gradient(180deg, var(--bridge-ink), var(--bridge-ink-deep));
+    }
+    .bridge-panel {
+      grid-area: bridge;
+      border-right: 1px solid var(--bridge-line);
+    }
+    .stations-panel {
+      grid-area: stations;
+      background: linear-gradient(180deg, #060b14, var(--bridge-ink));
+    }
+    .approval-panel {
+      grid-area: approval;
+      border-left: 1px solid var(--bridge-line);
+    }
+    .crew-panel-header {
+      margin: 0;
+      padding: 18px 22px 14px;
+      align-items: baseline;
+      border-bottom: 1px solid rgba(154,169,194,0.14);
+    }
+    .crew-panel-header h2 {
+      color: var(--bridge-parchment);
+      font-family: var(--display);
+      font-size: 17px;
+      font-weight: 600;
+    }
+    .crew-panel-header p {
+      max-width: 560px;
+      color: var(--bridge-mist);
+      font-size: 12px;
+    }
+    .crew-order-card {
+      padding: 16px 18px;
+      border-bottom: 1px solid rgba(154,169,194,0.14);
+    }
+    .crew-order-label {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--bridge-mist);
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .crew-order-input {
+      width: 100%;
+      min-height: 78px;
+      resize: vertical;
+      border: 1px solid var(--bridge-line);
+      border-radius: 8px;
+      padding: 12px;
+      color: var(--bridge-parchment);
+      background: rgba(2, 6, 10, 0.62);
+      outline: none;
+      line-height: 1.45;
+    }
+    .crew-order-input:focus {
+      border-color: var(--bridge-brass-warm);
+      box-shadow: 0 0 0 3px rgba(201,168,106,0.11);
+    }
+    .crew-order-foot {
+      margin-top: 10px;
+      color: var(--bridge-mist);
+      font-size: 11px;
+    }
+    .crew-actions {
+      margin: 0;
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(154,169,194,0.14);
+    }
+    .crew-primary {
+      color: #061111;
+      background: linear-gradient(180deg, var(--bridge-brass-warm), var(--bridge-brass));
+      box-shadow: 0 12px 28px rgba(201,168,106,0.16);
+    }
+    .crew-secondary,
+    .crew-small-button {
+      color: var(--bridge-parchment);
+      border-color: var(--bridge-line);
+      background: rgba(95,168,163,0.07);
+    }
+    .crew-list {
+      flex: 1;
+      padding: 14px;
+      overflow-y: auto;
+      display: grid;
+      align-content: start;
+      gap: 6px;
+    }
+    .crew-card {
+      grid-template-columns: 34px 1fr auto;
+      gap: 11px;
+      min-height: 64px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      background: transparent;
+      padding: 10px 11px;
+    }
+    .crew-card:hover,
+    .crew-card:focus-visible {
+      border-color: var(--bridge-line-strong);
+      background: rgba(201,168,106,0.055);
+    }
+    .crew-orb,
+    .crew-flight-badge {
+      width: 34px;
+      color: var(--bridge-brass-warm);
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.24), transparent 28%),
+        radial-gradient(circle at 50% 58%, rgba(201,168,106,0.22), rgba(7,13,24,0.92));
+      border: 1px solid var(--bridge-brass);
+      box-shadow: 0 0 18px rgba(201,168,106,0.24);
+      font-family: var(--display);
+      font-size: 12px;
+    }
+    .crew-card h3 {
+      color: var(--bridge-parchment);
+      font-family: var(--display);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .crew-meta {
+      color: var(--bridge-mist);
+    }
+    .crew-status,
+    .station-status,
+    .crew-approval-state {
+      color: var(--bridge-brass-warm);
+      background: rgba(201,168,106,0.08);
+    }
+    .station-grid {
+      position: relative;
+      flex: 1;
+      min-height: 520px;
+      display: block;
+      overflow: hidden;
+      border: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 52% 50%, transparent 52%, rgba(6,11,20,0.72) 100%),
+        linear-gradient(180deg, #060b14, var(--bridge-ink));
+    }
+    .station-canvas-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(95,168,163,0.14) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(95,168,163,0.14) 1px, transparent 1px);
+      background-size: 64px 64px;
+      opacity: 0.75;
+      mask-image: radial-gradient(ellipse 76% 72% at 54% 50%, black 58%, transparent 100%);
+    }
+    .station-routes {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .station-routes line {
+      stroke: rgba(154,169,194,0.18);
+      stroke-width: 0.18;
+      stroke-dasharray: 1.2 1.6;
+    }
+    .station-routes line.active {
+      stroke: var(--bridge-brass-warm);
+      stroke-width: 0.28;
+      filter: drop-shadow(0 0 5px rgba(201,168,106,0.5));
+    }
+    .bridge-origin {
+      position: absolute;
+      left: 8%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      text-align: center;
+      color: var(--bridge-mist);
+    }
+    .bridge-origin span {
+      width: 64px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      border: 1px dashed rgba(201,168,106,0.44);
+      border-radius: 50%;
+      color: var(--bridge-brass-warm);
+      font-family: var(--display);
+      font-size: 20px;
+      background: rgba(10,19,34,0.54);
+    }
+    .bridge-origin small {
+      display: block;
+      margin-top: 8px;
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .station-node {
+      position: absolute;
+      left: var(--station-x);
+      top: var(--station-y);
+      width: clamp(148px, 17vw, 184px);
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+    .station-node .station-card {
+      min-height: 0;
+      display: block;
+      padding: 12px;
+      border: 1px solid var(--bridge-line);
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(15,28,48,0.88), rgba(10,19,34,0.86));
+      backdrop-filter: blur(4px);
+    }
+    .station-node.working .station-card,
+    .station-node.ready_for_review .station-card {
+      border-color: var(--bridge-brass-warm);
+      box-shadow: 0 0 0 1px rgba(201,168,106,0.16), 0 16px 34px rgba(0,0,0,0.24);
+    }
+    .station-node.approved .station-card {
+      border-color: rgba(98,242,180,0.48);
+    }
+    .station-node.held .station-card {
+      border-color: rgba(255,89,77,0.5);
+    }
+    .station-top h3 {
+      color: var(--bridge-parchment);
+      font-family: var(--display);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .station-name-line {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .station-icon {
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(201,168,106,0.35);
+      border-radius: 7px;
+      color: var(--bridge-brass-warm);
+      background: rgba(201,168,106,0.08);
+      font-family: var(--display);
+      font-size: 11px;
+    }
+    .station-activity,
+    .station-crew {
+      color: var(--bridge-mist);
+    }
+    .station-progress {
+      height: 3px;
+      margin-top: 10px;
+      background: rgba(154,169,194,0.18);
+    }
+    .station-progress span {
+      background: linear-gradient(90deg, var(--bridge-brass), var(--bridge-brass-warm));
+    }
+    .crew-approval-list {
+      flex: 1;
+      padding: 18px;
+      overflow-y: auto;
+      align-content: start;
+    }
+    .crew-approval-empty {
+      border-color: var(--bridge-line);
+      color: var(--bridge-mist);
+      background: rgba(2,6,10,0.34);
+    }
+    .crew-approval-card {
+      padding: 14px;
+      border: 1px solid var(--bridge-line);
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(15,28,48,0.74), rgba(10,19,34,0.74));
+    }
+    .crew-approval-card h3 {
+      margin-top: 10px;
+      color: var(--bridge-parchment);
+      font-family: var(--display);
+    }
+    .crew-log-panel {
+      grid-area: log;
+      padding: 0;
+      border: 0;
+      border-top: 1px solid var(--bridge-line);
+      background: var(--bridge-ink-deep);
+    }
+    .crew-log-panel .crew-panel-header {
+      min-height: 40px;
+      padding: 0 22px;
+      align-items: center;
+      cursor: default;
+    }
+    .crew-log-toggle {
+      border: 1px solid var(--bridge-line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      color: var(--bridge-mist);
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(95,168,163,0.06);
+    }
+    .crew-log-toggle:hover,
+    .crew-log-toggle:focus-visible {
+      color: var(--bridge-parchment);
+      border-color: var(--bridge-brass-warm);
+      outline: none;
+    }
+    .crew-log-list {
+      max-height: 220px;
+      padding: 8px 22px 14px;
+      overflow-y: auto;
+      transition: max-height 0.26s ease, padding 0.26s ease;
+    }
+    .crew-log-panel.collapsed .crew-log-list {
+      max-height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .crew-log-item {
+      grid-template-columns: 92px 1fr;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(154,169,194,0.14);
+      border-radius: 0;
+      background: transparent;
+      color: var(--bridge-parchment);
+    }
+    .crew-log-time {
+      color: var(--bridge-mist);
+    }
+    @media (max-width: 1180px) {
+      .crew-shell {
+        grid-template-columns: 286px minmax(400px, 1fr) 320px;
+      }
+      .crew-chip-row {
+        display: none;
+      }
+    }
+    @media (max-width: 980px) {
+      .crew-mode {
+        height: auto;
+        overflow: auto;
+      }
+      .crew-shell {
+        height: auto;
+        min-height: 100vh;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+          "topbar"
+          "bridge"
+          "stations"
+          "approval"
+          "log";
+      }
+      .bridge-panel,
+      .approval-panel {
+        border-left: 0;
+        border-right: 0;
+      }
+      .station-grid {
+        min-height: 720px;
+      }
+    }
+    @media (max-width: 620px) {
+      .crew-topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px;
+      }
+      .crew-top-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .station-grid {
+        min-height: 0;
+        display: grid;
+        gap: 10px;
+        padding: 14px;
+      }
+      .station-canvas-grid,
+      .station-routes,
+      .bridge-origin {
+        display: none;
+      }
+      .station-node {
+        position: relative;
+        left: auto;
+        top: auto;
+        width: 100%;
+        transform: none;
+      }
+      .crew-card {
+        grid-template-columns: 34px 1fr;
+      }
+      .crew-status {
+        grid-column: 2;
+        justify-self: start;
+      }
+      .cb-panel {
+        width: 100vw;
+      }
+      .cb-preset {
+        grid-template-columns: 54px minmax(0, 1fr);
+      }
+      .cb-arm {
+        grid-column: 2;
+        justify-self: start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) { .cb-explosion, .cb-splatter { animation: none !important; } .cb-explosion { display: none; } }
+  </style>
+
+  <!-- ═══ COLOR BOMB BEHAVIOR (ops-style palette panel + burst) ═══ -->
+  <script>
+  (function(){
+    var STORAGE_KEY = 'bridge-colorbomb-theme';
+    var LEGACY_KEYS = ['triton-colorbomb-theme', 'nauti-ops-theme'];
+    var CB_PRESETS = {
+      'deep-ocean': {
+        name: 'Deep Ocean',
+        desc: 'Nauti default · blue, amber, deep watch glass',
+        swatches: ['#0077ff', '#ffaa00', '#06090f'],
+        vars: {
+          '--nauti-blue':'#0077ff','--nauti-blue-2':'#4099ff','--nauti-amber':'#ffaa00','--nauti-amber-2':'#ffcc4d',
+          '--aqua':'#63fff4','--gold':'#dbc36c','--green':'#62f2b4','--line':'rgba(0,119,255,0.20)','--line-strong':'rgba(255,170,0,0.34)',
+          '--bridge-ink-deep':'#060b14','--bridge-ink':'#0a1322','--bridge-panel-soft':'rgba(15,28,48,0.78)','--bridge-line':'rgba(95,168,163,0.28)',
+          '--bridge-line-strong':'rgba(201,168,106,0.42)','--bridge-brass':'#c9a86a','--bridge-brass-warm':'#e0c084','--bridge-mist':'#9aa9c2'
+        }
+      },
+      'black-ice': {
+        name: 'Black Ice',
+        desc: 'Charcoal shell with glacial cyan edges',
+        swatches: ['#38bdf8', '#e2e8f0', '#030712'],
+        vars: {
+          '--nauti-blue':'#38bdf8','--nauti-blue-2':'#7dd3fc','--nauti-amber':'#e2e8f0','--nauti-amber-2':'#f8fafc',
+          '--aqua':'#38bdf8','--gold':'#e2e8f0','--green':'#2dd4bf','--line':'rgba(56,189,248,0.22)','--line-strong':'rgba(226,232,240,0.34)',
+          '--bridge-ink-deep':'#030712','--bridge-ink':'#07111f','--bridge-panel-soft':'rgba(7,17,31,0.82)','--bridge-line':'rgba(56,189,248,0.28)',
+          '--bridge-line-strong':'rgba(226,232,240,0.42)','--bridge-brass':'#cbd5e1','--bridge-brass-warm':'#f8fafc','--bridge-mist':'#94a3b8'
+        }
+      },
+      'harbor-steel': {
+        name: 'Harbor Steel',
+        desc: 'Steel blue with tactical teal signal',
+        swatches: ['#2563eb', '#14b8a6', '#05070b'],
+        vars: {
+          '--nauti-blue':'#2563eb','--nauti-blue-2':'#60a5fa','--nauti-amber':'#14b8a6','--nauti-amber-2':'#5eead4',
+          '--aqua':'#5eead4','--gold':'#f59e0b','--green':'#14b8a6','--line':'rgba(37,99,235,0.22)','--line-strong':'rgba(20,184,166,0.36)',
+          '--bridge-ink-deep':'#05070b','--bridge-ink':'#0a1018','--bridge-panel-soft':'rgba(10,16,24,0.82)','--bridge-line':'rgba(37,99,235,0.24)',
+          '--bridge-line-strong':'rgba(20,184,166,0.42)','--bridge-brass':'#14b8a6','--bridge-brass-warm':'#5eead4','--bridge-mist':'#93a4b8'
+        }
+      },
+      'carbon-copper': {
+        name: 'Carbon Copper',
+        desc: 'Carbon black with brushed copper command lines',
+        swatches: ['#0891b2', '#d6a15f', '#07090a'],
+        vars: {
+          '--nauti-blue':'#0891b2','--nauti-blue-2':'#22d3ee','--nauti-amber':'#d6a15f','--nauti-amber-2':'#f0c987',
+          '--aqua':'#22d3ee','--gold':'#d6a15f','--green':'#34d399','--line':'rgba(8,145,178,0.22)','--line-strong':'rgba(214,161,95,0.36)',
+          '--bridge-ink-deep':'#07090a','--bridge-ink':'#0e1214','--bridge-panel-soft':'rgba(14,18,20,0.82)','--bridge-line':'rgba(8,145,178,0.26)',
+          '--bridge-line-strong':'rgba(214,161,95,0.42)','--bridge-brass':'#d6a15f','--bridge-brass-warm':'#f0c987','--bridge-mist':'#9aa5a8'
+        }
+      },
+      'monaco-teal': {
+        name: 'Monaco Teal',
+        desc: 'Deep teal with champagne navigation marks',
+        swatches: ['#0f766e', '#f5d06f', '#031310'],
+        vars: {
+          '--nauti-blue':'#0f766e','--nauti-blue-2':'#2dd4bf','--nauti-amber':'#f5d06f','--nauti-amber-2':'#fde68a',
+          '--aqua':'#2dd4bf','--gold':'#f5d06f','--green':'#2dd4bf','--line':'rgba(45,212,191,0.20)','--line-strong':'rgba(245,208,111,0.34)',
+          '--bridge-ink-deep':'#031310','--bridge-ink':'#071b18','--bridge-panel-soft':'rgba(7,27,24,0.82)','--bridge-line':'rgba(45,212,191,0.26)',
+          '--bridge-line-strong':'rgba(245,208,111,0.42)','--bridge-brass':'#f5d06f','--bridge-brass-warm':'#fde68a','--bridge-mist':'#99bdb8'
+        }
+      },
+      'redline-carbon': {
+        name: 'Redline Carbon',
+        desc: 'Graphite surface with precise redline alerts',
+        swatches: ['#94a3b8', '#f43f5e', '#06070a'],
+        vars: {
+          '--nauti-blue':'#64748b','--nauti-blue-2':'#94a3b8','--nauti-amber':'#f43f5e','--nauti-amber-2':'#fb7185',
+          '--aqua':'#94a3b8','--gold':'#f43f5e','--green':'#38bdf8','--line':'rgba(148,163,184,0.18)','--line-strong':'rgba(244,63,94,0.36)',
+          '--bridge-ink-deep':'#06070a','--bridge-ink':'#0c1016','--bridge-panel-soft':'rgba(12,16,22,0.82)','--bridge-line':'rgba(148,163,184,0.24)',
+          '--bridge-line-strong':'rgba(244,63,94,0.42)','--bridge-brass':'#f43f5e','--bridge-brass-warm':'#fb7185','--bridge-mist':'#94a3b8'
+        }
+      },
+      'radar-glass': {
+        name: 'Radar Glass',
+        desc: 'Black glass with radar green work signals',
+        swatches: ['#22d3ee', '#a3e635', '#04100f'],
+        vars: {
+          '--nauti-blue':'#22d3ee','--nauti-blue-2':'#67e8f9','--nauti-amber':'#a3e635','--nauti-amber-2':'#bef264',
+          '--aqua':'#22d3ee','--gold':'#a3e635','--green':'#a3e635','--line':'rgba(34,211,238,0.20)','--line-strong':'rgba(163,230,53,0.34)',
+          '--bridge-ink-deep':'#04100f','--bridge-ink':'#081a18','--bridge-panel-soft':'rgba(8,26,24,0.82)','--bridge-line':'rgba(34,211,238,0.26)',
+          '--bridge-line-strong':'rgba(163,230,53,0.42)','--bridge-brass':'#a3e635','--bridge-brass-warm':'#bef264','--bridge-mist':'#a7bda5'
+        }
+      },
+      'random': {
+        name: 'Random Bomb',
+        desc: 'Curated pro rotation from Nauti-Ops',
+        swatches: ['#38bdf8', '#e2e8f0', '#030712'],
+        vars: null
+      }
+    };
+    var randomKeys = ['black-ice', 'harbor-steel', 'carbon-copper', 'monaco-teal', 'redline-carbon', 'radar-glass'];
+
+    function cloneVars(vars) {
+      var copy = {};
+      Object.keys(vars || {}).forEach(function(key){ copy[key] = vars[key]; });
+      return copy;
+    }
+    function generateRandomBombVars() {
+      var key = randomKeys[Math.floor(Math.random() * randomKeys.length)];
+      var preset = CB_PRESETS[key];
+      var vars = cloneVars(preset.vars);
+      vars._swatches = preset.swatches.slice();
+      return vars;
+    }
+    function cbSetSwatchVars(el, swatches) {
+      if (!el || !swatches || swatches.length < 3) return;
+      el.style.setProperty('--cb-a', swatches[0]);
+      el.style.setProperty('--cb-b', swatches[1]);
+      el.style.setProperty('--cb-c', swatches[2]);
+    }
+    function cbSwatchMarkup(swatches) {
+      return swatches.map(function(c){ return '<span class="cb-sw" style="background:' + c + '"></span>'; }).join('');
+    }
+    function cbGetOrigin(sourceEvent) {
+      if (sourceEvent && Number.isFinite(sourceEvent.clientX) && Number.isFinite(sourceEvent.clientY)) {
+        return { x: sourceEvent.clientX, y: sourceEvent.clientY };
+      }
+      var toggle = document.querySelector('.cb-btn');
+      if (toggle) {
+        var rect = toggle.getBoundingClientRect();
+        return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+      }
+      return { x: window.innerWidth - 88, y: 88 };
+    }
+    function cbLaunchExplosion(swatches, sourceEvent) {
+      var origin = cbGetOrigin(sourceEvent);
+      var burst = document.createElement('div');
+      burst.className = 'cb-explosion';
+      burst.style.setProperty('--cb-x', origin.x + 'px');
+      burst.style.setProperty('--cb-y', origin.y + 'px');
+      cbSetSwatchVars(burst, swatches);
+      burst.innerHTML = '<div class="cb-explosion-burst"></div>';
+      var count = 42;
+      var throwR = Math.max(window.innerWidth, window.innerHeight) * 0.72;
+      for (var k = 0; k < count; k++) {
+        var ang = (Math.PI * 2 * k / count) + (Math.random() * 0.72);
+        var dist = 88 + Math.random() * throwR;
+        var sp = document.createElement('span');
+        sp.className = 'cb-splatter';
+        sp.style.setProperty('--dx', (Math.cos(ang) * dist) + 'px');
+        sp.style.setProperty('--dy', (Math.sin(ang) * dist) + 'px');
+        sp.style.setProperty('--size', (10 + Math.random() * 30) + 'px');
+        sp.style.setProperty('--spin', Math.floor(Math.random() * 180) + 'deg');
+        sp.style.setProperty('--c', swatches[k % swatches.length]);
+        sp.style.animationDelay = Math.floor(Math.random() * 120) + 'ms';
+        burst.appendChild(sp);
+      }
+      document.body.appendChild(burst);
+      setTimeout(function(){ burst.remove(); }, 1200);
+    }
+    function cbSplashSurfaces() {
+      var targets = document.querySelectorAll('.launch-hero, .launch-band, .launch-stat, .crew-topbar, .crew-panel, .station-node .station-card, .crew-log-panel, .panel, .workflow-card, .iris-card');
+      targets.forEach(function(el, idx) {
+        window.setTimeout(function() {
+          el.classList.add('cb-splashed');
+          window.setTimeout(function(){ el.classList.remove('cb-splashed'); }, 820);
+        }, Math.min(idx * 26, 260));
+      });
+    }
+    function cbApply(presetKey, sourceEvent, withBurst) {
+      var preset = CB_PRESETS[presetKey];
+      if (!preset) return;
+      var vars = preset.vars ? cloneVars(preset.vars) : generateRandomBombVars();
+      var swatches = preset.swatches.slice();
+      if (presetKey === 'random') {
+        swatches = vars._swatches || swatches;
+        delete vars._swatches;
+        var randomCard = document.querySelector('[data-preset="random"]');
+        if (randomCard) {
+          cbSetSwatchVars(randomCard, swatches);
+          var randomSwatches = randomCard.querySelector('.cb-swatches');
+          if (randomSwatches) randomSwatches.innerHTML = cbSwatchMarkup(swatches);
+        }
+      }
+      Object.keys(vars).forEach(function(k){ document.documentElement.style.setProperty(k, vars[k]); });
+      try {
+        localStorage.setItem(STORAGE_KEY, presetKey);
+        localStorage.setItem('triton-colorbomb-theme', presetKey);
+        localStorage.setItem('nauti-ops-theme', presetKey);
+      } catch(_) {}
+      document.querySelectorAll('.cb-preset').forEach(function(el) {
+        el.classList.toggle('active', el.dataset.preset === presetKey);
+      });
+      if (withBurst !== false) {
+        cbLaunchExplosion(swatches, sourceEvent);
+        cbSplashSurfaces();
+      }
+    }
+    function cbBuildPanel() {
+      var wrap = document.getElementById('cb-presets');
+      if (!wrap) return;
+      wrap.innerHTML = Object.keys(CB_PRESETS).map(function(k) {
+        var p = CB_PRESETS[k];
+        var bombName = /bomb/i.test(p.name) ? p.name : p.name + ' Bomb';
+        return '<button class="cb-preset" data-preset="' + k + '" draggable="true" style="--cb-a:' + p.swatches[0] + ';--cb-b:' + p.swatches[1] + ';--cb-c:' + p.swatches[2] + ';">' +
+          '<div class="cb-bomb" aria-hidden="true"></div>' +
+          '<div class="cb-copy"><div class="cb-name">' + bombName + '</div><div class="cb-desc">' + p.desc + '</div><div class="cb-swatches" aria-hidden="true">' + cbSwatchMarkup(p.swatches) + '</div></div>' +
+          '<div class="cb-arm">Bomb</div>' +
+        '</button>';
+      }).join('');
+      wrap.querySelectorAll('.cb-preset').forEach(function(card) {
+        card.addEventListener('click', function(e){ cbApply(card.dataset.preset, e, true); });
+        card.addEventListener('dragstart', function(e) {
+          e.dataTransfer.setData('text/plain', card.dataset.preset);
+          e.dataTransfer.effectAllowed = 'copy';
+          document.body.classList.add('cb-dragging');
+        });
+        card.addEventListener('dragend', function(){ document.body.classList.remove('cb-dragging'); });
+      });
+    }
+    function cbSavedTheme() {
+      try {
+        var saved = localStorage.getItem(STORAGE_KEY);
+        if (saved && CB_PRESETS[saved]) return saved;
+        for (var i = 0; i < LEGACY_KEYS.length; i++) {
+          var legacy = localStorage.getItem(LEGACY_KEYS[i]);
+          if (legacy && CB_PRESETS[legacy]) return legacy;
+        }
+      } catch(_) {}
+      return 'deep-ocean';
+    }
+    function cbInit() {
+      if (document.getElementById('cb-panel')) return;
+      document.body.insertAdjacentHTML('beforeend',
+        '<div class="cb-panel" id="cb-panel" role="dialog" aria-label="Color theme presets">' +
+          '<div class="cb-head"><div class="cb-title-block"><div class="cb-kicker">Palette bombs</div><h3>Color Bomb</h3></div><button class="cb-close" id="cb-close" aria-label="Close Color Bomb panel">×</button></div>' +
+          '<div class="cb-body"><div class="cb-hint"><span class="cb-hint-pip"></span><span>Colorways are armed for this BRIDGE watch.</span></div><div id="cb-presets"></div></div>' +
+        '</div>'
+      );
+      cbBuildPanel();
+      var panel = document.getElementById('cb-panel');
+      var close = document.getElementById('cb-close');
+      var setPanelOpen = function(open) {
+        if (!panel) return;
+        panel.classList.toggle('open', open);
+        document.querySelectorAll('.cb-btn').forEach(function(btn){ btn.setAttribute('aria-expanded', String(open)); });
+      };
+      document.addEventListener('click', function(e) {
+        var toggle = e.target.closest('.cb-btn');
+        if (toggle) {
+          e.preventDefault();
+          setPanelOpen(!panel.classList.contains('open'));
+          return;
+        }
+        if (panel && !panel.contains(e.target)) setPanelOpen(false);
+      });
+      if (close) close.addEventListener('click', function(){ setPanelOpen(false); });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') setPanelOpen(false);
+      });
+      document.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        if (e.dataTransfer) e.dataTransfer.dropEffect = 'copy';
+      });
+      document.addEventListener('drop', function(e) {
+        e.preventDefault();
+        var preset = e.dataTransfer && e.dataTransfer.getData('text/plain');
+        if (preset && CB_PRESETS[preset]) cbApply(preset, e, true);
+        document.body.classList.remove('cb-dragging');
+      });
+      cbApply(cbSavedTheme(), null, false);
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', cbInit);
+    } else {
+      cbInit();
+    }
+  })();
+  </script>
+
   <!-- ═══ PUBLIC LAUNCH SURFACE ═══ -->
   <main class="launch-screen" id="launchScreen">
-    <section class="launch-hero" aria-label="Triton Blackwater OS">
+    <section class="launch-hero" aria-label="BRIDGE by Nauti-Labs">
       <nav class="launch-nav" aria-label="Launch navigation">
         <div class="nav-brand">
-          <span class="launch-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-          <strong>TRITON</strong>
+          <svg class="launch-mark trident-svg" aria-hidden="true" viewBox="0 0 44 44"><use href="#triton-trident"/></svg>
+          <strong>BRIDGE</strong>
         </div>
-        <span>Crew Mode / Captain-Controlled Work</span>
+        <button class="cb-btn" type="button" title="Color Bomb · change theme" aria-label="Open Color Bomb panel" aria-expanded="false">
+          <svg class="cb-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8.5" cy="9" r="5" fill="#0077ff" opacity="0.9"/>
+            <circle cx="15" cy="11" r="4.5" fill="#ffaa00" opacity="0.9"/>
+            <circle cx="11.5" cy="16" r="4" fill="#48e0d4" opacity="0.9"/>
+          </svg>
+          <span>Color Bomb</span>
+        </button>
       </nav>
 
       <div class="launch-copy">
         <div class="eyebrow">Nauti-Labs</div>
         <h1 class="launch-title">Send the crew, keep the wheel.</h1>
-        <p class="launch-subtitle">Your computer is the ship. Triton is the bridge. Crew members travel to stations, prepare work, and wait for the captain before anything consequential happens.</p>
-        <div class="launch-points" aria-label="Triton trust signals">
+        <p class="launch-subtitle">Your computer is the ship. BRIDGE is the command room. Crew members travel to stations, prepare work, and wait for the captain before anything consequential happens.</p>
+        <div class="launch-points" aria-label="BRIDGE trust signals">
           <span class="launch-pill gold">The Bridge</span>
           <span class="launch-pill">Crew</span>
           <span class="launch-pill">Stations</span>
@@ -2188,23 +3344,23 @@
       </div>
     </section>
 
-    <section class="launch-strip" aria-label="Triton operating posture">
+    <section class="launch-strip" aria-label="BRIDGE operating posture">
       <div class="launch-stat"><strong>7</strong><span>crew members ready to help with code, browser notes, files, messages, memory, and permissions</span></div>
       <div class="launch-stat"><strong>7</strong><span>computer stations where work is prepared in plain view</span></div>
       <div class="launch-stat"><strong>1</strong><span>captain in control before prepared work can move forward</span></div>
       <div class="launch-stat"><strong>0</strong><span>outside actions without Captain's Approval</span></div>
     </section>
 
-    <section class="launch-band" aria-label="Triton command flow">
+    <section class="launch-band" aria-label="BRIDGE command flow">
       <div class="launch-band-inner">
         <div>
           <span class="eyebrow">Tonight's Surface</span>
           <h2>A clearer way to understand AI work.</h2>
           <p>Crew Mode turns invisible computer work into a simple bridge view: send crew, watch stations change, review prepared items, and approve or hold without losing control.</p>
         </div>
-        <div class="fleet-grid" aria-label="Triton command modules">
+          <div class="fleet-grid" aria-label="BRIDGE command modules">
           <article class="fleet-row">
-            <span class="fleet-avatar">TB</span>
+            <span class="fleet-avatar">BR</span>
             <div><h3>The Bridge</h3><p>Crew starts from one calm command surface.</p></div>
             <span class="fleet-state">ready</span>
           </article>
@@ -2233,9 +3389,9 @@
     <div class="crew-shell">
       <header class="crew-topbar">
         <div class="crew-wordmark">
-          <span class="launch-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <svg class="launch-mark trident-svg" aria-hidden="true" viewBox="0 0 44 44"><use href="#triton-trident"/></svg>
           <div>
-            <h1 id="crewModeTitle">Triton</h1>
+            <h1 id="crewModeTitle">BRIDGE</h1>
             <p>Crew Mode turns computer work into visible station work.</p>
           </div>
         </div>
@@ -2244,16 +3400,31 @@
           <span class="crew-chip">Captain in control</span>
           <span class="crew-chip">No action without approval</span>
         </div>
-        <button class="crew-return" id="crewReturn" type="button">Return</button>
+        <div class="crew-top-actions">
+          <button class="cb-btn" type="button" title="Color Bomb · change theme" aria-label="Open Color Bomb panel" aria-expanded="false">
+            <svg class="cb-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8.5" cy="9" r="5" fill="#0077ff" opacity="0.9"/>
+              <circle cx="15" cy="11" r="4.5" fill="#ffaa00" opacity="0.9"/>
+              <circle cx="11.5" cy="16" r="4" fill="#48e0d4" opacity="0.9"/>
+            </svg>
+            <span>Color Bomb</span>
+          </button>
+          <button class="crew-return" id="crewReturn" type="button">Return</button>
+        </div>
       </header>
 
-      <section class="crew-layout" aria-label="Triton Crew Mode">
+      <section class="crew-layout" aria-label="BRIDGE Crew Mode">
         <section class="crew-panel bridge-panel" aria-labelledby="bridgeTitle">
           <div class="crew-panel-header">
             <div>
               <h2 id="bridgeTitle">The Bridge</h2>
               <p>Crew cards start here. Click one crew member or send everyone available.</p>
             </div>
+          </div>
+          <div class="crew-order-card">
+            <label class="crew-order-label" for="captainOrder">Captain's Order</label>
+            <textarea class="crew-order-input" id="captainOrder">Make this easier than Rocky: get the BRIDGE demo clear, Nauti themed, and ready for captain review.</textarea>
+            <div class="crew-order-foot" id="crewOrderHint">7 crew ready</div>
           </div>
           <div class="crew-actions">
             <button class="crew-primary" id="sendCrew" type="button">Send Crew</button>
@@ -2272,7 +3443,7 @@
           <div class="station-grid" id="stationGrid" aria-live="polite"></div>
         </section>
 
-        <section class="crew-panel" aria-labelledby="captainsApprovalTitle">
+        <section class="crew-panel approval-panel" aria-labelledby="captainsApprovalTitle">
           <div class="crew-panel-header">
             <div>
               <h2 id="captainsApprovalTitle">Captain's Approval</h2>
@@ -2283,12 +3454,13 @@
         </section>
       </section>
 
-      <section class="crew-log-panel" aria-labelledby="captainsLogTitle">
+      <section class="crew-log-panel" id="crewLogPanel" aria-labelledby="captainsLogTitle">
         <div class="crew-panel-header">
           <div>
             <h2 id="captainsLogTitle">Captain's Log</h2>
             <p>Plain-English events stay visible while crew work.</p>
           </div>
+          <button class="crew-log-toggle" id="crewLogToggle" type="button" aria-expanded="true">Hide Log</button>
         </div>
         <div class="crew-log-list" id="crewLogList" aria-live="polite"></div>
       </section>
@@ -2297,9 +3469,9 @@
 
   <!-- ═══ LOGIN SCREEN ═══ -->
   <main class="login-screen hidden" id="loginScreen">
-    <section class="iris-card" aria-label="Triton Iris Authentication">
-      <div class="trident" aria-hidden="true"><span></span><span></span><span></span></div>
-      <h1 class="login-title">TRITON</h1>
+    <section class="iris-card" aria-label="BRIDGE Iris Authentication">
+      <svg class="trident-mark" aria-hidden="true" viewBox="0 0 44 44"><use href="#triton-trident"/></svg>
+      <h1 class="login-title">BRIDGE</h1>
       <div class="login-subtitle">IRIS AUTHENTICATION</div>
 
       <div class="scanner" id="scanner">
@@ -2335,7 +3507,7 @@
     <div class="left">
       <span class="status-indicator">
         <span class="status-dot" id="healthDot"></span>
-        <span id="healthLabel">Triton Online</span>
+        <span id="healthLabel">BRIDGE Online</span>
       </span>
       <span class="stat-chip" id="agentCount">0 agents</span>
       <span class="stat-chip warn" id="pendingCount" style="display:none">0 pending</span>
@@ -2354,7 +3526,7 @@
     <header class="dash-header">
       <div class="dash-brand">
         <span class="mini-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-        <h1>Triton Blackwater OS</h1>
+        <h1>BRIDGE Blackwater OS</h1>
       </div>
     </header>
 
@@ -2383,7 +3555,7 @@
             <span class="count">cross-assist</span>
           </div>
           <div class="assist-composer">
-            <textarea id="assistPrompt">Ollama assist Claude with this Triton project and report back with the safest next step.</textarea>
+            <textarea id="assistPrompt">Ollama assist Claude with this BRIDGE project and report back with the safest next step.</textarea>
             <div class="assist-row">
               <select class="select-lite" id="assistFrom"></select>
               <select class="select-lite" id="assistTo"></select>
@@ -2432,7 +3604,7 @@
             <h2>Red Shutdown</h2>
             <span class="count" id="shutdownState">armed</span>
           </div>
-          <p class="shutdown-copy">Stops the Triton command rail, pauses all AI workflow cards, and preserves the last visible command state for resume.</p>
+          <p class="shutdown-copy">Stops the BRIDGE command rail, pauses all AI workflow cards, and preserves the last visible command state for resume.</p>
           <button class="red-button" id="redShutdown" type="button">Stop All AI</button>
           <button class="resume-button hidden" id="resumeAll" type="button">Resume Exact Position</button>
         </section>
@@ -2464,7 +3636,7 @@
               <p>Allowed: notify ops, update job board, draft customer memo. Forbidden: spend money, final-send, outside notice.</p>
             </article>
             <article class="rail-card">
-              <h3>DockLens Evidence</h3>
+              <h3>Vision Evidence</h3>
               <p>Work path obstruction observed at camera B-17. Confidence 86%. Advisory until attached to a signed command.</p>
               <div class="evidence-meter" aria-hidden="true"><span style="width:86%"></span></div>
             </article>
@@ -2503,7 +3675,7 @@
 
   <script>
     // ═══════════════════════════════════════
-    // TRITON AGENT CONTROLLER — FRONTEND
+    // BRIDGE AGENT CONTROLLER — FRONTEND
     // ═══════════════════════════════════════
 
     const API_BASE = (() => {
@@ -2546,7 +3718,7 @@
     let crewTimers = [];
 
     const demoAgents = [
-      { name: 'Triton Ops', status: 'active', current_project: 'Operational recommendation: plan adjustment can move if Clearance signs.', accent_color: 'var(--aqua)' },
+      { name: 'BRIDGE Ops', status: 'active', current_project: 'Operational recommendation: plan adjustment can move if Clearance signs.', accent_color: 'var(--aqua)' },
       { name: 'Turbo', status: 'active', current_project: 'Voice lane healthy. Commercial impact: $18K delay exposure, customer memo ready.', accent_color: 'var(--gold)' },
       { name: 'Nauti-Vision', status: 'active', current_project: 'Visual evidence: work path obstruction observed, 86% confidence.', accent_color: '#7cf7d4' },
       { name: 'Castle', status: 'idle', current_project: 'Session integrity clean. Local presence gate required before execution.', accent_color: '#8b7dff' },
@@ -2564,9 +3736,9 @@
         statusClass: 'hold',
         active: true,
         logo: './assets/agent-icons/claude.png',
-        copy: 'Colorbomb and logo lane only. Triton structure remains locked.',
+        copy: 'Colorbomb and logo lane only. BRIDGE structure remains locked.',
         tools: ['surgery lock', 'visual review', 'report back'],
-        prompt: 'Stay inside logo and colorbomb surgery. Report what changed without moving Triton files.'
+        prompt: 'Stay inside logo and colorbomb surgery. Report what changed without moving BRIDGE files.'
       },
       {
         id: 'codex',
@@ -2576,7 +3748,7 @@
         statusClass: 'live',
         active: true,
         logo: './assets/agent-icons/codex.png',
-        copy: 'Codex app and local browser tools are active. Owns the live Triton surface.',
+        copy: 'Codex app and local browser tools are active. Owns the live BRIDGE surface.',
         tools: ['edit live shell', 'verify deploy', 'review diff'],
         prompt: 'Review triton.nauti-labs.com for broken controls and report the next fix.'
       },
@@ -2590,7 +3762,7 @@
         logo: './assets/agent-icons/chatgpt.png',
         copy: 'ChatGPT desktop is running. Best used for positioning, launch copy, and synthesis.',
         tools: ['brief', 'copy pass', 'decision memo'],
-        prompt: 'Turn the latest Triton feature set into three launch bullets for X.'
+        prompt: 'Turn the latest BRIDGE feature set into three launch bullets for X.'
       },
       {
         id: 'ollama',
@@ -2602,7 +3774,7 @@
         logo: './assets/agent-icons/ollama.png',
         copy: 'Ollama is serving locally on 127.0.0.1:11434 for private model assistance.',
         tools: ['local reason', 'assist Claude', 'summarize'],
-        prompt: 'Assist Claude with this Triton project and report back with risks.'
+        prompt: 'Assist Claude with this BRIDGE project and report back with risks.'
       },
       {
         id: 'openclaw',
@@ -2614,7 +3786,7 @@
         logo: './assets/agent-icons/openclaw.svg',
         copy: 'OpenClaw gateway is listening locally. Use for cross-app task routing after approval.',
         tools: ['route task', 'watch tools', 'handoff'],
-        prompt: 'Create a safe handoff packet for Codex and Ollama to coordinate on Triton.'
+        prompt: 'Create a safe handoff packet for Codex and Ollama to coordinate on BRIDGE.'
       },
       {
         id: 'nautiOps',
@@ -2735,13 +3907,13 @@
     ];
 
     const stationTemplates = [
-      { id: 'browser-station', name: 'Browser Station' },
-      { id: 'code-station', name: 'Code Station' },
-      { id: 'engine-room', name: 'Engine Room / Terminal' },
-      { id: 'cargo-hold', name: 'Cargo Hold / Files' },
-      { id: 'message-desk', name: 'Message Desk / Mail & Docs' },
-      { id: 'chart-room', name: 'Chart Room / Memory' },
-      { id: 'guard-post', name: 'Guard Post / Permissions' }
+      { id: 'browser-station', name: 'Browser Station', icon: 'B', x: 28, y: 23 },
+      { id: 'code-station', name: 'Code Station', icon: 'C', x: 58, y: 21 },
+      { id: 'engine-room', name: 'Engine Room / Terminal', icon: 'E', x: 78, y: 48 },
+      { id: 'cargo-hold', name: 'Cargo Hold / Files', icon: 'F', x: 61, y: 75 },
+      { id: 'message-desk', name: 'Message Desk / Mail & Docs', icon: 'M', x: 28, y: 74 },
+      { id: 'chart-room', name: 'Chart Room / Memory', icon: 'R', x: 45, y: 49 },
+      { id: 'guard-post', name: 'Guard Post / Permissions', icon: 'G', x: 84, y: 20 }
     ];
 
     const demoApprovals = [
@@ -2769,7 +3941,7 @@
       { message: 'Input arrived: work pressure signal and schedule conflict.' },
       { message: 'Causality Twin generated fastest safe, lowest-risk, and commercial branches.' },
       { message: 'Agent Court opened: Ops supports, Turbo speaks commercial impact, Castle requires local gate, Clearance blocks execution.' },
-      { message: 'DockLens Evidence attached as advisory testimony.' },
+      { message: 'Vision Evidence attached as advisory testimony.' },
       { message: 'Awaiting human command before any external action.' }
     ];
 
@@ -2781,9 +3953,13 @@
     const $crewReturn = document.getElementById('crewReturn');
     const $sendCrew = document.getElementById('sendCrew');
     const $recallCrew = document.getElementById('recallCrew');
+    const $captainOrder = document.getElementById('captainOrder');
+    const $crewOrderHint = document.getElementById('crewOrderHint');
     const $crewList = document.getElementById('crewList');
     const $stationGrid = document.getElementById('stationGrid');
     const $crewApprovalList = document.getElementById('crewApprovalList');
+    const $crewLogPanel = document.getElementById('crewLogPanel');
+    const $crewLogToggle = document.getElementById('crewLogToggle');
     const $crewLogList = document.getElementById('crewLogList');
     const $loginScreen = document.getElementById('loginScreen');
     const $loginForm = document.getElementById('loginForm');
@@ -2900,6 +4076,12 @@
       recallCrewMembers();
     });
 
+    $crewLogToggle.addEventListener('click', () => {
+      const collapsed = $crewLogPanel.classList.toggle('collapsed');
+      $crewLogToggle.textContent = collapsed ? 'Show Log' : 'Hide Log';
+      $crewLogToggle.setAttribute('aria-expanded', String(!collapsed));
+    });
+
     $crewList.addEventListener('click', (event) => {
       const card = event.target.closest('[data-crew-id]');
       if (!card) return;
@@ -3007,7 +4189,7 @@
       workflow.active = input.checked;
       workflow.status = input.checked ? workflow.resumeStatus : 'paused';
       workflow.statusClass = input.checked ? workflow.resumeClass : 'off';
-      pushLogEntry(`${workflow.name} ${input.checked ? 'resumed' : 'paused'} from Triton.`);
+      pushLogEntry(`${workflow.name} ${input.checked ? 'resumed' : 'paused'} from BRIDGE.`);
       renderWorkflows();
       if (!bridgeOnline) return;
       try {
@@ -3082,7 +4264,7 @@
     });
 
     $redShutdown.addEventListener('click', async () => {
-      const code = window.prompt('Type STOP to freeze managed AI processes. Triton bridge stays awake for resume.');
+      const code = window.prompt('Type STOP to freeze managed AI processes. BRIDGE stays awake for resume.');
       if (code !== 'STOP') {
         pushLogEntry('Red Shutdown canceled before process control.');
         return;
@@ -3155,6 +4337,7 @@
       $statusBar.classList.add('hidden');
       $dashboard.classList.add('hidden');
       $crewMode.classList.remove('hidden');
+      localStorage.setItem('bridge-crew-mode', 'true');
       localStorage.setItem('triton-crew-mode', 'true');
       localStorage.removeItem('triton-preview-unlocked');
       initCrewMode();
@@ -3177,11 +4360,12 @@
       $loginScreen.classList.add('hidden');
       $statusBar.classList.remove('hidden');
       $dashboard.classList.remove('hidden');
+      localStorage.removeItem('bridge-crew-mode');
       localStorage.setItem('triton-preview-unlocked', 'true');
       if (demoMode) {
         loadDemoData();
         setOnline(true);
-        $healthLabel.textContent = 'Triton Blackwater OS';
+        $healthLabel.textContent = 'BRIDGE Blackwater OS';
         connectWorkflowBridge();
         return;
       }
@@ -3193,6 +4377,7 @@
     function lockDeck() {
       localStorage.removeItem('triton-preview-unlocked');
       localStorage.removeItem('triton-crew-mode');
+      localStorage.removeItem('bridge-crew-mode');
       $launchScreen.classList.remove('hidden');
       $crewMode.classList.add('hidden');
       $loginScreen.classList.add('hidden');
@@ -3253,6 +4438,8 @@
         addCrewLog('All crew are already working or waiting for Captain\'s Approval.');
         return;
       }
+      const order = $captainOrder?.value.trim();
+      if (order) addCrewLog(`Captain's order received: ${order}`);
       available.forEach((member, index) => {
         const timer = setTimeout(() => sendCrewMember(member.id), index * 360);
         crewTimers.push(timer);
@@ -3407,6 +4594,10 @@
       renderCrewStations();
       renderCrewApprovals();
       renderCrewLogs();
+      if ($crewOrderHint) {
+        const readyCount = crew.filter((member) => canSendCrew(member)).length;
+        $crewOrderHint.textContent = `${readyCount} crew ready`;
+      }
     }
 
     function renderCrewCards() {
@@ -3423,22 +4614,44 @@
     }
 
     function renderCrewStations() {
-      $stationGrid.innerHTML = crewStations.map((station) => {
-        const member = station.crewId ? getCrew(station.crewId) : null;
-        return `
-          <article class="station-card ${esc(station.status)}" data-station-id="${esc(station.id)}">
-            <div class="station-top">
-              <h3>${esc(station.name)}</h3>
-              <span class="station-status ${esc(station.status)}">${esc(stationStatusLabel(station.status))}</span>
-            </div>
-            <p class="station-activity">${esc(station.activity)}</p>
-            <p class="station-crew">${member ? `${esc(member.name)} on station` : 'Waiting for crew'}</p>
-            <div class="station-progress" aria-label="${esc(station.name)} progress">
-              <span style="width:${Math.max(0, Math.min(100, station.progress))}%"></span>
-            </div>
-          </article>
-        `;
-      }).join('');
+      $stationGrid.innerHTML = `
+        <div class="station-canvas-grid" aria-hidden="true"></div>
+        ${renderCrewRoutes()}
+        <div class="bridge-origin" aria-hidden="true"><span>B</span><small>The Bridge</small></div>
+        ${crewStations.map((station) => {
+          const member = station.crewId ? getCrew(station.crewId) : null;
+          const progress = Math.max(0, Math.min(100, station.progress));
+          return `
+            <article class="station-node ${esc(station.status)}" data-station-id="${esc(station.id)}" style="--station-x:${Number(station.x || 50)}%; --station-y:${Number(station.y || 50)}%;">
+              <div class="station-card">
+                <div class="station-top">
+                  <div class="station-name-line">
+                    <span class="station-icon" aria-hidden="true">${esc(station.icon || station.name.slice(0, 1))}</span>
+                    <h3>${esc(station.name)}</h3>
+                  </div>
+                  <span class="station-status ${esc(station.status)}">${esc(stationStatusLabel(station.status))}</span>
+                </div>
+                <p class="station-activity">${esc(station.activity)}</p>
+                <p class="station-crew">${member ? `${esc(member.name)} reporting here` : 'Waiting for crew'}</p>
+                <div class="station-progress" aria-label="${esc(station.name)} progress">
+                  <span style="width:${progress}%"></span>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join('')}
+      `;
+    }
+
+    function renderCrewRoutes() {
+      return `
+        <svg class="station-routes" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          ${crewStations.map((station) => {
+            const live = station.status !== 'idle';
+            return `<line class="${live ? 'active' : ''}" x1="8" y1="50" x2="${Number(station.x || 50)}" y2="${Number(station.y || 50)}"></line>`;
+          }).join('')}
+        </svg>
+      `;
     }
 
     function renderCrewApprovals() {
@@ -3503,7 +4716,7 @@
       return new Promise((resolve) => {
         requestAnimationFrame(() => {
           badge.style.left = `${end.left + end.width / 2}px`;
-          badge.style.top = `${end.top + Math.min(72, end.height / 2)}px`;
+          badge.style.top = `${end.top + end.height / 2}px`;
           badge.style.transform = 'translate(-50%, -50%) scale(1.08)';
           badge.style.opacity = '0.92';
         });
@@ -3584,7 +4797,7 @@
           populateAssistSelectors(false);
         }
         setOnline(true);
-        $healthLabel.textContent = 'Triton Bridge Live';
+        $healthLabel.textContent = 'BRIDGE Live';
         $shutdownState.textContent = data.bridge?.shutdownActive ? 'paused' : 'armed';
         if (data.bridge?.shutdownActive) {
           $redShutdown.classList.add('hidden');
@@ -3595,14 +4808,14 @@
         }
         if (!bridgeAnnounced && !options.quiet) {
           bridgeAnnounced = true;
-          pushLogEntry('Local Triton workflow bridge connected to this dashboard.');
+          pushLogEntry('Local BRIDGE workflow bridge connected to this dashboard.');
         }
       } catch (err) {
         if (bridgeOnline && !options.quiet) {
           pushLogEntry(`Local workflow bridge disconnected: ${err.message}`);
         } else if (!bridgeAnnounced && !options.quiet) {
           bridgeAnnounced = true;
-          pushLogEntry('Static preview is live. Start the local Triton backend to enable process control.');
+          pushLogEntry('Static preview is live. Start the local BRIDGE backend to enable process control.');
         }
         bridgeOnline = false;
       }
@@ -3663,7 +4876,7 @@
 
         if (statusRes.status === 'fulfilled') {
           const st = statusRes.value;
-          $healthLabel.textContent = st.status === 'ok' ? 'Triton Online' : (st.message || 'Triton');
+          $healthLabel.textContent = st.status === 'ok' ? 'BRIDGE Online' : (st.message || 'BRIDGE');
         }
       } catch (err) {
         setOnline(false);
@@ -3744,7 +4957,7 @@
           }
           break;
         case 'status':
-          if (msg.status) $healthLabel.textContent = msg.status === 'ok' ? 'Triton Online' : msg.message || 'Triton';
+          if (msg.status) $healthLabel.textContent = msg.status === 'ok' ? 'BRIDGE Online' : msg.message || 'BRIDGE';
           break;
         default:
           if (msg.message) pushLogEntry(msg.message);
@@ -3756,7 +4969,7 @@
     function setOnline(online) {
       isOnline = online;
       $healthDot.classList.toggle('offline', !online);
-      $healthLabel.textContent = online ? 'Triton Online' : 'Triton Offline';
+      $healthLabel.textContent = online ? 'BRIDGE Online' : 'BRIDGE Offline';
       $offlineBanner.classList.toggle('hidden', online);
     }
 
@@ -3831,7 +5044,7 @@
       $assistTo.value = workflows.some((workflow) => workflow.id === previousTo) ? previousTo : 'claude';
       if (resetHandoff || !$handoffList.children.length) {
         $handoffList.innerHTML = `
-          <div class="handoff-item">Ollama -> Claude assist lane is primed for the Triton visual surgery watch.</div>
+          <div class="handoff-item">Ollama -> Claude assist lane is primed for the BRIDGE visual surgery watch.</div>
           <div class="handoff-item">Codex owns live-site changes. Claude stays in logo/colorbomb scope.</div>
         `;
       }
@@ -4060,7 +5273,7 @@
     }
 
     // ─── Boot ───
-    if (localStorage.getItem('triton-crew-mode') === 'true' || localStorage.getItem('triton-preview-unlocked') === 'true') {
+    if (localStorage.getItem('bridge-crew-mode') === 'true' || localStorage.getItem('triton-crew-mode') === 'true' || localStorage.getItem('triton-preview-unlocked') === 'true') {
       demoMode = true;
       showCrewMode();
     }

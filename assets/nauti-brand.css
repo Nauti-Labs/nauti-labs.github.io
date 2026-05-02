@@ -1,0 +1,211 @@
+/**
+ * Live public copy of the Nauti-Labs brand primitives.
+ * Canonical source lives in /design-system/nauti-brand.css.
+ */
+:root {
+  --cyan: #00c8f0;
+  --cyan-hi: #66e5ff;
+  --cyan-glow: rgba(0, 200, 240, 0.30);
+  --amber: #ffaa00;
+  --amber-hi: #ffd166;
+  --bg: #01020a;
+  --bg2: #060a14;
+  --bg3: #0a1322;
+  --text: #e6f0fa;
+  --text-muted: rgba(200, 220, 240, 0.55);
+  --text-dim: rgba(200, 220, 240, 0.35);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hi: rgba(0, 200, 240, 0.18);
+  --blue: #0077ff;
+  --green: #00ff9c;
+  --magenta: #ff4dc4;
+  --red: #ff5c5c;
+  --font: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --serif: "Fraunces", ui-serif, Georgia, serif;
+  --radius: 8px;
+  --radius-lg: 10px;
+  --radius-pill: 999px;
+  --shadow-panel: 0 28px 90px rgba(0, 0, 0, 0.46), inset 0 1px rgba(255, 255, 255, 0.08);
+  --nauti-blue: var(--cyan);
+  --nauti-blue-2: var(--cyan-hi);
+  --nauti-blue-glow: var(--cyan-glow);
+  --nauti-blue-dim: rgba(0, 200, 240, 0.08);
+  --nauti-amber: var(--amber);
+  --nauti-amber-2: var(--amber-hi);
+  --brand-primary: var(--cyan);
+  --brand-primary-2: var(--cyan-hi);
+  --brand-primary-3: var(--bg);
+  --brand-accent: var(--amber);
+  --brand-accent-2: var(--amber-hi);
+}
+
+.nl-canvas {
+  color: var(--text);
+  font-family: var(--font);
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 20%, rgba(0, 200, 240, 0.09) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 70% 80%, rgba(102, 229, 255, 0.05) 0%, transparent 60%),
+    var(--bg);
+}
+
+.nl-lockup,
+.nl-lockup-stack {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nl-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nl-lockup-stack {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.nl-mark {
+  width: 54px;
+  height: 54px;
+  flex: 0 0 auto;
+  color: var(--cyan);
+  filter: drop-shadow(0 0 14px rgba(0, 200, 240, 0.35));
+}
+
+.nl-mark-sm {
+  width: 34px;
+  height: 34px;
+}
+
+.nl-wordmark,
+.nl-title-gradient {
+  color: transparent;
+  background: linear-gradient(135deg, #fff 0%, var(--cyan-hi) 50%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--font);
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.nl-byline,
+.nl-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.nl-byline { color: var(--text-muted); }
+.nl-eyebrow { color: var(--cyan); }
+
+.nl-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012));
+  box-shadow: var(--shadow-panel);
+  backdrop-filter: blur(14px);
+}
+
+.nl-chip,
+.nl-pulse {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  color: var(--text-muted);
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.nl-chip strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.nl-dot,
+.nl-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan-hi);
+  box-shadow: 0 0 14px rgba(102, 229, 255, 0.75);
+}
+
+.nl-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid var(--border-hi);
+  border-radius: var(--radius);
+  color: var(--cyan-hi);
+  background: rgba(0, 200, 240, 0.06);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.nl-button:hover,
+.nl-button:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(102, 229, 255, 0.55);
+  background: rgba(0, 200, 240, 0.12);
+  box-shadow: 0 12px 34px rgba(0, 200, 240, 0.16);
+  outline: none;
+}
+
+.nl-button-primary {
+  color: #001018;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--cyan-hi), var(--cyan));
+  box-shadow: 0 16px 42px rgba(0, 200, 240, 0.22);
+}
+
+.nl-button-amber {
+  color: #160c00;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--amber-hi), var(--amber));
+  box-shadow: 0 16px 42px rgba(255, 170, 0, 0.16);
+}
+
+.nl-breathe {
+  animation: nl-glow-breathe 4.5s ease-in-out infinite;
+}
+
+.nl-pulse-dot {
+  animation: nl-pulse-dot 2.2s ease-in-out infinite;
+}
+
+@keyframes nl-glow-breathe {
+  0%, 100% { filter: drop-shadow(0 0 14px rgba(0, 200, 240, 0.35)); }
+  50% { filter: drop-shadow(0 0 24px rgba(102, 229, 255, 0.55)); }
+}
+
+@keyframes nl-pulse-dot {
+  0%, 100% { opacity: 0.55; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nl-breathe,
+  .nl-pulse-dot {
+    animation: none;
+  }
+}

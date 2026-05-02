@@ -2,15 +2,15 @@
   "version": "1.0",
   "product": {
     "id": "triton-pilot",
-    "name": "Triton Pilot",
-    "summary": "A human-supervised command center with owner-approved agent spending and monthly subscription support.",
-    "category": "human-agent-operations",
+    "name": "Bridge Pilot",
+    "summary": "A human-supervised command surface with owner-approved AI crew spending and monthly subscription support.",
+    "category": "human-ai-operations",
     "deployment_time": "90-day pilot",
     "audiences": [
       "operations leaders",
       "dispatchers",
       "small teams",
-      "software agents operating within owner-defined budgets"
+      "AI crew operating within owner-defined budgets"
     ],
     "pricing": {
       "model": "pilot_then_subscription",
@@ -49,7 +49,7 @@
       ],
       "settlement_mode": "invoice_or_verified_payment_intent",
       "settlement_wallets": [],
-      "note": "Triton remains invoice or verified-intent only because it is a custom sales-led product. Fixed-price self-serve products in the ecosystem can publish a public payment identity when price, asset, and verification rules are standardized.",
+      "note": "Bridge remains invoice or verified-intent only because it is a custom sales-led product. Fixed-price self-serve products in the ecosystem can publish a public payment identity when price, asset, and verification rules are standardized.",
       "checkout_policy": {
         "default_payment_method": "USDC on Base",
         "other_assets_policy": "Other assets or networks are accepted only through invoice-confirmed instructions.",
@@ -63,7 +63,7 @@
         "release_mode": "manual_human_release_after_verified_payment"
       }
     },
-    "agent_spending": {
+    "ai_spending": {
       "supported": true,
       "owner_controlled": true,
       "purchase_mode": "sales_led_human_review_required",
@@ -74,11 +74,11 @@
         "renewal_policy",
         "audit_log"
       ],
-      "approval_policy": "Agent can only purchase or renew inside the explicit rights granted by the owner."
+      "approval_policy": "AI crew can only purchase or renew inside the explicit rights granted by the owner."
     },
     "features": [
       "Human-in-the-loop approvals",
-      "Shared command center for humans and agents",
+      "Shared command surface for humans and AI crew",
       "Machine-readable product manifest",
       "Monthly subscription path in USD or invoice-confirmed crypto",
       "Audit trail for owner-authorized spending"
@@ -87,13 +87,13 @@
       "landing_page": "./triton-pilot.html",
       "demo": "./lab-demo.html",
       "contact": "/labs/#contact",
-      "buy_now_email": "mailto:consulting@nauti-labs.com?subject=Start%20Triton",
+      "buy_now_email": "mailto:consulting@nauti-labs.com?subject=Start%20Bridge",
       "agent_policy_template": "./agent-spend-policy.example.json",
       "related_clearance": {
         "landing_page": "https://clearance.nauti-labs.com/",
         "docs": "https://clearance.nauti-labs.com/v1/docs",
         "payment_info": "https://clearance.nauti-labs.com/v1/payments/info",
-        "role": "Self-serve approval API and fixed-price USDC checkout layer for agents and humans."
+        "role": "Self-serve approval API and fixed-price USDC checkout layer for AI crew and humans."
       }
     }
   }

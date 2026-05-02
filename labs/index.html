@@ -98,7 +98,7 @@
     }
     .nav-brand svg {
       width: 44px;
-      height: 32px;
+      height: 44px;
       filter: drop-shadow(0 0 13px rgba(0, 200, 240, 0.35));
     }
     .nav-brand strong {
@@ -159,6 +159,34 @@
       letter-spacing: 0;
       line-height: 0.92;
       margin-bottom: 24px;
+    }
+    .hero-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .hero-lockup svg {
+      width: 72px;
+      height: 72px;
+      filter: drop-shadow(0 0 18px rgba(0, 200, 240, 0.32));
+    }
+    .hero-lockup strong {
+      display: block;
+      color: var(--text);
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1;
+    }
+    .hero-lockup span {
+      display: block;
+      margin-top: 4px;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
     }
     .hero-copy {
       max-width: 660px;
@@ -570,6 +598,10 @@
       .stack-state {
         grid-column: 2;
       }
+      .hero-lockup svg {
+        width: 58px;
+        height: 58px;
+      }
     }
   </style>
 </head>
@@ -580,6 +612,26 @@
         <path d="M 38 22 L 14 50 L 38 78" stroke="#00c8f0" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M 50 50 Q 60 30, 70 50 T 90 50" stroke="#66e5ff" stroke-width="5.5" fill="none" stroke-linecap="round"/>
         <path d="M 102 22 L 126 50 L 102 78" stroke="#00c8f0" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="mark-labs" viewBox="0 0 140 140">
+        <g transform="translate(70 60)">
+          <ellipse cx="0" cy="38" rx="34" ry="5" stroke="#00c8f0" stroke-width="1.4" fill="none" opacity="0.45"/>
+          <path d="M -20 28 L -20 16 L -12 4 L 12 4 L 20 16 L 20 28 Z" stroke="#00c8f0" stroke-width="2.6" fill="rgba(0,200,240,0.05)"/>
+          <line x1="-22" y1="28" x2="22" y2="28" stroke="#00c8f0" stroke-width="1.4" opacity="0.7" stroke-linecap="round"/>
+          <circle cx="-13" cy="20" r="1.2" fill="#66e5ff"/>
+          <circle cx="13" cy="20" r="1.2" fill="#66e5ff"/>
+          <circle cx="0" cy="22" r="1.2" fill="#66e5ff"/>
+          <line x1="0" y1="4" x2="0" y2="-30" stroke="#00c8f0" stroke-width="2.4" stroke-linecap="round"/>
+          <line x1="-12" y1="-12" x2="12" y2="-12" stroke="#00c8f0" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="-12" cy="-12" r="1.6" fill="#66e5ff"/>
+          <circle cx="12" cy="-12" r="1.6" fill="#66e5ff"/>
+          <circle cx="0" cy="-32" r="6" stroke="#ff4dc4" stroke-width="2" fill="rgba(255,77,196,0.18)"/>
+          <circle cx="0" cy="-32" r="2.8" fill="#ff4dc4"/>
+          <circle cx="0" cy="-32" r="11" stroke="#ff4dc4" stroke-width="1" opacity="0.45" fill="none"/>
+          <circle cx="0" cy="-32" r="16" stroke="#ff4dc4" stroke-width="0.7" opacity="0.25" fill="none"/>
+          <line x1="0" y1="-38" x2="0" y2="-42" stroke="#00c8f0" stroke-width="1.2" stroke-linecap="round"/>
+        </g>
+        <path d="M 26 122 Q 47 104, 70 122 T 114 122" stroke="#66e5ff" stroke-width="3.6" fill="none" stroke-linecap="round"/>
       </symbol>
       <symbol id="mark-bridge" viewBox="0 0 140 140">
         <g transform="translate(70 60)" fill="none">
@@ -636,9 +688,9 @@
     <nav class="topbar" aria-label="Labs navigation">
       <a class="back-link" href="/">← nauti-labs.com</a>
       <a class="nav-brand" href="#top" aria-label="Nauti-Labs Labs">
-        <svg viewBox="0 0 140 100" aria-hidden="true"><use href="#mark-parent"/></svg>
-        <strong>Nauti-Labs</strong>
-        <span>Labs</span>
+        <svg viewBox="0 0 140 140" aria-hidden="true"><use href="#mark-labs"/></svg>
+        <strong>Labs</strong>
+        <span>by Nauti-Labs</span>
       </a>
       <ul class="nav-links">
         <li><a href="#stack">Stack</a></li>
@@ -650,6 +702,13 @@
 
     <header class="hero" id="top">
       <div>
+        <div class="hero-lockup" aria-label="Labs by Nauti-Labs">
+          <svg viewBox="0 0 140 140" aria-hidden="true"><use href="#mark-labs"/></svg>
+          <div>
+            <strong>Labs</strong>
+            <span>by Nauti-Labs</span>
+          </div>
+        </div>
         <div class="eyebrow">Nauti-Labs Labs · One ship. Many stations.</div>
         <h1>Approval-aware AI products.</h1>
         <p class="hero-copy">

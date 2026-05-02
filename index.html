@@ -213,7 +213,12 @@
     .door.labs:hover::after     { color: var(--cyan); }
     .door.neighbors:hover::after { color: var(--amber); }
 
-    .door-icon { width: 52px; height: 52px; margin-bottom: 1.25rem; }
+    .door-icon {
+      width: 88px;
+      height: 88px;
+      margin-bottom: 1.55rem;
+      filter: drop-shadow(0 0 12px rgba(0, 200, 240, 0.18));
+    }
     .door-label {
       font-size: 0.72rem; letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -259,6 +264,7 @@
     @media (max-width: 780px) {
       .door { padding: 2rem 1.5rem; }
       .logo-mark { width: 140px; height: 100px; }
+      .door-icon { width: 76px; height: 76px; }
     }
 
     footer {
@@ -386,11 +392,11 @@
       <circle cx="126" cy="50" r="1.6" fill="#66e5ff" opacity="0.85"/>
     </svg>
 
-    <div class="hero-label">Houston Ship Channel <span class="accent">·</span> Mont Belvieu / Baytown / Barbers Hill</div>
-    <h1>Nauti-Labs</h1>
+    <div class="hero-label">Nauti-Labs <span class="accent">·</span> Maritime <span class="accent">·</span> Labs <span class="accent">·</span> Neighbors</div>
+    <h1>Three doors.<br>One ship.</h1>
     <p class="tagline">
-      One ship. Many stations. Maritime systems built for speed. AI crew tooling built for humans.<br>
-      <strong>Pick your path.</strong>
+      Maritime operations, approval-aware AI products, and local digital help share one wave system.<br>
+      <strong>Pick your door.</strong>
     </p>
     <div class="trust-strip" aria-label="Nauti-Labs trust highlights">
       <div class="trust-chip"><strong>Live now:</strong> <a href="https://ops.nauti-labs.com" target="_blank" rel="noopener">Nauti-Ops</a>, <a href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener">Clearance</a>, <a href="https://triton.nauti-labs.com/" target="_blank" rel="noopener">Bridge</a>, and <a href="/suite/">Suite Status</a></div>
@@ -402,18 +408,24 @@
     <div class="doors">
 
       <a href="/maritime/" class="door maritime">
-        <svg class="door-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="22" cy="22" r="18" stroke="#0077ff" stroke-width="2" fill="none"/>
-          <circle cx="22" cy="22" r="4.5" stroke="#0077ff" stroke-width="2" fill="none"/>
-          <circle cx="22" cy="22" r="2" fill="#ffaa00"/>
-          <line x1="22" y1="17.5" x2="22" y2="4"   stroke="#0077ff" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="22" y1="26.5" x2="22" y2="40"  stroke="#0077ff" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="17.5" y1="22" x2="4"  y2="22"  stroke="#0077ff" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="26.5" y1="22" x2="40" y2="22"  stroke="#0077ff" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="19.5" y1="19.5" x2="9.5" y2="9.5"   stroke="#ffaa00" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="24.5" y1="24.5" x2="34.5" y2="34.5" stroke="#ffaa00" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="24.5" y1="19.5" x2="34.5" y2="9.5"  stroke="#ffaa00" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="19.5" y1="24.5" x2="9.5"  y2="34.5" stroke="#ffaa00" stroke-width="1.5" stroke-linecap="round"/>
+        <svg class="door-icon" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g transform="translate(70 60)">
+            <circle cx="0" cy="0" r="40" stroke="#00c8f0" stroke-width="2.6"/>
+            <circle cx="0" cy="0" r="32" stroke="#00c8f0" stroke-width="0.6" opacity="0.4"/>
+            <g stroke="#00c8f0" stroke-width="2" stroke-linecap="round">
+              <line x1="0" y1="-40" x2="0" y2="-32"/><line x1="0" y1="40" x2="0" y2="32"/>
+              <line x1="-40" y1="0" x2="-32" y2="0"/><line x1="40" y1="0" x2="32" y2="0"/>
+            </g>
+            <g stroke="#00c8f0" stroke-width="1.2" stroke-linecap="round" opacity="0.6">
+              <line x1="-28" y1="-28" x2="-24" y2="-24"/><line x1="28" y1="-28" x2="24" y2="-24"/>
+              <line x1="-28" y1="28" x2="-24" y2="24"/><line x1="28" y1="28" x2="24" y2="24"/>
+            </g>
+            <path d="M 0 -28 L 5 0 L 0 4 L -5 0 Z" fill="#ffaa00"/>
+            <path d="M 0 28 L 5 0 L 0 -4 L -5 0 Z" fill="#66e5ff" opacity="0.55"/>
+            <circle cx="0" cy="0" r="2.6" fill="#01020a"/>
+            <circle cx="0" cy="0" r="2.6" stroke="#ffaa00" stroke-width="1.2" fill="none"/>
+          </g>
+          <path d="M 26 122 Q 47 104, 70 122 T 114 122" stroke="#66e5ff" stroke-width="3.6" fill="none" stroke-linecap="round"/>
         </svg>
         <div class="door-label">For Maritime Professionals</div>
         <div class="door-title">Chemical Tanker Ops.<br>Delivered.</div>
@@ -430,11 +442,25 @@
       </a>
 
       <a href="/labs/" class="door labs">
-        <svg class="door-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="6" y="6" width="32" height="32" rx="4" stroke="#00c8f0" stroke-width="2" fill="none"/>
-          <path d="M12 16 L18 22 L12 28" stroke="#00ff9c" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          <line x1="20" y1="30" x2="32" y2="30" stroke="#ff4dc4" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="22" cy="22" r="1.5" fill="#00c8f0" opacity="0.6"/>
+        <svg class="door-icon" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g transform="translate(70 60)">
+            <ellipse cx="0" cy="38" rx="34" ry="5" stroke="#00c8f0" stroke-width="1.4" fill="none" opacity="0.45"/>
+            <path d="M -20 28 L -20 16 L -12 4 L 12 4 L 20 16 L 20 28 Z" stroke="#00c8f0" stroke-width="2.6" fill="rgba(0,200,240,0.05)"/>
+            <line x1="-22" y1="28" x2="22" y2="28" stroke="#00c8f0" stroke-width="1.4" opacity="0.7" stroke-linecap="round"/>
+            <circle cx="-13" cy="20" r="1.2" fill="#66e5ff"/>
+            <circle cx="13" cy="20" r="1.2" fill="#66e5ff"/>
+            <circle cx="0" cy="22" r="1.2" fill="#66e5ff"/>
+            <line x1="0" y1="4" x2="0" y2="-30" stroke="#00c8f0" stroke-width="2.4" stroke-linecap="round"/>
+            <line x1="-12" y1="-12" x2="12" y2="-12" stroke="#00c8f0" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="-12" cy="-12" r="1.6" fill="#66e5ff"/>
+            <circle cx="12" cy="-12" r="1.6" fill="#66e5ff"/>
+            <circle cx="0" cy="-32" r="6" stroke="#ff4dc4" stroke-width="2" fill="rgba(255,77,196,0.18)"/>
+            <circle cx="0" cy="-32" r="2.8" fill="#ff4dc4"/>
+            <circle cx="0" cy="-32" r="11" stroke="#ff4dc4" stroke-width="1" opacity="0.45" fill="none"/>
+            <circle cx="0" cy="-32" r="16" stroke="#ff4dc4" stroke-width="0.7" opacity="0.25" fill="none"/>
+            <line x1="0" y1="-38" x2="0" y2="-42" stroke="#00c8f0" stroke-width="1.2" stroke-linecap="round"/>
+          </g>
+          <path d="M 26 122 Q 47 104, 70 122 T 114 122" stroke="#66e5ff" stroke-width="3.6" fill="none" stroke-linecap="round"/>
         </svg>
         <div class="door-label">For Builders &amp; AI</div>
         <div class="door-title">AI Commerce.<br>Human-in-the-Loop.</div>
@@ -451,13 +477,36 @@
       </a>
 
       <a href="/neighbors/" class="door neighbors">
-        <svg class="door-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 19.5L22 10L34 19.5V31.5C34 33.1569 32.6569 34.5 31 34.5H13C11.3431 34.5 10 33.1569 10 31.5V19.5Z" stroke="#ffaa00" stroke-width="2" stroke-linejoin="round"/>
-          <path d="M17 21.5H27C28.1046 21.5 29 22.3954 29 23.5V29.5C29 30.6046 28.1046 31.5 27 31.5H17C15.8954 31.5 15 30.6046 15 29.5V23.5C15 22.3954 15.8954 21.5 17 21.5Z" stroke="#00ff9c" stroke-width="1.9"/>
-          <path d="M19 34.5V30.5H25V34.5" stroke="#00ff9c" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="32.5" cy="13" r="4.5" stroke="#66e5ff" stroke-width="1.8"/>
-          <circle cx="32.5" cy="13" r="1.4" fill="#ffaa00"/>
-          <path d="M32.5 8.5V6.5M32.5 19.5V17.5M37 13H39M26 13H28" stroke="#66e5ff" stroke-width="1.4" stroke-linecap="round"/>
+        <svg class="door-icon" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g transform="translate(70 60)">
+            <ellipse cx="0" cy="38" rx="36" ry="5" stroke="#00c8f0" stroke-width="1.4" fill="none" opacity="0.45"/>
+            <rect x="-24" y="28" width="48" height="10" stroke="#00c8f0" stroke-width="2" fill="rgba(0,200,240,0.05)"/>
+            <line x1="-18" y1="32" x2="-12" y2="32" stroke="#00c8f0" stroke-width="1" opacity="0.5"/>
+            <line x1="-6" y1="34" x2="2" y2="34" stroke="#00c8f0" stroke-width="1" opacity="0.5"/>
+            <line x1="10" y1="32" x2="18" y2="32" stroke="#00c8f0" stroke-width="1" opacity="0.5"/>
+            <path d="M -14 28 L -10 -10 L 10 -10 L 14 28 Z" stroke="#00c8f0" stroke-width="2.6" fill="rgba(0,200,240,0.04)"/>
+            <line x1="-13" y1="14" x2="13" y2="14" stroke="#00c8f0" stroke-width="1.2" opacity="0.55"/>
+            <line x1="-12" y1="0" x2="12" y2="0" stroke="#00c8f0" stroke-width="1.2" opacity="0.55"/>
+            <path d="M -3 28 L -3 18 Q -3 14 0 14 Q 3 14 3 18 L 3 28 Z" stroke="#00c8f0" stroke-width="1.6" fill="rgba(0,200,240,0.08)"/>
+            <circle cx="0" cy="6" r="1.6" fill="#66e5ff"/>
+            <line x1="-15" y1="-10" x2="15" y2="-10" stroke="#00c8f0" stroke-width="2.2" stroke-linecap="round"/>
+            <circle cx="-12" cy="-12" r="0.8" fill="#66e5ff"/>
+            <circle cx="-6" cy="-12" r="0.8" fill="#66e5ff"/>
+            <circle cx="0" cy="-12" r="0.8" fill="#66e5ff"/>
+            <circle cx="6" cy="-12" r="0.8" fill="#66e5ff"/>
+            <circle cx="12" cy="-12" r="0.8" fill="#66e5ff"/>
+            <rect x="-9" y="-24" width="18" height="14" stroke="#00c8f0" stroke-width="2.2" fill="rgba(0,255,156,0.08)"/>
+            <line x1="0" y1="-24" x2="0" y2="-10" stroke="#00c8f0" stroke-width="1" opacity="0.4"/>
+            <circle cx="0" cy="-17" r="3.6" fill="#00ff9c"/>
+            <circle cx="0" cy="-17" r="6.5" fill="rgba(0,255,156,0.35)"/>
+            <circle cx="0" cy="-17" r="11" fill="rgba(0,255,156,0.12)"/>
+            <line x1="-18" y1="-22" x2="-30" y2="-30" stroke="#00ff9c" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+            <line x1="18" y1="-22" x2="30" y2="-30" stroke="#00ff9c" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+            <path d="M -10 -24 L 0 -34 L 10 -24 Z" stroke="#00c8f0" stroke-width="2" fill="rgba(0,200,240,0.08)" stroke-linejoin="round"/>
+            <line x1="0" y1="-34" x2="0" y2="-40" stroke="#00c8f0" stroke-width="1.4" stroke-linecap="round"/>
+            <circle cx="0" cy="-41" r="1.6" fill="#66e5ff"/>
+          </g>
+          <path d="M 26 122 Q 47 104, 70 122 T 114 122" stroke="#66e5ff" stroke-width="3.6" fill="none" stroke-linecap="round"/>
         </svg>
         <div class="door-label">For Neighbors</div>
         <div class="door-title">Local AI Help.<br>Plain English.</div>

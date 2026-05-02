@@ -114,15 +114,16 @@
     }
     .hero-label .accent { color: var(--cyan); }
 
-    /* ── PREMIUM WAVE LOGO ── */
-    @keyframes wave-breathe {
+    /* ── GEAR WHEEL LOGO ── */
+    @keyframes gear-breathe {
       0%, 100% { filter: drop-shadow(0 0 20px rgba(0, 200, 240, 0.35)); }
       50%      { filter: drop-shadow(0 0 32px rgba(102, 229, 255, 0.55)); }
     }
     .logo-mark {
-      width: 168px; height: 120px;
+      width: 132px; height: 132px;
+      object-fit: contain;
       margin-bottom: 1.75rem;
-      animation: wave-breathe 4s ease-in-out infinite;
+      animation: gear-breathe 4s ease-in-out infinite;
     }
 
     h1 {
@@ -263,7 +264,7 @@
     }
     @media (max-width: 780px) {
       .door { padding: 2rem 1.5rem; }
-      .logo-mark { width: 140px; height: 100px; }
+      .logo-mark { width: 112px; height: 112px; }
       .door-icon { width: 76px; height: 76px; }
     }
 
@@ -357,40 +358,7 @@
   <!-- HERO -->
   <section class="hero">
 
-    <!-- ── PREMIUM WAVE LOGO  <~>  ── -->
-    <svg class="logo-mark" viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Nauti-Labs">
-      <defs>
-        <linearGradient id="nl-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%"   stop-color="#00c8f0"/>
-          <stop offset="50%"  stop-color="#66e5ff"/>
-          <stop offset="100%" stop-color="#00c8f0"/>
-        </linearGradient>
-        <linearGradient id="nl-wave" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%"   stop-color="#66e5ff"/>
-          <stop offset="50%"  stop-color="#ffffff"/>
-          <stop offset="100%" stop-color="#66e5ff"/>
-        </linearGradient>
-      </defs>
-
-      <!-- Left bracket -->
-      <path d="M 38 22 L 14 50 L 38 78"
-        stroke="url(#nl-grad)" stroke-width="5.5"
-        fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-
-      <!-- Wave (center) — rendered with a soft white core + cyan outline -->
-      <path d="M 50 50 Q 60 30, 70 50 T 90 50"
-        stroke="url(#nl-wave)" stroke-width="5.5"
-        fill="none" stroke-linecap="round"/>
-
-      <!-- Right bracket -->
-      <path d="M 102 22 L 126 50 L 102 78"
-        stroke="url(#nl-grad)" stroke-width="5.5"
-        fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-
-      <!-- Tiny orbiting accent dots -->
-      <circle cx="14"  cy="50" r="1.6" fill="#66e5ff" opacity="0.85"/>
-      <circle cx="126" cy="50" r="1.6" fill="#66e5ff" opacity="0.85"/>
-    </svg>
+    <img class="logo-mark" src="/assets/nauti-gear-wheel.svg" alt="Nauti-Labs gear wheel logo">
 
     <div class="hero-label">Nauti-Labs <span class="accent">·</span> Maritime <span class="accent">·</span> Labs <span class="accent">·</span> Neighbors</div>
     <h1>Three doors.<br>One ship.</h1>
@@ -399,7 +367,7 @@
       <strong>Pick your door.</strong>
     </p>
     <div class="trust-strip" aria-label="Nauti-Labs trust highlights">
-      <div class="trust-chip"><strong>Live now:</strong> <a href="https://ops.nauti-labs.com" target="_blank" rel="noopener">Nauti-Ops</a>, <a href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener">Clearance</a>, <a href="https://triton.nauti-labs.com/" target="_blank" rel="noopener">Bridge</a>, and <a href="/suite/">Suite Status</a></div>
+      <div class="trust-chip"><strong>Live now:</strong> <a href="https://ops.nauti-labs.com" target="_blank" rel="noopener">Triton</a>, <a href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener">Clearance</a>, <a href="https://bridge.nauti-labs.com/" target="_blank" rel="noopener">Bridge</a>, and <a href="/suite/">Suite Status</a></div>
       <div class="trust-chip"><strong>Primary offers:</strong> maritime ops consulting, workflow systems, applied AI, and local digital help</div>
       <div class="trust-chip"><strong>Local area:</strong> Mont Belvieu · Baytown · Barbers Hill</div>
       <div class="trust-chip"><strong>Brand locked:</strong> <a href="/brand/">Nauti-Labs Brand System</a></div>
@@ -431,10 +399,10 @@
         <div class="door-title">Chemical Tanker Ops.<br>Delivered.</div>
         <div class="door-sub">
           Agency software, port-call workflows, and consulting from someone who's worked the operation.
-          Nauti-Ops flagship platform included.
+          Triton flagship platform included.
         </div>
         <ul class="door-features">
-          <li>Nauti-Ops — maritime platform, live demo</li>
+          <li>Triton — maritime platform, live demo</li>
           <li>Port-call &amp; pre-arrival workflows</li>
           <li>$125 / hr · $1,250 starter engagement</li>
           <li>Houston Ship Channel &amp; beyond</li>

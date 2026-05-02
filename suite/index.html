@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nauti-Labs Suite Status</title>
-  <meta name="description" content="Public Nauti-Labs suite status: Bridge, Castle, Nauti-Ops, Turbo, Navisales, Felipe, Clearance, Factory, Ollama, and always-on watchdog state." />
+  <meta name="description" content="Public Nauti-Labs suite status: Bridge, Castle, Triton, Turbo, Navisales, Felipe, Clearance, Factory, Ollama, and always-on watchdog state." />
   <link rel="canonical" href="https://nauti-labs.com/suite/" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#00c8f0" />
@@ -42,7 +42,7 @@
     .wrap { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 36px 0 42px; position: relative; z-index: 1; }
     header { display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 22px; margin-bottom: 24px; }
     .brand-row { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
-    .brand-mark { width: 64px; height: 46px; filter: drop-shadow(0 0 18px rgba(0, 200, 240, 0.35)); }
+    .brand-mark { width: 64px; height: 64px; object-fit: contain; filter: drop-shadow(0 0 18px rgba(0, 200, 240, 0.35)); }
     .brand-name { font-size: clamp(2.45rem, 7vw, 5.25rem); line-height: 0.92; color: transparent; background: linear-gradient(135deg, #fff 0%, var(--cyan-hi) 50%, var(--cyan) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; letter-spacing: 0; }
     .brand-by { margin-top: 4px; color: var(--text-muted); font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; }
     .eyebrow { font-family: var(--mono); color: var(--cyan); font-size: 0.76rem; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 10px; }
@@ -100,19 +100,7 @@
     <header>
       <div>
         <div class="brand-row" aria-label="Nauti-Labs">
-          <svg class="brand-mark" viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <linearGradient id="nl-suite-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#00c8f0"/><stop offset="50%" stop-color="#66e5ff"/><stop offset="100%" stop-color="#00c8f0"/>
-              </linearGradient>
-              <linearGradient id="nl-suite-wave" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#66e5ff"/><stop offset="50%" stop-color="#ffffff"/><stop offset="100%" stop-color="#66e5ff"/>
-              </linearGradient>
-            </defs>
-            <path d="M 38 22 L 14 50 L 38 78" stroke="url(#nl-suite-grad)" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M 50 50 Q 60 30, 70 50 T 90 50" stroke="url(#nl-suite-wave)" stroke-width="5.5" fill="none" stroke-linecap="round"/>
-            <path d="M 102 22 L 126 50 L 102 78" stroke="url(#nl-suite-grad)" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+          <img class="brand-mark" src="/assets/nauti-gear-wheel.svg" alt="" aria-hidden="true">
           <div>
             <div class="brand-name">Suite Status</div>
             <div class="brand-by">Nauti-Labs · One ship. Many stations.</div>
@@ -122,7 +110,7 @@
         <p class="sub">A safe status snapshot for the Nauti-Labs product family. The private fleet stays behind operator access; this page only shows what is healthy, what is pending, and when the last heartbeat landed.</p>
         <div class="chips" aria-label="Suite posture">
           <span class="chip"><span class="chip-dot"></span>Brand locked</span>
-          <span class="chip"><span class="chip-dot"></span>Bridge renamed</span>
+          <span class="chip"><span class="chip-dot"></span>Bridge domain set</span>
           <span class="chip"><span class="chip-dot"></span>Captain in control</span>
         </div>
       </div>
@@ -152,7 +140,8 @@
         <h2>Operator Access</h2>
         <ul>
           <li>Private dashboards stay behind Mac mini auth/Tailscale.</li>
-          <li>Bridge remains the command surface.</li>
+          <li>Bridge remains the command surface at <code>bridge.nauti-labs.com</code>.</li>
+          <li>Triton remains the maritime desk at <code>ops.nauti-labs.com</code>.</li>
           <li>Clearance remains approval-gated.</li>
           <li>Castle/Blacksmith uses local Ollama.</li>
         </ul>
@@ -178,7 +167,7 @@
     const labels = {
       triton: 'Bridge',
       bridge: 'Bridge',
-      nauti_ops: 'Nauti-Ops'
+      nauti_ops: 'Triton'
     };
 
     function ago(iso) {

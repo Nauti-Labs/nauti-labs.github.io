@@ -18,15 +18,15 @@
   "services": [
     {
       "id": "triton",
-      "label": "Triton",
-      "role": "Command hub",
+      "label": "Bridge",
+      "role": "AI crew command",
       "port": 8600,
       "online": true,
       "private": true
     },
     {
       "id": "nauti_ops",
-      "label": "Nauti-Ops",
+      "label": "Triton",
       "role": "Maritime operations",
       "port": 8200,
       "online": true,

@@ -43,7 +43,7 @@
     .top-pulse { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; }
     .top-pulse::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--cyan-hi); box-shadow: 0 0 14px rgba(102, 229, 255, 0.75); }
     .hero { display: grid; grid-template-columns: 0.82fr 1.18fr; align-items: center; gap: 42px; padding: 26px 0 54px; border-bottom: 1px solid var(--border); }
-    .parent-mark { width: min(100%, 340px); filter: drop-shadow(0 0 32px rgba(0, 200, 240, 0.32)); }
+    .parent-mark { width: min(100%, 240px); aspect-ratio: 1; object-fit: contain; filter: drop-shadow(0 0 32px rgba(0, 200, 240, 0.32)); }
     .eyebrow { color: var(--cyan); font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; }
     h1 { font-size: clamp(3rem, 8vw, 6rem); line-height: 0.94; color: transparent; background: linear-gradient(135deg, #fff 0%, var(--cyan-hi) 50%, var(--cyan) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; letter-spacing: 0; }
     .lead { margin-top: 18px; max-width: 760px; color: var(--text-muted); font-size: clamp(1rem, 2vw, 1.2rem); }
@@ -85,23 +85,11 @@
     </nav>
 
     <section class="hero" aria-labelledby="brand-title">
-      <svg class="parent-mark nl-breathe" viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Nauti-Labs mark">
-        <defs>
-          <linearGradient id="parent-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#00c8f0"/><stop offset="50%" stop-color="#66e5ff"/><stop offset="100%" stop-color="#00c8f0"/>
-          </linearGradient>
-          <linearGradient id="parent-wave" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#66e5ff"/><stop offset="50%" stop-color="#fff"/><stop offset="100%" stop-color="#66e5ff"/>
-          </linearGradient>
-        </defs>
-        <path d="M 38 22 L 14 50 L 38 78" stroke="url(#parent-grad)" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M 50 50 Q 60 30, 70 50 T 90 50" stroke="url(#parent-wave)" stroke-width="5.5" fill="none" stroke-linecap="round"/>
-        <path d="M 102 22 L 126 50 L 102 78" stroke="url(#parent-grad)" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+      <img class="parent-mark nl-breathe" src="/assets/nauti-gear-wheel.svg" alt="Nauti-Labs gear wheel mark">
       <div>
         <div class="eyebrow">Nauti-Labs Brand System</div>
         <h1 id="brand-title">One ship.<br>Many stations.</h1>
-        <p class="lead">Cyan and amber on near-black. The parent wave threads every product back to Nauti-Labs. Bridge is the command surface; the rest of the suite stays visually and verbally connected.</p>
+        <p class="lead">Cyan and amber on near-black. The parent gear wheel threads every product back to Nauti-Labs. Bridge is the command surface; the rest of the suite stays visually and verbally connected.</p>
         <div class="chips">
           <span class="chip">Cyan is the system color</span>
           <span class="chip">Amber is the human approval pivot</span>
@@ -114,9 +102,9 @@
       <div class="section-head">
         <div>
           <div class="eyebrow">01 · Family Marks</div>
-          <h2 id="family-title">Product marks ride the same wave.</h2>
+          <h2 id="family-title">Product marks ride the same system.</h2>
         </div>
-        <p class="section-note">Use the Nauti-Labs parent mark on corporate surfaces. Product surfaces use a product mark, the wordmark, and a `by Nauti-Labs` subscript.</p>
+        <p class="section-note">Use the Nauti-Labs gear wheel on corporate surfaces. Product surfaces use a product mark, the wordmark, and a `by Nauti-Labs` subscript.</p>
       </div>
       <div class="marks">
         <article class="mark-card">
@@ -138,7 +126,7 @@
             <div class="by">by Nauti-Labs</div>
             <p class="role">The bridge of your computer. Send crew, review what they prepared, sign off.</p>
           </div>
-          <div class="url">triton.nauti-labs.com</div>
+          <div class="url">bridge.nauti-labs.com</div>
         </article>
         <article class="mark-card">
           <div>
@@ -153,7 +141,7 @@
               </g>
               <path d="M 26 122 Q 47 104, 70 122 T 114 122" stroke="#66e5ff" stroke-width="3.6" fill="none" stroke-linecap="round"/>
             </svg>
-            <div class="name">Nauti-Ops</div>
+            <div class="name">Triton</div>
             <div class="by">by Nauti-Labs</div>
             <p class="role">The operating desk for maritime workflows, live demos, and production deployments.</p>
           </div>
@@ -232,7 +220,7 @@
       </div>
       <div class="rules">
         <div class="rule"><h3>Bridge language</h3><p>Crew, The Bridge, Stations, Captain's Approval, Captain's Log, Send Crew, Recall Crew.</p></div>
-        <div class="rule"><h3>Lockup rule</h3><p>Product mark, wordmark, and `by Nauti-Labs` subscript. The shared wave stays under the mark.</p></div>
+        <div class="rule"><h3>Lockup rule</h3><p>Product mark, wordmark, and `by Nauti-Labs` subscript. The shared gear wheel anchors corporate Nauti-Labs surfaces.</p></div>
         <div class="rule"><h3>Change rule</h3><p>This brand is locked across the suite until Justin asks for a new direction.</p></div>
       </div>
     </section>

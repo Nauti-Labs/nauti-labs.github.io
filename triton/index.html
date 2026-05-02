@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bridge | Nauti-Labs</title>
   <meta name="description" content="Bridge is the Nauti-Labs command layer for running AI across your machine, your apps, and your team with human-supervised approvals.">
-  <link rel="canonical" href="https://triton.nauti-labs.com/">
+  <link rel="canonical" href="https://bridge.nauti-labs.com/">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23060b14'/%3E%3Cg fill='none' stroke='%2367dfff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='32' cy='23' r='13'/%3E%3Cpath d='M32 10v8M32 28v8M19 23h8M37 23h8M23 14l6 6M35 26l6 6M41 14l-6 6M29 26l-6 6'/%3E%3C/g%3E%3Ccircle cx='32' cy='23' r='5' fill='%23060b14' stroke='%2367dfff' stroke-width='2'/%3E%3Ccircle cx='32' cy='23' r='2.5' fill='%23ffaa00'/%3E%3Cpath d='M16 48c6-6 12-6 18 0s12 6 18 0' fill='none' stroke='%23edf7f5' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
   <meta name="robots" content="index,follow">
   <meta property="og:site_name" content="Nauti-Labs">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Bridge by Nauti-Labs">
   <meta property="og:description" content="Your computer is the ship. Bridge is the command room. Send crew to stations and keep every action under Captain's Approval.">
-  <meta property="og:url" content="https://triton.nauti-labs.com/">
+  <meta property="og:url" content="https://bridge.nauti-labs.com/">
   <meta property="og:image" content="https://nauti-labs.com/og/triton-coming-soon-telegram.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bridge by Nauti-Labs">
@@ -3177,7 +3177,7 @@
       },
       'random': {
         name: 'Random Bomb',
-        desc: 'Curated pro rotation from Nauti-Ops',
+        desc: 'Curated pro rotation from Triton',
         swatches: ['#38bdf8', '#e2e8f0', '#030712'],
         vars: null
       }
@@ -3779,7 +3779,7 @@
       { name: 'Castle', status: 'idle', current_project: 'Session integrity clean. Local presence gate required before execution.', accent_color: '#8b7dff' },
       { name: 'Clearance', status: 'unknown', current_project: 'Clearance approval pending. External execution blocked.', accent_color: '#ffcf6a' },
       { name: 'NaviSales', status: 'idle', current_project: 'Stakeholder comms drafted. Final send forbidden until signed.', accent_color: '#ff8b6b' },
-      { name: 'Nauti-Ops', status: 'active', current_project: 'Work window protected. Outside notice staged, not sent.', accent_color: '#63fff4' }
+      { name: 'Triton', status: 'active', current_project: 'Work window protected. Outside notice staged, not sent.', accent_color: '#63fff4' }
     ];
 
     const demoWorkflows = [
@@ -3805,7 +3805,7 @@
         logo: './assets/agent-icons/codex.png',
         copy: 'Codex app and local browser tools are active. Owns the live Bridge surface.',
         tools: ['edit live shell', 'verify deploy', 'review diff'],
-        prompt: 'Review triton.nauti-labs.com for broken controls and report the next fix.'
+        prompt: 'Review bridge.nauti-labs.com for broken controls and report the next fix.'
       },
       {
         id: 'chatgpt',
@@ -3845,15 +3845,15 @@
       },
       {
         id: 'nautiOps',
-        name: 'Nauti-Ops',
+        name: 'Triton',
         lane: 'Maritime ops',
         status: 'connected',
         statusClass: 'live',
         active: true,
         logo: './assets/agent-icons/nauti-ops.png',
-        copy: 'Nauti-Ops is surfaced here as the ops system of record for vessel, schedule, and SOF context.',
+        copy: 'Triton is surfaced here as the ops system of record for vessel, schedule, and SOF context.',
         tools: ['ops packet', 'schedule context', 'SOF notes'],
-        prompt: 'Pull the Nauti-Ops context needed for the plan adjustment command packet.'
+        prompt: 'Pull the Triton context needed for the plan adjustment command packet.'
       },
       {
         id: 'felipe',

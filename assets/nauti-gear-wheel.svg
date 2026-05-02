@@ -1,0 +1,53 @@
+<svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="gearTitle gearDesc">
+  <title id="gearTitle">Nauti-Labs gear wheel logo</title>
+  <desc id="gearDesc">A cyan gear wheel with radar rings, crosshairs, and small amber, violet, and red accent strokes.</desc>
+  <defs>
+    <linearGradient id="gearCyan" x1="20" y1="18" x2="118" y2="122" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#66E5FF"/>
+      <stop offset="0.5" stop-color="#20B8FF"/>
+      <stop offset="1" stop-color="#0077FF"/>
+    </linearGradient>
+    <filter id="gearGlow" x="5" y="5" width="130" height="130" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#00C8F0" flood-opacity="0.38"/>
+    </filter>
+  </defs>
+
+  <circle cx="70" cy="70" r="58" fill="#07111d" stroke="#1c2a3a" stroke-width="1.2" opacity="0.86"/>
+  <g filter="url(#gearGlow)" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="70,14 80.9,15.1 87.6,27.5 95.6,31.8 109.6,30.4 116.6,38.9 112.5,52.4 115.1,61 126,70 124.9,80.9 112.5,87.6 108.2,95.6 109.6,109.6 101.1,116.6 87.6,112.5 79,115.1 70,126 59.1,124.9 52.4,112.5 44.4,108.2 30.4,109.6 23.4,101.1 27.5,87.6 24.9,79 14,70 15.1,59.1 27.5,52.4 31.8,44.4 30.4,30.4 38.9,23.4 52.4,27.5 61,24.9" fill="#20B8FF" opacity="0.95"/>
+    <circle cx="70" cy="70" r="49" fill="#07111d"/>
+    <circle cx="70" cy="70" r="45" stroke="url(#gearCyan)" stroke-width="3" fill="none"/>
+    <circle cx="70" cy="70" r="35" stroke="#67DFFF" stroke-width="1.4" fill="none" opacity="0.8"/>
+    <circle cx="70" cy="70" r="25" stroke="#67DFFF" stroke-width="1.2" fill="none" opacity="0.68"/>
+    <circle cx="70" cy="70" r="13" stroke="#67DFFF" stroke-width="1.5" fill="none"/>
+    <circle cx="70" cy="70" r="4.7" stroke="#F4FAFF" stroke-width="1.3" fill="#07111d"/>
+    <circle cx="70" cy="70" r="2.1" fill="#FFAA00"/>
+
+    <g stroke="#67DFFF" stroke-width="1.25" opacity="0.82">
+      <path d="M70 28V112"/>
+      <path d="M28 70H112"/>
+      <path d="M40.3 40.3L99.7 99.7"/>
+      <path d="M99.7 40.3L40.3 99.7"/>
+    </g>
+
+    <g stroke="#67DFFF" stroke-width="0.9" opacity="0.75">
+      <path d="M70 35V48"/>
+      <path d="M70 92V105"/>
+      <path d="M35 70H48"/>
+      <path d="M92 70H105"/>
+      <path d="M52 52L60.5 60.5"/>
+      <path d="M79.5 79.5L88 88"/>
+      <path d="M88 52L79.5 60.5"/>
+      <path d="M60.5 79.5L52 88"/>
+    </g>
+
+    <path d="M38 39A48 48 0 0 1 52 28" stroke="#8B5CF6" stroke-width="3.2"/>
+    <path d="M87 28A48 48 0 0 1 101 39" stroke="#FF3B5C" stroke-width="3.2"/>
+    <path d="M40 101A48 48 0 0 1 30 87" stroke="#FFAA00" stroke-width="3.2"/>
+    <path d="M101 101A48 48 0 0 0 111 87" stroke="#00C8F0" stroke-width="3.2"/>
+    <rect x="36" y="31" width="18" height="4" rx="2" fill="#8B5CF6" transform="rotate(-44 45 33)"/>
+    <rect x="88" y="31" width="18" height="4" rx="2" fill="#FF3B5C" transform="rotate(44 97 33)"/>
+    <rect x="33" y="103" width="18" height="4" rx="2" fill="#FFAA00" transform="rotate(44 42 105)"/>
+    <rect x="89" y="103" width="18" height="4" rx="2" fill="#00C8F0" transform="rotate(-44 98 105)"/>
+  </g>
+</svg>

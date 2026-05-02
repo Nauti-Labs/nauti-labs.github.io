@@ -1,6 +1,6 @@
 # Bridge Live Shell
 
-This folder is the stable public front door for `triton.nauti-labs.com`.
+This folder is the stable public front door for `bridge.nauti-labs.com`.
 
 - It is intentionally static so GitHub Pages can keep the live URL working while the real Bridge backend continues in `/Users/justinleblanc/nauti-labs/triton`.
 - `index.html` owns the launch-night Iris Auth screen, read-only workflow preview, approval queue, Crew Mode, and project lanes.

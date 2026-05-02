@@ -949,6 +949,295 @@
       opacity: 0.5;
     }
 
+    /* ─── AI WORKFLOW RAIL ─── */
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 10px;
+    }
+
+    .workflow-card {
+      display: grid;
+      gap: 11px;
+      min-width: 0;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(10, 17, 17, 0.84);
+    }
+
+    .workflow-top {
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      gap: 10px;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .workflow-logo {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      overflow: hidden;
+      border-radius: 9px;
+      border: 1px solid rgba(237, 247, 245, 0.13);
+      background: rgba(237, 247, 245, 0.06);
+    }
+
+    .workflow-logo img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+    }
+
+    .workflow-name {
+      min-width: 0;
+    }
+
+    .workflow-name h3 {
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.15;
+      overflow-wrap: anywhere;
+    }
+
+    .workflow-name p {
+      margin-top: 4px;
+      color: var(--faint);
+      font-size: 11px;
+      font-family: var(--mono);
+      overflow-wrap: anywhere;
+    }
+
+    .workflow-status {
+      justify-self: end;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      max-width: 100%;
+      color: var(--green);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .workflow-status::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+      box-shadow: 0 0 10px currentColor;
+    }
+
+    .workflow-status.hold { color: var(--gold); }
+    .workflow-status.off { color: var(--red); }
+
+    .workflow-copy {
+      min-height: 42px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.42;
+    }
+
+    .workflow-controls {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 48px;
+      height: 26px;
+      flex: 0 0 auto;
+    }
+
+    .toggle-switch input {
+      position: absolute;
+      opacity: 0;
+      inset: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      border: 1px solid rgba(237, 247, 245, 0.18);
+      background: rgba(237, 247, 245, 0.08);
+      transition: 0.18s ease;
+    }
+
+    .toggle-slider::before {
+      content: "";
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: rgba(237, 247, 245, 0.72);
+      transition: 0.18s ease;
+    }
+
+    .toggle-switch input:checked + .toggle-slider {
+      border-color: rgba(98, 242, 180, 0.48);
+      background: rgba(98, 242, 180, 0.20);
+    }
+
+    .toggle-switch input:checked + .toggle-slider::before {
+      transform: translateX(22px);
+      background: var(--green);
+      box-shadow: 0 0 12px rgba(98, 242, 180, 0.46);
+    }
+
+    .workflow-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-end;
+    }
+
+    .tool-chip {
+      min-height: 28px;
+      padding: 0 9px;
+      border-radius: 7px;
+      border: 1px solid rgba(99, 255, 244, 0.16);
+      background: rgba(99, 255, 244, 0.06);
+      color: rgba(237, 247, 245, 0.84);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .workflow-command {
+      display: grid;
+      gap: 8px;
+    }
+
+    .workflow-command textarea,
+    .assist-composer textarea {
+      width: 100%;
+      min-height: 72px;
+      resize: vertical;
+      padding: 10px;
+      color: var(--text);
+      border-radius: 8px;
+      border: 1px solid rgba(99, 255, 244, 0.18);
+      background: rgba(2, 3, 3, 0.52);
+      outline: none;
+      font-size: 13px;
+      line-height: 1.42;
+    }
+
+    .workflow-command textarea:focus,
+    .assist-composer textarea:focus {
+      border-color: var(--aqua);
+      box-shadow: 0 0 18px rgba(99, 255, 244, 0.12);
+    }
+
+    .workflow-command-row,
+    .assist-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .select-lite {
+      min-height: 36px;
+      max-width: 100%;
+      color: var(--text);
+      border-radius: 8px;
+      border: 1px solid rgba(99, 255, 244, 0.18);
+      background: rgba(2, 3, 3, 0.72);
+      padding: 0 10px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .ask-button,
+    .assist-button,
+    .resume-button {
+      min-height: 36px;
+      padding: 0 12px;
+      border-radius: 8px;
+      color: #061111;
+      background: var(--aqua);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .assist-button {
+      background: linear-gradient(135deg, var(--gold), var(--aqua));
+    }
+
+    .workflow-card.paused {
+      opacity: 0.58;
+      filter: grayscale(0.45);
+    }
+
+    .assist-composer {
+      display: grid;
+      gap: 10px;
+    }
+
+    .handoff-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .handoff-item {
+      padding: 10px;
+      border: 1px solid rgba(99, 255, 244, 0.13);
+      border-radius: 8px;
+      background: rgba(2, 3, 3, 0.34);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.42;
+    }
+
+    .shutdown-panel {
+      border-color: rgba(255, 89, 77, 0.36);
+      background:
+        linear-gradient(135deg, rgba(255, 89, 77, 0.14), rgba(8, 10, 10, 0.92) 42%),
+        rgba(8, 10, 10, 0.92);
+    }
+
+    .shutdown-copy {
+      color: rgba(237, 247, 245, 0.72);
+      font-size: 13px;
+      line-height: 1.48;
+      margin-bottom: 12px;
+    }
+
+    .red-button {
+      width: 100%;
+      min-height: 62px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 89, 77, 0.64);
+      color: #fff4f2;
+      background: linear-gradient(135deg, #a41212, #ff3327 58%, #5a0907);
+      box-shadow: 0 20px 54px rgba(255, 51, 39, 0.22), inset 0 0 22px rgba(255, 255, 255, 0.08);
+      font-size: 15px;
+      font-weight: 950;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .resume-button {
+      width: 100%;
+      margin-top: 8px;
+      background: var(--green);
+    }
+
     /* ─── APPROVAL QUEUE ─── */
     .approval-list {
       display: grid;
@@ -1369,6 +1658,22 @@
       }
       .dashboard { padding: 12px; }
       .agent-grid { grid-template-columns: 1fr; }
+      .workflow-grid { grid-template-columns: 1fr; }
+      .workflow-top { grid-template-columns: 38px 1fr; }
+      .workflow-status {
+        grid-column: 2;
+        justify-self: start;
+      }
+      .workflow-logo {
+        width: 38px;
+        height: 38px;
+      }
+      .workflow-controls {
+        grid-template-columns: 1fr;
+      }
+      .workflow-tools {
+        justify-content: flex-start;
+      }
       .approval-item { grid-template-columns: 1fr; }
       .approval-actions { justify-content: flex-end; }
       .iris-card {
@@ -1526,6 +1831,30 @@
           <div class="agent-grid" id="agentGrid"></div>
         </section>
 
+        <section class="panel" id="workflowPanel">
+          <div class="panel-header">
+            <h2>AI Workflow Rail</h2>
+            <span class="count" id="workflowCount">0 online</span>
+          </div>
+          <div class="workflow-grid" id="workflowGrid"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Ask The Fleet</h2>
+            <span class="count">cross-assist</span>
+          </div>
+          <div class="assist-composer">
+            <textarea id="assistPrompt">Ollama assist Claude with this Triton project and report back with the safest next step.</textarea>
+            <div class="assist-row">
+              <select class="select-lite" id="assistFrom"></select>
+              <select class="select-lite" id="assistTo"></select>
+              <button class="assist-button" id="sendAssist" type="button">Assign Assist</button>
+            </div>
+            <div class="handoff-list" id="handoffList"></div>
+          </div>
+        </section>
+
         <!-- Approval Queue -->
         <section class="panel" id="approvalPanel">
           <div class="panel-header">
@@ -1560,6 +1889,16 @@
       </div>
 
       <div class="side-col">
+        <section class="panel shutdown-panel" id="shutdownPanel">
+          <div class="panel-header">
+            <h2>Red Shutdown</h2>
+            <span class="count" id="shutdownState">armed</span>
+          </div>
+          <p class="shutdown-copy">Stops the Triton command rail, pauses all AI workflow cards, and preserves the last visible command state for resume.</p>
+          <button class="red-button" id="redShutdown" type="button">Stop All AI</button>
+          <button class="resume-button hidden" id="resumeAll" type="button">Resume Exact Position</button>
+        </section>
+
         <section class="panel turbo-orb-panel" id="turboOrbPanel">
           <div class="panel-header">
             <h2>Turbo Voice</h2>
@@ -1655,6 +1994,8 @@
     let wsRetryDelay = 1000;
     let pollTimer = null;
     let demoMode = true;
+    let workflows = [];
+    let shutdownSnapshot = null;
 
     const demoAgents = [
       { name: 'Triton Ops', status: 'active', current_project: 'Operational recommendation: berth reassignment can move if Clearance signs.', accent_color: 'var(--aqua)' },
@@ -1664,6 +2005,105 @@
       { name: 'Clearance', status: 'unknown', current_project: 'Clearance token pending. External execution blocked.', accent_color: '#ffcf6a' },
       { name: 'NaviSales', status: 'idle', current_project: 'Stakeholder comms drafted. Final send forbidden until signed.', accent_color: '#ff8b6b' },
       { name: 'Nauti-Ops', status: 'active', current_project: 'Tug window protected. Terminal notification staged, not sent.', accent_color: '#63fff4' }
+    ];
+
+    const demoWorkflows = [
+      {
+        id: 'claude',
+        name: 'Claude',
+        lane: 'Design surgery only',
+        status: 'surgery',
+        statusClass: 'hold',
+        active: true,
+        logo: './assets/agent-icons/claude.png',
+        copy: 'Colorbomb and logo lane only. Triton structure remains locked.',
+        tools: ['surgery lock', 'visual review', 'report back'],
+        prompt: 'Stay inside logo and colorbomb surgery. Report what changed without moving Triton files.'
+      },
+      {
+        id: 'codex',
+        name: 'Codex',
+        lane: 'Live site build',
+        status: 'running',
+        statusClass: 'live',
+        active: true,
+        logo: './assets/agent-icons/codex.png',
+        copy: 'Codex app and local browser tools are active. Owns the live Triton surface.',
+        tools: ['edit live shell', 'verify deploy', 'review diff'],
+        prompt: 'Review triton.nauti-labs.com for broken controls and report the next fix.'
+      },
+      {
+        id: 'chatgpt',
+        name: 'ChatGPT',
+        lane: 'Strategy and copy',
+        status: 'running',
+        statusClass: 'live',
+        active: true,
+        logo: './assets/agent-icons/chatgpt.png',
+        copy: 'ChatGPT desktop is running. Best used for positioning, launch copy, and synthesis.',
+        tools: ['brief', 'copy pass', 'decision memo'],
+        prompt: 'Turn the latest Triton feature set into three launch bullets for X.'
+      },
+      {
+        id: 'ollama',
+        name: 'Ollama',
+        lane: 'Local model assist',
+        status: 'serving 11434',
+        statusClass: 'live',
+        active: true,
+        logo: './assets/agent-icons/ollama.png',
+        copy: 'Ollama is serving locally on 127.0.0.1:11434 for private model assistance.',
+        tools: ['local reason', 'assist Claude', 'summarize'],
+        prompt: 'Assist Claude with this Triton project and report back with risks.'
+      },
+      {
+        id: 'openclaw',
+        name: 'OpenClaw',
+        lane: 'Local gateway',
+        status: 'gateway live',
+        statusClass: 'live',
+        active: true,
+        logo: './assets/agent-icons/openclaw.svg',
+        copy: 'OpenClaw gateway is listening locally. Use for cross-app task routing after approval.',
+        tools: ['route task', 'watch tools', 'handoff'],
+        prompt: 'Create a safe handoff packet for Codex and Ollama to coordinate on Triton.'
+      },
+      {
+        id: 'nautiOps',
+        name: 'Nauti-Ops',
+        lane: 'Maritime ops',
+        status: 'connected',
+        statusClass: 'live',
+        active: true,
+        logo: './assets/agent-icons/nauti-ops.png',
+        copy: 'Nauti-Ops is surfaced here as the ops system of record for berth, vessel, and SOF context.',
+        tools: ['ops packet', 'berth context', 'SOF notes'],
+        prompt: 'Pull the Nauti-Ops context needed for the berth reassignment command packet.'
+      },
+      {
+        id: 'felipe',
+        name: 'Felipe',
+        lane: 'Trading floor',
+        status: 'start needed',
+        statusClass: 'hold',
+        active: false,
+        logo: './assets/agent-icons/felipe.png',
+        copy: 'Felipe module is present. Expected service is port 8000; it is not listening right now.',
+        tools: ['connect', 'paper trade', 'risk check'],
+        prompt: 'Run a paper-only Felipe risk check and report current trading floor readiness.'
+      },
+      {
+        id: 'turbo',
+        name: 'Turbo',
+        lane: 'Commercial voice',
+        status: 'healthy',
+        statusClass: 'live',
+        active: true,
+        logo: './assets/agent-icons/turbo.png',
+        copy: 'Turbo Orb is healthy and can speak commercial impact inside the command surface.',
+        tools: ['voice impact', 'customer memo', 'pressure score'],
+        prompt: 'Speak the commercial exposure and draft the customer-safe memo.'
+      }
     ];
 
     const demoApprovals = [
@@ -1717,6 +2157,13 @@
     const $pendingCount = document.getElementById('pendingCount');
     const $agentGrid = document.getElementById('agentGrid');
     const $agentDeckCount = document.getElementById('agentDeckCount');
+    const $workflowGrid = document.getElementById('workflowGrid');
+    const $workflowCount = document.getElementById('workflowCount');
+    const $assistPrompt = document.getElementById('assistPrompt');
+    const $assistFrom = document.getElementById('assistFrom');
+    const $assistTo = document.getElementById('assistTo');
+    const $sendAssist = document.getElementById('sendAssist');
+    const $handoffList = document.getElementById('handoffList');
     const $approvalList = document.getElementById('approvalList');
     const $approvalCount = document.getElementById('approvalCount');
     const $logList = document.getElementById('logList');
@@ -1727,6 +2174,9 @@
     const $turboOrbPanel = document.getElementById('turboOrbPanel');
     const $turboOrb = document.getElementById('turboOrb');
     const $turboSpeak = document.getElementById('turboSpeak');
+    const $redShutdown = document.getElementById('redShutdown');
+    const $resumeAll = document.getElementById('resumeAll');
+    const $shutdownState = document.getElementById('shutdownState');
 
     // ─── API helpers ───
     async function api(path, opts = {}) {
@@ -1843,6 +2293,94 @@
       }
     });
 
+    $workflowGrid.addEventListener('change', (event) => {
+      const input = event.target.closest('[data-workflow-toggle]');
+      if (!input) return;
+      const workflow = workflows.find((item) => item.id === input.dataset.workflowToggle);
+      if (!workflow) return;
+      workflow.active = input.checked;
+      workflow.status = input.checked ? workflow.resumeStatus : 'paused';
+      workflow.statusClass = input.checked ? workflow.resumeClass : 'off';
+      pushLogEntry(`${workflow.name} ${input.checked ? 'resumed' : 'paused'} from Triton.`);
+      renderWorkflows();
+    });
+
+    $workflowGrid.addEventListener('click', (event) => {
+      const askButton = event.target.closest('[data-ask-workflow]');
+      const toolButton = event.target.closest('[data-tool-workflow]');
+
+      if (askButton) {
+        const workflow = workflows.find((item) => item.id === askButton.dataset.askWorkflow);
+        if (!workflow) return;
+        const card = askButton.closest('.workflow-card');
+        const prompt = card.querySelector('textarea').value.trim() || workflow.prompt;
+        queueWorkflowCommand(workflow, prompt, 'direct ask');
+        return;
+      }
+
+      if (toolButton) {
+        const workflow = workflows.find((item) => item.id === toolButton.dataset.toolWorkflow);
+        if (!workflow) return;
+        const tool = toolButton.dataset.toolName;
+        if (tool === 'connect' && workflow.id === 'felipe') {
+          queueWorkflowCommand(workflow, 'Start Felipe in paper-only mode and report trading-floor health before any live action.', 'connect');
+          return;
+        }
+        pushLogEntry(`${workflow.name} tool selected: ${tool}.`);
+      }
+    });
+
+    $sendAssist.addEventListener('click', () => {
+      const from = workflows.find((item) => item.id === $assistFrom.value);
+      const to = workflows.find((item) => item.id === $assistTo.value);
+      const prompt = $assistPrompt.value.trim();
+      if (!from || !to || !prompt) return;
+
+      const text = `${from.name} assist ${to.name}: ${prompt}`;
+      const item = document.createElement('div');
+      item.className = 'handoff-item';
+      item.textContent = text;
+      $handoffList.prepend(item);
+      queueApproval(`assist_${Date.now()}`, `${from.name} -> ${to.name} assist`, prompt, 'Ask The Fleet');
+      pushLogEntry(`Assist packet queued: ${from.name} -> ${to.name}.`);
+    });
+
+    $redShutdown.addEventListener('click', () => {
+      shutdownSnapshot = workflows.map((workflow) => ({
+        id: workflow.id,
+        active: workflow.active,
+        status: workflow.status,
+        statusClass: workflow.statusClass
+      }));
+      workflows.forEach((workflow) => {
+        workflow.active = false;
+        workflow.status = 'paused';
+        workflow.statusClass = 'off';
+      });
+      $shutdownState.textContent = 'paused';
+      $redShutdown.classList.add('hidden');
+      $resumeAll.classList.remove('hidden');
+      renderWorkflows();
+      queueApproval('red_shutdown_bridge', 'Red Shutdown bridge confirmation', 'Static rail paused all visible AI workflows. Backend bridge should stop local AI processes only after explicit operator confirmation.', 'Red Shutdown');
+      pushLogEntry('RED SHUTDOWN staged: all visible AI workflow cards paused and resume state saved.');
+    });
+
+    $resumeAll.addEventListener('click', () => {
+      if (!shutdownSnapshot) return;
+      shutdownSnapshot.forEach((saved) => {
+        const workflow = workflows.find((item) => item.id === saved.id);
+        if (!workflow) return;
+        workflow.active = saved.active;
+        workflow.status = saved.status;
+        workflow.statusClass = saved.statusClass;
+      });
+      $shutdownState.textContent = 'armed';
+      $redShutdown.classList.remove('hidden');
+      $resumeAll.classList.add('hidden');
+      renderWorkflows();
+      pushLogEntry('Resume Exact Position restored the saved AI workflow state.');
+    });
+
     function stopTurboVoice() {
       $turboOrb.classList.remove('speaking');
       $turboOrbPanel.classList.remove('speaking');
@@ -1891,12 +2429,19 @@
 
     function loadDemoData() {
       agents = demoAgents.map((agent) => ({ ...agent, last_seen: new Date().toISOString() }));
+      workflows = demoWorkflows.map((workflow) => ({
+        ...workflow,
+        resumeStatus: workflow.status,
+        resumeClass: workflow.statusClass
+      }));
       pendingActions = demoApprovals.map((item) => ({ ...item }));
       commandHistory = demoHistory.map((item, index) => ({
         ...item,
         timestamp: new Date(Date.now() - index * 74000).toISOString()
       }));
       renderAgents();
+      renderWorkflows();
+      populateAssistSelectors();
       renderApprovals();
       renderLog();
     }
@@ -2055,6 +2600,67 @@
         `;
         $agentGrid.appendChild(card);
       });
+    }
+
+    function renderWorkflows() {
+      const online = workflows.filter((workflow) => workflow.active).length;
+      $workflowCount.textContent = `${online}/${workflows.length} online`;
+      $workflowGrid.innerHTML = workflows.map((workflow) => `
+        <article class="workflow-card${workflow.active ? '' : ' paused'}" data-workflow-card="${esc(workflow.id)}">
+          <div class="workflow-top">
+            <span class="workflow-logo"><img src="${esc(workflow.logo)}" alt="${esc(workflow.name)} logo"></span>
+            <div class="workflow-name">
+              <h3>${esc(workflow.name)}</h3>
+              <p>${esc(workflow.lane)}</p>
+            </div>
+            <span class="workflow-status ${esc(workflow.statusClass)}">${esc(workflow.status)}</span>
+          </div>
+          <p class="workflow-copy">${esc(workflow.copy)}</p>
+          <div class="workflow-controls">
+            <label class="toggle-switch" aria-label="${esc(workflow.name)} on off">
+              <input type="checkbox" data-workflow-toggle="${esc(workflow.id)}" ${workflow.active ? 'checked' : ''}>
+              <span class="toggle-slider"></span>
+            </label>
+            <div class="workflow-tools">
+              ${workflow.tools.map((tool) => `<button class="tool-chip" data-tool-workflow="${esc(workflow.id)}" data-tool-name="${esc(tool)}" type="button">${esc(tool)}</button>`).join('')}
+            </div>
+          </div>
+          <div class="workflow-command">
+            <textarea>${esc(workflow.prompt)}</textarea>
+            <div class="workflow-command-row">
+              <span class="workflow-status ${workflow.active ? 'live' : 'off'}">${workflow.active ? 'ready' : 'paused'}</span>
+              <button class="ask-button" data-ask-workflow="${esc(workflow.id)}" type="button">Ask ${esc(workflow.name)}</button>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function populateAssistSelectors() {
+      const options = workflows.map((workflow) => `<option value="${esc(workflow.id)}">${esc(workflow.name)}</option>`).join('');
+      $assistFrom.innerHTML = options;
+      $assistTo.innerHTML = options;
+      $assistFrom.value = 'ollama';
+      $assistTo.value = 'claude';
+      $handoffList.innerHTML = `
+        <div class="handoff-item">Ollama -> Claude assist lane is primed for the Triton visual surgery watch.</div>
+        <div class="handoff-item">Codex owns live-site changes. Claude stays in logo/colorbomb scope.</div>
+      `;
+    }
+
+    function queueWorkflowCommand(workflow, prompt, mode) {
+      if (!workflow.active && workflow.id !== 'felipe') {
+        pushLogEntry(`${workflow.name} is paused. Resume before dispatch.`);
+        return;
+      }
+      queueApproval(`ask_${workflow.id}_${Date.now()}`, `Ask ${workflow.name}`, prompt, mode);
+      pushLogEntry(`Queued ${mode} for ${workflow.name}.`);
+    }
+
+    function queueApproval(id, title, description, source) {
+      pendingActions.unshift({ id, title, description, source });
+      focusedApproval = 0;
+      renderApprovals();
     }
 
     function renderApprovals() {

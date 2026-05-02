@@ -10,12 +10,12 @@
   <meta property="og:site_name" content="Nauti-Labs">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Triton by Nauti-Labs">
-  <meta property="og:description" content="Stop juggling AI. Start commanding the fleet. Local-first, private, human-supervised agent control.">
+  <meta property="og:description" content="Your computer is the ship. Triton is the bridge. Send crew to stations and keep every action under Captain's Approval.">
   <meta property="og:url" content="https://triton.nauti-labs.com/">
   <meta property="og:image" content="https://nauti-labs.com/og/triton-coming-soon-telegram.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Triton by Nauti-Labs">
-  <meta name="twitter:description" content="Stop juggling AI. Start commanding the fleet. Local-first, private, human-supervised agent control.">
+  <meta name="twitter:description" content="Your computer is the ship. Triton is the bridge. Send crew to stations and keep every action under Captain's Approval.">
   <meta name="twitter:image" content="https://nauti-labs.com/og/triton-coming-soon-telegram.png">
   <meta name="theme-color" content="#061514">
   <style>
@@ -1563,6 +1563,455 @@
       margin-bottom: 16px;
     }
 
+    /* ─── CREW MODE ─── */
+    .crew-mode {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      padding: 16px;
+      background:
+        radial-gradient(circle at 12% 16%, rgba(99, 255, 244, 0.12), transparent 27%),
+        radial-gradient(circle at 86% 22%, rgba(219, 195, 108, 0.10), transparent 26%),
+        linear-gradient(135deg, rgba(5, 12, 14, 0.98), rgba(4, 7, 8, 0.96) 48%, rgba(6, 12, 14, 0.98));
+    }
+
+    .crew-shell {
+      width: min(1520px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 14px;
+    }
+
+    .crew-topbar,
+    .crew-panel,
+    .crew-log-panel {
+      border: 1px solid rgba(99, 255, 244, 0.18);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(99, 255, 244, 0.08), rgba(219, 195, 108, 0.045) 44%, rgba(8, 10, 10, 0.82)),
+        rgba(8, 14, 15, 0.86);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(18px);
+    }
+
+    .crew-topbar {
+      min-height: 72px;
+      padding: 14px;
+      display: grid;
+      grid-template-columns: minmax(180px, 1fr) auto auto;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .crew-wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .crew-wordmark h1 {
+      font-size: clamp(22px, 3vw, 32px);
+      line-height: 1;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .crew-wordmark p {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .crew-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .crew-chip {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(99, 255, 244, 0.2);
+      border-radius: 999px;
+      padding: 0 12px;
+      color: rgba(237, 247, 245, 0.82);
+      background: rgba(99, 255, 244, 0.07);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .crew-return {
+      min-height: 38px;
+      border-radius: 8px;
+      padding: 0 12px;
+      color: var(--text);
+      border: 1px solid rgba(237, 247, 245, 0.18);
+      background: rgba(237, 247, 245, 0.05);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .crew-layout {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.9fr) minmax(420px, 1.5fr) minmax(280px, 0.95fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .crew-panel {
+      padding: 14px;
+      min-height: 520px;
+      overflow: hidden;
+    }
+
+    .crew-panel-header {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .crew-panel-header h2 {
+      font-size: 18px;
+      letter-spacing: 0.02em;
+    }
+
+    .crew-panel-header p {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .crew-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .crew-primary,
+    .crew-secondary,
+    .crew-small-button {
+      min-height: 40px;
+      border-radius: 8px;
+      padding: 0 12px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .crew-primary {
+      color: #061111;
+      background: linear-gradient(135deg, var(--gold), var(--aqua));
+      box-shadow: 0 18px 42px rgba(99, 255, 244, 0.14);
+    }
+
+    .crew-secondary,
+    .crew-small-button {
+      color: var(--text);
+      border: 1px solid rgba(99, 255, 244, 0.2);
+      background: rgba(99, 255, 244, 0.07);
+    }
+
+    .crew-list,
+    .station-grid,
+    .crew-approval-list,
+    .crew-log-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .crew-card,
+    .station-card,
+    .crew-approval-card {
+      border: 1px solid rgba(99, 255, 244, 0.16);
+      border-radius: 8px;
+      background: rgba(2, 6, 7, 0.56);
+      transition: border-color 0.2s, transform 0.2s, background 0.2s, opacity 0.2s;
+    }
+
+    .crew-card {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 10px;
+      color: var(--text);
+      text-align: left;
+    }
+
+    .crew-card:hover,
+    .crew-card:focus-visible {
+      border-color: rgba(99, 255, 244, 0.48);
+      background: rgba(99, 255, 244, 0.08);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .crew-card.busy {
+      opacity: 0.72;
+    }
+
+    .crew-orb,
+    .crew-flight-badge {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      color: #061111;
+      background:
+        radial-gradient(circle at 32% 24%, rgba(255, 255, 255, 0.86), transparent 24%),
+        conic-gradient(from 220deg, var(--aqua), var(--gold), #6f5bd4, var(--aqua));
+      box-shadow: 0 0 30px rgba(99, 255, 244, 0.22), inset 0 0 18px rgba(5, 6, 6, 0.28);
+      font-weight: 950;
+      font-size: 12px;
+    }
+
+    .crew-card h3 {
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .crew-meta {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .crew-status {
+      justify-self: end;
+      border-radius: 999px;
+      padding: 5px 8px;
+      color: var(--aqua);
+      background: rgba(99, 255, 244, 0.08);
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .crew-status.working,
+    .station-status.working {
+      color: var(--gold);
+    }
+
+    .crew-status.approved,
+    .station-status.approved {
+      color: var(--green);
+    }
+
+    .crew-status.held,
+    .station-status.held {
+      color: var(--red);
+    }
+
+    .station-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .station-card {
+      min-height: 150px;
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .station-card.working {
+      border-color: rgba(219, 195, 108, 0.5);
+      background: rgba(219, 195, 108, 0.08);
+    }
+
+    .station-card.ready_for_review {
+      border-color: rgba(99, 255, 244, 0.44);
+      background: rgba(99, 255, 244, 0.07);
+    }
+
+    .station-card.approved {
+      border-color: rgba(98, 242, 180, 0.42);
+      background: rgba(98, 242, 180, 0.07);
+    }
+
+    .station-card.held {
+      border-color: rgba(255, 89, 77, 0.42);
+      background: rgba(255, 89, 77, 0.07);
+    }
+
+    .station-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .station-top h3 {
+      font-size: 15px;
+      line-height: 1.2;
+    }
+
+    .station-status {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .station-activity,
+    .station-crew {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.42;
+    }
+
+    .station-progress {
+      height: 7px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(237, 247, 245, 0.08);
+    }
+
+    .station-progress span {
+      display: block;
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--gold), var(--aqua));
+      transition: width 0.3s ease;
+    }
+
+    .crew-approval-empty {
+      border: 1px dashed rgba(99, 255, 244, 0.18);
+      border-radius: 8px;
+      padding: 22px;
+      color: var(--faint);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .crew-approval-card {
+      padding: 12px;
+    }
+
+    .crew-approval-card h3 {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .crew-approval-card p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.42;
+      margin-top: 5px;
+    }
+
+    .crew-approval-state {
+      display: inline-flex;
+      min-height: 24px;
+      align-items: center;
+      border-radius: 999px;
+      padding: 0 8px;
+      color: var(--aqua);
+      background: rgba(99, 255, 244, 0.08);
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .crew-approval-buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .crew-small-button.approve {
+      color: #04110d;
+      background: var(--green);
+      border-color: var(--green);
+    }
+
+    .crew-small-button.hold {
+      color: #170706;
+      background: rgba(255, 89, 77, 0.78);
+      border-color: var(--red);
+    }
+
+    .crew-small-button:disabled {
+      cursor: default;
+      opacity: 0.45;
+    }
+
+    .crew-log-panel {
+      padding: 14px;
+    }
+
+    .crew-log-list {
+      max-height: 210px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(99, 255, 244, 0.18) transparent;
+    }
+
+    .crew-log-item {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 10px;
+      border-radius: 7px;
+      padding: 8px 10px;
+      color: rgba(237, 247, 245, 0.86);
+      background: rgba(2, 6, 7, 0.42);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .crew-log-time {
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .crew-flight-badge {
+      position: fixed;
+      z-index: 500;
+      pointer-events: none;
+      transition:
+        left 0.72s cubic-bezier(0.19, 1, 0.22, 1),
+        top 0.72s cubic-bezier(0.19, 1, 0.22, 1),
+        transform 0.72s cubic-bezier(0.19, 1, 0.22, 1),
+        opacity 0.72s ease;
+      will-change: left, top, transform;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .crew-flight-badge,
+      .crew-card,
+      .station-progress span {
+        transition: none;
+      }
+    }
+
     /* ─── ANIMATIONS ─── */
     @keyframes pulse-dot {
       0%, 100% { opacity: 1; }
@@ -1618,6 +2067,11 @@
       .agent-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
       .status-bar { flex-wrap: wrap; gap: 8px; }
       .shortcuts-hint { display: none; }
+      .crew-topbar { grid-template-columns: 1fr; }
+      .crew-chip-row { justify-content: flex-start; }
+      .crew-layout { grid-template-columns: 1fr; }
+      .crew-panel { min-height: auto; }
+      .station-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 540px) {
@@ -1658,6 +2112,23 @@
       }
       .dashboard { padding: 12px; }
       .agent-grid { grid-template-columns: 1fr; }
+      .crew-mode { padding: 10px; }
+      .crew-actions,
+      .crew-approval-buttons,
+      .station-grid {
+        grid-template-columns: 1fr;
+      }
+      .crew-card {
+        grid-template-columns: 38px 1fr;
+      }
+      .crew-status {
+        grid-column: 2;
+        justify-self: start;
+      }
+      .crew-log-item {
+        grid-template-columns: 1fr;
+        gap: 3px;
+      }
       .workflow-grid { grid-template-columns: 1fr; }
       .workflow-top { grid-template-columns: 38px 1fr; }
       .workflow-status {
@@ -1696,65 +2167,132 @@
           <span class="launch-mark" aria-hidden="true"><i></i><i></i><i></i></span>
           <strong>TRITON</strong>
         </div>
-        <span>Blackwater OS / Human-Gated Command</span>
+        <span>Crew Mode / Captain-Controlled Work</span>
       </nav>
 
       <div class="launch-copy">
         <div class="eyebrow">Nauti-Labs</div>
-        <h1 class="launch-title">See the operation before it acts.</h1>
-        <p class="launch-subtitle">A dashboard observes. Triton authorizes consequences. Agents propose, humans command, systems verify.</p>
+        <h1 class="launch-title">Send the crew, keep the wheel.</h1>
+        <p class="launch-subtitle">Your computer is the ship. Triton is the bridge. Crew members travel to stations, prepare work, and wait for the captain before anything consequential happens.</p>
         <div class="launch-points" aria-label="Triton trust signals">
-          <span class="launch-pill gold">Authority Rail</span>
-          <span class="launch-pill">Causality Twin</span>
-          <span class="launch-pill">Agent Court</span>
-          <span class="launch-pill">DockLens Evidence</span>
-          <span class="launch-pill">Signed Command Receipt</span>
+          <span class="launch-pill gold">The Bridge</span>
+          <span class="launch-pill">Crew</span>
+          <span class="launch-pill">Stations</span>
+          <span class="launch-pill">Captain's Approval</span>
+          <span class="launch-pill">Captain's Log</span>
         </div>
         <div class="launch-actions">
-          <button class="launch-button primary" id="launchPreview" type="button">Launch Preview</button>
+          <button class="launch-button primary" id="launchPreview" type="button">Open Crew Mode</button>
           <button class="launch-button secondary" id="secureConsole" type="button">Secure Console</button>
         </div>
       </div>
     </section>
 
     <section class="launch-strip" aria-label="Triton operating posture">
-      <div class="launch-stat"><strong>7</strong><span>agents visible across Nauti-Ops, Clearance, Castle, Turbo, and Nauti-Vision</span></div>
-      <div class="launch-stat"><strong>3</strong><span>consequence branches generated before a human command leaves the rail</span></div>
-      <div class="launch-stat"><strong>1</strong><span>local presence gate before scoped authority can execute</span></div>
-      <div class="launch-stat"><strong>0</strong><span>silent external actions without a signed command receipt</span></div>
+      <div class="launch-stat"><strong>7</strong><span>crew members ready to help with code, browser notes, files, messages, memory, and permissions</span></div>
+      <div class="launch-stat"><strong>7</strong><span>computer stations where work is prepared in plain view</span></div>
+      <div class="launch-stat"><strong>1</strong><span>captain in control before prepared work can move forward</span></div>
+      <div class="launch-stat"><strong>0</strong><span>outside actions without Captain's Approval</span></div>
     </section>
 
     <section class="launch-band" aria-label="Triton command flow">
       <div class="launch-band-inner">
         <div>
           <span class="eyebrow">Tonight's Surface</span>
-          <h2>A faster path from signal to command.</h2>
-          <p>Rocky says it runs tasks. Triton shows the consequence chain, lets agents argue the evidence, and gives the captain a clean yes, investigate, or hold command.</p>
+          <h2>A clearer way to understand AI work.</h2>
+          <p>Crew Mode turns invisible computer work into a simple bridge view: send crew, watch stations change, review prepared items, and approve or hold without losing control.</p>
         </div>
         <div class="fleet-grid" aria-label="Triton command modules">
           <article class="fleet-row">
-            <span class="fleet-avatar">CT</span>
-            <div><h3>Causality Twin</h3><p>Shows the next likely events before approval.</p></div>
-            <span class="fleet-state">armed</span>
+            <span class="fleet-avatar">TB</span>
+            <div><h3>The Bridge</h3><p>Crew starts from one calm command surface.</p></div>
+            <span class="fleet-state">ready</span>
           </article>
           <article class="fleet-row">
-            <span class="fleet-avatar">AC</span>
-            <div><h3>Agent Court</h3><p>Ops, commercial, vision, security, and clearance argue the packet.</p></div>
-            <span class="fleet-state">live</span>
+            <span class="fleet-avatar">ST</span>
+            <div><h3>Stations</h3><p>Each crew member travels to the right place on your computer.</p></div>
+            <span class="fleet-state">idle</span>
           </article>
           <article class="fleet-row">
-            <span class="fleet-avatar">DL</span>
-            <div><h3>DockLens Evidence</h3><p>Visual observations become attachable decision evidence.</p></div>
-            <span class="fleet-state">staged</span>
+            <span class="fleet-avatar">CA</span>
+            <div><h3>Captain's Approval</h3><p>Prepared work is visible before any important step.</p></div>
+            <span class="fleet-state">clear</span>
           </article>
           <article class="fleet-row">
-            <span class="fleet-avatar">AR</span>
-            <div><h3>Authority Rail</h3><p>Every action gets allowed verbs, forbidden verbs, expiry, and rollback.</p></div>
-            <span class="fleet-state">gated</span>
+            <span class="fleet-avatar">CL</span>
+            <div><h3>Captain's Log</h3><p>Readable events show what started, what finished, and what needs review.</p></div>
+            <span class="fleet-state">open</span>
           </article>
         </div>
       </div>
     </section>
+  </main>
+
+  <!-- ═══ CREW MODE ═══ -->
+  <main class="crew-mode hidden" id="crewMode" aria-labelledby="crewModeTitle">
+    <div class="crew-shell">
+      <header class="crew-topbar">
+        <div class="crew-wordmark">
+          <span class="launch-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <div>
+            <h1 id="crewModeTitle">Triton</h1>
+            <p>Crew Mode turns computer work into visible station work.</p>
+          </div>
+        </div>
+        <div class="crew-chip-row" aria-label="Crew Mode status">
+          <span class="crew-chip">Crew ready</span>
+          <span class="crew-chip">Captain in control</span>
+          <span class="crew-chip">No action without approval</span>
+        </div>
+        <button class="crew-return" id="crewReturn" type="button">Return</button>
+      </header>
+
+      <section class="crew-layout" aria-label="Triton Crew Mode">
+        <section class="crew-panel bridge-panel" aria-labelledby="bridgeTitle">
+          <div class="crew-panel-header">
+            <div>
+              <h2 id="bridgeTitle">The Bridge</h2>
+              <p>Crew cards start here. Click one crew member or send everyone available.</p>
+            </div>
+          </div>
+          <div class="crew-actions">
+            <button class="crew-primary" id="sendCrew" type="button">Send Crew</button>
+            <button class="crew-secondary" id="recallCrew" type="button">Recall Crew</button>
+          </div>
+          <div class="crew-list" id="crewList" aria-live="polite"></div>
+        </section>
+
+        <section class="crew-panel stations-panel" aria-labelledby="stationsTitle">
+          <div class="crew-panel-header">
+            <div>
+              <h2 id="stationsTitle">Your Computer / Stations</h2>
+              <p>Stations show what is being read, checked, drafted, and prepared.</p>
+            </div>
+          </div>
+          <div class="station-grid" id="stationGrid" aria-live="polite"></div>
+        </section>
+
+        <section class="crew-panel" aria-labelledby="captainsApprovalTitle">
+          <div class="crew-panel-header">
+            <div>
+              <h2 id="captainsApprovalTitle">Captain's Approval</h2>
+              <p>Prepared items wait here. Approve, hold, or recall without performing real-world actions.</p>
+            </div>
+          </div>
+          <div class="crew-approval-list" id="crewApprovalList" aria-live="polite"></div>
+        </section>
+      </section>
+
+      <section class="crew-log-panel" aria-labelledby="captainsLogTitle">
+        <div class="crew-panel-header">
+          <div>
+            <h2 id="captainsLogTitle">Captain's Log</h2>
+            <p>Plain-English events stay visible while crew work.</p>
+          </div>
+        </div>
+        <div class="crew-log-list" id="crewLogList" aria-live="polite"></div>
+      </section>
+    </div>
   </main>
 
   <!-- ═══ LOGIN SCREEN ═══ -->
@@ -1874,15 +2412,15 @@
           <div class="twin-grid">
             <article class="twin-card gold">
               <h3>Fastest Safe Move</h3>
-              <p>Protect tug window, stage terminal notification, hold external execution until Clearance signs the packet.</p>
+              <p>Protect the work window, stage an outside notice, hold external execution until Clearance signs the packet.</p>
             </article>
             <article class="twin-card">
               <h3>Lowest-Risk Move</h3>
-              <p>Hold berth unchanged, refresh terminal and tug data, re-run the command packet in 11 minutes.</p>
+              <p>Hold the plan unchanged, refresh system data, re-run the command packet in 11 minutes.</p>
             </article>
             <article class="twin-card">
               <h3>Commercially Optimal Move</h3>
-              <p>Preserve terminal slot, draft customer memo, and create the invoice-supporting event timeline.</p>
+              <p>Preserve the work slot, draft customer memo, and create the invoice-supporting event timeline.</p>
             </article>
           </div>
         </section>
@@ -1923,16 +2461,16 @@
           <div class="rail-list">
             <article class="rail-card">
               <h3>Scoped License</h3>
-              <p>Allowed: notify ops, update job board, draft customer memo. Forbidden: spend money, final-send, terminal notice.</p>
+              <p>Allowed: notify ops, update job board, draft customer memo. Forbidden: spend money, final-send, outside notice.</p>
             </article>
             <article class="rail-card">
               <h3>DockLens Evidence</h3>
-              <p>Berth obstruction observed at camera B-17. Confidence 86%. Advisory until attached to a signed command.</p>
+              <p>Work path obstruction observed at camera B-17. Confidence 86%. Advisory until attached to a signed command.</p>
               <div class="evidence-meter" aria-hidden="true"><span style="width:86%"></span></div>
             </article>
             <article class="rail-card">
               <h3>Signed Command Receipt</h3>
-              <p>Pending Clearance token. Execution remains blocked until the captain signs.</p>
+              <p>Pending Clearance approval. Execution remains blocked until the captain signs.</p>
             </article>
           </div>
         </section>
@@ -1958,7 +2496,7 @@
         <div class="shortcut-row"><span>Causality Twin generated branches</span><kbd>verified</kbd></div>
         <div class="shortcut-row"><span>Agent Court argued evidence</span><kbd>visible</kbd></div>
         <div class="shortcut-row"><span>Human command required</span><kbd>gated</kbd></div>
-        <div class="shortcut-row"><span>Clearance token</span><kbd>pending</kbd></div>
+        <div class="shortcut-row"><span>Clearance approval</span><kbd>pending</kbd></div>
       </div>
     </div>
   </div>
@@ -1973,7 +2511,7 @@
       // If served from the same origin as the backend, use relative paths
       if (loc.hostname === 'localhost' && loc.port === '64770') return '';
       // Otherwise target the local backend
-      return 'http://localhost:64770';
+      return 'http://127.0.0.1:64770';
     })();
 
     const WS_URL = (() => {
@@ -1981,8 +2519,10 @@
       if (loc.hostname === 'localhost' && loc.port === '64770') {
         return `ws://${loc.host}/ws`;
       }
-      return 'ws://localhost:64770/ws';
+      return 'ws://127.0.0.1:64770/ws';
     })();
+
+    const BRIDGE_BASE = API_BASE || 'http://127.0.0.1:64770';
 
     // ─── State ───
     let agents = [];
@@ -1996,15 +2536,23 @@
     let demoMode = true;
     let workflows = [];
     let shutdownSnapshot = null;
+    let bridgeOnline = false;
+    let bridgePollTimer = null;
+    let bridgeAnnounced = false;
+    let crew = [];
+    let crewStations = [];
+    let crewApprovals = [];
+    let crewLogs = [];
+    let crewTimers = [];
 
     const demoAgents = [
-      { name: 'Triton Ops', status: 'active', current_project: 'Operational recommendation: berth reassignment can move if Clearance signs.', accent_color: 'var(--aqua)' },
+      { name: 'Triton Ops', status: 'active', current_project: 'Operational recommendation: plan adjustment can move if Clearance signs.', accent_color: 'var(--aqua)' },
       { name: 'Turbo', status: 'active', current_project: 'Voice lane healthy. Commercial impact: $18K delay exposure, customer memo ready.', accent_color: 'var(--gold)' },
-      { name: 'Nauti-Vision', status: 'active', current_project: 'DockLens Evidence: berth obstruction observed, 86% confidence.', accent_color: '#7cf7d4' },
+      { name: 'Nauti-Vision', status: 'active', current_project: 'Visual evidence: work path obstruction observed, 86% confidence.', accent_color: '#7cf7d4' },
       { name: 'Castle', status: 'idle', current_project: 'Session integrity clean. Local presence gate required before execution.', accent_color: '#8b7dff' },
-      { name: 'Clearance', status: 'unknown', current_project: 'Clearance token pending. External execution blocked.', accent_color: '#ffcf6a' },
+      { name: 'Clearance', status: 'unknown', current_project: 'Clearance approval pending. External execution blocked.', accent_color: '#ffcf6a' },
       { name: 'NaviSales', status: 'idle', current_project: 'Stakeholder comms drafted. Final send forbidden until signed.', accent_color: '#ff8b6b' },
-      { name: 'Nauti-Ops', status: 'active', current_project: 'Tug window protected. Terminal notification staged, not sent.', accent_color: '#63fff4' }
+      { name: 'Nauti-Ops', status: 'active', current_project: 'Work window protected. Outside notice staged, not sent.', accent_color: '#63fff4' }
     ];
 
     const demoWorkflows = [
@@ -2076,9 +2624,9 @@
         statusClass: 'live',
         active: true,
         logo: './assets/agent-icons/nauti-ops.png',
-        copy: 'Nauti-Ops is surfaced here as the ops system of record for berth, vessel, and SOF context.',
-        tools: ['ops packet', 'berth context', 'SOF notes'],
-        prompt: 'Pull the Nauti-Ops context needed for the berth reassignment command packet.'
+        copy: 'Nauti-Ops is surfaced here as the ops system of record for vessel, schedule, and SOF context.',
+        tools: ['ops packet', 'schedule context', 'SOF notes'],
+        prompt: 'Pull the Nauti-Ops context needed for the plan adjustment command packet.'
       },
       {
         id: 'felipe',
@@ -2088,7 +2636,7 @@
         statusClass: 'hold',
         active: false,
         logo: './assets/agent-icons/felipe.png',
-        copy: 'Felipe module is present. Expected service is port 8000; it is not listening right now.',
+        copy: 'Felipe module is present. Expected service is not listening right now.',
         tools: ['connect', 'paper trade', 'risk check'],
         prompt: 'Run a paper-only Felipe risk check and report current trading floor readiness.'
       },
@@ -2106,29 +2654,119 @@
       }
     ];
 
+    const crewTemplates = [
+      {
+        id: 'code-mate',
+        initials: 'CM',
+        name: 'Code Mate',
+        role: 'reviews code and prepares safe changes',
+        stationId: 'code-station',
+        station: 'Code Station',
+        blocked: 'merge, deploy, delete code',
+        prepared: 'Safe code review notes and change list',
+        steps: ['reading project files', 'checking change risk', 'preparing safe change notes']
+      },
+      {
+        id: 'lookout',
+        initials: 'LO',
+        name: 'Lookout',
+        role: 'checks browser tabs and gathers notes',
+        stationId: 'browser-station',
+        station: 'Browser Station',
+        blocked: 'submit forms, make purchases, send messages',
+        prepared: 'Browser notes and open-question list',
+        steps: ['reading visible pages', 'checking open tasks', 'preparing browser notes']
+      },
+      {
+        id: 'engineer',
+        initials: 'EN',
+        name: 'Engineer',
+        role: 'prepares terminal commands',
+        stationId: 'engine-room',
+        station: 'Engine Room / Terminal',
+        blocked: 'run destructive commands, deploy, install without approval',
+        prepared: 'Command plan with safety notes',
+        steps: ['checking command intent', 'preparing command plan', 'marking approval needs']
+      },
+      {
+        id: 'quartermaster',
+        initials: 'QM',
+        name: 'Quartermaster',
+        role: 'organizes files and drafts cleanup plans',
+        stationId: 'cargo-hold',
+        station: 'Cargo Hold / Files',
+        blocked: 'delete, move sensitive files, overwrite',
+        prepared: 'File cleanup plan',
+        steps: ['reading file groups', 'checking file safety', 'drafting cleanup plan']
+      },
+      {
+        id: 'scribe',
+        initials: 'SC',
+        name: 'Scribe',
+        role: 'drafts emails, notes, posts, and updates',
+        stationId: 'message-desk',
+        station: 'Message Desk / Mail & Docs',
+        blocked: 'send, publish, share externally',
+        prepared: 'Draft message ready for review',
+        steps: ['reading the brief', 'drafting the update', 'checking tone and scope']
+      },
+      {
+        id: 'chart-keeper',
+        initials: 'CK',
+        name: 'Chart Keeper',
+        role: 'remembers project context and user preferences',
+        stationId: 'chart-room',
+        station: 'Chart Room / Memory',
+        blocked: 'expose private memory, share context externally',
+        prepared: 'Context summary for review',
+        steps: ['reading project context', 'checking preferences', 'preparing memory notes']
+      },
+      {
+        id: 'first-guard',
+        initials: 'FG',
+        name: 'First Guard',
+        role: 'checks permissions and keeps every crew member scoped',
+        stationId: 'guard-post',
+        station: 'Guard Post / Permissions',
+        blocked: 'anything outside approved scope',
+        prepared: 'Permission and scope check',
+        steps: ['checking scope', 'checking approval needs', 'preparing safety limits']
+      }
+    ];
+
+    const stationTemplates = [
+      { id: 'browser-station', name: 'Browser Station' },
+      { id: 'code-station', name: 'Code Station' },
+      { id: 'engine-room', name: 'Engine Room / Terminal' },
+      { id: 'cargo-hold', name: 'Cargo Hold / Files' },
+      { id: 'message-desk', name: 'Message Desk / Mail & Docs' },
+      { id: 'chart-room', name: 'Chart Room / Memory' },
+      { id: 'guard-post', name: 'Guard Post / Permissions' }
+    ];
+
     const demoApprovals = [
       {
-        id: 'cmd_berth_15_001',
-        title: 'Command Packet: berth reassignment',
-        description: 'If approved: protect tug window, stage terminal notice, attach DockLens Evidence, hold final send for Clearance.',
+        id: 'cmd_plan_15_001',
+        title: 'Command Packet: plan adjustment',
+        description: 'If approved: protect the work window, stage outside notice, attach visual evidence, hold final send for Clearance.',
         source: 'Authority Rail / Causality Twin'
       },
       {
         id: 'auth_license_0742',
         title: 'Scope-Limited Execution License',
-        description: 'Allowed verbs: notify ops, update job board, draft memo. Forbidden: spend money, final-send, terminal notice.',
+        description: 'Allowed verbs: notify ops, update job board, draft memo. Forbidden: spend money, final-send, outside notice.',
         source: 'Castle / Clearance'
       },
       {
-        id: 'docklens_berth_b17',
-        title: 'Attach DockLens Evidence',
-        description: 'Camera B-17 saw berth obstruction. Confidence 86%. Advisory only until attached to signed packet.',
+        id: 'visual_path_b17',
+        title: 'Attach Visual Evidence',
+        description: 'Camera B-17 saw a work path obstruction. Confidence 86%. Advisory only until attached to signed packet.',
         source: 'Nauti-Vision'
       }
     ];
 
     const demoHistory = [
-      { message: 'Input arrived: berth pressure signal and tug-window conflict.' },
+      { message: 'Input arrived: work pressure signal and schedule conflict.' },
       { message: 'Causality Twin generated fastest safe, lowest-risk, and commercial branches.' },
       { message: 'Agent Court opened: Ops supports, Turbo speaks commercial impact, Castle requires local gate, Clearance blocks execution.' },
       { message: 'DockLens Evidence attached as advisory testimony.' },
@@ -2139,6 +2777,14 @@
     const $launchScreen = document.getElementById('launchScreen');
     const $launchPreview = document.getElementById('launchPreview');
     const $secureConsole = document.getElementById('secureConsole');
+    const $crewMode = document.getElementById('crewMode');
+    const $crewReturn = document.getElementById('crewReturn');
+    const $sendCrew = document.getElementById('sendCrew');
+    const $recallCrew = document.getElementById('recallCrew');
+    const $crewList = document.getElementById('crewList');
+    const $stationGrid = document.getElementById('stationGrid');
+    const $crewApprovalList = document.getElementById('crewApprovalList');
+    const $crewLogList = document.getElementById('crewLogList');
     const $loginScreen = document.getElementById('loginScreen');
     const $loginForm = document.getElementById('loginForm');
     const $scanner = document.getElementById('scanner');
@@ -2205,10 +2851,65 @@
       return api(path, opts);
     }
 
+    async function bridgeApi(path, opts = {}, timeoutMs = 4500) {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      const headers = {
+        'Accept': 'application/json',
+        ...(opts.headers || {})
+      };
+      const request = {
+        mode: 'cors',
+        credentials: 'omit',
+        ...opts,
+        headers,
+        signal: controller.signal
+      };
+      if (request.body && typeof request.body !== 'string') {
+        request.headers = { ...request.headers, 'Content-Type': 'application/json' };
+        request.body = JSON.stringify(request.body);
+      }
+      try {
+        const res = await fetch(`${BRIDGE_BASE}${path}`, request);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return await res.json();
+      } finally {
+        clearTimeout(timer);
+      }
+    }
+
+    async function bridgePost(path, body, timeoutMs = 45000) {
+      return bridgeApi(path, { method: 'POST', body }, timeoutMs);
+    }
+
     // ─── Launch / Login ───
     $launchPreview.addEventListener('click', () => {
       demoMode = true;
-      unlockDeck();
+      showCrewMode();
+    });
+
+    $crewReturn.addEventListener('click', () => {
+      lockDeck();
+    });
+
+    $sendCrew.addEventListener('click', () => {
+      sendCrewSequence();
+    });
+
+    $recallCrew.addEventListener('click', () => {
+      recallCrewMembers();
+    });
+
+    $crewList.addEventListener('click', (event) => {
+      const card = event.target.closest('[data-crew-id]');
+      if (!card) return;
+      sendCrewMember(card.dataset.crewId);
+    });
+
+    $crewApprovalList.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-crew-approval-action]');
+      if (!button) return;
+      handleCrewApproval(button.dataset.approvalId, button.dataset.crewApprovalAction);
     });
 
     $secureConsole.addEventListener('click', () => {
@@ -2227,7 +2928,7 @@
         stream.getTracks().forEach((track) => track.stop());
         $authStatus.style.color = 'var(--green)';
         $authStatus.textContent = 'Iris lens available. Opening the command rail.';
-        setTimeout(unlockDeck, 520);
+        setTimeout(showCrewMode, 520);
       } catch {
         $authStatus.style.color = 'var(--red)';
         $authStatus.textContent = 'Camera access denied. Use passcode to log in.';
@@ -2264,7 +2965,7 @@
       }
       $loginError.textContent = '';
       demoMode = true;
-      unlockDeck();
+      showCrewMode();
     });
 
     $logoutBtn.addEventListener('click', async () => {
@@ -2293,16 +2994,34 @@
       }
     });
 
-    $workflowGrid.addEventListener('change', (event) => {
+    $workflowGrid.addEventListener('change', async (event) => {
       const input = event.target.closest('[data-workflow-toggle]');
       if (!input) return;
       const workflow = workflows.find((item) => item.id === input.dataset.workflowToggle);
       if (!workflow) return;
+      const previous = {
+        active: workflow.active,
+        status: workflow.status,
+        statusClass: workflow.statusClass
+      };
       workflow.active = input.checked;
       workflow.status = input.checked ? workflow.resumeStatus : 'paused';
       workflow.statusClass = input.checked ? workflow.resumeClass : 'off';
       pushLogEntry(`${workflow.name} ${input.checked ? 'resumed' : 'paused'} from Triton.`);
       renderWorkflows();
+      if (!bridgeOnline) return;
+      try {
+        const result = await bridgePost(`/api/workflows/${encodeURIComponent(workflow.id)}/toggle`, { enabled: input.checked }, 15000);
+        if (result.workflow) mergeWorkflow(result.workflow);
+        renderWorkflows();
+        pushLogEntry(`${workflow.name} bridge ${result.action || (input.checked ? 'resumed' : 'paused')}.`);
+      } catch (err) {
+        workflow.active = previous.active;
+        workflow.status = previous.status;
+        workflow.statusClass = previous.statusClass;
+        renderWorkflows();
+        pushLogEntry(`${workflow.name} bridge toggle failed: ${err.message}`);
+      }
     });
 
     $workflowGrid.addEventListener('click', (event) => {
@@ -2330,7 +3049,7 @@
       }
     });
 
-    $sendAssist.addEventListener('click', () => {
+    $sendAssist.addEventListener('click', async () => {
       const from = workflows.find((item) => item.id === $assistFrom.value);
       const to = workflows.find((item) => item.id === $assistTo.value);
       const prompt = $assistPrompt.value.trim();
@@ -2343,9 +3062,31 @@
       $handoffList.prepend(item);
       queueApproval(`assist_${Date.now()}`, `${from.name} -> ${to.name} assist`, prompt, 'Ask The Fleet');
       pushLogEntry(`Assist packet queued: ${from.name} -> ${to.name}.`);
+      if (!bridgeOnline) return;
+      try {
+        const result = await bridgePost('/api/workflows/assist', {
+          from_id: from.id,
+          to_id: to.id,
+          prompt
+        });
+        if (result.response) {
+          const answer = document.createElement('div');
+          answer.className = 'handoff-item';
+          answer.textContent = `${from.name} answered for ${to.name}: ${truncate(result.response, 260)}`;
+          $handoffList.prepend(answer);
+        }
+        pushLogEntry(`Bridge assist ${result.delivery || 'queued'}: ${from.name} -> ${to.name}.`);
+      } catch (err) {
+        pushLogEntry(`Bridge assist failed: ${err.message}`);
+      }
     });
 
-    $redShutdown.addEventListener('click', () => {
+    $redShutdown.addEventListener('click', async () => {
+      const code = window.prompt('Type STOP to freeze managed AI processes. Triton bridge stays awake for resume.');
+      if (code !== 'STOP') {
+        pushLogEntry('Red Shutdown canceled before process control.');
+        return;
+      }
       shutdownSnapshot = workflows.map((workflow) => ({
         id: workflow.id,
         active: workflow.active,
@@ -2363,22 +3104,44 @@
       renderWorkflows();
       queueApproval('red_shutdown_bridge', 'Red Shutdown bridge confirmation', 'Static rail paused all visible AI workflows. Backend bridge should stop local AI processes only after explicit operator confirmation.', 'Red Shutdown');
       pushLogEntry('RED SHUTDOWN staged: all visible AI workflow cards paused and resume state saved.');
+      if (!bridgeOnline) return;
+      try {
+        const result = await bridgePost('/api/workflows/shutdown', { confirm: 'STOP' }, 15000);
+        pushLogEntry(`RED SHUTDOWN executed: ${result.targetCount || 0} managed process targets frozen.`);
+      } catch (err) {
+        pushLogEntry(`Red Shutdown bridge failed: ${err.message}`);
+      }
     });
 
-    $resumeAll.addEventListener('click', () => {
-      if (!shutdownSnapshot) return;
-      shutdownSnapshot.forEach((saved) => {
-        const workflow = workflows.find((item) => item.id === saved.id);
-        if (!workflow) return;
-        workflow.active = saved.active;
-        workflow.status = saved.status;
-        workflow.statusClass = saved.statusClass;
-      });
+    $resumeAll.addEventListener('click', async () => {
+      const code = window.prompt('Type RESUME to continue managed AI processes.');
+      if (code !== 'RESUME') {
+        pushLogEntry('Resume canceled before process control.');
+        return;
+      }
+      if (shutdownSnapshot) {
+        shutdownSnapshot.forEach((saved) => {
+          const workflow = workflows.find((item) => item.id === saved.id);
+          if (!workflow) return;
+          workflow.active = saved.active;
+          workflow.status = saved.status;
+          workflow.statusClass = saved.statusClass;
+        });
+      }
       $shutdownState.textContent = 'armed';
       $redShutdown.classList.remove('hidden');
       $resumeAll.classList.add('hidden');
       renderWorkflows();
       pushLogEntry('Resume Exact Position restored the saved AI workflow state.');
+      shutdownSnapshot = null;
+      if (!bridgeOnline) return;
+      try {
+        const result = await bridgePost('/api/workflows/resume', { confirm: 'RESUME' }, 15000);
+        pushLogEntry(`Resume bridge sent: ${result.restoredPids?.length || 0} process positions continued.`);
+        connectWorkflowBridge({ quiet: true });
+      } catch (err) {
+        pushLogEntry(`Resume bridge failed: ${err.message}`);
+      }
     });
 
     function stopTurboVoice() {
@@ -2386,8 +3149,20 @@
       $turboOrbPanel.classList.remove('speaking');
     }
 
+    function showCrewMode() {
+      $launchScreen.classList.add('hidden');
+      $loginScreen.classList.add('hidden');
+      $statusBar.classList.add('hidden');
+      $dashboard.classList.add('hidden');
+      $crewMode.classList.remove('hidden');
+      localStorage.setItem('triton-crew-mode', 'true');
+      localStorage.removeItem('triton-preview-unlocked');
+      initCrewMode();
+    }
+
     function showLogin() {
       $launchScreen.classList.add('hidden');
+      $crewMode.classList.add('hidden');
       $loginScreen.classList.remove('hidden');
       $statusBar.classList.add('hidden');
       $dashboard.classList.add('hidden');
@@ -2398,6 +3173,7 @@
 
     function unlockDeck() {
       $launchScreen.classList.add('hidden');
+      $crewMode.classList.add('hidden');
       $loginScreen.classList.add('hidden');
       $statusBar.classList.remove('hidden');
       $dashboard.classList.remove('hidden');
@@ -2406,15 +3182,19 @@
         loadDemoData();
         setOnline(true);
         $healthLabel.textContent = 'Triton Blackwater OS';
+        connectWorkflowBridge();
         return;
       }
       startPolling();
       connectWS();
+      connectWorkflowBridge();
     }
 
     function lockDeck() {
       localStorage.removeItem('triton-preview-unlocked');
+      localStorage.removeItem('triton-crew-mode');
       $launchScreen.classList.remove('hidden');
+      $crewMode.classList.add('hidden');
       $loginScreen.classList.add('hidden');
       $statusBar.classList.add('hidden');
       $dashboard.classList.add('hidden');
@@ -2425,6 +3205,7 @@
       $authStatus.textContent = 'Camera access denied. Use passcode to log in.';
       stopPolling();
       disconnectWS();
+      disconnectWorkflowBridge();
     }
 
     function loadDemoData() {
@@ -2444,6 +3225,410 @@
       populateAssistSelectors();
       renderApprovals();
       renderLog();
+    }
+
+    function initCrewMode() {
+      if (!crew.length) {
+        crew = crewTemplates.map((item) => ({ ...item, status: 'ready', progress: 0 }));
+        crewStations = stationTemplates.map((station) => ({
+          ...station,
+          status: 'idle',
+          crewId: null,
+          activity: 'Idle',
+          progress: 0
+        }));
+        crewApprovals = [];
+        crewLogs = [{
+          id: `crew_log_${Date.now()}`,
+          time: new Date().toISOString(),
+          text: 'Welcome aboard. Crew are ready on The Bridge and no orders are waiting.'
+        }];
+      }
+      renderCrewMode();
+    }
+
+    function sendCrewSequence() {
+      const available = crew.filter((member) => canSendCrew(member));
+      if (!available.length) {
+        addCrewLog('All crew are already working or waiting for Captain\'s Approval.');
+        return;
+      }
+      available.forEach((member, index) => {
+        const timer = setTimeout(() => sendCrewMember(member.id), index * 360);
+        crewTimers.push(timer);
+      });
+      addCrewLog(`Send Crew started. ${available.length} crew member${available.length === 1 ? '' : 's'} leaving The Bridge in sequence.`);
+    }
+
+    async function sendCrewMember(crewId) {
+      const member = getCrew(crewId);
+      if (!member) return;
+      if (!canSendCrew(member)) {
+        addCrewLog(`${member.name} is ${crewStatusLabel(member.status).toLowerCase()} and cannot take a new order yet.`);
+        return;
+      }
+
+      const station = getStation(member.stationId);
+      member.status = 'sailing';
+      member.progress = 0;
+      station.status = 'working';
+      station.crewId = member.id;
+      station.activity = `${member.name} is heading to ${station.name}.`;
+      station.progress = 8;
+      crewApprovals = crewApprovals.map((item) => item.crewId === member.id && item.status === 'waiting'
+        ? { ...item, status: 'recalled', stateText: 'Recalled' }
+        : item);
+      renderCrewMode();
+      addCrewLog(`${member.name} left The Bridge for ${station.name}.`);
+
+      await animateCrewTravel(member);
+      if (member.status !== 'sailing') return;
+      beginCrewWork(member.id);
+    }
+
+    function beginCrewWork(crewId) {
+      const member = getCrew(crewId);
+      if (!member) return;
+      const station = getStation(member.stationId);
+      member.status = 'working';
+      station.status = 'working';
+      station.crewId = member.id;
+      station.activity = `${member.name} is ${member.steps[0]}.`;
+      station.progress = 22;
+      renderCrewMode();
+      addCrewLog(`${member.name} started ${member.steps[0]} at ${station.name}.`);
+
+      member.steps.forEach((step, index) => {
+        const timer = setTimeout(() => {
+          const activeMember = getCrew(crewId);
+          const activeStation = getStation(member.stationId);
+          if (!activeMember || !activeStation || activeMember.status !== 'working') return;
+          activeStation.activity = `${activeMember.name} is ${step}.`;
+          activeStation.progress = Math.min(88, 28 + index * 26);
+          renderCrewMode();
+          if (index > 0) addCrewLog(`${activeMember.name} is ${step}.`);
+        }, 700 + index * 780);
+        crewTimers.push(timer);
+      });
+
+      const doneTimer = setTimeout(() => completeCrewWork(crewId), 700 + member.steps.length * 780);
+      crewTimers.push(doneTimer);
+    }
+
+    function completeCrewWork(crewId) {
+      const member = getCrew(crewId);
+      if (!member || member.status !== 'working') return;
+      const station = getStation(member.stationId);
+      member.status = 'reported';
+      member.progress = 100;
+      station.status = 'ready_for_review';
+      station.activity = `${member.prepared} is ready for Captain's Approval.`;
+      station.progress = 100;
+
+      const approval = {
+        id: `approval_${member.id}_${Date.now()}`,
+        crewId: member.id,
+        crewName: member.name,
+        stationName: station.name,
+        prepared: member.prepared,
+        blocked: member.blocked,
+        status: 'waiting',
+        stateText: 'Waiting for captain'
+      };
+      crewApprovals.unshift(approval);
+      renderCrewMode();
+      addCrewLog(`${member.name} reported back from ${station.name}. ${member.prepared} is waiting for review.`);
+    }
+
+    function handleCrewApproval(approvalId, action) {
+      const item = crewApprovals.find((approval) => approval.id === approvalId);
+      if (!item) return;
+      const member = getCrew(item.crewId);
+      const station = member ? getStation(member.stationId) : null;
+
+      if (action === 'approve') {
+        item.status = 'approved';
+        item.stateText = 'Approved by captain';
+        if (member) member.status = 'approved';
+        if (station) {
+          station.status = 'approved';
+          station.activity = `${item.prepared} approved by captain. No real-world action was performed.`;
+        }
+        addCrewLog(`${item.crewName}'s prepared item was approved by captain. No real-world action was performed.`);
+      }
+
+      if (action === 'hold') {
+        item.status = 'held';
+        item.stateText = 'Held';
+        if (member) member.status = 'held';
+        if (station) {
+          station.status = 'held';
+          station.activity = `${item.prepared} is held for more review.`;
+        }
+        addCrewLog(`${item.crewName}'s prepared item was held for more review.`);
+      }
+
+      if (action === 'recall') {
+        item.status = 'recalled';
+        item.stateText = 'Recalled';
+        recallCrewMembers(item.crewId);
+        addCrewLog(`${item.crewName} was recalled from Captain's Approval.`);
+        return;
+      }
+
+      renderCrewMode();
+    }
+
+    function recallCrewMembers(crewId = null) {
+      clearCrewTimers();
+      const returningCrew = crewId ? crew.filter((member) => member.id === crewId) : crew;
+      returningCrew.forEach((member) => {
+        member.status = 'recalled';
+        member.progress = 0;
+        const station = getStation(member.stationId);
+        station.status = 'idle';
+        station.crewId = null;
+        station.activity = 'Idle';
+        station.progress = 0;
+      });
+
+      crewApprovals = crewApprovals.map((item) => {
+        if (crewId && item.crewId !== crewId) return item;
+        if (item.status !== 'waiting') return item;
+        return { ...item, status: 'recalled', stateText: 'Recalled' };
+      });
+
+      renderCrewMode();
+      addCrewLog(crewId ? `${returningCrew[0]?.name || 'Crew member'} returned to The Bridge.` : 'Recall Crew returned everyone to The Bridge. Station work was reset and the Captain\'s Log was preserved.');
+    }
+
+    function renderCrewMode() {
+      renderCrewCards();
+      renderCrewStations();
+      renderCrewApprovals();
+      renderCrewLogs();
+    }
+
+    function renderCrewCards() {
+      $crewList.innerHTML = crew.map((member) => `
+        <button class="crew-card ${canSendCrew(member) ? '' : 'busy'}" data-crew-id="${esc(member.id)}" type="button" aria-label="Send ${esc(member.name)} to ${esc(member.station)}">
+          <span class="crew-orb" aria-hidden="true">${esc(member.initials)}</span>
+          <span>
+            <h3>${esc(member.name)}</h3>
+            <span class="crew-meta">${esc(member.role)}<br>${esc(member.station)}</span>
+          </span>
+          <span class="crew-status ${esc(member.status)}">${esc(crewStatusLabel(member.status))}</span>
+        </button>
+      `).join('');
+    }
+
+    function renderCrewStations() {
+      $stationGrid.innerHTML = crewStations.map((station) => {
+        const member = station.crewId ? getCrew(station.crewId) : null;
+        return `
+          <article class="station-card ${esc(station.status)}" data-station-id="${esc(station.id)}">
+            <div class="station-top">
+              <h3>${esc(station.name)}</h3>
+              <span class="station-status ${esc(station.status)}">${esc(stationStatusLabel(station.status))}</span>
+            </div>
+            <p class="station-activity">${esc(station.activity)}</p>
+            <p class="station-crew">${member ? `${esc(member.name)} on station` : 'Waiting for crew'}</p>
+            <div class="station-progress" aria-label="${esc(station.name)} progress">
+              <span style="width:${Math.max(0, Math.min(100, station.progress))}%"></span>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function renderCrewApprovals() {
+      if (!crewApprovals.length) {
+        $crewApprovalList.innerHTML = '<div class="crew-approval-empty">No orders waiting</div>';
+        return;
+      }
+
+      $crewApprovalList.innerHTML = crewApprovals.map((item) => {
+        const waiting = item.status === 'waiting';
+        return `
+          <article class="crew-approval-card">
+            <span class="crew-approval-state">${esc(item.stateText)}</span>
+            <h3>${esc(item.crewName)} / ${esc(item.stationName)}</h3>
+            <p><strong>Prepared:</strong> ${esc(item.prepared)}</p>
+            <p><strong>Blocked until approval:</strong> ${esc(item.blocked)}</p>
+            <div class="crew-approval-buttons">
+              <button class="crew-small-button approve" data-crew-approval-action="approve" data-approval-id="${esc(item.id)}" type="button" ${waiting ? '' : 'disabled'}>Approve</button>
+              <button class="crew-small-button hold" data-crew-approval-action="hold" data-approval-id="${esc(item.id)}" type="button" ${waiting ? '' : 'disabled'}>Hold</button>
+              <button class="crew-small-button" data-crew-approval-action="recall" data-approval-id="${esc(item.id)}" type="button">Recall</button>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function renderCrewLogs() {
+      $crewLogList.innerHTML = crewLogs.slice(0, 80).map((entry) => `
+        <div class="crew-log-item">
+          <span class="crew-log-time">${esc(formatCrewLogTime(entry.time))}</span>
+          <span>${esc(entry.text)}</span>
+        </div>
+      `).join('');
+    }
+
+    function addCrewLog(text) {
+      crewLogs.unshift({
+        id: `crew_log_${Date.now()}_${Math.random().toString(16).slice(2)}`,
+        time: new Date().toISOString(),
+        text
+      });
+      renderCrewLogs();
+    }
+
+    function animateCrewTravel(member) {
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const source = document.querySelector(`[data-crew-id="${member.id}"] .crew-orb`);
+      const target = document.querySelector(`[data-station-id="${member.stationId}"]`);
+      if (reducedMotion || !source || !target) return Promise.resolve();
+
+      const start = source.getBoundingClientRect();
+      const end = target.getBoundingClientRect();
+      const badge = document.createElement('div');
+      badge.className = 'crew-flight-badge';
+      badge.textContent = member.initials;
+      badge.style.left = `${start.left + start.width / 2}px`;
+      badge.style.top = `${start.top + start.height / 2}px`;
+      badge.style.transform = 'translate(-50%, -50%) scale(1)';
+      badge.style.opacity = '0.98';
+      document.body.appendChild(badge);
+
+      return new Promise((resolve) => {
+        requestAnimationFrame(() => {
+          badge.style.left = `${end.left + end.width / 2}px`;
+          badge.style.top = `${end.top + Math.min(72, end.height / 2)}px`;
+          badge.style.transform = 'translate(-50%, -50%) scale(1.08)';
+          badge.style.opacity = '0.92';
+        });
+        const timer = setTimeout(() => {
+          badge.remove();
+          resolve();
+        }, 760);
+      });
+    }
+
+    function clearCrewTimers() {
+      crewTimers.forEach((timer) => clearTimeout(timer));
+      crewTimers = [];
+      document.querySelectorAll('.crew-flight-badge').forEach((badge) => badge.remove());
+    }
+
+    function getCrew(crewId) {
+      return crew.find((member) => member.id === crewId);
+    }
+
+    function getStation(stationId) {
+      return crewStations.find((station) => station.id === stationId);
+    }
+
+    function canSendCrew(member) {
+      return ['ready', 'approved', 'held', 'recalled'].includes(member.status);
+    }
+
+    function crewStatusLabel(status) {
+      return {
+        ready: 'Ready',
+        sailing: 'Sailing',
+        working: 'Working',
+        reported: 'Reported',
+        waiting_approval: 'Waiting',
+        approved: 'Approved',
+        held: 'Held',
+        recalled: 'Ready'
+      }[status] || 'Ready';
+    }
+
+    function stationStatusLabel(status) {
+      return {
+        idle: 'Idle',
+        working: 'Working',
+        ready_for_review: 'Ready for review',
+        blocked: 'Blocked',
+        approved: 'Approved',
+        held: 'Held'
+      }[status] || 'Idle';
+    }
+
+    function formatCrewLogTime(ts) {
+      return new Date(ts).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', second: '2-digit' });
+    }
+
+    async function connectWorkflowBridge(options = {}) {
+      refreshWorkflowBridge(options);
+      if (!bridgePollTimer) {
+        bridgePollTimer = setInterval(() => refreshWorkflowBridge({ quiet: true }), 15000);
+      }
+    }
+
+    function disconnectWorkflowBridge() {
+      if (bridgePollTimer) clearInterval(bridgePollTimer);
+      bridgePollTimer = null;
+      bridgeOnline = false;
+      bridgeAnnounced = false;
+    }
+
+    async function refreshWorkflowBridge(options = {}) {
+      try {
+        const data = await bridgeApi('/api/workflows/status', {}, 3500);
+        bridgeOnline = true;
+        if (Array.isArray(data.workflows)) {
+          workflows = data.workflows.map(normalizeWorkflow);
+          renderWorkflows();
+          populateAssistSelectors(false);
+        }
+        setOnline(true);
+        $healthLabel.textContent = 'Triton Bridge Live';
+        $shutdownState.textContent = data.bridge?.shutdownActive ? 'paused' : 'armed';
+        if (data.bridge?.shutdownActive) {
+          $redShutdown.classList.add('hidden');
+          $resumeAll.classList.remove('hidden');
+        } else if (!shutdownSnapshot) {
+          $redShutdown.classList.remove('hidden');
+          $resumeAll.classList.add('hidden');
+        }
+        if (!bridgeAnnounced && !options.quiet) {
+          bridgeAnnounced = true;
+          pushLogEntry('Local Triton workflow bridge connected to this dashboard.');
+        }
+      } catch (err) {
+        if (bridgeOnline && !options.quiet) {
+          pushLogEntry(`Local workflow bridge disconnected: ${err.message}`);
+        } else if (!bridgeAnnounced && !options.quiet) {
+          bridgeAnnounced = true;
+          pushLogEntry('Static preview is live. Start the local Triton backend to enable process control.');
+        }
+        bridgeOnline = false;
+      }
+    }
+
+    function normalizeWorkflow(workflow) {
+      const fallback = demoWorkflows.find((item) => item.id === workflow.id) || {};
+      const merged = {
+        ...fallback,
+        ...workflow,
+        tools: workflow.tools || fallback.tools || [],
+        prompt: workflow.prompt || fallback.prompt || '',
+        logo: workflow.logo || fallback.logo || ''
+      };
+      return {
+        ...merged,
+        resumeStatus: workflow.resumeStatus || workflow.status || fallback.status || 'ready',
+        resumeClass: workflow.resumeClass || workflow.statusClass || fallback.statusClass || 'live'
+      };
+    }
+
+    function mergeWorkflow(nextWorkflow) {
+      const normalized = normalizeWorkflow(nextWorkflow);
+      const index = workflows.findIndex((workflow) => workflow.id === normalized.id);
+      if (index >= 0) workflows[index] = normalized;
+      else workflows.push(normalized);
     }
 
     // ─── Data fetching ───
@@ -2636,25 +3821,39 @@
       `).join('');
     }
 
-    function populateAssistSelectors() {
+    function populateAssistSelectors(resetHandoff = true) {
+      const previousFrom = $assistFrom.value || 'ollama';
+      const previousTo = $assistTo.value || 'claude';
       const options = workflows.map((workflow) => `<option value="${esc(workflow.id)}">${esc(workflow.name)}</option>`).join('');
       $assistFrom.innerHTML = options;
       $assistTo.innerHTML = options;
-      $assistFrom.value = 'ollama';
-      $assistTo.value = 'claude';
-      $handoffList.innerHTML = `
-        <div class="handoff-item">Ollama -> Claude assist lane is primed for the Triton visual surgery watch.</div>
-        <div class="handoff-item">Codex owns live-site changes. Claude stays in logo/colorbomb scope.</div>
-      `;
+      $assistFrom.value = workflows.some((workflow) => workflow.id === previousFrom) ? previousFrom : 'ollama';
+      $assistTo.value = workflows.some((workflow) => workflow.id === previousTo) ? previousTo : 'claude';
+      if (resetHandoff || !$handoffList.children.length) {
+        $handoffList.innerHTML = `
+          <div class="handoff-item">Ollama -> Claude assist lane is primed for the Triton visual surgery watch.</div>
+          <div class="handoff-item">Codex owns live-site changes. Claude stays in logo/colorbomb scope.</div>
+        `;
+      }
     }
 
-    function queueWorkflowCommand(workflow, prompt, mode) {
+    async function queueWorkflowCommand(workflow, prompt, mode) {
       if (!workflow.active && workflow.id !== 'felipe') {
         pushLogEntry(`${workflow.name} is paused. Resume before dispatch.`);
         return;
       }
       queueApproval(`ask_${workflow.id}_${Date.now()}`, `Ask ${workflow.name}`, prompt, mode);
       pushLogEntry(`Queued ${mode} for ${workflow.name}.`);
+      if (!bridgeOnline) return;
+      try {
+        const result = await bridgePost(`/api/workflows/${encodeURIComponent(workflow.id)}/ask`, { prompt, mode });
+        if (result.response) {
+          queueApproval(`answer_${workflow.id}_${Date.now()}`, `${workflow.name} bridge answer`, truncate(result.response, 320), 'Workflow Bridge');
+        }
+        pushLogEntry(`${workflow.name} bridge ${result.delivery || 'queued'}.`);
+      } catch (err) {
+        pushLogEntry(`${workflow.name} bridge ask failed: ${err.message}`);
+      }
     }
 
     function queueApproval(id, title, description, source) {
@@ -2854,10 +4053,16 @@
       }
     }
 
+    function truncate(text, max = 160) {
+      const value = String(text || '').replace(/\s+/g, ' ').trim();
+      if (value.length <= max) return value;
+      return `${value.slice(0, Math.max(0, max - 1)).trim()}...`;
+    }
+
     // ─── Boot ───
-    if (localStorage.getItem('triton-preview-unlocked') === 'true') {
+    if (localStorage.getItem('triton-crew-mode') === 'true' || localStorage.getItem('triton-preview-unlocked') === 'true') {
       demoMode = true;
-      unlockDeck();
+      showCrewMode();
     }
   </script>
 </body>

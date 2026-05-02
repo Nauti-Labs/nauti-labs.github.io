@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-02T19:41:52.503740Z",
+  "generated_at": "2026-05-02T19:46:54.789456Z",
   "summary": "7/7 services online",
   "watchdog": {
     "online": true,
@@ -18,15 +18,15 @@
   "services": [
     {
       "id": "triton",
-      "label": "Bridge",
-      "role": "AI crew command",
+      "label": "Triton",
+      "role": "Command hub",
       "port": 8600,
       "online": true,
       "private": true
     },
     {
       "id": "nauti_ops",
-      "label": "Triton",
+      "label": "Nauti-Ops",
       "role": "Maritime operations",
       "port": 8200,
       "online": true,

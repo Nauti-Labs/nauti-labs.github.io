@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Triton Agent Controller | Nauti-Labs</title>
-  <meta name="description" content="Triton is a human-supervised agent controller with Iris authentication, approval queues, live agent lanes, and command-center workflows.">
+  <title>Triton | Nauti-Labs</title>
+  <meta name="description" content="Triton is the Nauti-Labs command layer for running AI across your machine, your apps, and your team with human-supervised approvals.">
   <link rel="canonical" href="https://triton.nauti-labs.com/">
   <meta name="robots" content="index,follow">
   <meta property="og:site_name" content="Nauti-Labs">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Triton Agent Controller">
-  <meta property="og:description" content="Iris-gated agent command. AI proposes. Humans approve. Execution stays visible.">
+  <meta property="og:title" content="Triton by Nauti-Labs">
+  <meta property="og:description" content="Stop juggling AI. Start commanding the fleet. Local-first, private, human-supervised agent control.">
   <meta property="og:url" content="https://triton.nauti-labs.com/">
   <meta property="og:image" content="https://nauti-labs.com/og/triton-coming-soon-telegram.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Triton Agent Controller">
-  <meta name="twitter:description" content="Iris-gated agent command with approval queues, project lanes, and human-supervised execution.">
+  <meta name="twitter:title" content="Triton by Nauti-Labs">
+  <meta name="twitter:description" content="Stop juggling AI. Start commanding the fleet. Local-first, private, human-supervised agent control.">
   <meta name="twitter:image" content="https://nauti-labs.com/og/triton-coming-soon-telegram.png">
   <meta name="theme-color" content="#061514">
   <style>
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --black: #050606;
@@ -47,11 +47,9 @@
 
     body {
       min-height: 100vh;
-      margin: 0;
       overflow-x: hidden;
       color: var(--text);
       font-family: var(--sans);
-      letter-spacing: 0;
       background:
         radial-gradient(circle at 21% 57%, rgba(39, 140, 129, 0.15), transparent 26%),
         radial-gradient(circle at 78% 33%, rgba(52, 91, 88, 0.10), transparent 32%),
@@ -84,10 +82,389 @@
 
     a { color: inherit; text-decoration: none; }
     button, input { font: inherit; }
-    button { cursor: pointer; }
+    button { cursor: pointer; border: none; background: none; }
 
     .hidden { display: none !important; }
 
+    /* ─── PUBLIC LAUNCH SURFACE ─── */
+    .launch-screen {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+    }
+
+    .launch-hero {
+      position: relative;
+      min-height: 88vh;
+      display: grid;
+      align-items: center;
+      padding: 28px clamp(18px, 5vw, 72px) 72px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .launch-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(3, 7, 7, 0.96) 0%, rgba(4, 14, 15, 0.82) 42%, rgba(4, 8, 8, 0.46) 100%),
+        url("./assets/triton-dashboard-premium.png") center right / min(980px, 74vw) auto no-repeat;
+      opacity: 0.94;
+    }
+
+    .launch-hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 42%;
+      z-index: -1;
+      background: linear-gradient(180deg, transparent, rgba(5, 6, 6, 0.98));
+    }
+
+    .launch-nav {
+      position: absolute;
+      top: 18px;
+      left: clamp(18px, 5vw, 72px);
+      right: clamp(18px, 5vw, 72px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: rgba(237, 247, 245, 0.72);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .nav-brand strong {
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      letter-spacing: 0.12em;
+    }
+
+    .launch-mark {
+      position: relative;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      border: 1px solid rgba(99, 255, 244, 0.22);
+      background: rgba(99, 255, 244, 0.08);
+      box-shadow: 0 0 24px rgba(99, 255, 244, 0.12);
+      flex: 0 0 auto;
+    }
+
+    .launch-mark i {
+      position: absolute;
+      bottom: 7px;
+      left: 50%;
+      width: 3px;
+      height: 20px;
+      border-radius: 999px;
+      background: var(--aqua);
+      box-shadow: 0 0 14px rgba(99, 255, 244, 0.64);
+      transform-origin: bottom center;
+    }
+
+    .launch-mark i:nth-child(1) { left: 38%; transform: translateX(-50%) rotate(-15deg); }
+    .launch-mark i:nth-child(2) { transform: translateX(-50%); }
+    .launch-mark i:nth-child(3) { left: 62%; transform: translateX(-50%) rotate(15deg); }
+
+    .launch-copy {
+      width: min(760px, 100%);
+      padding-top: 72px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 22px;
+      color: var(--gold);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: rgba(219, 195, 108, 0.84);
+      box-shadow: 0 0 18px rgba(219, 195, 108, 0.28);
+    }
+
+    .launch-title {
+      max-width: 760px;
+      color: #f5fffd;
+      font-size: clamp(46px, 8.3vw, 96px);
+      line-height: 0.94;
+      font-weight: 850;
+      letter-spacing: 0;
+    }
+
+    .launch-subtitle {
+      width: min(620px, 100%);
+      margin-top: 24px;
+      color: rgba(237, 247, 245, 0.76);
+      font-size: clamp(18px, 2.2vw, 24px);
+      line-height: 1.35;
+      font-weight: 520;
+    }
+
+    .launch-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      width: min(720px, 100%);
+      margin-top: 26px;
+    }
+
+    .launch-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 6px 11px;
+      border-radius: 7px;
+      border: 1px solid rgba(99, 255, 244, 0.22);
+      background: rgba(5, 12, 12, 0.62);
+      color: rgba(237, 247, 245, 0.82);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .launch-pill.gold {
+      border-color: rgba(219, 195, 108, 0.34);
+      color: #f1dc83;
+      background: rgba(219, 195, 108, 0.08);
+    }
+
+    .launch-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .launch-button {
+      min-height: 52px;
+      padding: 0 18px;
+      border-radius: 8px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: transform 0.16s ease, background 0.16s ease, border-color 0.16s ease;
+    }
+
+    .launch-button.primary {
+      color: #061111;
+      background: linear-gradient(135deg, var(--aqua), #8cf5b6);
+      box-shadow: 0 16px 44px rgba(99, 255, 244, 0.18);
+    }
+
+    .launch-button.secondary {
+      color: var(--text);
+      border: 1px solid rgba(237, 247, 245, 0.22);
+      background: rgba(237, 247, 245, 0.06);
+    }
+
+    .launch-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .launch-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      border-top: 1px solid rgba(99, 255, 244, 0.16);
+      border-bottom: 1px solid rgba(99, 255, 244, 0.16);
+      background: rgba(99, 255, 244, 0.10);
+    }
+
+    .launch-stat {
+      min-height: 112px;
+      padding: 20px clamp(16px, 3vw, 28px);
+      background: rgba(5, 8, 8, 0.92);
+    }
+
+    .launch-stat strong {
+      display: block;
+      color: var(--aqua);
+      font-size: 28px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .launch-stat span {
+      color: rgba(237, 247, 245, 0.68);
+      font-size: 13px;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    .launch-band {
+      padding: 54px clamp(18px, 5vw, 72px) 68px;
+      background: rgba(5, 6, 6, 0.98);
+    }
+
+    .launch-band-inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .launch-band h2 {
+      color: var(--text);
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .launch-band p {
+      margin-top: 16px;
+      color: rgba(237, 247, 245, 0.68);
+      font-size: 17px;
+      line-height: 1.52;
+    }
+
+    .fleet-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .fleet-row {
+      display: grid;
+      grid-template-columns: 46px 1fr auto;
+      align-items: center;
+      gap: 12px;
+      min-height: 68px;
+      padding: 12px;
+      border: 1px solid rgba(99, 255, 244, 0.15);
+      border-radius: 8px;
+      background: rgba(14, 25, 24, 0.62);
+    }
+
+    .fleet-avatar {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 8px;
+      color: #061111;
+      background: var(--aqua);
+      font-weight: 950;
+      font-family: var(--mono);
+    }
+
+    .fleet-row h3 {
+      color: var(--text);
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .fleet-row p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .fleet-state {
+      color: var(--gold);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* ─── STATUS BAR ─── */
+    .status-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 8px 20px;
+      background: rgba(5, 6, 6, 0.92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(20px);
+      font-size: 13px;
+      font-family: var(--mono);
+    }
+
+    .status-bar .left { display: flex; align-items: center; gap: 16px; }
+    .status-bar .right { display: flex; align-items: center; gap: 16px; }
+
+    .status-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 12px rgba(98, 242, 180, 0.6);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    .status-dot.offline {
+      background: var(--red);
+      box-shadow: 0 0 12px rgba(255, 89, 77, 0.6);
+      animation: none;
+    }
+
+    .stat-chip {
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(99, 255, 244, 0.08);
+      border: 1px solid rgba(99, 255, 244, 0.15);
+      color: var(--aqua);
+      font-weight: 700;
+    }
+
+    .stat-chip.warn {
+      color: var(--gold);
+      border-color: rgba(219, 195, 108, 0.3);
+      background: rgba(219, 195, 108, 0.08);
+    }
+
+    .shortcuts-hint {
+      color: var(--faint);
+      font-size: 11px;
+    }
+
+    .shortcuts-hint kbd {
+      padding: 1px 5px;
+      border-radius: 3px;
+      border: 1px solid rgba(99, 255, 244, 0.2);
+      background: rgba(99, 255, 244, 0.06);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+
+    /* ─── LOGIN SCREEN ─── */
     .login-screen {
       min-height: 100vh;
       display: grid;
@@ -98,8 +475,8 @@
     }
 
     .iris-card {
-      width: min(552px, 100%);
-      padding: 26px 40px;
+      width: min(440px, 100%);
+      padding: 32px 36px;
       border: 1px solid var(--line);
       border-radius: 16px;
       background: rgba(8, 8, 8, 0.91);
@@ -110,7 +487,7 @@
       position: relative;
       width: 66px;
       height: 48px;
-      margin: 0 auto 10px;
+      margin: 0 auto 14px;
       filter: drop-shadow(0 0 24px rgba(99, 255, 244, 0.78));
     }
 
@@ -131,22 +508,21 @@
     .trident span:nth-child(3) { transform: translateX(-50%) rotate(14deg); left: 62%; }
 
     .login-title {
-      margin: 0;
       text-align: center;
       color: #bffefa;
-      font-size: clamp(33px, 6vw, 42px);
+      font-size: 36px;
       font-weight: 300;
-      line-height: 1;
       letter-spacing: 0.13em;
+      margin-bottom: 4px;
     }
 
     .login-subtitle {
-      margin: 7px 0 18px;
       text-align: center;
-      color: rgba(237, 247, 245, 0.63);
-      font-size: 17px;
+      color: var(--muted);
+      font-size: 13px;
       font-weight: 700;
       letter-spacing: 0.12em;
+      margin-bottom: 24px;
     }
 
     .scanner {
@@ -160,27 +536,26 @@
       overflow: hidden;
     }
 
-    .scanner::before {
-      content: "";
-      position: absolute;
-      width: 148px;
-      height: 148px;
-      border-radius: 50%;
-      border: 2px solid rgba(99, 255, 244, 0.22);
-      box-shadow:
-        0 0 0 10px rgba(99, 255, 244, 0.035),
-        inset 0 0 32px rgba(99, 255, 244, 0.05);
-      animation: irisPulse 3.8s ease-in-out infinite;
-    }
-
+    .scanner::before,
     .scanner::after {
       content: "";
       position: absolute;
+      border-radius: 50%;
+      border: 2px solid rgba(99, 255, 244, 0.18);
+      animation: irisPulse 3.8s ease-in-out infinite;
+    }
+
+    .scanner::before {
+      width: 148px;
+      height: 148px;
+      box-shadow: 0 0 0 10px rgba(99, 255, 244, 0.035), inset 0 0 32px rgba(99, 255, 244, 0.05);
+    }
+
+    .scanner::after {
       width: 196px;
       height: 196px;
-      border-radius: 50%;
-      border: 2px solid rgba(99, 255, 244, 0.11);
-      animation: irisPulse 3.8s ease-in-out 0.35s infinite;
+      opacity: 0.62;
+      animation-delay: 0.35s;
     }
 
     .reticle {
@@ -203,8 +578,10 @@
       height: 46px;
       transform: translateX(-50%);
     }
+
     .reticle i:nth-child(1) { top: 0; }
     .reticle i:nth-child(2) { bottom: 0; }
+
     .reticle i:nth-child(3),
     .reticle i:nth-child(4) {
       top: 50%;
@@ -212,6 +589,7 @@
       height: 1px;
       transform: translateY(-50%);
     }
+
     .reticle i:nth-child(3) { left: 0; }
     .reticle i:nth-child(4) { right: 0; }
 
@@ -236,6 +614,7 @@
       margin: 12px 0 14px;
       text-align: center;
       color: var(--red);
+      font-size: 13px;
       font-weight: 800;
       letter-spacing: 0.04em;
     }
@@ -248,39 +627,45 @@
       border-top: 1px solid rgba(237, 247, 245, 0.13);
     }
 
-    .control-button {
+    .control-button,
+    .passcode-toggle {
       min-height: 42px;
-      border: 1px solid rgba(99, 255, 244, 0.18);
+      border: 1px solid rgba(99, 255, 244, 0.22);
       border-radius: 8px;
+      background: rgba(99, 255, 244, 0.42);
       color: #081010;
-      background: rgba(99, 255, 244, 0.45);
+      font-size: 13px;
       font-weight: 900;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
     .control-button.purple {
-      color: #0a0614;
-      background: rgba(89, 61, 167, 0.78);
-      border-color: rgba(133, 100, 255, 0.34);
+      background: var(--purple);
+      color: #06040d;
+      border-color: rgba(125, 103, 212, 0.52);
     }
 
-    .wide-button {
+    .wide-button,
+    .passcode-toggle,
+    .passcode-panel,
+    .or-line {
       grid-column: 1 / -1;
+    }
+
+    .passcode-toggle {
       color: var(--aqua);
-      background: rgba(99, 255, 244, 0.09);
-      border-color: rgba(99, 255, 244, 0.34);
+      background: rgba(99, 255, 244, 0.07);
     }
 
     .or-line {
-      grid-column: 1 / -1;
       display: grid;
       grid-template-columns: 1fr auto 1fr;
+      gap: 12px;
       align-items: center;
-      gap: 14px;
-      margin: 6px 0 0;
-      color: rgba(237, 247, 245, 0.24);
-      font-weight: 800;
+      color: var(--faint);
+      font-weight: 900;
+      font-size: 12px;
       letter-spacing: 0.12em;
     }
 
@@ -288,27 +673,16 @@
     .or-line::after {
       content: "";
       height: 1px;
-      background: rgba(237, 247, 245, 0.12);
+      background: rgba(237, 247, 245, 0.13);
     }
 
-    .passcode-toggle {
-      grid-column: 1 / -1;
-      border: 0;
-      background: transparent;
-      color: rgba(237, 247, 245, 0.50);
-      font-weight: 800;
-      min-height: 34px;
-    }
-
-    .passcode-panel {
-      grid-column: 1 / -1;
+    .login-form {
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 10px;
+      gap: 12px;
     }
 
-    .passcode-panel input {
-      min-width: 0;
+    .login-form input {
+      width: 100%;
       min-height: 48px;
       padding: 0 14px;
       color: var(--text);
@@ -316,13 +690,45 @@
       border: 1px solid rgba(99, 255, 244, 0.25);
       background: rgba(1, 2, 2, 0.78);
       outline: none;
+      font-family: var(--mono);
+      font-size: 15px;
+      letter-spacing: 0.1em;
+      transition: border-color 0.2s;
+    }
+
+    .login-form input:focus {
+      border-color: var(--aqua);
+      box-shadow: 0 0 20px rgba(99, 255, 244, 0.15);
+    }
+
+    .login-btn {
+      width: 100%;
+      min-height: 48px;
+      border-radius: 8px;
+      background: rgba(99, 255, 244, 0.45);
+      color: #081010;
+      font-weight: 900;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid rgba(99, 255, 244, 0.3);
+      transition: background 0.2s;
+    }
+
+    .login-btn:hover { background: rgba(99, 255, 244, 0.6); }
+
+    .login-error {
+      min-height: 20px;
+      text-align: center;
+      color: var(--red);
+      font-weight: 700;
+      font-size: 13px;
     }
 
     .info-card {
-      margin-top: 12px;
-      padding: 12px 14px;
-      border: 1px solid rgba(99, 255, 244, 0.21);
-      border-left: 4px solid var(--aqua);
+      margin-top: 18px;
+      padding: 14px;
+      border-left: 3px solid var(--aqua);
       border-radius: 8px;
       background: rgba(99, 255, 244, 0.08);
     }
@@ -330,513 +736,724 @@
     .info-card strong {
       display: block;
       color: var(--aqua);
-      margin-bottom: 8px;
-      letter-spacing: 0.02em;
+      margin-bottom: 7px;
     }
 
     .info-card p {
-      margin: 0;
-      color: rgba(237, 247, 245, 0.72);
-      line-height: 1.5;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
     }
 
-    .app-screen {
+    /* ─── DASHBOARD ─── */
+    .dashboard {
       position: relative;
       z-index: 1;
-      min-height: 100vh;
-      padding: 22px;
-      width: 100%;
-      max-width: 100vw;
-      overflow-x: hidden;
-    }
-
-    .app-frame {
-      width: min(1540px, 100%);
+      padding: 16px 20px 40px;
+      max-width: 1440px;
       margin: 0 auto;
-      display: grid;
-      gap: 14px;
-      min-width: 0;
     }
 
-    .topbar,
-    .panel,
-    .agent-card,
-    .queue-card,
-    .lane-card,
-    .modal-card {
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: var(--panel);
-      box-shadow: 0 20px 70px rgba(0, 0, 0, 0.34);
-      backdrop-filter: blur(16px);
-      min-width: 0;
-    }
-
-    .topbar {
-      display: grid;
-      grid-template-columns: minmax(220px, 0.82fr) minmax(280px, 1.18fr) auto;
-      align-items: center;
-      gap: 18px;
-      padding: 16px 18px;
-    }
-
-    .brand {
+    .dash-header {
       display: flex;
       align-items: center;
-      gap: 14px;
-      min-width: 0;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .dash-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
     .mini-mark {
       flex: 0 0 auto;
       position: relative;
-      width: 54px;
-      height: 54px;
-      border-radius: 12px;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
       background: rgba(99, 255, 244, 0.08);
       border: 1px solid rgba(99, 255, 244, 0.22);
-      box-shadow: 0 0 30px rgba(99, 255, 244, 0.20);
     }
 
     .mini-mark i {
       position: absolute;
-      bottom: 11px;
+      bottom: 8px;
       left: 50%;
-      width: 4px;
-      height: 32px;
+      width: 3px;
+      height: 24px;
       border-radius: 999px;
       background: var(--aqua);
       transform-origin: bottom center;
-      box-shadow: 0 0 16px rgba(99, 255, 244, 0.58);
+      box-shadow: 0 0 12px rgba(99, 255, 244, 0.5);
     }
     .mini-mark i:nth-child(1) { transform: translateX(-50%) rotate(-15deg); left: 39%; }
     .mini-mark i:nth-child(2) { transform: translateX(-50%); }
     .mini-mark i:nth-child(3) { transform: translateX(-50%) rotate(15deg); left: 61%; }
 
-    .brand h1 {
-      margin: 0;
-      font-size: clamp(28px, 3vw, 46px);
-      line-height: 0.92;
+    .dash-brand h1 {
+      font-size: 24px;
       font-weight: 850;
-      letter-spacing: 0;
+      letter-spacing: 0.02em;
     }
 
-    .brand p,
-    .kicker,
-    .muted,
-    .meta,
-    .log-time {
-      color: var(--muted);
-    }
-
-    .mission {
-      display: grid;
-      gap: 8px;
-      min-width: 0;
-    }
-
-    .mission strong {
-      font-size: clamp(18px, 2vw, 26px);
-      line-height: 1.12;
-      overflow-wrap: anywhere;
-    }
-
-    .badge-row,
-    .action-row,
-    .chip-row {
+    .dash-actions {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
       align-items: center;
-    }
-
-    .badge,
-    .chip,
-    .tab-button {
-      display: inline-flex;
-      align-items: center;
-      min-height: 32px;
-      padding: 7px 11px;
-      border: 1px solid rgba(99, 255, 244, 0.18);
-      border-radius: 999px;
-      background: rgba(99, 255, 244, 0.06);
-      color: rgba(237, 247, 245, 0.82);
-      font-size: 13px;
-      white-space: nowrap;
-    }
-
-    .badge.live { color: var(--green); border-color: rgba(98, 242, 180, 0.30); }
-    .badge.needs { color: var(--gold); border-color: rgba(219, 195, 108, 0.34); }
-
-    .top-actions {
-      display: flex;
-      justify-content: flex-end;
       gap: 10px;
-      flex-wrap: wrap;
     }
 
-    .ghost-button,
-    .quiet-button,
-    .small-button {
-      min-height: 42px;
-      padding: 0 14px;
-      border-radius: 8px;
-      border: 1px solid rgba(99, 255, 244, 0.23);
-      background: rgba(99, 255, 244, 0.08);
+    .btn-ghost {
+      padding: 6px 14px;
+      border-radius: 6px;
+      border: 1px solid rgba(99, 255, 244, 0.2);
+      background: rgba(99, 255, 244, 0.06);
       color: var(--text);
-      font-weight: 800;
+      font-weight: 700;
+      font-size: 13px;
+      transition: background 0.15s;
     }
 
-    .ghost-button {
-      color: #05100f;
-      background: linear-gradient(135deg, rgba(99, 255, 244, 0.88), rgba(219, 195, 108, 0.82));
+    .btn-ghost:hover { background: rgba(99, 255, 244, 0.12); }
+
+    .btn-logout {
+      color: var(--muted);
+      border-color: rgba(237, 247, 245, 0.15);
+      background: rgba(237, 247, 245, 0.04);
     }
 
-    .workspace {
+    /* ─── GRID LAYOUT ─── */
+    .dash-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 380px;
-      gap: 14px;
-      min-width: 0;
+      grid-template-columns: 1fr 360px;
+      gap: 16px;
     }
 
-    .main-column,
-    .side-column {
-      display: grid;
-      gap: 14px;
-      align-content: start;
-      min-width: 0;
-    }
+    .main-col { display: grid; gap: 16px; align-content: start; }
+    .side-col { display: grid; gap: 16px; align-content: start; }
 
+    /* ─── PANELS ─── */
     .panel {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--panel);
+      backdrop-filter: blur(16px);
       padding: 16px;
     }
 
-    .panel-head {
+    .panel-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
       margin-bottom: 14px;
-      min-width: 0;
     }
 
-    .panel-title {
-      display: grid;
-      gap: 3px;
-    }
-
-    .kicker {
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 0.12em;
+    .panel-header h2 {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
+      color: var(--aqua);
     }
 
-    .panel-title h2 {
-      margin: 0;
-      font-size: 22px;
-      line-height: 1.05;
+    .panel-header .count {
+      font-size: 12px;
+      color: var(--muted);
+      font-family: var(--mono);
     }
 
-    .tab-list {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 2px;
-      margin-bottom: 14px;
-      max-width: 100%;
-      min-width: 0;
-    }
-
-    .tab-button {
-      border-radius: 8px;
-      background: rgba(2, 3, 3, 0.46);
-      cursor: pointer;
-    }
-
-    .tab-button.active {
-      color: #06100f;
-      background: var(--aqua);
-      border-color: var(--aqua);
-    }
-
-    .view { display: none; }
-    .view.active { display: block; }
-
+    /* ─── AGENT DECK ─── */
     .agent-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .agent-card,
-    .queue-card,
-    .lane-card {
-      padding: 16px;
-      background:
-        linear-gradient(145deg, rgba(99, 255, 244, 0.10), rgba(237, 247, 245, 0.035)),
-        rgba(10, 17, 17, 0.84);
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 10px;
     }
 
     .agent-card {
-      display: grid;
-      gap: 16px;
-      min-height: 218px;
-      min-width: 0;
-    }
-
-    .agent-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      min-width: 0;
-    }
-
-    .agent-name {
-      font-size: 22px;
-      font-weight: 850;
-      line-height: 1.05;
-    }
-
-    .avatar {
-      flex: 0 0 auto;
-      display: grid;
-      place-items: center;
-      width: 46px;
-      height: 46px;
-      border-radius: 8px;
-      color: var(--aqua);
-      background: rgba(99, 255, 244, 0.08);
-      border: 1px solid rgba(99, 255, 244, 0.25);
-      box-shadow: 0 0 22px rgba(99, 255, 244, 0.15);
-      font-weight: 900;
-    }
-
-    .agent-status {
-      margin: 0;
-      font-size: 18px;
-      line-height: 1.35;
-      font-weight: 760;
-    }
-
-    .queue-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .queue-card {
-      display: grid;
-      gap: 12px;
-    }
-
-    .queue-card.approved { border-color: rgba(98, 242, 180, 0.42); }
-    .queue-card.hold { border-color: rgba(219, 195, 108, 0.48); }
-    .queue-card.denied { border-color: rgba(255, 89, 77, 0.48); }
-
-    .queue-title {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: flex-start;
-      min-width: 0;
-    }
-
-    .queue-title h3,
-    .lane-card h3 {
-      margin: 0;
-      font-size: 19px;
-      line-height: 1.15;
-    }
-
-    .risk {
-      color: var(--gold);
-      border-color: rgba(219, 195, 108, 0.30);
-    }
-
-    .queue-card p,
-    .lane-card p {
-      margin: 0;
-      color: rgba(237, 247, 245, 0.76);
-      line-height: 1.46;
-    }
-
-    .button-approve { color: #04110d; background: var(--green); border-color: var(--green); }
-    .button-hold { color: #141006; background: var(--gold); border-color: var(--gold); }
-    .button-deny { color: #160605; background: rgba(255, 89, 77, 0.78); border-color: var(--red); }
-
-    .ops-grid,
-    .lane-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .metric {
       padding: 14px;
-      border: 1px solid rgba(99, 255, 244, 0.16);
+      border: 1px solid var(--line);
       border-radius: 8px;
-      background: rgba(1, 2, 2, 0.38);
+      background: rgba(10, 17, 17, 0.84);
+      display: grid;
+      gap: 8px;
+      transition: border-color 0.2s;
+      cursor: default;
     }
 
-    .metric strong {
+    .agent-card:hover { border-color: var(--line-strong); }
+
+    .agent-card .top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .agent-card .agent-name {
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .agent-card .agent-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .agent-status-badge.active {
+      color: #04110d;
+      background: var(--green);
+    }
+
+    .agent-status-badge.idle {
+      color: var(--muted);
+      background: rgba(237, 247, 245, 0.08);
+      border: 1px solid rgba(237, 247, 245, 0.15);
+    }
+
+    .agent-status-badge.unknown {
+      color: var(--gold);
+      background: rgba(219, 195, 108, 0.12);
+      border: 1px solid rgba(219, 195, 108, 0.25);
+    }
+
+    .agent-status-badge.error {
+      color: var(--red);
+      background: rgba(255, 89, 77, 0.12);
+      border: 1px solid rgba(255, 89, 77, 0.25);
+    }
+
+    .agent-card .agent-project {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .agent-card .agent-meta {
+      font-size: 11px;
+      color: var(--faint);
+      font-family: var(--mono);
+    }
+
+    .agent-card .accent-bar {
+      height: 3px;
+      border-radius: 2px;
+      background: var(--aqua);
+      opacity: 0.5;
+    }
+
+    /* ─── APPROVAL QUEUE ─── */
+    .approval-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .approval-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(10, 17, 17, 0.84);
+      transition: border-color 0.2s, background 0.15s;
+    }
+
+    .approval-item.focused {
+      border-color: var(--aqua);
+      background: rgba(99, 255, 244, 0.04);
+    }
+
+    .approval-item .info h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .approval-item .info .desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .approval-item .info .source {
+      font-size: 11px;
+      color: var(--faint);
+      font-family: var(--mono);
+      margin-top: 4px;
+    }
+
+    .approval-actions {
+      display: flex;
+      gap: 6px;
+    }
+
+    .btn-approve, .btn-reject {
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: opacity 0.15s;
+    }
+
+    .btn-approve {
+      color: #04110d;
+      background: var(--green);
+      border: 1px solid var(--green);
+    }
+
+    .btn-reject {
+      color: #160605;
+      background: rgba(255, 89, 77, 0.7);
+      border: 1px solid var(--red);
+    }
+
+    .btn-approve:hover, .btn-reject:hover { opacity: 0.85; }
+
+    .approval-empty {
+      text-align: center;
+      padding: 24px;
+      color: var(--faint);
+      font-size: 13px;
+    }
+
+    /* ─── CONSEQUENCE MODULES ─── */
+    .twin-grid,
+    .rail-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .twin-card,
+    .rail-card {
+      padding: 14px;
+      border: 1px solid rgba(99, 255, 244, 0.17);
+      border-radius: 8px;
+      background: rgba(10, 17, 17, 0.84);
+    }
+
+    .twin-card h3,
+    .rail-card h3 {
+      color: var(--text);
+      font-size: 15px;
+      margin-bottom: 7px;
+    }
+
+    .twin-card p,
+    .rail-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .twin-card.gold {
+      border-color: rgba(219, 195, 108, 0.38);
+      background: rgba(219, 195, 108, 0.08);
+    }
+
+    .evidence-meter {
+      height: 8px;
+      margin-top: 10px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(237, 247, 245, 0.08);
+    }
+
+    .evidence-meter span {
       display: block;
-      font-size: 25px;
-      line-height: 1;
-      color: var(--aqua);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--gold), var(--aqua));
+    }
+
+    /* ─── TURBO VOICE ORB ─── */
+    .turbo-orb-panel {
+      display: grid;
+      gap: 14px;
+    }
+
+    .turbo-orb-wrap {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .turbo-orb {
+      position: relative;
+      width: 112px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 34% 28%, rgba(255, 245, 178, 0.98), rgba(219, 195, 108, 0.58) 28%, transparent 46%),
+        radial-gradient(circle at 68% 66%, rgba(99, 255, 244, 0.82), transparent 42%),
+        conic-gradient(from 210deg, #63fff4, #dbc36c, #ff8b6b, #4b328f, #63fff4);
+      box-shadow:
+        0 0 0 1px rgba(237, 247, 245, 0.12),
+        0 0 42px rgba(99, 255, 244, 0.24),
+        inset 0 0 32px rgba(4, 7, 7, 0.54);
+      overflow: hidden;
+      animation: turbo-breathe 3.2s ease-in-out infinite;
+    }
+
+    .turbo-orb::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border-radius: inherit;
+      border: 1px solid rgba(5, 6, 6, 0.42);
+      background:
+        linear-gradient(120deg, rgba(255,255,255,0.2), transparent 34%),
+        radial-gradient(circle, rgba(5, 6, 6, 0.12), rgba(5, 6, 6, 0.48));
+    }
+
+    .turbo-orb.speaking {
+      animation: turbo-speak 0.72s ease-in-out infinite;
+    }
+
+    .turbo-status h3 {
+      color: var(--text);
+      font-size: 18px;
       margin-bottom: 6px;
     }
 
+    .turbo-status p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .voice-bars {
+      display: flex;
+      align-items: end;
+      gap: 4px;
+      height: 28px;
+      margin-top: 12px;
+    }
+
+    .voice-bars span {
+      display: block;
+      width: 6px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--gold);
+      opacity: 0.64;
+    }
+
+    .turbo-orb-panel.speaking .voice-bars span {
+      animation: voice-bar 0.72s ease-in-out infinite;
+    }
+
+    .voice-bars span:nth-child(2) { height: 16px; animation-delay: 0.08s; }
+    .voice-bars span:nth-child(3) { height: 24px; animation-delay: 0.16s; }
+    .voice-bars span:nth-child(4) { height: 12px; animation-delay: 0.24s; }
+    .voice-bars span:nth-child(5) { height: 20px; animation-delay: 0.32s; }
+
+    .voice-button {
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 8px;
+      color: #061111;
+      background: linear-gradient(135deg, var(--gold), var(--aqua));
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ─── COMMAND LOG ─── */
     .log-list {
       display: grid;
-      gap: 10px;
-      max-height: 420px;
-      overflow: auto;
+      gap: 6px;
+      max-height: 480px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(99, 255, 244, 0.15) transparent;
     }
 
     .log-item {
       display: grid;
-      grid-template-columns: 9px 1fr;
+      grid-template-columns: 6px 1fr auto;
       gap: 10px;
-      padding: 12px;
-      border: 1px solid rgba(99, 255, 244, 0.12);
-      border-radius: 8px;
-      background: rgba(2, 3, 3, 0.34);
+      align-items: start;
+      padding: 8px 10px;
+      border-radius: 6px;
+      background: rgba(2, 3, 3, 0.3);
+      font-size: 13px;
+      line-height: 1.4;
     }
 
-    .dot {
-      width: 7px;
-      height: 7px;
-      margin-top: 7px;
-      border-radius: 999px;
+    .log-dot {
+      width: 6px;
+      height: 6px;
+      margin-top: 5px;
+      border-radius: 50%;
       background: var(--aqua);
-      box-shadow: 0 0 16px rgba(99, 255, 244, 0.5);
-    }
-
-    .log-copy {
-      line-height: 1.42;
+      box-shadow: 0 0 10px rgba(99, 255, 244, 0.4);
     }
 
     .log-time {
-      margin-top: 4px;
-      font-size: 12px;
+      font-size: 11px;
+      color: var(--faint);
+      font-family: var(--mono);
+      white-space: nowrap;
     }
 
-    .snapshot {
-      width: 100%;
-      border: 1px solid rgba(99, 255, 244, 0.16);
-      border-radius: 8px;
-      overflow: hidden;
-      background: #020505;
-    }
-
-    .snapshot img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .modal-backdrop {
+    /* ─── KEYBOARD HELP MODAL ─── */
+    .modal-overlay {
       position: fixed;
       inset: 0;
-      z-index: 50;
+      z-index: 200;
       display: grid;
       place-items: center;
-      padding: 18px;
-      background: rgba(0, 0, 0, 0.66);
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
     }
 
-    .modal-card {
-      width: min(620px, 100%);
-      padding: 22px;
+    .modal-content {
+      width: min(460px, 90vw);
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(8, 10, 10, 0.95);
+      box-shadow: var(--shadow);
     }
 
-    .modal-card h2 { margin: 0 0 8px; }
-    .modal-card p { color: var(--muted); line-height: 1.55; }
+    .modal-content h2 {
+      font-size: 18px;
+      color: var(--aqua);
+      margin-bottom: 16px;
+    }
+
+    .shortcut-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .shortcut-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(99, 255, 244, 0.06);
+      font-size: 13px;
+    }
+
+    .shortcut-row kbd {
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(99, 255, 244, 0.25);
+      background: rgba(99, 255, 244, 0.08);
+      color: var(--aqua);
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* ─── OFFLINE BANNER ─── */
+    .offline-banner {
+      text-align: center;
+      padding: 8px;
+      background: rgba(255, 89, 77, 0.1);
+      border: 1px solid rgba(255, 89, 77, 0.25);
+      border-radius: 6px;
+      color: var(--red);
+      font-size: 13px;
+      font-weight: 700;
+      font-family: var(--mono);
+      margin-bottom: 16px;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
 
     @keyframes irisPulse {
-      0%, 100% { transform: scale(0.94); opacity: 0.72; }
-      50% { transform: scale(1.03); opacity: 1; }
+      0%, 100% { transform: scale(0.95); opacity: 0.58; }
+      50% { transform: scale(1.05); opacity: 0.92; }
     }
 
     @keyframes scanSweep {
-      0% { top: -15%; opacity: 0; }
-      18% { opacity: 1; }
-      100% { top: 115%; opacity: 0; }
+      0% { top: -20%; opacity: 0; }
+      15% { opacity: 1; }
+      100% { top: 120%; opacity: 0; }
     }
 
-    @media (max-width: 1180px) {
-      .workspace { grid-template-columns: 1fr; }
-      .side-column { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .agent-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 820px) {
-      .login-screen {
-        padding: 16px 0;
-        overflow-x: hidden;
+    @keyframes turbo-breathe {
+      0%, 100% { transform: scale(1); filter: saturate(1); }
+      50% { transform: scale(1.025); filter: saturate(1.18); }
+    }
+
+    @keyframes turbo-speak {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 1px rgba(237, 247, 245, 0.12), 0 0 34px rgba(219, 195, 108, 0.28), inset 0 0 32px rgba(4, 7, 7, 0.54); }
+      50% { transform: scale(1.06); box-shadow: 0 0 0 1px rgba(237, 247, 245, 0.22), 0 0 58px rgba(99, 255, 244, 0.34), inset 0 0 24px rgba(4, 7, 7, 0.42); }
+    }
+
+    @keyframes voice-bar {
+      0%, 100% { transform: scaleY(0.62); opacity: 0.45; }
+      50% { transform: scaleY(1.18); opacity: 1; }
+    }
+
+    .fade-in {
+      animation: fade-in 0.25s ease-out;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .launch-hero::before {
+        background:
+          linear-gradient(180deg, rgba(3, 7, 7, 0.96) 0%, rgba(4, 14, 15, 0.86) 64%, rgba(4, 8, 8, 0.62) 100%),
+          url("./assets/triton-dashboard-premium.png") center bottom 36px / min(760px, 112vw) auto no-repeat;
+        opacity: 0.74;
       }
+      .launch-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .launch-band-inner { grid-template-columns: 1fr; }
+      .dash-grid { grid-template-columns: 1fr; }
+      .agent-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+      .status-bar { flex-wrap: wrap; gap: 8px; }
+      .shortcuts-hint { display: none; }
+    }
+
+    @media (max-width: 540px) {
+      .launch-hero {
+        min-height: 86vh;
+        padding: 24px 14px 62px;
+      }
+      .launch-nav {
+        left: 14px;
+        right: 14px;
+        align-items: flex-start;
+        font-size: 10px;
+      }
+      .launch-nav > span { text-align: right; }
+      .launch-copy { padding-top: 78px; }
+      .launch-title { font-size: 44px; }
+      .launch-subtitle { font-size: 17px; }
+      .launch-actions { display: grid; }
+      .launch-button { width: 100%; }
+      .launch-strip { grid-template-columns: 1fr; }
+      .launch-stat { min-height: auto; }
+      .launch-band { padding: 42px 14px 54px; }
+      .fleet-row {
+        grid-template-columns: 40px 1fr;
+      }
+      .fleet-avatar {
+        width: 40px;
+        height: 40px;
+      }
+      .fleet-state {
+        grid-column: 2;
+      }
+      .turbo-orb-wrap {
+        grid-template-columns: 1fr;
+      }
+      .turbo-orb {
+        width: min(112px, 42vw);
+      }
+      .dashboard { padding: 12px; }
+      .agent-grid { grid-template-columns: 1fr; }
+      .approval-item { grid-template-columns: 1fr; }
+      .approval-actions { justify-content: flex-end; }
       .iris-card {
         width: calc(100vw - 28px);
-        max-width: calc(100vw - 28px);
         padding: 22px 16px;
-        overflow: hidden;
       }
-      .login-title { font-size: 33px; }
-      .login-subtitle { font-size: 13px; }
-      .scanner {
-        width: 100%;
-        height: 250px;
-      }
-      .control-button {
-        font-size: 13px;
-        letter-spacing: 0.08em;
-      }
-      .info-card p {
-        overflow-wrap: anywhere;
-      }
-      .topbar { grid-template-columns: 1fr; }
-      .top-actions { justify-content: flex-start; }
-      .mission strong { font-size: 21px; }
-      .panel-head,
-      .queue-title {
-        display: grid;
+      .login-actions {
         grid-template-columns: 1fr;
-        justify-items: start;
       }
-      .topbar,
-      .panel,
-      .agent-card,
-      .queue-card,
-      .lane-card {
-        width: 100%;
-        max-width: 100%;
-        overflow: hidden;
-      }
-      .agent-top {
-        display: grid;
-        grid-template-columns: 1fr auto;
-      }
-      .badge,
-      .chip {
-        white-space: normal;
-      }
-      .badge-row .badge,
-      .panel-head > .badge {
-        max-width: 100%;
-      }
-      .agent-grid,
-      .queue-grid,
-      .ops-grid,
-      .lane-grid,
-      .side-column { grid-template-columns: 1fr; }
-      .app-screen { padding: 12px; }
-      .passcode-panel { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <main class="login-screen" id="loginScreen">
+
+  <!-- ═══ PUBLIC LAUNCH SURFACE ═══ -->
+  <main class="launch-screen" id="launchScreen">
+    <section class="launch-hero" aria-label="Triton Blackwater OS">
+      <nav class="launch-nav" aria-label="Launch navigation">
+        <div class="nav-brand">
+          <span class="launch-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <strong>TRITON</strong>
+        </div>
+        <span>Blackwater OS / Human-Gated Command</span>
+      </nav>
+
+      <div class="launch-copy">
+        <div class="eyebrow">Nauti-Labs</div>
+        <h1 class="launch-title">See the operation before it acts.</h1>
+        <p class="launch-subtitle">A dashboard observes. Triton authorizes consequences. Agents propose, humans command, systems verify.</p>
+        <div class="launch-points" aria-label="Triton trust signals">
+          <span class="launch-pill gold">Authority Rail</span>
+          <span class="launch-pill">Causality Twin</span>
+          <span class="launch-pill">Agent Court</span>
+          <span class="launch-pill">DockLens Evidence</span>
+          <span class="launch-pill">Signed Command Receipt</span>
+        </div>
+        <div class="launch-actions">
+          <button class="launch-button primary" id="launchPreview" type="button">Launch Preview</button>
+          <button class="launch-button secondary" id="secureConsole" type="button">Secure Console</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="launch-strip" aria-label="Triton operating posture">
+      <div class="launch-stat"><strong>7</strong><span>agents visible across Nauti-Ops, Clearance, Castle, Turbo, and Nauti-Vision</span></div>
+      <div class="launch-stat"><strong>3</strong><span>consequence branches generated before a human command leaves the rail</span></div>
+      <div class="launch-stat"><strong>1</strong><span>local presence gate before scoped authority can execute</span></div>
+      <div class="launch-stat"><strong>0</strong><span>silent external actions without a signed command receipt</span></div>
+    </section>
+
+    <section class="launch-band" aria-label="Triton command flow">
+      <div class="launch-band-inner">
+        <div>
+          <span class="eyebrow">Tonight's Surface</span>
+          <h2>A faster path from signal to command.</h2>
+          <p>Rocky says it runs tasks. Triton shows the consequence chain, lets agents argue the evidence, and gives the captain a clean yes, investigate, or hold command.</p>
+        </div>
+        <div class="fleet-grid" aria-label="Triton command modules">
+          <article class="fleet-row">
+            <span class="fleet-avatar">CT</span>
+            <div><h3>Causality Twin</h3><p>Shows the next likely events before approval.</p></div>
+            <span class="fleet-state">armed</span>
+          </article>
+          <article class="fleet-row">
+            <span class="fleet-avatar">AC</span>
+            <div><h3>Agent Court</h3><p>Ops, commercial, vision, security, and clearance argue the packet.</p></div>
+            <span class="fleet-state">live</span>
+          </article>
+          <article class="fleet-row">
+            <span class="fleet-avatar">DL</span>
+            <div><h3>DockLens Evidence</h3><p>Visual observations become attachable decision evidence.</p></div>
+            <span class="fleet-state">staged</span>
+          </article>
+          <article class="fleet-row">
+            <span class="fleet-avatar">AR</span>
+            <div><h3>Authority Rail</h3><p>Every action gets allowed verbs, forbidden verbs, expiry, and rollback.</p></div>
+            <span class="fleet-state">gated</span>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══ LOGIN SCREEN ═══ -->
+  <main class="login-screen hidden" id="loginScreen">
     <section class="iris-card" aria-label="Triton Iris Authentication">
       <div class="trident" aria-hidden="true"><span></span><span></span><span></span></div>
       <h1 class="login-title">TRITON</h1>
@@ -855,389 +1472,785 @@
         <button class="control-button wide-button" id="phoneLens" type="button">Use Phone Lens</button>
         <div class="or-line">OR</div>
         <button class="passcode-toggle" id="passcodeToggle" type="button">Use access passcode instead</button>
-        <form class="passcode-panel hidden" id="passcodePanel">
-          <input id="passcode" type="password" autocomplete="current-password" placeholder="Access passcode">
-          <button class="ghost-button" type="submit">Open Deck</button>
-        </form>
       </div>
+
+      <form class="login-form passcode-panel hidden" id="loginForm">
+        <input id="passcodeInput" type="password" autocomplete="current-password" placeholder="Passcode" autofocus>
+        <button class="login-btn" type="submit">Open Command Rail</button>
+        <div class="login-error" id="loginError"></div>
+      </form>
 
       <div class="info-card">
         <strong>[=] Biometric Iris Auth</strong>
-        <p>Your iris pattern is staged locally in this preview. No biometric data is uploaded by this static live shell.</p>
+        <p>Local presence gates the command rail. No biometric data is uploaded by this launch surface.</p>
       </div>
     </section>
   </main>
 
-  <main class="app-screen hidden" id="appScreen">
-    <div class="app-frame">
-      <header class="topbar">
-        <div class="brand">
-          <span class="mini-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-          <div>
-            <h1>Triton</h1>
-            <p>Agent Controller / Iris Auth</p>
+  <!-- ═══ STATUS BAR ═══ -->
+  <header class="status-bar hidden" id="statusBar">
+    <div class="left">
+      <span class="status-indicator">
+        <span class="status-dot" id="healthDot"></span>
+        <span id="healthLabel">Triton Online</span>
+      </span>
+      <span class="stat-chip" id="agentCount">0 agents</span>
+      <span class="stat-chip warn" id="pendingCount" style="display:none">0 pending</span>
+    </div>
+    <div class="right">
+      <span class="shortcuts-hint">Human Gate / Authority Rail / Black Box</span>
+      <button class="btn-ghost btn-logout" id="logoutBtn">Return</button>
+    </div>
+  </header>
+
+  <!-- ═══ DASHBOARD ═══ -->
+  <main class="dashboard hidden" id="dashboard">
+
+    <div class="offline-banner hidden" id="offlineBanner">AUTHORITY RAIL HOLD - local signal unavailable</div>
+
+    <header class="dash-header">
+      <div class="dash-brand">
+        <span class="mini-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <h1>Triton Blackwater OS</h1>
+      </div>
+    </header>
+
+    <div class="dash-grid">
+      <div class="main-col">
+        <!-- Agent Deck -->
+        <section class="panel" id="agentPanel">
+          <div class="panel-header">
+            <h2>Agent Court</h2>
+            <span class="count" id="agentDeckCount"></span>
           </div>
-        </div>
-        <div class="mission">
-          <strong id="statusLine">7 AI teammates visible / 2 projects moving / 3 approvals waiting</strong>
-          <div class="badge-row">
-            <span class="badge live">Ambassador Preview</span>
-            <span class="badge">Private / Local / Read-only</span>
-            <span class="badge needs" id="clockBadge">Syncing</span>
+          <div class="agent-grid" id="agentGrid"></div>
+        </section>
+
+        <!-- Approval Queue -->
+        <section class="panel" id="approvalPanel">
+          <div class="panel-header">
+            <h2>Approval Queue</h2>
+            <span class="count" id="approvalCount"></span>
           </div>
-        </div>
-        <div class="top-actions">
-          <button class="ghost-button" id="colorbomb" type="button">Colorbomb</button>
-          <button class="quiet-button" id="lockDeck" type="button">Lock</button>
-        </div>
-      </header>
+          <div class="approval-list" id="approvalList">
+            <div class="approval-empty">No pending actions</div>
+          </div>
+        </section>
 
-      <section class="workspace">
-        <div class="main-column">
-          <section class="panel">
-            <div class="panel-head">
-              <div class="panel-title">
-                <span class="kicker">Command Surface</span>
-                <h2>Agent Controller</h2>
-              </div>
-              <span class="badge live">Static shell live / backend attach-ready</span>
-            </div>
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Causality Twin</h2>
+            <span class="count">3 branches</span>
+          </div>
+          <div class="twin-grid">
+            <article class="twin-card gold">
+              <h3>Fastest Safe Move</h3>
+              <p>Protect tug window, stage terminal notification, hold external execution until Clearance signs the packet.</p>
+            </article>
+            <article class="twin-card">
+              <h3>Lowest-Risk Move</h3>
+              <p>Hold berth unchanged, refresh terminal and tug data, re-run the command packet in 11 minutes.</p>
+            </article>
+            <article class="twin-card">
+              <h3>Commercially Optimal Move</h3>
+              <p>Preserve terminal slot, draft customer memo, and create the invoice-supporting event timeline.</p>
+            </article>
+          </div>
+        </section>
+      </div>
 
-            <nav class="tab-list" aria-label="Triton views">
-              <button class="tab-button active" data-view="deck" type="button">Agent Deck</button>
-              <button class="tab-button" data-view="queue" type="button">Approval Queue</button>
-              <button class="tab-button" data-view="ops" type="button">Ops Picture</button>
-              <button class="tab-button" data-view="iris" type="button">Iris Vault</button>
-            </nav>
+      <div class="side-col">
+        <section class="panel turbo-orb-panel" id="turboOrbPanel">
+          <div class="panel-header">
+            <h2>Turbo Voice</h2>
+            <span class="count">healthy</span>
+          </div>
+          <div class="turbo-orb-wrap">
+            <div class="turbo-orb" id="turboOrb" aria-label="Turbo Orb voice presence"></div>
+            <div class="turbo-status">
+              <h3>Turbo Orb</h3>
+              <p>Commercial voice lane is awake, scoped, and waiting for a captain command.</p>
+              <div class="voice-bars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <button class="voice-button" id="turboSpeak" type="button">Hear Turbo</button>
+        </section>
 
-            <div class="view active" id="view-deck">
-              <div class="agent-grid" id="agentGrid"></div>
-            </div>
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Authority Rail</h2>
+            <span class="count">human gate</span>
+          </div>
+          <div class="rail-list">
+            <article class="rail-card">
+              <h3>Scoped License</h3>
+              <p>Allowed: notify ops, update job board, draft customer memo. Forbidden: spend money, final-send, terminal notice.</p>
+            </article>
+            <article class="rail-card">
+              <h3>DockLens Evidence</h3>
+              <p>Berth obstruction observed at camera B-17. Confidence 86%. Advisory until attached to a signed command.</p>
+              <div class="evidence-meter" aria-hidden="true"><span style="width:86%"></span></div>
+            </article>
+            <article class="rail-card">
+              <h3>Signed Command Receipt</h3>
+              <p>Pending Clearance token. Execution remains blocked until the captain signs.</p>
+            </article>
+          </div>
+        </section>
 
-            <div class="view" id="view-queue">
-              <div class="queue-grid" id="queueGrid"></div>
-            </div>
-
-            <div class="view" id="view-ops">
-              <div class="ops-grid">
-                <div class="metric"><strong>14</strong><span>Open port-call signals</span></div>
-                <div class="metric"><strong>3</strong><span>Actions blocked for approval</span></div>
-                <div class="metric"><strong>11m</strong><span>Average response gain in demo lane</span></div>
-              </div>
-              <div class="lane-grid" style="margin-top:12px;">
-                <article class="lane-card">
-                  <h3>Chem tanker berth pressure</h3>
-                  <p>AI recommends holding tug dispatch until terminal confirms hose team ETA.</p>
-                  <div class="chip-row"><span class="chip">Risk: medium</span><span class="chip">Owner: port lead</span></div>
-                </article>
-                <article class="lane-card">
-                  <h3>Ambassador onboarding</h3>
-                  <p>Claude drafts the welcome packet while Codex checks the live URL and preview deck.</p>
-                  <div class="chip-row"><span class="chip">2 agents</span><span class="chip">Needs final approval</span></div>
-                </article>
-                <article class="lane-card">
-                  <h3>Payment intent rail</h3>
-                  <p>Clearance remains the self-serve rail. Triton stays sales-led and approval-gated.</p>
-                  <div class="chip-row"><span class="chip">USDC preferred</span><span class="chip">Invoice confirmed</span></div>
-                </article>
-              </div>
-            </div>
-
-            <div class="view" id="view-iris">
-              <div class="lane-grid">
-                <article class="lane-card">
-                  <h3>Iris authentication</h3>
-                  <p>The live shell opens on the Iris Auth screen and can request camera access only after the user clicks Scan Iris.</p>
-                  <div class="chip-row"><span class="chip">No upload</span><span class="chip">Local preview</span></div>
-                </article>
-                <article class="lane-card">
-                  <h3>Phone lens bridge</h3>
-                  <p>The phone-lens path is staged as a modal tonight. The real bridge can attach without changing the live URL.</p>
-                  <div class="chip-row"><span class="chip">Staged</span><span class="chip">Mobile-ready</span></div>
-                </article>
-                <article class="lane-card">
-                  <h3>Passcode fallback</h3>
-                  <p>Passcode opens the read-only ambassador deck so the demo still works if camera permission is denied.</p>
-                  <div class="chip-row"><span class="chip">Read-only</span><span class="chip">Demo-safe</span></div>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="panel">
-            <div class="panel-head">
-              <div class="panel-title">
-                <span class="kicker">Project Lanes</span>
-                <h2>Live Build Board</h2>
-              </div>
-              <span class="badge">2 moving</span>
-            </div>
-            <div class="lane-grid">
-              <article class="lane-card">
-                <h3>Triton live shell</h3>
-                <p>Public URL lands on Iris Auth, unlocks into Agent Controller, and survives backend deploy work.</p>
-                <div class="chip-row"><span class="chip">Codex</span><span class="chip">Live now</span></div>
-              </article>
-              <article class="lane-card">
-                <h3>Claude graphics pass</h3>
-                <p>Dashboard assets are preserved for comparison while the live HTML shell matches the Iris direction.</p>
-                <div class="chip-row"><span class="chip">Claude</span><span class="chip">Visuals</span></div>
-              </article>
-              <article class="lane-card">
-                <h3>Backend continuation</h3>
-                <p>Railway/FastAPI work can continue in the Triton app repo without breaking this GitHub Pages fallback.</p>
-                <div class="chip-row"><span class="chip">Attach API later</span><span class="chip">No DNS churn</span></div>
-              </article>
-            </div>
-          </section>
-        </div>
-
-        <aside class="side-column">
-          <section class="panel">
-            <div class="panel-head">
-              <div class="panel-title">
-                <span class="kicker">Captain's Log</span>
-                <h2>Recent</h2>
-              </div>
-            </div>
-            <div class="log-list" id="logList"></div>
-          </section>
-
-          <section class="panel">
-            <div class="panel-head">
-              <div class="panel-title">
-                <span class="kicker">Interface Snapshot</span>
-                <h2>Agent Deck Target</h2>
-              </div>
-            </div>
-            <figure class="snapshot">
-              <img src="./assets/triton-dashboard-premium.png" alt="Triton Agent Deck interface snapshot">
-            </figure>
-          </section>
-
-          <section class="panel">
-            <div class="panel-head">
-              <div class="panel-title">
-                <span class="kicker">Launch URL</span>
-                <h2>triton.nauti-labs.com</h2>
-              </div>
-            </div>
-            <p class="muted" style="line-height:1.55;margin:0;">This live page is the safe fallback. The production app can replace or hydrate it later without changing the public URL.</p>
-          </section>
-        </aside>
-      </section>
+        <!-- Command Log -->
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Operational Black Box</h2>
+            <span class="count" id="logCount">0</span>
+          </div>
+          <div class="log-list" id="logList"></div>
+        </section>
+      </div>
     </div>
   </main>
 
-  <div class="modal-backdrop hidden" id="phoneModal">
-    <section class="modal-card">
-      <h2>Phone Lens Bridge</h2>
-      <p>Open this URL from your phone camera flow after the backend bridge is attached. Tonight this path is staged so the launch page still shows the intended product surface.</p>
-      <div class="info-card">
-        <strong>Bridge target</strong>
-        <p>https://triton.nauti-labs.com/#phone-lens</p>
+  <!-- ═══ KEYBOARD SHORTCUTS MODAL ═══ -->
+  <div class="modal-overlay hidden" id="shortcutsModal">
+    <div class="modal-content">
+      <h2>Signed Command Receipt</h2>
+      <div class="shortcut-list">
+        <div class="shortcut-row"><span>Input arrived</span><kbd>logged</kbd></div>
+        <div class="shortcut-row"><span>Causality Twin generated branches</span><kbd>verified</kbd></div>
+        <div class="shortcut-row"><span>Agent Court argued evidence</span><kbd>visible</kbd></div>
+        <div class="shortcut-row"><span>Human command required</span><kbd>gated</kbd></div>
+        <div class="shortcut-row"><span>Clearance token</span><kbd>pending</kbd></div>
       </div>
-      <div class="action-row" style="margin-top:16px;">
-        <button class="ghost-button" id="closePhoneModal" type="button">Close</button>
-      </div>
-    </section>
+    </div>
   </div>
 
   <script>
-    const agents = [
-      ["Claude Code", "Writing", "Working on Ambassador onboarding.", "Claude"],
-      ["Codex", "Checking work", "Keeping the live Triton shell healthy.", "CX"],
-      ["ChatGPT", "Open", "Ready for launch copy and reply bank.", "GPT"],
-      ["Ollama", "Standing by", "Local model lane available for future attach.", "OL"],
-      ["OpenClaw", "Needs you", "Waiting on visual decision feedback.", "OC"],
-      ["Claude Co-Work", "Quiet", "Available for backend continuation.", "CW"],
-      ["Felipe", "Standing by", "Trading bot lane visible, not connected.", "FT"]
+    // ═══════════════════════════════════════
+    // TRITON AGENT CONTROLLER — FRONTEND
+    // ═══════════════════════════════════════
+
+    const API_BASE = (() => {
+      const loc = window.location;
+      // If served from the same origin as the backend, use relative paths
+      if (loc.hostname === 'localhost' && loc.port === '64770') return '';
+      // Otherwise target the local backend
+      return 'http://localhost:64770';
+    })();
+
+    const WS_URL = (() => {
+      const loc = window.location;
+      if (loc.hostname === 'localhost' && loc.port === '64770') {
+        return `ws://${loc.host}/ws`;
+      }
+      return 'ws://localhost:64770/ws';
+    })();
+
+    // ─── State ───
+    let agents = [];
+    let pendingActions = [];
+    let commandHistory = [];
+    let focusedApproval = -1;
+    let isOnline = false;
+    let ws = null;
+    let wsRetryDelay = 1000;
+    let pollTimer = null;
+    let demoMode = true;
+
+    const demoAgents = [
+      { name: 'Triton Ops', status: 'active', current_project: 'Operational recommendation: berth reassignment can move if Clearance signs.', accent_color: 'var(--aqua)' },
+      { name: 'Turbo', status: 'active', current_project: 'Voice lane healthy. Commercial impact: $18K delay exposure, customer memo ready.', accent_color: 'var(--gold)' },
+      { name: 'Nauti-Vision', status: 'active', current_project: 'DockLens Evidence: berth obstruction observed, 86% confidence.', accent_color: '#7cf7d4' },
+      { name: 'Castle', status: 'idle', current_project: 'Session integrity clean. Local presence gate required before execution.', accent_color: '#8b7dff' },
+      { name: 'Clearance', status: 'unknown', current_project: 'Clearance token pending. External execution blocked.', accent_color: '#ffcf6a' },
+      { name: 'NaviSales', status: 'idle', current_project: 'Stakeholder comms drafted. Final send forbidden until signed.', accent_color: '#ff8b6b' },
+      { name: 'Nauti-Ops', status: 'active', current_project: 'Tug window protected. Terminal notification staged, not sent.', accent_color: '#63fff4' }
     ];
 
-    const approvals = [
+    const demoApprovals = [
       {
-        title: "Publish Triton X launch link",
-        risk: "Medium",
-        reason: "Use triton.nauti-labs.com after visual/auth shell is live.",
-        command: "Approve public launch URL"
+        id: 'cmd_berth_15_001',
+        title: 'Command Packet: berth reassignment',
+        description: 'If approved: protect tug window, stage terminal notice, attach DockLens Evidence, hold final send for Clearance.',
+        source: 'Authority Rail / Causality Twin'
       },
       {
-        title: "Invite 15 ambassadors",
-        risk: "Low",
-        reason: "Read-only preview mode. No live control actions exposed.",
-        command: "Send preview DM"
+        id: 'auth_license_0742',
+        title: 'Scope-Limited Execution License',
+        description: 'Allowed verbs: notify ops, update job board, draft memo. Forbidden: spend money, final-send, terminal notice.',
+        source: 'Castle / Clearance'
       },
       {
-        title: "Attach Railway backend",
-        risk: "High",
-        reason: "Custom domain cutover changes live infrastructure and should wait until the static shell is stable.",
-        command: "Hold backend cutover"
-      },
-      {
-        title: "Enable camera bridge",
-        risk: "Medium",
-        reason: "User-triggered camera access only. No automatic permission prompt.",
-        command: "Stage phone lens bridge"
+        id: 'docklens_berth_b17',
+        title: 'Attach DockLens Evidence',
+        description: 'Camera B-17 saw berth obstruction. Confidence 86%. Advisory only until attached to signed packet.',
+        source: 'Nauti-Vision'
       }
     ];
 
-    const logItems = [
-      "Iris Auth shell restored to the screenshot direction.",
-      "triton.nauti-labs.com routes to the live Triton front door.",
-      "Agent Controller preview loaded with teammates, approvals, and project lanes.",
-      "Static fallback remains safe while backend work continues.",
-      "Approval queue is interactive in read-only demo mode."
+    const demoHistory = [
+      { message: 'Input arrived: berth pressure signal and tug-window conflict.' },
+      { message: 'Causality Twin generated fastest safe, lowest-risk, and commercial branches.' },
+      { message: 'Agent Court opened: Ops supports, Turbo speaks commercial impact, Castle requires local gate, Clearance blocks execution.' },
+      { message: 'DockLens Evidence attached as advisory testimony.' },
+      { message: 'Awaiting human command before any external action.' }
     ];
 
-    const loginScreen = document.getElementById("loginScreen");
-    const appScreen = document.getElementById("appScreen");
-    const passcodePanel = document.getElementById("passcodePanel");
-    const authStatus = document.getElementById("authStatus");
-    const scanner = document.getElementById("scanner");
-    const phoneModal = document.getElementById("phoneModal");
-    const logList = document.getElementById("logList");
+    // ─── DOM refs ───
+    const $launchScreen = document.getElementById('launchScreen');
+    const $launchPreview = document.getElementById('launchPreview');
+    const $secureConsole = document.getElementById('secureConsole');
+    const $loginScreen = document.getElementById('loginScreen');
+    const $loginForm = document.getElementById('loginForm');
+    const $scanner = document.getElementById('scanner');
+    const $authStatus = document.getElementById('authStatus');
+    const $scanIris = document.getElementById('scanIris');
+    const $enrollEye = document.getElementById('enrollEye');
+    const $phoneLens = document.getElementById('phoneLens');
+    const $passcodeToggle = document.getElementById('passcodeToggle');
+    const $passcodeInput = document.getElementById('passcodeInput');
+    const $loginError = document.getElementById('loginError');
+    const $statusBar = document.getElementById('statusBar');
+    const $dashboard = document.getElementById('dashboard');
+    const $healthDot = document.getElementById('healthDot');
+    const $healthLabel = document.getElementById('healthLabel');
+    const $agentCount = document.getElementById('agentCount');
+    const $pendingCount = document.getElementById('pendingCount');
+    const $agentGrid = document.getElementById('agentGrid');
+    const $agentDeckCount = document.getElementById('agentDeckCount');
+    const $approvalList = document.getElementById('approvalList');
+    const $approvalCount = document.getElementById('approvalCount');
+    const $logList = document.getElementById('logList');
+    const $logCount = document.getElementById('logCount');
+    const $offlineBanner = document.getElementById('offlineBanner');
+    const $shortcutsModal = document.getElementById('shortcutsModal');
+    const $logoutBtn = document.getElementById('logoutBtn');
+    const $turboOrbPanel = document.getElementById('turboOrbPanel');
+    const $turboOrb = document.getElementById('turboOrb');
+    const $turboSpeak = document.getElementById('turboSpeak');
 
-    function nowLabel() {
-      return new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit", second: "2-digit" });
+    // ─── API helpers ───
+    async function api(path, opts = {}) {
+      const url = `${API_BASE}${path}`;
+      const res = await fetch(url, {
+        credentials: 'include',
+        ...opts,
+      });
+      if (res.status === 401 || res.status === 403) {
+        lockDeck();
+        throw new Error('Unauthorized');
+      }
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res.json();
     }
 
-    function pushLog(text) {
-      const item = document.createElement("div");
-      item.className = "log-item";
-      item.innerHTML = `<span class="dot"></span><div><div class="log-copy">${text}</div><div class="log-time">${nowLabel()}</div></div>`;
-      logList.prepend(item);
+    async function apiPost(path, body, contentType = 'application/json') {
+      const opts = { method: 'POST' };
+      if (contentType === 'application/x-www-form-urlencoded') {
+        opts.headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
+        opts.body = body;
+      } else {
+        opts.headers = { 'Content-Type': 'application/json' };
+        opts.body = JSON.stringify(body);
+      }
+      return api(path, opts);
+    }
+
+    // ─── Launch / Login ───
+    $launchPreview.addEventListener('click', () => {
+      demoMode = true;
+      unlockDeck();
+    });
+
+    $secureConsole.addEventListener('click', () => {
+      showLogin();
+    });
+
+    $scanIris.addEventListener('click', async () => {
+      $scanner.classList.add('scanning');
+      $authStatus.style.color = 'var(--aqua)';
+      $authStatus.textContent = 'Scanning iris...';
+      setTimeout(() => $scanner.classList.remove('scanning'), 1800);
+
+      try {
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) throw new Error('Camera unavailable');
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        stream.getTracks().forEach((track) => track.stop());
+        $authStatus.style.color = 'var(--green)';
+        $authStatus.textContent = 'Iris lens available. Opening the command rail.';
+        setTimeout(unlockDeck, 520);
+      } catch {
+        $authStatus.style.color = 'var(--red)';
+        $authStatus.textContent = 'Camera access denied. Use passcode to log in.';
+        $loginForm.classList.remove('hidden');
+        $passcodeInput.focus();
+      }
+    });
+
+    $enrollEye.addEventListener('click', () => {
+      $authStatus.style.color = 'var(--gold)';
+      $authStatus.textContent = 'Eye enrollment is staged. Use passcode for tonight.';
+      $loginForm.classList.remove('hidden');
+      $passcodeInput.focus();
+    });
+
+    $phoneLens.addEventListener('click', () => {
+      $authStatus.style.color = 'var(--gold)';
+      $authStatus.textContent = 'Phone lens bridge is staged. Use passcode to enter the command rail.';
+      $loginForm.classList.remove('hidden');
+      $passcodeInput.focus();
+    });
+
+    $passcodeToggle.addEventListener('click', () => {
+      $loginForm.classList.toggle('hidden');
+      if (!$loginForm.classList.contains('hidden')) $passcodeInput.focus();
+    });
+
+    $loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const code = $passcodeInput.value.trim();
+      if (!code) {
+        $loginError.textContent = 'Enter passcode';
+        return;
+      }
+      $loginError.textContent = '';
+      demoMode = true;
+      unlockDeck();
+    });
+
+    $logoutBtn.addEventListener('click', async () => {
+      if (!demoMode) {
+        try { await fetch(`${API_BASE}/logout`, { credentials: 'include' }); } catch {}
+      }
+      lockDeck();
+    });
+
+    $turboSpeak.addEventListener('click', () => {
+      const line = 'Turbo online. Commercial exposure is eighteen thousand dollars. Fastest safe move is staged, but Clearance must sign before execution.';
+      $turboOrb.classList.add('speaking');
+      $turboOrbPanel.classList.add('speaking');
+      pushLogEntry('Turbo voice lane spoke the commercial impact.');
+
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(line);
+        utterance.rate = 0.92;
+        utterance.pitch = 0.88;
+        utterance.onend = stopTurboVoice;
+        utterance.onerror = stopTurboVoice;
+        window.speechSynthesis.speak(utterance);
+      } else {
+        setTimeout(stopTurboVoice, 1800);
+      }
+    });
+
+    function stopTurboVoice() {
+      $turboOrb.classList.remove('speaking');
+      $turboOrbPanel.classList.remove('speaking');
+    }
+
+    function showLogin() {
+      $launchScreen.classList.add('hidden');
+      $loginScreen.classList.remove('hidden');
+      $statusBar.classList.add('hidden');
+      $dashboard.classList.add('hidden');
+      $loginForm.classList.add('hidden');
+      $authStatus.style.color = 'var(--red)';
+      $authStatus.textContent = 'Camera access denied. Use passcode to log in.';
     }
 
     function unlockDeck() {
-      loginScreen.classList.add("hidden");
-      appScreen.classList.remove("hidden");
-      localStorage.setItem("triton-preview-unlocked", "true");
-      renderDeck();
+      $launchScreen.classList.add('hidden');
+      $loginScreen.classList.add('hidden');
+      $statusBar.classList.remove('hidden');
+      $dashboard.classList.remove('hidden');
+      localStorage.setItem('triton-preview-unlocked', 'true');
+      if (demoMode) {
+        loadDemoData();
+        setOnline(true);
+        $healthLabel.textContent = 'Triton Blackwater OS';
+        return;
+      }
+      startPolling();
+      connectWS();
     }
 
     function lockDeck() {
-      localStorage.removeItem("triton-preview-unlocked");
-      appScreen.classList.add("hidden");
-      loginScreen.classList.remove("hidden");
+      localStorage.removeItem('triton-preview-unlocked');
+      $launchScreen.classList.remove('hidden');
+      $loginScreen.classList.add('hidden');
+      $statusBar.classList.add('hidden');
+      $dashboard.classList.add('hidden');
+      $passcodeInput.value = '';
+      $loginError.textContent = '';
+      $loginForm.classList.add('hidden');
+      $authStatus.style.color = 'var(--red)';
+      $authStatus.textContent = 'Camera access denied. Use passcode to log in.';
+      stopPolling();
+      disconnectWS();
     }
 
-    function renderDeck() {
-      const agentGrid = document.getElementById("agentGrid");
-      agentGrid.innerHTML = agents.map(([name, status, copy, initials]) => `
-        <article class="agent-card">
-          <div class="agent-top">
-            <div><div class="agent-name">${name}</div><div class="meta">${status}</div></div>
-            <span class="avatar">${initials}</span>
-          </div>
-          <p class="agent-status">${copy}</p>
-          <div class="chip-row"><span class="chip">${status}</span><span class="chip">Demo signal</span></div>
-        </article>
-      `).join("");
-
-      const queueGrid = document.getElementById("queueGrid");
-      queueGrid.innerHTML = approvals.map((item, index) => `
-        <article class="queue-card" data-index="${index}">
-          <div class="queue-title"><h3>${item.title}</h3><span class="chip risk">${item.risk}</span></div>
-          <p>${item.reason}</p>
-          <div class="chip-row"><span class="chip">${item.command}</span></div>
-          <div class="action-row">
-            <button class="small-button button-approve" data-action="approved" data-index="${index}" type="button">Approve</button>
-            <button class="small-button button-hold" data-action="hold" data-index="${index}" type="button">Hold</button>
-            <button class="small-button button-deny" data-action="denied" data-index="${index}" type="button">Deny</button>
-          </div>
-        </article>
-      `).join("");
-
-      logList.innerHTML = "";
-      logItems.forEach(pushLog);
+    function loadDemoData() {
+      agents = demoAgents.map((agent) => ({ ...agent, last_seen: new Date().toISOString() }));
+      pendingActions = demoApprovals.map((item) => ({ ...item }));
+      commandHistory = demoHistory.map((item, index) => ({
+        ...item,
+        timestamp: new Date(Date.now() - index * 74000).toISOString()
+      }));
+      renderAgents();
+      renderApprovals();
+      renderLog();
     }
 
-    document.getElementById("scanIris").addEventListener("click", async () => {
-      scanner.classList.add("scanning");
-      authStatus.textContent = "Scanning iris...";
-      setTimeout(() => scanner.classList.remove("scanning"), 1800);
+    // ─── Data fetching ───
+    async function fetchAll() {
       try {
-        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) throw new Error("Camera unavailable");
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        stream.getTracks().forEach((track) => track.stop());
-        authStatus.style.color = "var(--green)";
-        authStatus.textContent = "Iris lens available. Opening read-only Agent Controller.";
-        setTimeout(unlockDeck, 650);
-      } catch (error) {
-        authStatus.style.color = "var(--red)";
-        authStatus.textContent = "Camera access denied. Use passcode to log in.";
-        passcodePanel.classList.remove("hidden");
-        document.getElementById("passcode").focus();
+        const [deckRes, historyRes, actionsRes, statusRes] = await Promise.allSettled([
+          api('/api/agent-deck'),
+          api('/api/history'),
+          api('/api/integrations/pending-actions'),
+          api('/api/status'),
+        ]);
+
+        if (deckRes.status === 'fulfilled') {
+          const data = deckRes.value;
+          agents = Array.isArray(data) ? data : (data.agents || []);
+          renderAgents();
+        }
+
+        if (historyRes.status === 'fulfilled') {
+          const data = historyRes.value;
+          commandHistory = Array.isArray(data) ? data : (data.history || data.commands || []);
+          renderLog();
+        }
+
+        if (actionsRes.status === 'fulfilled') {
+          const data = actionsRes.value;
+          pendingActions = Array.isArray(data) ? data : (data.actions || data.pending || []);
+          renderApprovals();
+        }
+
+        setOnline(true);
+
+        if (statusRes.status === 'fulfilled') {
+          const st = statusRes.value;
+          $healthLabel.textContent = st.status === 'ok' ? 'Triton Online' : (st.message || 'Triton');
+        }
+      } catch (err) {
+        setOnline(false);
       }
-    });
+    }
 
-    document.getElementById("enrollEye").addEventListener("click", () => {
-      authStatus.style.color = "var(--gold)";
-      authStatus.textContent = "Eye enrollment is staged. Use passcode for tonight's preview.";
-      passcodePanel.classList.remove("hidden");
-    });
+    function startPolling() {
+      fetchAll();
+      pollTimer = setInterval(fetchAll, 10000);
+    }
 
-    document.getElementById("phoneLens").addEventListener("click", () => {
-      phoneModal.classList.remove("hidden");
-    });
+    function stopPolling() {
+      if (pollTimer) clearInterval(pollTimer);
+      pollTimer = null;
+    }
 
-    document.getElementById("closePhoneModal").addEventListener("click", () => {
-      phoneModal.classList.add("hidden");
-    });
+    // ─── WebSocket ───
+    function connectWS() {
+      if (ws && (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING)) return;
+      try {
+        ws = new WebSocket(WS_URL);
+      } catch { return; }
 
-    document.getElementById("passcodeToggle").addEventListener("click", () => {
-      passcodePanel.classList.toggle("hidden");
-      if (!passcodePanel.classList.contains("hidden")) document.getElementById("passcode").focus();
-    });
+      ws.onopen = () => {
+        wsRetryDelay = 1000;
+        setOnline(true);
+        pushLogEntry('WebSocket connected');
+      };
 
-    document.getElementById("passcodePanel").addEventListener("submit", (event) => {
-      event.preventDefault();
-      const value = document.getElementById("passcode").value.trim();
-      if (!value) {
-        authStatus.style.color = "var(--red)";
-        authStatus.textContent = "Enter the crew passcode to open Triton.";
+      ws.onmessage = (event) => {
+        try {
+          const msg = JSON.parse(event.data);
+          handleWSMessage(msg);
+        } catch {
+          pushLogEntry(event.data);
+        }
+      };
+
+      ws.onclose = () => {
+        ws = null;
+        setTimeout(() => {
+          if (!$dashboard.classList.contains('hidden')) {
+            wsRetryDelay = Math.min(wsRetryDelay * 1.5, 30000);
+            connectWS();
+          }
+        }, wsRetryDelay);
+      };
+
+      ws.onerror = () => {
+        ws?.close();
+      };
+    }
+
+    function disconnectWS() {
+      if (ws) { ws.close(); ws = null; }
+    }
+
+    function handleWSMessage(msg) {
+      const type = msg.type || msg.event;
+      switch (type) {
+        case 'agent_update':
+        case 'agent-update':
+          if (msg.agents) { agents = msg.agents; renderAgents(); }
+          else fetchAll();
+          break;
+        case 'approval':
+        case 'pending_action':
+          fetchAll();
+          break;
+        case 'command':
+        case 'history':
+          if (msg.entry || msg.command) {
+            commandHistory.unshift(msg.entry || msg);
+            if (commandHistory.length > 20) commandHistory = commandHistory.slice(0, 20);
+            renderLog();
+          } else {
+            fetchAll();
+          }
+          break;
+        case 'status':
+          if (msg.status) $healthLabel.textContent = msg.status === 'ok' ? 'Triton Online' : msg.message || 'Triton';
+          break;
+        default:
+          if (msg.message) pushLogEntry(msg.message);
+          break;
+      }
+    }
+
+    // ─── Rendering ───
+    function setOnline(online) {
+      isOnline = online;
+      $healthDot.classList.toggle('offline', !online);
+      $healthLabel.textContent = online ? 'Triton Online' : 'Triton Offline';
+      $offlineBanner.classList.toggle('hidden', online);
+    }
+
+    function renderAgents() {
+      $agentGrid.innerHTML = '';
+      $agentCount.textContent = `${agents.length} agent${agents.length !== 1 ? 's' : ''}`;
+      $agentDeckCount.textContent = `${agents.length} total`;
+
+      agents.forEach((agent) => {
+        const name = agent.name || agent.agent_name || 'Unknown';
+        const status = (agent.status || 'unknown').toLowerCase();
+        const project = agent.current_project || agent.project || '';
+        const lastSeen = agent.last_seen || '';
+        const accent = agent.accent_color || agent.color || 'var(--aqua)';
+
+        const card = document.createElement('article');
+        card.className = 'agent-card fade-in';
+        card.innerHTML = `
+          <div class="accent-bar" style="background:${accent}"></div>
+          <div class="top-row">
+            <span class="agent-name">${esc(name)}</span>
+            <span class="agent-status-badge ${status}">${status}</span>
+          </div>
+          ${project ? `<div class="agent-project">${esc(project)}</div>` : ''}
+          ${lastSeen ? `<div class="agent-meta">Last seen: ${formatTime(lastSeen)}</div>` : ''}
+        `;
+        $agentGrid.appendChild(card);
+      });
+    }
+
+    function renderApprovals() {
+      const count = pendingActions.length;
+      $approvalCount.textContent = `${count} pending`;
+      if (count > 0) {
+        $pendingCount.textContent = `${count} pending`;
+        $pendingCount.style.display = '';
+      } else {
+        $pendingCount.style.display = 'none';
+      }
+
+      if (count === 0) {
+        $approvalList.innerHTML = '<div class="approval-empty">No pending actions</div>';
+        focusedApproval = -1;
         return;
       }
-      authStatus.style.color = "var(--green)";
-      authStatus.textContent = "Passcode accepted. Opening Agent Controller.";
-      setTimeout(unlockDeck, 320);
-    });
 
-    document.getElementById("lockDeck").addEventListener("click", lockDeck);
+      $approvalList.innerHTML = '';
+      pendingActions.forEach((action, i) => {
+        const id = action.action_id || action.id || i;
+        const title = action.title || action.action || action.description || 'Pending Action';
+        const desc = action.description || action.details || action.reason || '';
+        const source = action.source || action.integration || '';
 
-    document.querySelectorAll(".tab-button").forEach((button) => {
-      button.addEventListener("click", () => {
-        document.querySelectorAll(".tab-button").forEach((item) => item.classList.remove("active"));
-        document.querySelectorAll(".view").forEach((view) => view.classList.remove("active"));
-        button.classList.add("active");
-        document.getElementById(`view-${button.dataset.view}`).classList.add("active");
+        const item = document.createElement('div');
+        item.className = `approval-item${i === focusedApproval ? ' focused' : ''}`;
+        item.dataset.index = i;
+        item.dataset.actionId = id;
+        item.innerHTML = `
+          <div class="info">
+            <h3>${esc(title)}</h3>
+            ${desc ? `<div class="desc">${esc(desc)}</div>` : ''}
+            ${source ? `<div class="source">${esc(source)}</div>` : ''}
+          </div>
+          <div class="approval-actions">
+            <button class="btn-approve" data-id="${esc(String(id))}" data-action="approve" title="Command (A)">Command</button>
+            <button class="btn-reject" data-id="${esc(String(id))}" data-action="reject" title="Investigate (R)">Investigate</button>
+          </div>
+        `;
+        $approvalList.appendChild(item);
       });
+    }
+
+    function renderLog() {
+      const items = commandHistory.slice(0, 20);
+      $logCount.textContent = String(items.length);
+      $logList.innerHTML = '';
+      items.forEach((entry) => {
+        const text = typeof entry === 'string' ? entry : (entry.command || entry.message || entry.text || JSON.stringify(entry));
+        const time = entry.timestamp || entry.time || '';
+        appendLogItem(text, time);
+      });
+    }
+
+    function pushLogEntry(text) {
+      commandHistory.unshift({ message: text, timestamp: new Date().toISOString() });
+      if (commandHistory.length > 20) commandHistory = commandHistory.slice(0, 20);
+      $logCount.textContent = String(Math.min(commandHistory.length, 20));
+      const item = createLogItem(text, new Date().toISOString());
+      $logList.prepend(item);
+      // Trim excess
+      while ($logList.children.length > 20) $logList.removeChild($logList.lastChild);
+    }
+
+    function appendLogItem(text, time) {
+      $logList.appendChild(createLogItem(text, time));
+    }
+
+    function createLogItem(text, time) {
+      const div = document.createElement('div');
+      div.className = 'log-item';
+      div.innerHTML = `<span class="log-dot"></span><span>${esc(text)}</span><span class="log-time">${time ? formatTime(time) : nowLabel()}</span>`;
+      return div;
+    }
+
+    // ─── Approval actions ───
+    $approvalList.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-action]');
+      if (!btn) return;
+      handleApproval(btn.dataset.id, btn.dataset.action);
     });
 
-    document.addEventListener("click", (event) => {
-      const button = event.target.closest("[data-action]");
-      if (!button) return;
-      const card = button.closest(".queue-card");
-      const action = button.dataset.action;
-      card.classList.remove("approved", "hold", "denied");
-      card.classList.add(action);
-      pushLog(`${approvals[Number(button.dataset.index)].title}: ${action}.`);
+    async function handleApproval(actionId, action) {
+      if (demoMode) {
+        const label = action === 'approve' ? 'Signed' : 'Held';
+        pushLogEntry(`${label} command packet: ${actionId}`);
+        pendingActions = pendingActions.filter(a => String(a.action_id || a.id) !== String(actionId));
+        focusedApproval = Math.min(focusedApproval, pendingActions.length - 1);
+        renderApprovals();
+        return;
+      }
+
+      try {
+        await apiPost(`/api/integrations/approvals/${actionId}`, { action });
+        pushLogEntry(`${action === 'approve' ? 'Approved' : 'Rejected'}: ${actionId}`);
+        // Remove from local state
+        pendingActions = pendingActions.filter(a => String(a.action_id || a.id) !== String(actionId));
+        focusedApproval = Math.min(focusedApproval, pendingActions.length - 1);
+        renderApprovals();
+      } catch (err) {
+        pushLogEntry(`Failed to ${action} ${actionId}: ${err.message}`);
+      }
+    }
+
+    // ─── Keyboard shortcuts ───
+    document.addEventListener('keydown', (e) => {
+      // Ignore when typing in input
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      // Ignore if dashboard hidden
+      if ($dashboard.classList.contains('hidden')) return;
+
+      const key = e.key.toLowerCase();
+
+      switch (key) {
+        case '?':
+          $shortcutsModal.classList.toggle('hidden');
+          e.preventDefault();
+          break;
+        case 'escape':
+          $shortcutsModal.classList.add('hidden');
+          if (focusedApproval >= 0) {
+            focusedApproval = -1;
+            renderApprovals();
+          }
+          break;
+        case 'j':
+          if (pendingActions.length > 0) {
+            focusedApproval = Math.min(focusedApproval + 1, pendingActions.length - 1);
+            renderApprovals();
+            scrollApprovalIntoView();
+          }
+          break;
+        case 'k':
+          if (pendingActions.length > 0) {
+            focusedApproval = Math.max(focusedApproval - 1, 0);
+            renderApprovals();
+            scrollApprovalIntoView();
+          }
+          break;
+        case 'a':
+        case 'y':
+          if (focusedApproval >= 0 && focusedApproval < pendingActions.length) {
+            const action = pendingActions[focusedApproval];
+            handleApproval(action.action_id || action.id || focusedApproval, 'approve');
+          }
+          break;
+        case 'r':
+        case 'n':
+          if (focusedApproval >= 0 && focusedApproval < pendingActions.length) {
+            const action = pendingActions[focusedApproval];
+            handleApproval(action.action_id || action.id || focusedApproval, 'reject');
+          }
+          break;
+      }
     });
 
-    document.getElementById("colorbomb").addEventListener("click", () => {
-      document.body.animate([
-        { filter: "saturate(1)" },
-        { filter: "saturate(1.8) brightness(1.18)" },
-        { filter: "saturate(1)" }
-      ], { duration: 620, easing: "ease-out" });
-      pushLog("Colorbomb visual pulse fired.");
+    // Close shortcuts modal on backdrop click
+    $shortcutsModal.addEventListener('click', (e) => {
+      if (e.target === $shortcutsModal) $shortcutsModal.classList.add('hidden');
     });
 
-    setInterval(() => {
-      document.getElementById("clockBadge").textContent = nowLabel();
-    }, 1000);
+    function scrollApprovalIntoView() {
+      const focused = $approvalList.querySelector('.focused');
+      if (focused) focused.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
 
-    if (localStorage.getItem("triton-preview-unlocked") === "true") {
+    // ─── Utilities ───
+    function esc(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    function nowLabel() {
+      return new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', second: '2-digit' });
+    }
+
+    function formatTime(ts) {
+      try {
+        const d = new Date(ts);
+        if (isNaN(d.getTime())) return ts;
+        const now = new Date();
+        const diff = now - d;
+        if (diff < 60000) return 'just now';
+        if (diff < 3600000) return `${Math.floor(diff / 60000)}m ago`;
+        if (diff < 86400000) return `${Math.floor(diff / 3600000)}h ago`;
+        return d.toLocaleDateString();
+      } catch {
+        return ts;
+      }
+    }
+
+    // ─── Boot ───
+    if (localStorage.getItem('triton-preview-unlocked') === 'true') {
+      demoMode = true;
       unlockDeck();
     }
   </script>

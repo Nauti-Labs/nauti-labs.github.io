@@ -7,7 +7,7 @@
       <stop offset="0.5" stop-color="#20B8FF"/>
       <stop offset="1" stop-color="#0077FF"/>
     </linearGradient>
-    <filter id="gearGlow" x="5" y="5" width="130" height="130" color-interpolation-filters="sRGB">
+    <filter id="gearGlow" filterUnits="userSpaceOnUse" x="5" y="5" width="130" height="130" color-interpolation-filters="sRGB">
       <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#00C8F0" flood-opacity="0.38"/>
     </filter>
   </defs>

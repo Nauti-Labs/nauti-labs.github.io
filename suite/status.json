@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-03T19:05:51.547473Z",
-  "summary": "7/7 services online",
+  "generated_at": "2026-05-03T19:10:53.439249Z",
+  "summary": "6/7 services online",
   "watchdog": {
     "online": true,
     "awake_guard": true
@@ -37,7 +37,7 @@
       "label": "Turbo",
       "role": "Strategic advisor",
       "port": 8301,
-      "online": true,
+      "online": false,
       "private": true
     },
     {

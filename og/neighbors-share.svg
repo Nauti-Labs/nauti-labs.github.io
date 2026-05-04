@@ -1,51 +1,100 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="630" fill="#060A12"/>
-  <rect width="1200" height="630" fill="url(#bgGlow)"/>
-  <g opacity="0.16">
-    <path d="M0 74H1200M0 154H1200M0 234H1200M0 314H1200M0 394H1200M0 474H1200M0 554H1200" stroke="#194031"/>
-    <path d="M88 0V630M208 0V630M328 0V630M448 0V630M568 0V630M688 0V630M808 0V630M928 0V630M1048 0V630M1168 0V630" stroke="#194031"/>
-  </g>
-
-  <g transform="translate(88 92)">
-    <path d="M18 88L88 28L158 88V186H18V88Z" stroke="#FFAA00" stroke-width="10" stroke-linejoin="round"/>
-    <path d="M60 110H116C126 110 134 118 134 128V160C134 170 126 178 116 178H60C50 178 42 170 42 160V128C42 118 50 110 60 110Z" stroke="#00D97E" stroke-width="8"/>
-    <circle cx="142" cy="28" r="22" stroke="#1677FF" stroke-width="6"/>
-    <circle cx="142" cy="28" r="7" fill="#FFAA00"/>
-    <path d="M142 6V-8M142 64V50M178 28H192M92 28H106" stroke="#1677FF" stroke-width="5" stroke-linecap="round"/>
-  </g>
-
-  <text x="320" y="176" fill="#F4F8FD" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" letter-spacing="7">NAUTI-LABS NEIGHBORS</text>
-  <text x="84" y="332" fill="#FFB02A" font-family="Arial, Helvetica, sans-serif" font-size="104" font-weight="800">Built Here.</text>
-  <text x="84" y="422" fill="#8CD56A" font-family="Arial, Helvetica, sans-serif" font-size="104" font-weight="800">For Here.</text>
-
-  <g transform="translate(84 474)">
-    <rect width="362" height="84" rx="18" fill="#101821" stroke="#2A463C"/>
-    <text x="28" y="34" fill="#FFAA00" font-family="Courier New, monospace" font-size="18" font-weight="700" letter-spacing="3">PATHWAY</text>
-    <text x="28" y="62" fill="#F5F8FD" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">nauti-labs.com/neighbors</text>
-  </g>
-
-  <g transform="translate(746 90)">
-    <path d="M58 336L132 274L208 312L286 236L358 278" stroke="#00D97E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="58" cy="336" r="11" fill="#00D97E"/>
-    <circle cx="132" cy="274" r="11" fill="#00D97E"/>
-    <circle cx="208" cy="312" r="11" fill="#00D97E"/>
-    <circle cx="286" cy="236" r="11" fill="#00D97E"/>
-    <circle cx="358" cy="278" r="11" fill="#00D97E"/>
-    <path d="M84 420H360" stroke="#355046" stroke-width="4" stroke-linecap="round"/>
-    <path d="M128 420V314H208V420" stroke="#FFAA00" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M114 314L168 268L222 314" stroke="#FFAA00" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M264 420V336H334V420" stroke="#1677FF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M248 336L300 288L350 336" stroke="#1677FF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="376" cy="136" r="54" stroke="#355046" stroke-width="6"/>
-    <path d="M344 138C360 120 392 120 408 138M356 164C368 152 384 152 396 164" stroke="#8CD56A" stroke-width="8" stroke-linecap="round"/>
-    <circle cx="376" cy="186" r="10" fill="#8CD56A"/>
-  </g>
-
   <defs>
-    <radialGradient id="bgGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(922 418) rotate(-160.238) scale(724.653 462.517)">
-      <stop stop-color="#2C2417"/>
-      <stop offset="0.52" stop-color="#09111B" stop-opacity="0.35"/>
-      <stop offset="1" stop-color="#060A12" stop-opacity="0"/>
-    </radialGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#061116"/>
+      <stop offset="0.48" stop-color="#081016"/>
+      <stop offset="1" stop-color="#15130D"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="666" y1="84" x2="1094" y2="558" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#13262A"/>
+      <stop offset="1" stop-color="#0B1118"/>
+    </linearGradient>
+    <linearGradient id="line" x1="70" y1="392" x2="602" y2="392" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#77E7FF"/>
+      <stop offset="0.5" stop-color="#F3B24A"/>
+      <stop offset="1" stop-color="#86DC73"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="26" stdDeviation="30" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
   </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <path d="M0 92H1200M0 190H1200M0 288H1200M0 386H1200M0 484H1200M0 582H1200M138 0V630M298 0V630M458 0V630M618 0V630M778 0V630M938 0V630M1098 0V630" stroke="#2A4746" stroke-width="1" opacity="0.16"/>
+  <path d="M-60 526C88 482 230 478 390 522C540 564 680 570 814 492C950 412 1044 338 1262 376" stroke="#77E7FF" stroke-width="2" opacity="0.18"/>
+  <path d="M-50 136C128 174 272 154 408 104C560 48 712 48 862 94C1016 142 1110 126 1254 64" stroke="#F3B24A" stroke-width="2" opacity="0.13"/>
+
+  <g transform="translate(72 62)">
+    <rect x="0" y="0" width="66" height="66" rx="18" fill="#0D1B20" stroke="#335D5E" stroke-width="2"/>
+    <path d="M17 36L33 21L49 36V51H17V36Z" stroke="#F3B24A" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M25 41H41" stroke="#86DC73" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="50" cy="17" r="6" fill="#77E7FF"/>
+    <text x="88" y="28" fill="#F5F8F2" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="900" letter-spacing="5">NAUTI-LABS</text>
+    <text x="88" y="58" fill="#86DC73" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="900" letter-spacing="4">NEIGHBORS</text>
+    <rect x="390" y="11" width="178" height="40" rx="20" fill="#101F23" stroke="#2E5556" stroke-width="1.5"/>
+    <text x="417" y="37" fill="#CFE2DF" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="800" letter-spacing="1.7">LOCAL PROS</text>
+  </g>
+
+  <g transform="translate(72 155)">
+    <text x="0" y="76" fill="#F7F8F2" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="900">Make your</text>
+    <text x="0" y="158" fill="#F7F8F2" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="900">business look</text>
+    <text x="0" y="240" fill="#F7F8F2" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="900">trusted online.</text>
+    <rect x="0" y="266" width="526" height="8" rx="4" fill="url(#line)"/>
+    <text x="0" y="326" fill="#C9DAD6" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="800">Websites, reviews, AI follow-up,</text>
+    <text x="0" y="363" fill="#C9DAD6" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="800">and security cleanup for local crews.</text>
+  </g>
+
+  <g transform="translate(72 540)">
+    <rect width="166" height="46" rx="23" fill="#13252A" stroke="#315D5D" stroke-width="1.5"/>
+    <text x="30" y="30" fill="#F5F8F2" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="900">Better site</text>
+    <rect x="184" width="152" height="46" rx="23" fill="#13252A" stroke="#315D5D" stroke-width="1.5"/>
+    <text x="205" y="30" fill="#F5F8F2" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="900">More reviews</text>
+    <rect x="354" width="138" height="46" rx="23" fill="#13252A" stroke="#315D5D" stroke-width="1.5"/>
+    <text x="380" y="30" fill="#F5F8F2" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="900">Fast replies</text>
+  </g>
+
+  <g transform="translate(652 72)" filter="url(#shadow)">
+    <rect x="0" y="0" width="486" height="488" rx="34" fill="url(#panel)" stroke="#315D5D" stroke-width="2"/>
+    <rect x="28" y="28" width="430" height="58" rx="18" fill="#0A141A" stroke="#24484C" stroke-width="1.5"/>
+    <circle cx="58" cy="57" r="8" fill="#F06458"/>
+    <circle cx="84" cy="57" r="8" fill="#F3B24A"/>
+    <circle cx="110" cy="57" r="8" fill="#86DC73"/>
+    <text x="140" y="64" fill="#DCEAE6" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="900" letter-spacing="1.3">LOCAL PRO SITE CHECK</text>
+
+    <g transform="translate(38 116)">
+      <rect width="410" height="132" rx="24" fill="#0E1A20" stroke="#254D50" stroke-width="1.5"/>
+      <text x="28" y="39" fill="#91AAA8" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="900" letter-spacing="1.6">FIRST IMPRESSION</text>
+      <text x="28" y="82" fill="#F7F8F2" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900">Looks ready</text>
+      <text x="28" y="116" fill="#F7F8F2" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900">before they call.</text>
+      <circle cx="346" cy="66" r="42" fill="#13272B" stroke="#86DC73" stroke-width="8"/>
+      <text x="318" y="77" fill="#F7F8F2" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900">96</text>
+    </g>
+
+    <g transform="translate(38 276)">
+      <rect width="190" height="56" rx="16" fill="#0E1A20" stroke="#254D50" stroke-width="1.5"/>
+      <circle cx="28" cy="28" r="11" fill="#86DC73"/>
+      <path d="M22 28L27 33L35 23" stroke="#071017" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="52" y="35" fill="#F7F8F2" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="900">Clean website</text>
+
+      <rect x="220" width="190" height="56" rx="16" fill="#0E1A20" stroke="#254D50" stroke-width="1.5"/>
+      <circle cx="248" cy="28" r="11" fill="#77E7FF"/>
+      <path d="M244 24H253M244 29H256M244 34H252" stroke="#071017" stroke-width="3" stroke-linecap="round"/>
+      <text x="272" y="35" fill="#F7F8F2" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="900">Fast replies</text>
+
+      <rect y="78" width="190" height="56" rx="16" fill="#0E1A20" stroke="#254D50" stroke-width="1.5"/>
+      <circle cx="28" cy="106" r="11" fill="#F3B24A"/>
+      <path d="M22 106H34M28 100V112" stroke="#071017" stroke-width="3" stroke-linecap="round"/>
+      <text x="52" y="113" fill="#F7F8F2" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="900">More reviews</text>
+
+      <rect x="220" y="78" width="190" height="56" rx="16" fill="#0E1A20" stroke="#254D50" stroke-width="1.5"/>
+      <circle cx="248" cy="106" r="11" fill="#86DC73"/>
+      <path d="M248 99L256 103V110C256 115 252 118 248 120C244 118 240 115 240 110V103L248 99Z" fill="#071017"/>
+      <text x="272" y="113" fill="#F7F8F2" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="900">Safer setup</text>
+    </g>
+
+    <g transform="translate(38 426)">
+      <text x="0" y="0" fill="#91AAA8" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="900" letter-spacing="1.4">NO CALL-CENTER HANDOFF</text>
+      <text x="0" y="34" fill="#F7F8F2" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="900">nauti-labs.com/neighbors</text>
+    </g>
+  </g>
 </svg>

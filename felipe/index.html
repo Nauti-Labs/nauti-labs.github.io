@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Felipe | Nauti Labs</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #060708;
+        --text: #f6f4ef;
+        --muted: #a8abb3;
+        --red: #ef233c;
+        --line: rgba(255, 255, 255, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: var(--bg);
+        color: var(--text);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .fallback {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background:
+          linear-gradient(135deg, rgba(239, 35, 60, 0.12), transparent 38%),
+          radial-gradient(circle at 80% 18%, rgba(255, 255, 255, 0.08), transparent 24%),
+          var(--bg);
+      }
+
+      .panel {
+        width: min(520px, 100%);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 28px;
+        background: rgba(10, 12, 15, 0.86);
+      }
+
+      .mark {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: 28px;
+        line-height: 1.1;
+        letter-spacing: 0;
+      }
+
+      p {
+        margin: 0 0 20px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 42px;
+        padding: 0 15px;
+        border-radius: 6px;
+        background: var(--red);
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      iframe {
+        position: fixed;
+        inset: 0;
+        z-index: 2;
+        width: 100vw;
+        height: 100vh;
+        border: 0;
+        background: var(--bg);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="fallback" aria-label="Felipe loading screen">
+      <section class="panel">
+        <svg class="mark" viewBox="0 0 64 64" role="img" aria-label="Felipe red arrow">
+          <path d="M12 44 44 12" stroke="#ef233c" stroke-width="8" stroke-linecap="square"/>
+          <path d="M34 12h10v10" stroke="#ef233c" stroke-width="8" stroke-linecap="square" fill="none"/>
+          <path d="M10 52h36" stroke="#ef233c" stroke-width="8" stroke-linecap="square"/>
+        </svg>
+        <h1>Felipe</h1>
+        <p>Opening the live trial desk.</p>
+        <a href="https://felipe-production-8624.up.railway.app/crypto">Open directly</a>
+      </section>
+    </main>
+
+    <iframe
+      title="Felipe live trial desk"
+      src="https://felipe-production-8624.up.railway.app/crypto"
+      allow="clipboard-read; clipboard-write"
+    ></iframe>
+  </body>
+</html>

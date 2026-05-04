@@ -116,14 +116,31 @@
 
     /* ── GEAR WHEEL LOGO ── */
     @keyframes gear-breathe {
-      0%, 100% { filter: drop-shadow(0 0 20px rgba(0, 200, 240, 0.35)); }
-      50%      { filter: drop-shadow(0 0 32px rgba(102, 229, 255, 0.55)); }
+      0%, 100% {
+        filter:
+          drop-shadow(0 0 28px rgba(0, 200, 240, 0.45))
+          drop-shadow(0 0 70px rgba(0, 200, 240, 0.28))
+          saturate(1.16)
+          contrast(1.08);
+      }
+      50% {
+        filter:
+          drop-shadow(0 0 38px rgba(102, 229, 255, 0.64))
+          drop-shadow(0 0 92px rgba(0, 200, 240, 0.34))
+          saturate(1.24)
+          contrast(1.1);
+      }
     }
     .logo-mark {
-      width: 132px; height: 132px;
+      width: 184px; height: 184px;
       object-fit: contain;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.45rem;
       animation: gear-breathe 4s ease-in-out infinite;
+      filter:
+        drop-shadow(0 0 28px rgba(0, 200, 240, 0.45))
+        drop-shadow(0 0 70px rgba(0, 200, 240, 0.28))
+        saturate(1.16)
+        contrast(1.08);
     }
 
     h1 {
@@ -264,7 +281,7 @@
     }
     @media (max-width: 780px) {
       .door { padding: 2rem 1.5rem; }
-      .logo-mark { width: 112px; height: 112px; }
+      .logo-mark { width: 148px; height: 148px; }
       .door-icon { width: 76px; height: 76px; }
     }
 
@@ -358,7 +375,7 @@
   <!-- HERO -->
   <section class="hero">
 
-    <img class="logo-mark" src="/assets/nauti-gear-wheel.svg" alt="Nauti-Labs gear wheel logo">
+    <img class="logo-mark" src="/assets/nauti-gear-wheel.svg?v=20260503-gear" alt="Nauti-Labs gear wheel logo" fetchpriority="high" decoding="async">
 
     <div class="hero-label">Nauti-Labs <span class="accent">·</span> Maritime <span class="accent">·</span> Labs <span class="accent">·</span> Neighbors</div>
     <h1>Three doors.<br>One ship.</h1>

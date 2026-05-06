@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-06T16:54:20.301301Z",
-  "summary": "3/7 services online",
+  "generated_at": "2026-05-06T16:59:25.014380Z",
+  "summary": "6/7 services online",
   "watchdog": {
     "online": true,
     "awake_guard": true
@@ -21,7 +21,7 @@
       "label": "Triton",
       "role": "Command hub",
       "port": 8600,
-      "online": false,
+      "online": true,
       "private": true
     },
     {
@@ -45,7 +45,7 @@
       "label": "Castle",
       "role": "Security and Blacksmith",
       "port": 8080,
-      "online": false,
+      "online": true,
       "private": true
     },
     {
@@ -53,7 +53,7 @@
       "label": "Navi-Sales",
       "role": "Sales intelligence",
       "port": 8500,
-      "online": false,
+      "online": true,
       "private": true
     },
     {

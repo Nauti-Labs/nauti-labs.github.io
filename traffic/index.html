@@ -5,13 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nauti-Labs Traffic</title>
-  <meta name="description" content="Nauti-Labs traffic boards for Clearance, Felipe, and Triton." />
+  <meta name="description" content="Password-protected Nauti-Labs traffic boards for Clearance, Felipe, Triton, and SCRAM." />
   <link rel="canonical" href="https://nauti-labs.com/traffic/" />
   <meta name="robots" content="noindex,nofollow" />
   <meta property="og:site_name" content="Nauti-Labs" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Nauti-Labs Traffic" />
-  <meta property="og:description" content="Live Nauti-Labs traffic boards, grouped by product." />
+  <meta property="og:description" content="Protected Nauti-Labs traffic boards, grouped by product." />
   <meta property="og:url" content="https://nauti-labs.com/traffic/" />
   <meta name="theme-color" content="#00c8f0" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,6 +33,7 @@
       --cyan: #00c8f0;
       --blue: #1779ff;
       --green: #63e68b;
+      --scram: #ff8a1f;
       --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --font-mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
     }
@@ -113,6 +114,107 @@
       background: var(--green);
       box-shadow: 0 0 15px var(--green);
       animation: pulse 1.7s ease-in-out infinite;
+    }
+    [hidden] { display: none !important; }
+    .gate {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(255, 138, 31, 0.12), transparent 34%),
+        radial-gradient(circle at 82% 22%, rgba(0, 200, 240, 0.08), transparent 30%),
+        #0e0e13;
+    }
+    .gate-card {
+      width: min(100%, 460px);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.018)), rgba(16, 17, 24, 0.94);
+      box-shadow: 0 28px 100px rgba(0, 0, 0, 0.46);
+      padding: 26px;
+    }
+    .gate-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .gate-logo img {
+      width: 58px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 10px 22px rgba(255, 138, 31, 0.2));
+    }
+    .gate-logo strong {
+      display: block;
+      color: #fff;
+      font-size: 20px;
+      line-height: 1;
+    }
+    .gate-logo span {
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+    .gate-card h1 {
+      font-size: 28px;
+      line-height: 1.08;
+      margin-bottom: 10px;
+    }
+    .gate-card p {
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .gate-card label {
+      display: block;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .gate-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+    }
+    .gate-card input {
+      min-height: 44px;
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #0b0c11;
+      color: var(--text);
+      font: 700 14px var(--font-mono);
+      padding: 0 12px;
+      outline: none;
+    }
+    .gate-card input:focus {
+      border-color: rgba(255, 138, 31, 0.7);
+      box-shadow: 0 0 0 3px rgba(255, 138, 31, 0.12);
+    }
+    .gate-card button {
+      min-height: 44px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--scram);
+      color: #16120d;
+      font: 900 13px var(--font-sans);
+      padding: 0 16px;
+      cursor: pointer;
+    }
+    .gate-error {
+      min-height: 18px;
+      color: var(--red);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      margin-top: 10px;
     }
     @keyframes pulse {
       0%, 100% { opacity: 1; }
@@ -236,6 +338,11 @@
       background: transparent;
       border-color: transparent;
     }
+    .traffic-tab.scram.active {
+      color: #fff4e9;
+      border-color: rgba(255, 138, 31, 0.52);
+      background: rgba(255, 138, 31, 0.14);
+    }
     .tab-icon {
       width: 18px;
       height: 18px;
@@ -247,6 +354,12 @@
     .tab-icon.clearance { color: var(--amber); }
     .tab-icon.felipe { color: var(--red); }
     .tab-icon.triton { color: var(--blue); opacity: 0.85; }
+    .tab-icon.scram img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 3px 9px rgba(255, 138, 31, 0.28));
+    }
     .surface-meta {
       color: var(--muted);
       font-family: var(--font-mono);
@@ -297,6 +410,175 @@
       font-family: var(--font-mono);
       font-size: 12px;
     }
+    .scram-board {
+      padding: 18px;
+      background:
+        radial-gradient(circle at 16% 0%, rgba(255, 138, 31, 0.13), transparent 34%),
+        #08090d;
+    }
+    .scram-hero {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(20, 21, 28, 0.86);
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+    .scram-hero img {
+      width: 104px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.42));
+    }
+    .scram-hero h2 {
+      font-size: clamp(22px, 3vw, 32px);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .scram-hero p {
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+    .scram-state {
+      border: 1px solid rgba(255, 138, 31, 0.32);
+      border-radius: 10px;
+      background: rgba(255, 138, 31, 0.09);
+      color: #ffd6b2;
+      padding: 10px 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      min-width: max-content;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(25, 26, 34, 0.76);
+      padding: 14px;
+    }
+    .metric span {
+      display: block;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .metric strong {
+      color: #fff;
+      font-size: 28px;
+      line-height: 1;
+    }
+    .metric small {
+      display: block;
+      margin-top: 7px;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      line-height: 1.35;
+    }
+    .traffic-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+      gap: 14px;
+    }
+    .traffic-panel {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(18, 19, 26, 0.82);
+      overflow: hidden;
+    }
+    .traffic-panel header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+    }
+    .traffic-panel h3 {
+      font-size: 14px;
+      line-height: 1.1;
+    }
+    .traffic-panel header span {
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .traffic-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-mono);
+      font-size: 11px;
+    }
+    .traffic-table th,
+    .traffic-table td {
+      border-bottom: 1px solid rgba(255,255,255,0.055);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .traffic-table th {
+      color: var(--muted);
+      font-size: 10px;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.025);
+    }
+    .traffic-table td { color: var(--text-dim); }
+    .traffic-table strong { color: var(--text); }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 3px 7px;
+      color: var(--text);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .pill.good { border-color: rgba(99, 230, 139, 0.42); color: var(--green); }
+    .pill.warn { border-color: rgba(255, 170, 0, 0.42); color: var(--amber); }
+    .pill.bad { border-color: rgba(255, 40, 86, 0.42); color: var(--red); }
+    .fix-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      padding: 12px;
+    }
+    .fix-list li {
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 11px;
+      background: rgba(255,255,255,0.025);
+    }
+    .fix-list strong {
+      display: block;
+      color: var(--text);
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+    .fix-list span {
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      line-height: 1.45;
+    }
     footer {
       padding: 24px 0 36px;
       color: var(--muted);
@@ -313,6 +595,10 @@
       .switch-row { align-items: flex-start; flex-direction: column; }
       .surface-meta { padding-left: 4px; }
       .board-frame { height: 760px; min-height: 640px; }
+      .scram-hero { grid-template-columns: 1fr; }
+      .scram-state { min-width: 0; }
+      .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .traffic-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 560px) {
       .wrap { width: min(100% - 20px, 1520px); }
@@ -322,10 +608,33 @@
       .sub { font-size: 12px; }
       .traffic-tab { padding: 0 10px; font-size: 11px; }
       .board-frame { height: 720px; min-height: 620px; }
+      .gate-row { grid-template-columns: 1fr; }
+      .metric-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
+  <section class="gate" id="gate" aria-labelledby="gate-title">
+    <form class="gate-card" id="gateForm">
+      <div class="gate-logo">
+        <img src="/assets/scram-mark.png" alt="" />
+        <div>
+          <strong>Nauti-Traffic</strong>
+          <span>protected SCRAM board</span>
+        </div>
+      </div>
+      <h1 id="gate-title">Traffic is password protected.</h1>
+      <p>This page can expose campaign diagnostics, broken click paths, bot/human splits, and test activity. Unlock only on trusted devices.</p>
+      <label for="trafficPass">Passphrase</label>
+      <div class="gate-row">
+        <input id="trafficPass" name="trafficPass" type="password" autocomplete="current-password" spellcheck="false" autofocus />
+        <button type="submit">Unlock</button>
+      </div>
+      <div class="gate-error" id="gateError" role="status" aria-live="polite"></div>
+    </form>
+  </section>
+
+  <div id="protectedTraffic" hidden>
   <header class="topbar">
     <div class="wrap topbar-inner">
       <a class="brand" href="https://www.nauti-labs.com/" aria-label="Nauti-Labs home">
@@ -333,7 +642,7 @@
         <span class="brand-name">Nauti-Traffic</span>
         <span class="brand-by">by Nauti-Labs</span>
       </a>
-      <span class="top-status">live</span>
+      <span class="top-status">protected</span>
     </div>
   </header>
 
@@ -342,11 +651,11 @@
       <div>
         <div class="eyebrow">// production traffic surfaces</div>
         <h1 id="page-title">Traffic boards</h1>
-        <p class="sub">Public boards stay public. Protected boards stay behind login. This page routes the real surfaces only: no copied counters, no client-side attribution, no fake dashboard math.</p>
+        <p class="sub">Protected command page for clicks, SCRAM test usage, bot/human split, broken click paths, and recommended fixes. Static shell loads live surfaces only after unlock.</p>
       </div>
       <div class="receipt" aria-label="Build note">
         <span>build receipt</span>
-        <strong>source-of-truth boards, embedded in place</strong>
+        <strong>password gate active // live sources load after unlock</strong>
       </div>
     </section>
 
@@ -391,12 +700,19 @@
           </span>
           Triton // traffic
         </button>
+
+        <button class="traffic-tab scram" data-board="scram" type="button" role="tab" aria-selected="false" aria-controls="board-scram">
+          <span class="tab-icon scram" aria-hidden="true">
+            <img src="/assets/scram-mark.png" alt="" />
+          </span>
+          SCRAM // traffic
+        </button>
       </div>
       <div class="surface-meta" id="surfaceMeta">clearance.nauti-labs.com/nauti-traffic</div>
     </section>
 
     <section class="board active" id="board-clearance" role="tabpanel">
-      <iframe class="board-frame" title="Clearance Traffic board" src="https://clearance.nauti-labs.com/nauti-traffic" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe class="board-frame deferred-frame" title="Clearance Traffic board" data-src="https://clearance.nauti-labs.com/nauti-traffic" src="about:blank" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
     <section class="board" id="board-felipe" role="tabpanel" aria-hidden="true">
@@ -422,18 +738,185 @@
         </div>
       </div>
     </section>
+
+    <section class="board" id="board-scram" role="tabpanel" aria-hidden="true">
+      <div class="scram-board">
+        <div class="scram-hero">
+          <img src="/assets/scram-mark.png" alt="SCRAM logo" />
+          <div>
+            <h2>SCRAM traffic watch</h2>
+            <p>Track the public launch path for scram.nauti-labs.com, SMS/HELP tests, human-vs-bot visits, broken clicks, and the next fixes needed before buying SMS traffic.</p>
+          </div>
+          <div class="scram-state" id="scramState">DNS pending</div>
+        </div>
+
+        <div class="metric-grid" aria-label="SCRAM traffic metrics">
+          <div class="metric"><span>Clicks</span><strong id="metricClicks">0</strong><small>Public SCRAM clicks once telemetry is connected.</small></div>
+          <div class="metric"><span>System tests</span><strong id="metricTests">0</strong><small>Demo/API checks and HELP-mode tests.</small></div>
+          <div class="metric"><span>Human / bot</span><strong id="metricHumanBot">0 / 0</strong><small>Split by browser automation and bot signatures.</small></div>
+          <div class="metric"><span>Broken clicks</span><strong id="metricBroken">2</strong><small>Known launch blockers right now.</small></div>
+        </div>
+
+        <div class="traffic-grid">
+          <section class="traffic-panel" aria-labelledby="scram-events-title">
+            <header>
+              <h3 id="scram-events-title">Recent click and test events</h3>
+              <span>source-aware</span>
+            </header>
+            <table class="traffic-table">
+              <thead>
+                <tr><th>Where</th><th>Type</th><th>Action</th><th>Status</th><th>Fix</th></tr>
+              </thead>
+              <tbody id="eventRows"></tbody>
+            </table>
+          </section>
+
+          <section class="traffic-panel" aria-labelledby="scram-fixes-title">
+            <header>
+              <h3 id="scram-fixes-title">Broken clicks and recommended fixes</h3>
+              <span>next actions</span>
+            </header>
+            <ul class="fix-list" id="fixList"></ul>
+          </section>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="wrap">Nauti-Labs traffic hub - <a href="https://www.nauti-labs.com/">return home</a></footer>
+  </div>
 
   <script>
+    const PASS_HASH = "LpPwId/yq31nSPCTgrPUT5rldmPYX+o3c2Srvh0PAIo=";
+    const gate = document.getElementById("gate");
+    const protectedTraffic = document.getElementById("protectedTraffic");
+    const gateForm = document.getElementById("gateForm");
+    const gateError = document.getElementById("gateError");
+    const trafficPass = document.getElementById("trafficPass");
+
     const meta = {
       clearance: "clearance.nauti-labs.com/nauti-traffic",
       felipe: "felipe traffic - management login required",
-      triton: "triton traffic - parked"
+      triton: "triton traffic - parked",
+      scram: "scram.nauti-labs.com traffic - setup watch"
     };
+    const scramEvents = [
+      {
+        where: "scram.nauti-labs.com",
+        type: "human",
+        action: "Open SCRAM home",
+        status: "broken",
+        fix: "Add DNS record for scram.nauti-labs.com and deploy SCRAM route."
+      },
+      {
+        where: "iPhone SMS -> 72726",
+        type: "human",
+        action: "HELP test",
+        status: "broken",
+        fix: "Choose SMS provider and provision/lease 72726 before promising live texting."
+      },
+      {
+        where: "localhost /v1/scram/demo",
+        type: "human",
+        action: "USPS scam demo",
+        status: "ok",
+        fix: "Keep as local QA path until public deployment is live."
+      },
+      {
+        where: "localhost /v1/scram/readiness",
+        type: "system",
+        action: "Readiness check",
+        status: "warning",
+        fix: "Ready for web demo; SMS remains blocked by provider setup."
+      }
+    ];
+    const scramFixes = [
+      {
+        title: "scram.nauti-labs.com does not resolve",
+        body: "Add the subdomain in the deployment provider, then add the DNS record at the nauti-labs.com DNS host."
+      },
+      {
+        title: "72726 is not a live sender",
+        body: "Do not buy traffic yet. Pick Twilio/Telnyx/Bandwidth, complete brand/campaign approval, then lease a confirmed available short code."
+      },
+      {
+        title: "Static password wall is not server auth",
+        body: "For real private analytics, move this page behind Cloudflare Access, GitHub Pages private proxy, or a FastAPI admin route."
+      },
+      {
+        title: "Telemetry endpoint still needed",
+        body: "Expose an authenticated SCRAM aggregate endpoint for clicks, checks, HELP sessions, bot/human classification, broken paths, and fixes."
+      }
+    ];
     const surfaceMeta = document.getElementById("surfaceMeta");
     const felipeFrame = document.getElementById("felipeFrame");
+    const eventRows = document.getElementById("eventRows");
+    const fixList = document.getElementById("fixList");
+    const statusClass = { ok: "good", warning: "warn", broken: "bad" };
+
+    async function sha256Base64(value) {
+      const bytes = new TextEncoder().encode(value);
+      const digest = await crypto.subtle.digest("SHA-256", bytes);
+      return btoa(String.fromCharCode(...new Uint8Array(digest)));
+    }
+
+    function loadDeferredFrames() {
+      document.querySelectorAll(".deferred-frame[data-src]").forEach((frame) => {
+        if (frame.src === "about:blank") frame.src = frame.dataset.src;
+      });
+    }
+
+    function unlockTraffic() {
+      gate.hidden = true;
+      protectedTraffic.hidden = false;
+      sessionStorage.setItem("nautiTrafficUnlocked", "true");
+      renderScramBoard();
+      loadDeferredFrames();
+    }
+
+    async function submitGate(event) {
+      event.preventDefault();
+      gateError.textContent = "";
+      const candidate = trafficPass.value.trim();
+      if (!candidate) {
+        gateError.textContent = "Enter the traffic passphrase.";
+        return;
+      }
+      const hashed = await sha256Base64(candidate);
+      if (hashed !== PASS_HASH) {
+        gateError.textContent = "Passphrase rejected.";
+        trafficPass.select();
+        return;
+      }
+      unlockTraffic();
+    }
+
+    function renderScramBoard() {
+      const broken = scramEvents.filter((event) => event.status === "broken").length;
+      const tests = scramEvents.filter((event) => /test|readiness|demo/i.test(event.action)).length;
+      const humans = scramEvents.filter((event) => event.type === "human").length;
+      const bots = scramEvents.filter((event) => event.type === "bot").length;
+
+      document.getElementById("metricClicks").textContent = "0";
+      document.getElementById("metricTests").textContent = String(tests);
+      document.getElementById("metricHumanBot").textContent = `${humans} / ${bots}`;
+      document.getElementById("metricBroken").textContent = String(broken);
+      document.getElementById("scramState").textContent = broken ? "launch blockers" : "watch clear";
+
+      eventRows.innerHTML = scramEvents.map((event) => (
+        `<tr>
+          <td><strong>${escapeHtml(event.where)}</strong></td>
+          <td>${escapeHtml(event.type)}</td>
+          <td>${escapeHtml(event.action)}</td>
+          <td><span class="pill ${statusClass[event.status] || "warn"}">${escapeHtml(event.status)}</span></td>
+          <td>${escapeHtml(event.fix)}</td>
+        </tr>`
+      )).join("");
+
+      fixList.innerHTML = scramFixes.map((fix) => (
+        `<li><strong>${escapeHtml(fix.title)}</strong><span>${escapeHtml(fix.body)}</span></li>`
+      )).join("");
+    }
 
     function showBoard(board) {
       document.querySelectorAll(".traffic-tab[data-board]").forEach((tab) => {
@@ -450,11 +933,26 @@
       if (board === "felipe" && felipeFrame && felipeFrame.src === "about:blank") {
         felipeFrame.src = felipeFrame.dataset.src;
       }
+      if (board === "scram") renderScramBoard();
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[char]));
     }
 
     document.querySelectorAll(".traffic-tab[data-board]").forEach((tab) => {
       tab.addEventListener("click", () => showBoard(tab.dataset.board));
     });
+    gateForm.addEventListener("submit", submitGate);
+    if (sessionStorage.getItem("nautiTrafficUnlocked") === "true") {
+      unlockTraffic();
+    }
   </script>
 </body>
 </html>

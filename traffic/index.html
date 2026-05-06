@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nauti-Labs Traffic</title>
-  <meta name="description" content="Password-protected Nauti-Labs traffic boards for Clearance, Felipe, Triton, and SCRAM." />
+  <meta name="description" content="Nauti-Labs traffic boards for Clearance, Felipe, Triton, and SCRAM." />
   <link rel="canonical" href="https://nauti-labs.com/traffic/" />
   <meta name="robots" content="noindex,nofollow" />
   <meta property="og:site_name" content="Nauti-Labs" />
@@ -116,18 +116,18 @@
       animation: pulse 1.7s ease-in-out infinite;
     }
     [hidden] { display: none !important; }
-    .gate {
-      min-height: 100vh;
+    .scram-gate {
+      min-height: 520px;
       display: grid;
       place-items: center;
       padding: 24px;
       background:
         radial-gradient(circle at 18% 18%, rgba(255, 138, 31, 0.12), transparent 34%),
         radial-gradient(circle at 82% 22%, rgba(0, 200, 240, 0.08), transparent 30%),
-        #0e0e13;
+        #08090d;
     }
     .gate-card {
-      width: min(100%, 460px);
+      width: min(100%, 480px);
       border: 1px solid var(--line);
       border-radius: 16px;
       background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.018)), rgba(16, 17, 24, 0.94);
@@ -614,27 +614,6 @@
   </style>
 </head>
 <body>
-  <section class="gate" id="gate" aria-labelledby="gate-title">
-    <form class="gate-card" id="gateForm">
-      <div class="gate-logo">
-        <img src="/assets/scram-mark.png" alt="" />
-        <div>
-          <strong>Nauti-Traffic</strong>
-          <span>protected SCRAM board</span>
-        </div>
-      </div>
-      <h1 id="gate-title">Traffic is password protected.</h1>
-      <p>This page can expose campaign diagnostics, broken click paths, bot/human splits, and test activity. Unlock only on trusted devices.</p>
-      <label for="trafficPass">Passphrase</label>
-      <div class="gate-row">
-        <input id="trafficPass" name="trafficPass" type="password" autocomplete="current-password" spellcheck="false" autofocus />
-        <button type="submit">Unlock</button>
-      </div>
-      <div class="gate-error" id="gateError" role="status" aria-live="polite"></div>
-    </form>
-  </section>
-
-  <div id="protectedTraffic" hidden>
   <header class="topbar">
     <div class="wrap topbar-inner">
       <a class="brand" href="https://www.nauti-labs.com/" aria-label="Nauti-Labs home">
@@ -642,7 +621,7 @@
         <span class="brand-name">Nauti-Traffic</span>
         <span class="brand-by">by Nauti-Labs</span>
       </a>
-      <span class="top-status">protected</span>
+      <span class="top-status">clearance live</span>
     </div>
   </header>
 
@@ -651,11 +630,11 @@
       <div>
         <div class="eyebrow">// production traffic surfaces</div>
         <h1 id="page-title">Traffic boards</h1>
-        <p class="sub">Protected command page for clicks, SCRAM test usage, bot/human split, broken click paths, and recommended fixes. Static shell loads live surfaces only after unlock.</p>
+        <p class="sub">Public hub for Clearance traffic, plus private launch diagnostics for SCRAM test usage, bot/human split, broken click paths, and recommended fixes.</p>
       </div>
       <div class="receipt" aria-label="Build note">
         <span>build receipt</span>
-        <strong>password gate active // live sources load after unlock</strong>
+        <strong>clearance public // SCRAM diagnostics locked</strong>
       </div>
     </section>
 
@@ -740,7 +719,26 @@
     </section>
 
     <section class="board" id="board-scram" role="tabpanel" aria-hidden="true">
-      <div class="scram-board">
+      <section class="scram-gate" id="scramGate" aria-labelledby="scram-gate-title">
+        <form class="gate-card" id="gateForm">
+          <div class="gate-logo">
+            <img src="/assets/scram-mark.png" alt="" />
+            <div>
+              <strong>SCRAM Traffic</strong>
+              <span>private launch board</span>
+            </div>
+          </div>
+          <h1 id="scram-gate-title">SCRAM board is locked.</h1>
+          <p>This panel can expose campaign diagnostics, broken click paths, bot/human splits, and SMS test activity. Clearance stays public.</p>
+          <label for="trafficPass">Passphrase</label>
+          <div class="gate-row">
+            <input id="trafficPass" name="trafficPass" type="password" autocomplete="current-password" spellcheck="false" />
+            <button type="submit">Unlock</button>
+          </div>
+          <div class="gate-error" id="gateError" role="status" aria-live="polite"></div>
+        </form>
+      </section>
+      <div class="scram-board" id="scramProtected" hidden>
         <div class="scram-hero">
           <img src="/assets/scram-mark.png" alt="SCRAM logo" />
           <div>
@@ -784,12 +782,11 @@
   </main>
 
   <footer class="wrap">Nauti-Labs traffic hub - <a href="https://www.nauti-labs.com/">return home</a></footer>
-  </div>
 
   <script>
     const PASS_HASH = "LpPwId/yq31nSPCTgrPUT5rldmPYX+o3c2Srvh0PAIo=";
-    const gate = document.getElementById("gate");
-    const protectedTraffic = document.getElementById("protectedTraffic");
+    const scramGate = document.getElementById("scramGate");
+    const scramProtected = document.getElementById("scramProtected");
     const gateForm = document.getElementById("gateForm");
     const gateError = document.getElementById("gateError");
     const trafficPass = document.getElementById("trafficPass");
@@ -866,12 +863,11 @@
       });
     }
 
-    function unlockTraffic() {
-      gate.hidden = true;
-      protectedTraffic.hidden = false;
-      sessionStorage.setItem("nautiTrafficUnlocked", "true");
+    function unlockScram() {
+      scramGate.hidden = true;
+      scramProtected.hidden = false;
+      sessionStorage.setItem("scramTrafficUnlocked", "true");
       renderScramBoard();
-      loadDeferredFrames();
     }
 
     async function submitGate(event) {
@@ -888,7 +884,7 @@
         trafficPass.select();
         return;
       }
-      unlockTraffic();
+      unlockScram();
     }
 
     function renderScramBoard() {
@@ -933,7 +929,7 @@
       if (board === "felipe" && felipeFrame && felipeFrame.src === "about:blank") {
         felipeFrame.src = felipeFrame.dataset.src;
       }
-      if (board === "scram") renderScramBoard();
+      if (board === "scram" && !scramProtected.hidden) renderScramBoard();
     }
 
     function escapeHtml(value) {
@@ -950,8 +946,9 @@
       tab.addEventListener("click", () => showBoard(tab.dataset.board));
     });
     gateForm.addEventListener("submit", submitGate);
-    if (sessionStorage.getItem("nautiTrafficUnlocked") === "true") {
-      unlockTraffic();
+    loadDeferredFrames();
+    if (sessionStorage.getItem("scramTrafficUnlocked") === "true") {
+      unlockScram();
     }
   </script>
 </body>

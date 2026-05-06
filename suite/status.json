@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-06T22:40:22.648136Z",
-  "summary": "5/7 services online",
+  "generated_at": "2026-05-06T22:45:26.490706Z",
+  "summary": "6/7 services online",
   "watchdog": {
     "online": true,
     "awake_guard": true
@@ -53,7 +53,7 @@
       "label": "Navi-Sales",
       "role": "Sales intelligence",
       "port": 8500,
-      "online": false,
+      "online": true,
       "private": true
     },
     {

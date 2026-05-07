@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-07T15:48:48.065391Z",
+  "generated_at": "2026-05-07T15:53:57.833540Z",
   "summary": "6/7 services online",
   "watchdog": {
-    "online": true,
+    "online": false,
     "awake_guard": true
   },
   "ollama": {

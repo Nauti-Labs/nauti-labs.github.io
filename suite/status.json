@@ -1,13 +1,19 @@
 {
-  "generated_at": "2026-05-07T22:21:51.643511Z",
+  "generated_at": "2026-05-07T22:26:57.620838Z",
   "summary": "6/7 services online",
   "watchdog": {
     "online": true,
     "awake_guard": true
   },
   "ollama": {
-    "online": false,
-    "models": []
+    "online": true,
+    "models": [
+      "daredevil-8b-abliterated:latest",
+      "nomic-embed-text:latest",
+      "qwen2.5-coder:7b",
+      "gemma3:latest",
+      "qwen3:14b"
+    ]
   },
   "services": [
     {

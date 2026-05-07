@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-07T07:39:50.011462Z",
-  "summary": "6/7 services online",
+  "generated_at": "2026-05-07T07:45:09.531483Z",
+  "summary": "5/7 services online",
   "watchdog": {
     "online": true,
     "awake_guard": true
@@ -69,7 +69,7 @@
       "label": "Clearance",
       "role": "Approval gate",
       "port": 8700,
-      "online": true,
+      "online": false,
       "private": true
     }
   ]

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-07T18:53:09.344499Z",
-  "summary": "6/7 services online",
+  "generated_at": "2026-05-07T18:58:24.403906Z",
+  "summary": "5/7 services online",
   "watchdog": {
     "online": true,
     "awake_guard": true
@@ -9,8 +9,8 @@
     "online": true,
     "models": [
       "daredevil-8b-abliterated:latest",
-      "nomic-embed-text:latest",
       "qwen2.5-coder:7b",
+      "nomic-embed-text:latest",
       "gemma3:latest",
       "qwen3:14b"
     ]
@@ -61,7 +61,7 @@
       "label": "Felipe",
       "role": "Finance and domains",
       "port": 8100,
-      "online": true,
+      "online": false,
       "private": true
     },
     {

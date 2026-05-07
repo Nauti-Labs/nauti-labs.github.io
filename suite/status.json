@@ -1,19 +1,13 @@
 {
-  "generated_at": "2026-05-07T07:55:18.213952Z",
-  "summary": "6/7 services online",
+  "generated_at": "2026-05-07T08:00:37.647951Z",
+  "summary": "3/7 services online",
   "watchdog": {
     "online": true,
     "awake_guard": true
   },
   "ollama": {
-    "online": true,
-    "models": [
-      "daredevil-8b-abliterated:latest",
-      "nomic-embed-text:latest",
-      "qwen2.5-coder:7b",
-      "gemma3:latest",
-      "qwen3:14b"
-    ]
+    "online": false,
+    "models": []
   },
   "services": [
     {
@@ -53,7 +47,7 @@
       "label": "Navi-Sales",
       "role": "Sales intelligence",
       "port": 8500,
-      "online": true,
+      "online": false,
       "private": true
     },
     {
@@ -61,7 +55,7 @@
       "label": "Felipe",
       "role": "Finance and domains",
       "port": 8100,
-      "online": true,
+      "online": false,
       "private": true
     },
     {
@@ -69,7 +63,7 @@
       "label": "Clearance",
       "role": "Approval gate",
       "port": 8700,
-      "online": true,
+      "online": false,
       "private": true
     }
   ]

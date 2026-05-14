@@ -4,514 +4,1281 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nauti-Labs | Maritime Ops, Applied AI &amp; Local Digital Help</title>
-  <meta name="description" content="Maritime operations systems, approval-gated AI tools, and local digital help for Mont Belvieu, Baytown, and the Barbers Hill area. Choose maritime, Labs, or Neighbors." />
+  <title>Nauti-Labs — Maritime Compliance · Crypto Compliance · Custom AI</title>
+  <meta name="description" content="Maritime ops consulting, Texas SB 1244 crypto compliance, and custom AI builds. One company, three disciplines. Built by someone who's worked the operation." />
   <link rel="canonical" href="https://nauti-labs.com/" />
   <meta name="robots" content="index,follow" />
+
   <meta property="og:site_name" content="Nauti-Labs" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Nauti-Labs | Maritime Ops, Applied AI &amp; Local Digital Help" />
-  <meta property="og:description" content="Maritime operations systems, approval-gated AI tools, and local digital help for Mont Belvieu, Baytown, and the Barbers Hill area." />
+  <meta property="og:title" content="Nauti-Labs — Maritime Compliance · Crypto Compliance · Custom AI" />
+  <meta property="og:description" content="Maritime ops consulting, Texas SB 1244 crypto compliance, and custom AI builds." />
   <meta property="og:url" content="https://nauti-labs.com/" />
   <meta property="og:image" content="https://nauti-labs.com/og/home-share.png" />
-  <meta property="og:image:secure_url" content="https://nauti-labs.com/og/home-share.png" />
-  <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Nauti-Labs systems for humans and the AI crew they trust." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Nauti-Labs | Maritime Ops, Applied AI &amp; Local Digital Help" />
-  <meta name="twitter:description" content="Maritime operations systems, approval-gated AI tools, and local digital help for Mont Belvieu, Baytown, and the Barbers Hill area." />
+  <meta name="twitter:title" content="Nauti-Labs — Maritime · Crypto · AI" />
+  <meta name="twitter:description" content="Maritime ops consulting, Texas SB 1244 crypto compliance, and custom AI builds." />
   <meta name="twitter:image" content="https://nauti-labs.com/og/home-share.png" />
-  <meta name="twitter:image:alt" content="Nauti-Labs systems for humans and the AI crew they trust." />
-  <meta name="theme-color" content="#00c8f0" />
+
+  <meta name="theme-color" content="#15151a" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/nauti-gear-wheel.svg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/nauti-brand.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    /* Blacksmith — Clearance variant (locked) */
     :root {
-      --cyan:       #00c8f0;
-      --cyan-hi:    #66e5ff;
-      --cyan-glow:  rgba(0, 200, 240, 0.3);
-      --blue:       #0077ff;
-      --amber:      #ffaa00;
-      --green:      #00ff9c;
-      --magenta:    #ff4dc4;
-      --bg:         #01020a;
-      --bg2:        #060a14;
-      --text:       #e6f0fa;
-      --text-muted: rgba(200, 220, 240, 0.55);
-      --border:     rgba(255, 255, 255, 0.08);
-      --font:       'Inter', system-ui, sans-serif;
-      --mono:       'JetBrains Mono', monospace;
+      --bg:           #15151a;
+      --bg-2:         #1a1a1f;
+      --surface:      #1f1f27;
+      --surface-2:    #25252e;
+      --border:       #2a2a33;
+      --border-2:     #353541;
+
+      --amber:        #E8912D;
+      --amber-bright: #f0a040;
+      --amber-soft:   rgba(232, 145, 45, 0.12);
+      --amber-glow:   rgba(232, 145, 45, 0.22);
+
+      --steel:        #8A8A8A;
+      --steel-soft:   #a0a0a8;
+
+      --text:         #ececf0;
+      --text-dim:     #b8b8c0;
+      --muted:        #7a7a85;
+      --dim:          #4a4a55;
+
+      --green:        #4ade80;
+      --green-soft:   rgba(74, 222, 128, 0.12);
+      --red:          #f87171;
+
+      --font-sans:    'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      --font-mono:    'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+      --radius:       12px;
+      --radius-sm:    8px;
+      --radius-lg:    16px;
     }
 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      background:
-        radial-gradient(ellipse 60% 50% at 30% 20%, rgba(0, 200, 240, 0.09) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 70% 80%, rgba(102, 229, 255, 0.05) 0%, transparent 60%),
-        var(--bg);
-      color: var(--text);
-      font-family: var(--font);
-      line-height: 1.6;
-      min-height: 100vh;
-      overflow-x: hidden;
-      display: flex; flex-direction: column;
-    }
-
-    /* ── STARFIELD ── */
-    .starfield {
-      position: fixed; inset: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.2; }
-      50% { opacity: 1; }
-    }
-    @keyframes twinkle2 {
-      0%, 100% { opacity: 0.15; }
-      40% { opacity: 0.9; }
-      60% { opacity: 0.4; }
-    }
-    .twinkle-1 { animation: twinkle 5s ease-in-out infinite; }
-    .twinkle-2 { animation: twinkle2 7s ease-in-out infinite; }
-    .twinkle-3 { animation: twinkle 9s ease-in-out infinite reverse; }
-
-    /* faint horizontal gridlines over the starfield */
-    .grid-overlay {
-      position: fixed; inset: 0;
+      font-family: var(--font-sans);
+      background: var(--bg);
       background-image:
-        linear-gradient(rgba(0,200,240,0.02) 1px, transparent 1px);
-      background-size: 100% 120px;
-      pointer-events: none; z-index: 1;
-    }
-
-    /* ── HERO ── */
-    .hero {
-      flex: 1;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      padding: 5rem 2rem 2rem;
-      position: relative; z-index: 2;
-    }
-
-    .hero-label {
-      display: inline-block;
-      font-size: 0.72rem; letter-spacing: 0.28em;
-      color: var(--text-muted);
-      font-family: var(--mono);
-      padding: 0.4rem 1.2rem;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      margin-bottom: 2.25rem;
-      text-transform: uppercase;
-      background: rgba(0, 200, 240, 0.03);
-    }
-    .hero-label .accent { color: var(--cyan); }
-
-    /* ── GEAR WHEEL LOGO ── */
-    @keyframes gear-breathe {
-      0%, 100% {
-        filter:
-          drop-shadow(0 0 28px rgba(0, 200, 240, 0.45))
-          drop-shadow(0 0 70px rgba(0, 200, 240, 0.28))
-          saturate(1.16)
-          contrast(1.08);
-      }
-      50% {
-        filter:
-          drop-shadow(0 0 38px rgba(102, 229, 255, 0.64))
-          drop-shadow(0 0 92px rgba(0, 200, 240, 0.34))
-          saturate(1.24)
-          contrast(1.1);
-      }
-    }
-    .logo-mark {
-      width: 184px; height: 184px;
-      object-fit: contain;
-      margin-bottom: 1.45rem;
-      animation: gear-breathe 4s ease-in-out infinite;
-      filter:
-        drop-shadow(0 0 28px rgba(0, 200, 240, 0.45))
-        drop-shadow(0 0 70px rgba(0, 200, 240, 0.28))
-        saturate(1.16)
-        contrast(1.08);
-    }
-
-    h1 {
-      font-size: clamp(3rem, 9vw, 7rem);
-      font-weight: 900; letter-spacing: -0.04em;
-      line-height: 0.95;
-      margin-bottom: 1.25rem;
-      text-align: center;
-      background: linear-gradient(135deg, #fff 0%, var(--cyan-hi) 50%, var(--cyan) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-shadow: 0 0 40px rgba(0, 200, 240, 0.1);
-    }
-    .tagline {
-      font-size: clamp(1rem, 2.2vw, 1.3rem);
-      color: var(--text-muted);
-      text-align: center; max-width: 640px;
-      margin-bottom: 4rem;
-      letter-spacing: 0.02em;
-      line-height: 1.5;
-    }
-    .tagline strong { color: var(--text); }
-
-    .trust-strip {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.75rem;
-      margin: -0.5rem 0 2.25rem;
-    }
-    .trust-chip {
-      padding: 0.55rem 0.9rem;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      font-family: var(--mono);
-      font-size: 0.73rem;
-      color: var(--text-muted);
-      background: rgba(255, 255, 255, 0.02);
-    }
-    .trust-chip strong { color: var(--text); font-weight: 600; }
-    .trust-chip a {
-      color: var(--cyan-hi);
-      text-decoration: none;
-    }
-    .trust-chip a:hover { color: var(--cyan); }
-
-    /* ── DOORS ── */
-    .doors {
-      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.5rem;
-      width: 100%; max-width: 1240px;
-      margin-bottom: 3rem;
-    }
-    .door {
-      display: block; text-decoration: none;
-      background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0));
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 2.5rem 2rem;
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(232, 145, 45, 0.07), transparent 60%),
+        radial-gradient(ellipse 60% 50% at 100% 100%, rgba(85, 112, 141, 0.05), transparent 60%);
       color: var(--text);
-      position: relative; overflow: hidden;
-      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-      backdrop-filter: blur(2px);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
     }
-    .door::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      opacity: 0.75; transition: opacity 0.25s, height 0.25s;
-    }
-    .door.maritime::before { background: linear-gradient(90deg, var(--blue), var(--amber)); }
-    .door.labs::before     { background: linear-gradient(90deg, var(--cyan), var(--magenta)); }
-    .door.neighbors::before { background: linear-gradient(90deg, var(--amber), var(--green)); }
-    .door::after {
-      content: '→';
-      position: absolute; top: 1.5rem; right: 1.75rem;
-      font-size: 1.4rem; color: var(--text-muted);
-      transition: transform 0.25s, color 0.25s;
-    }
-    .door:hover {
-      transform: translateY(-4px);
-      background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0));
-    }
-    .door.maritime:hover { border-color: rgba(0, 119, 255, 0.45); box-shadow: 0 12px 40px rgba(0, 119, 255, 0.18); }
-    .door.labs:hover     { border-color: rgba(0, 200, 240, 0.5);  box-shadow: 0 12px 40px rgba(0, 200, 240, 0.22); }
-    .door.neighbors:hover { border-color: rgba(255, 170, 0, 0.45); box-shadow: 0 12px 40px rgba(255, 170, 0, 0.18); }
-    .door:hover::after   { transform: translateX(6px); }
-    .door:hover::before  { opacity: 1; height: 4px; }
-    .door.maritime:hover::after { color: var(--blue); }
-    .door.labs:hover::after     { color: var(--cyan); }
-    .door.neighbors:hover::after { color: var(--amber); }
 
-    .door-icon {
-      width: 88px;
-      height: 88px;
-      margin-bottom: 1.55rem;
-      filter: drop-shadow(0 0 12px rgba(0, 200, 240, 0.18));
-    }
-    .door-label {
-      font-size: 0.72rem; letter-spacing: 0.22em;
-      text-transform: uppercase;
-      font-family: var(--mono);
-      margin-bottom: 0.5rem;
-    }
-    .door.maritime .door-label { color: var(--amber); }
-    .door.labs .door-label     { color: var(--magenta); }
-    .door.neighbors .door-label { color: var(--green); }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+    .mono { font-family: var(--font-mono); }
+    .muted { color: var(--muted); }
+    .accent { color: var(--amber); }
 
-    .door-title {
-      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-      font-weight: 800; letter-spacing: -0.01em;
-      margin-bottom: 0.6rem; line-height: 1.15;
+    a { color: var(--amber); text-decoration: none; }
+    a:hover { color: var(--amber-bright); }
+
+    /* === NAV === */
+    nav.site-nav {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px) saturate(140%);
+      -webkit-backdrop-filter: blur(12px) saturate(140%);
+      background: rgba(21, 21, 26, 0.78);
+      border-bottom: 1px solid var(--border);
     }
-    .door.maritime .door-title {
-      background: linear-gradient(135deg, #fff, var(--blue));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    nav.site-nav .inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0;
     }
-    .door.labs .door-title {
-      background: linear-gradient(135deg, #fff, var(--cyan));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      color: var(--text);
     }
-    .door.neighbors .door-title {
-      background: linear-gradient(135deg, #fff, var(--amber));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    .brand-mark {
+      width: 30px; height: 30px;
+      color: var(--amber);
+      display: block; flex-shrink: 0;
     }
-    .door-sub { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.55; }
-    .door-features {
+    .brand-mark svg { width: 100%; height: 100%; display: block; }
+    .brand-name { font-size: 16px; font-weight: 700; letter-spacing: -0.01em; }
+    .brand-by {
+      font-family: var(--font-mono); font-size: 11px;
+      color: var(--muted);
+      border-left: 1px solid var(--border-2);
+      padding-left: 10px; margin-left: 4px;
+    }
+    nav.site-nav .nav-links { display: flex; gap: 28px; align-items: center; }
+    nav.site-nav .nav-links a {
+      color: var(--text-dim); font-size: 14px; font-weight: 500;
+      transition: color 0.15s;
+    }
+    nav.site-nav .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--amber); color: #1a1a1f !important;
+      padding: 8px 14px; border-radius: var(--radius-sm);
+      font-weight: 600 !important; font-size: 13px !important;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--amber-bright); transform: translateY(-1px); }
+
+    /* === HERO === */
+    .hero { padding: 92px 0 64px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-mono); font-size: 12px;
+      color: var(--steel-soft);
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    .hero h1 {
+      font-size: clamp(40px, 5.6vw, 64px);
+      font-weight: 700;
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+      color: #fafafd;
+      margin-bottom: 22px;
+      max-width: 880px;
+    }
+    .hero h1 .accent {
+      color: var(--amber);
+      font-style: italic;
+      font-weight: 600;
+    }
+    .hero p.lede {
+      font-size: 18px; color: var(--text-dim);
+      max-width: 620px;
+      margin-bottom: 32px; line-height: 1.55;
+    }
+    .hero-actions {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .btn-primary {
+      background: var(--amber); color: #1a1a1f;
+      padding: 13px 22px; border-radius: var(--radius-sm);
+      font-size: 14px; font-weight: 600;
+      display: inline-flex; align-items: center; gap: 8px;
+      border: none; cursor: pointer;
+      transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 8px 24px rgba(232, 145, 45, 0.18);
+    }
+    .btn-primary:hover {
+      background: var(--amber-bright); color: #1a1a1f;
+      transform: translateY(-1px);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset, 0 12px 32px rgba(232, 145, 45, 0.28);
+    }
+    .btn-secondary {
+      background: var(--surface); color: var(--text);
+      padding: 13px 22px; border-radius: var(--radius-sm);
+      font-size: 14px; font-weight: 500;
+      font-family: var(--font-mono);
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--border-2);
+      transition: border-color 0.15s, transform 0.15s, background 0.15s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--steel); color: var(--text);
+      background: var(--surface-2);
+      transform: translateY(-1px);
+    }
+    .hero-pills {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .hero-pill {
+      font-family: var(--font-mono);
+      font-size: 11px; font-weight: 500;
+      color: var(--muted);
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+    .hero-pill .pill-dot { color: var(--green); margin-right: 6px; }
+
+    /* === PILLAR CARDS (overview) === */
+    .pillars-strip { padding: 24px 0 80px; }
+    .pillars-strip .strip-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px; font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .pillar-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 26px;
+      transition: border-color 0.2s, transform 0.2s, background 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .pillar-card:hover {
+      border-color: var(--amber);
+      background: var(--surface-2);
+      transform: translateY(-2px);
+    }
+    .pillar-card .num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--amber);
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+    }
+    .pillar-card h3 {
+      font-size: 22px; font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+    .pillar-card p {
+      color: var(--text-dim);
+      font-size: 14px;
+      margin-bottom: 18px;
+      line-height: 1.55;
+    }
+    .pillar-card ul {
       list-style: none; padding: 0;
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      color: var(--text-muted);
+      margin-bottom: 22px;
+      flex-grow: 1;
     }
-    .door-features li { padding: 0.2rem 0; display: flex; align-items: center; gap: 0.55rem; }
-    .door.maritime .door-features li::before { content: '◆'; color: var(--blue); }
-    .door.labs .door-features li::before     { content: '▸'; color: var(--green); }
-    .door.neighbors .door-features li::before { content: '●'; color: var(--amber); }
+    .pillar-card ul li {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--muted);
+      padding: 5px 0;
+      padding-left: 16px;
+      position: relative;
+    }
+    .pillar-card ul li::before {
+      content: '–';
+      position: absolute; left: 0;
+      color: var(--amber);
+    }
+    .pillar-card .pillar-link {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--amber);
+      font-weight: 600;
+      margin-top: auto;
+    }
+    .pillar-card .pillar-link:hover { color: var(--amber-bright); }
 
-    @media (max-width: 1120px) {
-      .doors { grid-template-columns: 1fr; max-width: 760px; }
-    }
-    @media (max-width: 780px) {
-      .door { padding: 2rem 1.5rem; }
-      .logo-mark { width: 148px; height: 148px; }
-      .door-icon { width: 76px; height: 76px; }
-    }
-
-    footer {
-      padding: 1.5rem 2rem;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.72rem; letter-spacing: 0.1em;
-      font-family: var(--mono);
+    /* === PILLAR SECTIONS (deep) === */
+    .pillar-section {
+      padding: 80px 0;
       border-top: 1px solid var(--border);
-      position: relative; z-index: 2;
-      background: rgba(1, 2, 10, 0.6);
     }
-    footer .accent { color: var(--cyan); }
-    footer .amber  { color: var(--amber); }
-    footer a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
-    footer a:hover { color: var(--cyan); }
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px; font-weight: 600;
+      color: var(--amber);
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .pillar-section h2 {
+      font-size: clamp(28px, 3.6vw, 40px);
+      font-weight: 700;
+      color: #fafafd;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      max-width: 800px;
+    }
+    .pillar-section > .lede {
+      color: var(--text-dim);
+      font-size: 17px;
+      max-width: 720px;
+      margin-bottom: 36px;
+    }
+    .pillar-section h3 {
+      font-size: 22px; font-weight: 700;
+      color: var(--text);
+      margin-top: 40px; margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .pillar-section h4 {
+      font-size: 15px; font-weight: 700;
+      color: var(--text);
+      margin-top: 22px; margin-bottom: 10px;
+    }
+    .pillar-section p {
+      color: var(--text-dim);
+      margin-bottom: 16px;
+      max-width: 720px;
+    }
+
+    /* Two-col detail (text + rate card) */
+    .detail-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: start;
+      margin-top: 32px;
+    }
+
+    .check-list { list-style: none; padding: 0; }
+    .check-list li {
+      padding: 8px 0 8px 28px;
+      position: relative;
+      color: var(--text-dim);
+      font-size: 15px;
+      border-bottom: 1px solid var(--border);
+    }
+    .check-list li:last-child { border-bottom: 0; }
+    .check-list li::before {
+      content: '◆';
+      position: absolute; left: 0; top: 8px;
+      color: var(--amber);
+      font-size: 11px;
+    }
+
+    /* Rate card */
+    .rate-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      position: sticky; top: 92px;
+    }
+    .rate-card .rate-name {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .rate-card .rate-price {
+      font-size: 44px; font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .rate-card .rate-price .rate-period {
+      font-size: 18px; font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0;
+      margin-left: 4px;
+    }
+    .rate-card .rate-floor {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--amber);
+      margin-top: 8px;
+      padding: 8px 12px;
+      background: var(--amber-soft);
+      border-radius: 6px;
+      display: inline-block;
+    }
+    .rate-card .rate-includes {
+      list-style: none; padding: 0;
+      margin-top: 20px; margin-bottom: 20px;
+    }
+    .rate-card .rate-includes li {
+      font-size: 13px;
+      color: var(--text-dim);
+      padding: 5px 0 5px 18px;
+      position: relative;
+    }
+    .rate-card .rate-includes li::before {
+      content: '✓';
+      position: absolute; left: 0;
+      color: var(--green);
+      font-weight: 700;
+    }
+    .rate-card .btn-primary, .rate-card .btn-secondary { width: 100%; justify-content: center; }
+    .rate-card .btn-primary + .btn-secondary { margin-top: 8px; }
+
+    /* Pricing comparison table (Crypto) */
+    .pricing-table-wrap {
+      overflow-x: auto;
+      margin-top: 28px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+    table.pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+    }
+    table.pricing-table th, table.pricing-table td {
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      font-size: 14px;
+    }
+    table.pricing-table thead th {
+      background: var(--bg-2);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+      border-bottom: 2px solid var(--border-2);
+    }
+    table.pricing-table thead th:first-child {
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    table.pricing-table tbody tr:last-child td { border-bottom: 0; }
+    table.pricing-table tbody td:first-child {
+      color: var(--muted);
+      font-weight: 500;
+      width: 28%;
+    }
+    table.pricing-table tbody td { color: var(--text-dim); }
+    table.pricing-table tbody td strong { color: var(--text); font-weight: 700; }
+    table.pricing-table .price-cell {
+      font-size: 17px;
+      color: var(--amber) !important;
+      font-weight: 700;
+    }
+    table.pricing-table .price-cell small {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 400;
+      margin-top: 4px;
+    }
+    .check-yes { color: var(--green); font-weight: 700; }
+    .check-no  { color: var(--dim); }
+
+    /* Add-on table */
+    table.addon-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    table.addon-table td {
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text-dim);
+    }
+    table.addon-table td:first-child { color: var(--text); }
+    table.addon-table td:last-child {
+      text-align: right;
+      font-family: var(--font-mono);
+      color: var(--amber);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    table.addon-table tr:last-child td { border-bottom: 0; }
+
+    /* Design-partner callout */
+    .callout {
+      margin-top: 36px;
+      padding: 26px 28px;
+      background: var(--amber-soft);
+      border: 1px solid var(--amber);
+      border-left-width: 3px;
+      border-radius: var(--radius);
+    }
+    .callout h4 {
+      color: var(--amber);
+      font-size: 15px;
+      font-family: var(--font-mono);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      margin-top: 0;
+    }
+    .callout ul {
+      list-style: none; padding: 0;
+      margin-bottom: 12px;
+    }
+    .callout ul li {
+      padding: 5px 0 5px 20px;
+      position: relative;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .callout ul li::before {
+      content: '→';
+      position: absolute; left: 0;
+      color: var(--amber);
+    }
+    .callout p {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-bottom: 0;
+    }
+
+    /* FAQ */
+    .faq-list { margin-top: 16px; }
+    details.faq {
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+    details.faq summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text);
+      font-size: 15px;
+      list-style: none;
+      display: flex; justify-content: space-between; align-items: center;
+      padding-right: 8px;
+    }
+    details.faq summary::-webkit-details-marker { display: none; }
+    details.faq summary::after {
+      content: '+';
+      color: var(--amber);
+      font-size: 18px;
+      font-weight: 400;
+      transition: transform 0.2s;
+    }
+    details.faq[open] summary::after { transform: rotate(45deg); }
+    details.faq p {
+      color: var(--text-dim);
+      font-size: 14px;
+      margin-top: 12px;
+      max-width: 720px;
+    }
+
+    /* Anchor screenshot gallery */
+    .anchor-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 32px;
+      margin-bottom: 8px;
+    }
+    .anchor-shot {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+      margin: 0;
+    }
+    .anchor-shot:hover {
+      border-color: var(--amber);
+      transform: translateY(-2px);
+    }
+    .anchor-shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-bottom: 1px solid var(--border);
+    }
+    .anchor-shot figcaption {
+      padding: 12px 16px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .anchor-shot figcaption .theme-tag {
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--amber-soft);
+      color: var(--amber);
+    }
+    .anchor-shot figcaption .theme-tag.light {
+      background: rgba(200, 220, 240, 0.08);
+      color: var(--steel-soft);
+    }
+    @media (max-width: 720px) {
+      .anchor-gallery { grid-template-columns: 1fr; }
+    }
+
+    .demo-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin-top: 32px;
+    }
+    .demo-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      transition: border-color 0.2s;
+    }
+    .demo-card:hover { border-color: var(--amber); }
+    .demo-card .demo-eyebrow {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--green);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .demo-card .demo-eyebrow .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 6px var(--green);
+    }
+    .demo-card h4 {
+      margin-top: 0; margin-bottom: 8px;
+      font-size: 20px; color: var(--text);
+    }
+    .demo-card p {
+      color: var(--text-dim);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    /* CTA block */
+    .cta-block {
+      margin-top: 56px;
+      padding: 40px 36px;
+      background: var(--surface);
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    .cta-block h3 {
+      font-size: 24px;
+      color: var(--text);
+      margin-bottom: 10px;
+      margin-top: 0;
+    }
+    .cta-block p {
+      color: var(--text-dim);
+      max-width: 540px;
+      margin: 0 auto 22px;
+    }
+
+    /* Payment terms strip */
+    .terms-strip {
+      margin-top: 22px;
+      padding: 18px 22px;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .terms-strip .term {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+    .terms-strip .term strong {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    /* === FOOTER === */
+    footer.site-footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0 32px;
+      margin-top: 40px;
+    }
+    footer.site-footer .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 28px;
+    }
+    footer.site-footer h5 {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+    footer.site-footer .footer-brand p {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-top: 12px;
+      max-width: 280px;
+    }
+    footer.site-footer ul { list-style: none; padding: 0; }
+    footer.site-footer ul li { padding: 4px 0; }
+    footer.site-footer ul li a {
+      color: var(--text-dim);
+      font-size: 13px;
+      transition: color 0.15s;
+    }
+    footer.site-footer ul li a:hover { color: var(--amber); }
+    footer.site-footer .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 22px;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+    footer.site-footer .footer-bottom .amber { color: var(--amber); }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 920px) {
+      nav.site-nav .nav-links a:not(.nav-cta) { display: none; }
+      .pillar-grid { grid-template-columns: 1fr; }
+      .detail-grid { grid-template-columns: 1fr; }
+      .rate-card { position: static; }
+      footer.site-footer .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .hero { padding: 60px 0 40px; }
+      .pillar-section { padding: 56px 0; }
+      footer.site-footer .footer-grid { grid-template-columns: 1fr; }
+      .container { padding: 0 20px; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- ── STARFIELD ── -->
-  <svg class="starfield" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <!-- Small static stars -->
-    <g fill="white">
-      <circle cx="40"   cy="80"  r="0.6" opacity="0.5"/>
-      <circle cx="120"  cy="30"  r="0.4" opacity="0.4"/>
-      <circle cx="220"  cy="180" r="0.8" opacity="0.6"/>
-      <circle cx="310"  cy="60"  r="0.5" opacity="0.4"/>
-      <circle cx="390"  cy="240" r="0.6" opacity="0.5"/>
-      <circle cx="470"  cy="40"  r="0.4" opacity="0.3"/>
-      <circle cx="540"  cy="200" r="0.7" opacity="0.5"/>
-      <circle cx="620"  cy="110" r="0.5" opacity="0.4"/>
-      <circle cx="700"  cy="320" r="0.6" opacity="0.5"/>
-      <circle cx="780"  cy="70"  r="0.4" opacity="0.4"/>
-      <circle cx="860"  cy="260" r="0.8" opacity="0.6"/>
-      <circle cx="940"  cy="150" r="0.5" opacity="0.4"/>
-      <circle cx="1020" cy="50"  r="0.6" opacity="0.5"/>
-      <circle cx="1100" cy="310" r="0.4" opacity="0.3"/>
-      <circle cx="1180" cy="190" r="0.7" opacity="0.5"/>
-      <circle cx="1260" cy="80"  r="0.5" opacity="0.4"/>
-      <circle cx="1340" cy="270" r="0.6" opacity="0.5"/>
-      <circle cx="1420" cy="140" r="0.4" opacity="0.4"/>
-      <circle cx="1500" cy="40"  r="0.7" opacity="0.5"/>
-      <circle cx="1570" cy="220" r="0.5" opacity="0.4"/>
-      <circle cx="90"   cy="420" r="0.6" opacity="0.5"/>
-      <circle cx="170"  cy="520" r="0.4" opacity="0.4"/>
-      <circle cx="260"  cy="650" r="0.8" opacity="0.6"/>
-      <circle cx="350"  cy="480" r="0.5" opacity="0.4"/>
-      <circle cx="440"  cy="720" r="0.6" opacity="0.5"/>
-      <circle cx="530"  cy="560" r="0.4" opacity="0.3"/>
-      <circle cx="610"  cy="860" r="0.7" opacity="0.5"/>
-      <circle cx="690"  cy="620" r="0.5" opacity="0.4"/>
-      <circle cx="770"  cy="780" r="0.6" opacity="0.5"/>
-      <circle cx="850"  cy="460" r="0.4" opacity="0.4"/>
-      <circle cx="930"  cy="900" r="0.8" opacity="0.6"/>
-      <circle cx="1010" cy="580" r="0.5" opacity="0.4"/>
-      <circle cx="1090" cy="740" r="0.6" opacity="0.5"/>
-      <circle cx="1170" cy="500" r="0.4" opacity="0.3"/>
-      <circle cx="1250" cy="830" r="0.7" opacity="0.5"/>
-      <circle cx="1330" cy="660" r="0.5" opacity="0.4"/>
-      <circle cx="1410" cy="480" r="0.6" opacity="0.5"/>
-      <circle cx="1490" cy="760" r="0.4" opacity="0.4"/>
-      <circle cx="1560" cy="540" r="0.7" opacity="0.5"/>
-    </g>
-
-    <!-- Twinkling cyan stars (larger, animated) -->
-    <g fill="#66e5ff">
-      <circle cx="180"  cy="150" r="1.4" class="twinkle-1"/>
-      <circle cx="450"  cy="380" r="1.2" class="twinkle-2"/>
-      <circle cx="820"  cy="95"  r="1.6" class="twinkle-3"/>
-      <circle cx="1120" cy="430" r="1.3" class="twinkle-1"/>
-      <circle cx="1380" cy="220" r="1.5" class="twinkle-2"/>
-      <circle cx="280"  cy="580" r="1.4" class="twinkle-3"/>
-      <circle cx="670"  cy="700" r="1.2" class="twinkle-1"/>
-      <circle cx="980"  cy="820" r="1.6" class="twinkle-2"/>
-      <circle cx="1290" cy="640" r="1.3" class="twinkle-3"/>
-      <circle cx="1520" cy="880" r="1.4" class="twinkle-1"/>
-    </g>
-
-    <!-- A couple bigger "anchor" stars -->
-    <g>
-      <circle cx="380"  cy="280" r="2" fill="white" opacity="0.9" class="twinkle-2"/>
-      <circle cx="1210" cy="170" r="2" fill="white" opacity="0.9" class="twinkle-3"/>
-      <circle cx="720"  cy="520" r="1.8" fill="#00c8f0" opacity="0.85" class="twinkle-1"/>
-    </g>
-  </svg>
-
-  <div class="grid-overlay"></div>
+  <nav class="site-nav">
+    <div class="container inner">
+      <a class="brand" href="/">
+        <span class="brand-mark">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="2" fill="none"/>
+            <circle cx="16" cy="16" r="3" fill="currentColor"/>
+            <line x1="16" y1="2" x2="16" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="16" y1="25" x2="16" y2="30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="2" y1="16" x2="7" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="25" y1="16" x2="30" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="6" y1="6" x2="9.5" y2="9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="22.5" y1="22.5" x2="26" y2="26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="6" y1="26" x2="9.5" y2="22.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="22.5" y1="9.5" x2="26" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-name">Nauti-Labs</span>
+        <span class="brand-by">Mont Belvieu · TX</span>
+      </a>
+      <div class="nav-links">
+        <a href="#maritime">Maritime</a>
+        <a href="#crypto">Crypto Compliance</a>
+        <a href="#ai">Custom AI</a>
+        <a href="mailto:justin@nauti-labs.com" class="nav-cta">Book intro</a>
+      </div>
+    </div>
+  </nav>
 
   <!-- HERO -->
   <section class="hero">
-
-    <img class="logo-mark" src="/assets/nauti-gear-wheel.svg?v=20260503-gear" alt="Nauti-Labs gear wheel logo" fetchpriority="high" decoding="async">
-
-    <div class="hero-label">Nauti-Labs <span class="accent">·</span> Maritime <span class="accent">·</span> Labs <span class="accent">·</span> Neighbors</div>
-    <h1>Three doors.<br>One ship.</h1>
-    <p class="tagline">
-      Maritime operations, approval-aware AI products, and local digital help share one wave system.<br>
-      <strong>Pick your door.</strong>
-    </p>
-    <div class="trust-strip" aria-label="Nauti-Labs trust highlights">
-      <div class="trust-chip"><strong>Live now:</strong> <a href="https://ops.nauti-labs.com" target="_blank" rel="noopener">Triton</a>, <a href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener">Clearance</a>, <a href="https://bridge.nauti-labs.com/" target="_blank" rel="noopener">Bridge</a>, and <a href="/suite/">Suite Status</a></div>
-      <div class="trust-chip"><strong>Primary offers:</strong> maritime ops consulting, workflow systems, applied AI, and local digital help</div>
-      <div class="trust-chip"><strong>Local area:</strong> Mont Belvieu · Baytown · Barbers Hill</div>
-      <div class="trust-chip"><strong>Brand locked:</strong> <a href="/brand/">Nauti-Labs Brand System</a></div>
+    <div class="container">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        <span>NAUTI-LABS LLC · MARITIME · COMPLIANCE · APPLIED AI</span>
+      </div>
+      <h1>Maritime ops. Crypto compliance. <span class="accent">Custom AI.</span></h1>
+      <p class="lede">
+        One company, three disciplines. Built by someone who's worked the operation — not someone who's read about it.
+        Live tools. Published rates. No fluff.
+      </p>
+      <div class="hero-actions">
+        <a href="mailto:justin@nauti-labs.com?subject=Nauti-Labs%20intro" class="btn-primary">Book a 30-min intro →</a>
+        <a href="#pillars" class="btn-secondary">See what we do</a>
+      </div>
+      <div class="hero-pills">
+        <span class="hero-pill"><span class="pill-dot">●</span> Triton — live</span>
+        <span class="hero-pill"><span class="pill-dot">●</span> Clearance — live</span>
+        <span class="hero-pill"><span class="pill-dot">●</span> Promptly — live</span>
+        <span class="hero-pill"><span class="pill-dot" style="color: var(--amber)">●</span> Anchor Compliance — pilot</span>
+      </div>
     </div>
-
-    <div class="doors">
-
-      <a href="/maritime/" class="door maritime">
-        <svg class="door-icon" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <g transform="translate(70 60)">
-            <circle cx="0" cy="0" r="40" stroke="#00c8f0" stroke-width="2.6"/>
-            <circle cx="0" cy="0" r="32" stroke="#00c8f0" stroke-width="0.6" opacity="0.4"/>
-            <g stroke="#00c8f0" stroke-width="2" stroke-linecap="round">
-              <line x1="0" y1="-40" x2="0" y2="-32"/><line x1="0" y1="40" x2="0" y2="32"/>
-              <line x1="-40" y1="0" x2="-32" y2="0"/><line x1="40" y1="0" x2="32" y2="0"/>
-            </g>
-            <g stroke="#00c8f0" stroke-width="1.2" stroke-linecap="round" opacity="0.6">
-              <line x1="-28" y1="-28" x2="-24" y2="-24"/><line x1="28" y1="-28" x2="24" y2="-24"/>
-              <line x1="-28" y1="28" x2="-24" y2="24"/><line x1="28" y1="28" x2="24" y2="24"/>
-            </g>
-            <path d="M 0 -28 L 5 0 L 0 4 L -5 0 Z" fill="#ffaa00"/>
-            <path d="M 0 28 L 5 0 L 0 -4 L -5 0 Z" fill="#66e5ff" opacity="0.55"/>
-            <circle cx="0" cy="0" r="2.6" fill="#01020a"/>
-            <circle cx="0" cy="0" r="2.6" stroke="#ffaa00" stroke-width="1.2" fill="none"/>
-          </g>
-          <path d="M 26 122 Q 47 104, 70 122 T 114 122" stroke="#66e5ff" stroke-width="3.6" fill="none" stroke-linecap="round"/>
-        </svg>
-        <div class="door-label">For Maritime Professionals</div>
-        <div class="door-title">Chemical Tanker Ops.<br>Delivered.</div>
-        <div class="door-sub">
-          Agency software, port-call workflows, and consulting from someone who's worked the operation.
-          Triton flagship platform included.
-        </div>
-        <ul class="door-features">
-          <li>Triton — maritime platform, live demo</li>
-          <li>Port-call &amp; pre-arrival workflows</li>
-          <li>$125 / hr · $1,250 starter engagement</li>
-          <li>Houston Ship Channel &amp; beyond</li>
-        </ul>
-      </a>
-
-      <a href="/labs/" class="door labs">
-        <svg class="door-icon" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <g transform="translate(70 60)">
-            <ellipse cx="0" cy="38" rx="34" ry="5" stroke="#00c8f0" stroke-width="1.4" fill="none" opacity="0.45"/>
-            <path d="M -20 28 L -20 16 L -12 4 L 12 4 L 20 16 L 20 28 Z" stroke="#00c8f0" stroke-width="2.6" fill="rgba(0,200,240,0.05)"/>
-            <line x1="-22" y1="28" x2="22" y2="28" stroke="#00c8f0" stroke-width="1.4" opacity="0.7" stroke-linecap="round"/>
-            <circle cx="-13" cy="20" r="1.2" fill="#66e5ff"/>
-            <circle cx="13" cy="20" r="1.2" fill="#66e5ff"/>
-            <circle cx="0" cy="22" r="1.2" fill="#66e5ff"/>
-            <line x1="0" y1="4" x2="0" y2="-30" stroke="#00c8f0" stroke-width="2.4" stroke-linecap="round"/>
-            <line x1="-12" y1="-12" x2="12" y2="-12" stroke="#00c8f0" stroke-width="1.6" stroke-linecap="round"/>
-            <circle cx="-12" cy="-12" r="1.6" fill="#66e5ff"/>
-            <circle cx="12" cy="-12" r="1.6" fill="#66e5ff"/>
-            <circle cx="0" cy="-32" r="6" stroke="#ff4dc4" stroke-width="2" fill="rgba(255,77,196,0.18)"/>
-            <circle cx="0" cy="-32" r="2.8" fill="#ff4dc4"/>
-            <circle cx="0" cy="-32" r="11" stroke="#ff4dc4" stroke-width="1" opacity="0.45" fill="none"/>
-            <circle cx="0" cy="-32" r="16" stroke="#ff4dc4" stroke-width="0.7" opacity="0.25" fill="none"/>
-            <line x1="0" y1="-38" x2="0" y2="-42" stroke="#00c8f0" stroke-width="1.2" stroke-linecap="round"/>
-          </g>
-          <path d="M 26 122 Q 47 104, 70 122 T 114 122" stroke="#66e5ff" stroke-width="3.6" fill="none" stroke-linecap="round"/>
-        </svg>
-        <div class="door-label">For Builders &amp; AI</div>
-        <div class="door-title">AI Commerce.<br>Human-in-the-Loop.</div>
-        <div class="door-sub">
-          Clearance API, Bridge crew workflows, and applied AI tools with explicit human approval.
-          Open source where it counts, premium where it pays.
-        </div>
-        <ul class="door-features">
-          <li>Clearance — signed human-approval receipts</li>
-          <li>Bridge — AI crew command surface</li>
-          <li>Felipe — internal acquisition research lab</li>
-          <li>USDC on Base · JWT · FastAPI</li>
-        </ul>
-      </a>
-
-      <a href="/neighbors/" class="door neighbors">
-        <svg class="door-icon" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <g transform="translate(70 60)">
-            <ellipse cx="0" cy="38" rx="36" ry="5" stroke="#00c8f0" stroke-width="1.4" fill="none" opacity="0.45"/>
-            <rect x="-24" y="28" width="48" height="10" stroke="#00c8f0" stroke-width="2" fill="rgba(0,200,240,0.05)"/>
-            <line x1="-18" y1="32" x2="-12" y2="32" stroke="#00c8f0" stroke-width="1" opacity="0.5"/>
-            <line x1="-6" y1="34" x2="2" y2="34" stroke="#00c8f0" stroke-width="1" opacity="0.5"/>
-            <line x1="10" y1="32" x2="18" y2="32" stroke="#00c8f0" stroke-width="1" opacity="0.5"/>
-            <path d="M -14 28 L -10 -10 L 10 -10 L 14 28 Z" stroke="#00c8f0" stroke-width="2.6" fill="rgba(0,200,240,0.04)"/>
-            <line x1="-13" y1="14" x2="13" y2="14" stroke="#00c8f0" stroke-width="1.2" opacity="0.55"/>
-            <line x1="-12" y1="0" x2="12" y2="0" stroke="#00c8f0" stroke-width="1.2" opacity="0.55"/>
-            <path d="M -3 28 L -3 18 Q -3 14 0 14 Q 3 14 3 18 L 3 28 Z" stroke="#00c8f0" stroke-width="1.6" fill="rgba(0,200,240,0.08)"/>
-            <circle cx="0" cy="6" r="1.6" fill="#66e5ff"/>
-            <line x1="-15" y1="-10" x2="15" y2="-10" stroke="#00c8f0" stroke-width="2.2" stroke-linecap="round"/>
-            <circle cx="-12" cy="-12" r="0.8" fill="#66e5ff"/>
-            <circle cx="-6" cy="-12" r="0.8" fill="#66e5ff"/>
-            <circle cx="0" cy="-12" r="0.8" fill="#66e5ff"/>
-            <circle cx="6" cy="-12" r="0.8" fill="#66e5ff"/>
-            <circle cx="12" cy="-12" r="0.8" fill="#66e5ff"/>
-            <rect x="-9" y="-24" width="18" height="14" stroke="#00c8f0" stroke-width="2.2" fill="rgba(0,255,156,0.08)"/>
-            <line x1="0" y1="-24" x2="0" y2="-10" stroke="#00c8f0" stroke-width="1" opacity="0.4"/>
-            <circle cx="0" cy="-17" r="3.6" fill="#00ff9c"/>
-            <circle cx="0" cy="-17" r="6.5" fill="rgba(0,255,156,0.35)"/>
-            <circle cx="0" cy="-17" r="11" fill="rgba(0,255,156,0.12)"/>
-            <line x1="-18" y1="-22" x2="-30" y2="-30" stroke="#00ff9c" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
-            <line x1="18" y1="-22" x2="30" y2="-30" stroke="#00ff9c" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
-            <path d="M -10 -24 L 0 -34 L 10 -24 Z" stroke="#00c8f0" stroke-width="2" fill="rgba(0,200,240,0.08)" stroke-linejoin="round"/>
-            <line x1="0" y1="-34" x2="0" y2="-40" stroke="#00c8f0" stroke-width="1.4" stroke-linecap="round"/>
-            <circle cx="0" cy="-41" r="1.6" fill="#66e5ff"/>
-          </g>
-          <path d="M 26 122 Q 47 104, 70 122 T 114 122" stroke="#66e5ff" stroke-width="3.6" fill="none" stroke-linecap="round"/>
-        </svg>
-        <div class="door-label">For Neighbors</div>
-        <div class="door-title">Local AI Help.<br>Plain English.</div>
-        <div class="door-sub">
-          Practical device, account, website, and AI setup help for residents and owner-operated businesses in Mont Belvieu, Baytown, and the Barbers Hill area.
-        </div>
-        <ul class="door-features">
-          <li>Anchor and Ollama setup on your own machine</li>
-          <li>Security hardening for devices, Wi-Fi, and accounts</li>
-          <li>Google Business, website, email, and domain cleanup</li>
-          <li>Local only · residents and owners only</li>
-        </ul>
-      </a>
-
-    </div>
-
   </section>
 
-  <footer>
-    <span class="accent">NAUTI-LABS LLC</span> · Mont Belvieu / Baytown, TX · <span class="amber">Est. 2026</span> · <a href="mailto:consulting@nauti-labs.com">consulting@nauti-labs.com</a>
+  <!-- PILLAR OVERVIEW CARDS -->
+  <section class="pillars-strip" id="pillars">
+    <div class="container">
+      <div class="strip-eyebrow">// Three pillars</div>
+      <div class="pillar-grid">
+
+        <a href="#maritime" class="pillar-card">
+          <div class="num">01</div>
+          <h3>Maritime Compliance</h3>
+          <p>Chemical tanker ops, port-call workflows, and vessel-agency consulting. Houston Ship Channel and beyond.</p>
+          <ul>
+            <li>Triton platform — port-call workflows</li>
+            <li>Agency software & process design</li>
+            <li>$125 / hr · $1,250 starter (10 hrs)</li>
+          </ul>
+          <span class="pillar-link">Read more →</span>
+        </a>
+
+        <a href="#crypto" class="pillar-card">
+          <div class="num">02</div>
+          <h3>Crypto Compliance</h3>
+          <p>Texas SB 1244 / § 74.101 holder reporting for crypto custodians. First annual deadline: July 1.</p>
+          <ul>
+            <li>Anchor Compliance tool + filing services</li>
+            <li>SB 1244 key-control attestation</li>
+            <li>Pilot from $7,500 · 3 design-partner slots</li>
+          </ul>
+          <span class="pillar-link">Read more →</span>
+        </a>
+
+        <a href="#ai" class="pillar-card">
+          <div class="num">03</div>
+          <h3>Custom AI</h3>
+          <p>Approval-aware AI agents, bots, and product builds. Open source where it counts, premium where it pays.</p>
+          <ul>
+            <li>Clearance API — human-approval layer</li>
+            <li>Bot & agent builds (Telegram, web, headless)</li>
+            <li>$125 / hr · $1,250 starter (10 hrs)</li>
+          </ul>
+          <span class="pillar-link">Read more →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- 01 · MARITIME COMPLIANCE                       -->
+  <!-- ============================================== -->
+  <section class="pillar-section" id="maritime">
+    <div class="container">
+      <div class="section-eyebrow">01 · Maritime Compliance</div>
+      <h2>Built by someone who's worked the operation.</h2>
+      <p class="lede">
+        Ten-plus years inside chemical tanker operations on the Houston Ship Channel — agency desks, pre-arrival, port calls.
+        Now I build the software the desk wished it had, and consult for vessel agents and ship owners who need workflow systems that fit the operation.
+      </p>
+
+      <div class="detail-grid">
+        <div>
+          <h4>What I help with</h4>
+          <ul class="check-list">
+            <li>Port-call &amp; pre-arrival workflow design</li>
+            <li>Agency software — data flows, document handoffs, scheduling</li>
+            <li>Triton platform — bridge agent deck for vessel operations</li>
+            <li>Process audits — find where time and money leak</li>
+            <li>Vessel agent &amp; ship owner consulting (MOL / Ultratank scale)</li>
+            <li>Pre-launch and field-test partnership (PortXchange-style debug work)</li>
+          </ul>
+
+          <h4>How an engagement works</h4>
+          <ul class="check-list">
+            <li>30-min intro call — scope the problem, no charge</li>
+            <li>10-hour starter ($1,250 upfront) — discovery, audit, first deliverable</li>
+            <li>Ongoing at $125/hr or fixed-scope quotes after that</li>
+            <li>Mileage / travel billed separately for onsite work</li>
+          </ul>
+        </div>
+
+        <aside class="rate-card">
+          <div class="rate-name">Maritime ops consulting</div>
+          <div class="rate-price">$125<span class="rate-period">/ hr</span></div>
+          <div class="rate-floor">10-hr minimum · $1,250 upfront</div>
+          <ul class="rate-includes">
+            <li>Async or scheduled calls</li>
+            <li>Process docs you keep</li>
+            <li>Triton platform access</li>
+            <li>Houston Ship Channel focus</li>
+          </ul>
+          <a href="mailto:justin@nauti-labs.com?subject=Maritime%20consulting%20—%20intro" class="btn-primary">Start an engagement</a>
+          <a href="https://bridge.nauti-labs.com/" target="_blank" rel="noopener" class="btn-secondary">Open Triton live demo →</a>
+        </aside>
+      </div>
+
+      <h3>Live · Triton platform</h3>
+      <div class="demo-cards">
+        <div class="demo-card">
+          <div class="demo-eyebrow"><span class="dot"></span>Live · Bridge</div>
+          <h4>Triton — Bridge Agent Deck</h4>
+          <p>Workflow surface for vessel agents and ship owners. Port-call orchestration with approval gates so AI assistance never moves on a tasking the human didn't sign off.</p>
+          <a href="https://bridge.nauti-labs.com/" target="_blank" rel="noopener" class="btn-secondary">Open live demo →</a>
+        </div>
+        <div class="demo-card">
+          <div class="demo-eyebrow"><span class="dot"></span>Live · Ops</div>
+          <h4>Triton — Ops Surface</h4>
+          <p>Operational view at <span class="mono">ops.nauti-labs.com</span>. Vessel deck, schedule, and event log built from the agency desk perspective.</p>
+          <a href="https://ops.nauti-labs.com/" target="_blank" rel="noopener" class="btn-secondary">Open live demo →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- 02 · CRYPTO COMPLIANCE                         -->
+  <!-- ============================================== -->
+  <section class="pillar-section" id="crypto">
+    <div class="container">
+      <div class="section-eyebrow">02 · Crypto Compliance</div>
+      <h2>Anchor Compliance — built for Texas SB 1244 holder reporting.</h2>
+      <p class="lede">
+        Pricing reflects the size and complexity of your filing, not the size of your wallet inventory.
+        Texas-domiciled crypto custodians: the first annual § 74.101 deadline is <strong>July 1</strong>.
+      </p>
+
+      <h3>Anchor Compliance — same tool, two themes</h3>
+      <div class="anchor-gallery">
+        <figure class="anchor-shot">
+          <img src="/assets/anchor/inventory-dark.png" alt="Anchor Compliance Wallet Inventory — dark mode" loading="lazy">
+          <figcaption>
+            <span>Wallet Inventory · SB 1244 candidates</span>
+            <span class="theme-tag">Dark</span>
+          </figcaption>
+        </figure>
+        <figure class="anchor-shot">
+          <img src="/assets/anchor/inventory-light.png" alt="Anchor Compliance Wallet Inventory — light mode" loading="lazy">
+          <figcaption>
+            <span>Wallet Inventory · SB 1244 candidates</span>
+            <span class="theme-tag light">Light</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <h3>Plans</h3>
+      <div class="pricing-table-wrap">
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Pilot</th>
+              <th>Annual Retainer</th>
+              <th>Enterprise</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Best for</td>
+              <td>Your first § 74.101 filing</td>
+              <td>Year-round compliance partnership</td>
+              <td>Multi-state, integration-heavy holders</td>
+            </tr>
+            <tr>
+              <td>Price</td>
+              <td class="price-cell">$7,500–$15,000<small>fixed, one filing cycle</small></td>
+              <td class="price-cell">$25,000–$45,000<small>per year · 12-month engagement</small></td>
+              <td class="price-cell">Contact us<small>typically $60k+</small></td>
+            </tr>
+            <tr>
+              <td>§ 74.101 + NAUPA II artifacts</td>
+              <td><span class="check-yes">✓</span> One annual filing</td>
+              <td><span class="check-yes">✓</span> Annual + ad-hoc</td>
+              <td><span class="check-yes">✓</span> Multi-state</td>
+            </tr>
+            <tr>
+              <td>SB 1244 key-control attestation</td>
+              <td><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+            </tr>
+            <tr>
+              <td>Tool license</td>
+              <td><span class="check-yes">✓</span> 12 months</td>
+              <td><span class="check-yes">✓</span> Included</td>
+              <td><span class="check-yes">✓</span> Included</td>
+            </tr>
+            <tr>
+              <td>Compliance audit-log handoff</td>
+              <td><span class="check-yes">✓</span> At delivery</td>
+              <td><span class="check-yes">✓</span> Ongoing</td>
+              <td><span class="check-yes">✓</span> Real-time</td>
+            </tr>
+            <tr>
+              <td>Quarterly compliance reviews</td>
+              <td><span class="check-no">—</span></td>
+              <td><span class="check-yes">✓</span> 4/yr</td>
+              <td><span class="check-yes">✓</span> 4/yr + exec briefing</td>
+            </tr>
+            <tr>
+              <td>Ad-hoc dormancy scans</td>
+              <td><span class="check-no">—</span></td>
+              <td><span class="check-yes">✓</span> Unlimited</td>
+              <td><span class="check-yes">✓</span> Unlimited</td>
+            </tr>
+            <tr>
+              <td>Priority email response</td>
+              <td>5 business days</td>
+              <td>2 business days</td>
+              <td>1 business day SLA</td>
+            </tr>
+            <tr>
+              <td>On-call support</td>
+              <td><span class="check-no">—</span></td>
+              <td><span class="check-no">—</span></td>
+              <td><span class="check-yes">✓</span> Defined SLA</td>
+            </tr>
+            <tr>
+              <td>Custom integration (CRM / wallet DB)</td>
+              <td><span class="check-no">—</span></td>
+              <td><span class="check-no">—</span></td>
+              <td><span class="check-yes">✓</span></td>
+            </tr>
+            <tr>
+              <td>On-prem / air-gapped deployment</td>
+              <td><span class="check-no">—</span></td>
+              <td><span class="check-no">—</span></td>
+              <td><span class="check-yes">✓</span></td>
+            </tr>
+            <tr>
+              <td>SSO + role-based access</td>
+              <td><span class="check-no">—</span></td>
+              <td><span class="check-no">—</span></td>
+              <td><span class="check-yes">✓</span></td>
+            </tr>
+            <tr>
+              <td>Training</td>
+              <td>1 session</td>
+              <td>2 sessions / yr</td>
+              <td>Custom curriculum</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Add-ons</h3>
+      <p class="muted" style="font-size: 14px;">For holders who don't fit a full plan or need targeted help.</p>
+      <table class="addon-table">
+        <tbody>
+          <tr>
+            <td><strong>Compliance advisory</strong> — hourly, no tool license</td>
+            <td>$275 / hr</td>
+          </tr>
+          <tr>
+            <td><strong>One-time § 74.101 filing prep</strong> — we run the filing, you keep the artifacts</td>
+            <td>$5,000 flat</td>
+          </tr>
+          <tr>
+            <td><strong>Custom integration scope</strong> — your CRM ↔ Anchor</td>
+            <td>$10,000–$50,000</td>
+          </tr>
+          <tr>
+            <td><strong>Additional training session</strong></td>
+            <td>$1,500</td>
+          </tr>
+          <tr>
+            <td><strong>Rush filing surcharge</strong> — engagement starts &lt; 60 days from deadline</td>
+            <td>+ 25%</td>
+          </tr>
+          <tr>
+            <td><strong>Holder-side audit support</strong> — Comptroller comes asking</td>
+            <td>$3,500 + $275/hr</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Design-partner callout -->
+      <div class="callout">
+        <h4>Design-Partner Program · 3 slots open</h4>
+        <ul>
+          <li><strong>30% off Pilot</strong> — floor drops to <strong>$5,250</strong></li>
+          <li><strong>20% off year-one Annual Retainer</strong></li>
+          <li>Exchange: 2-3 paragraph case study (your approval) + one peer intro</li>
+        </ul>
+        <p>First-come, first-served. Closes once 3 slots fill.</p>
+      </div>
+
+      <h3>Frequently asked</h3>
+      <div class="faq-list">
+
+        <details class="faq">
+          <summary>Why is there a price range within each tier?</summary>
+          <p>Each filing is sized by candidate-wallet count, owner-record completeness, and how much remediation we need on your authorized address list. We quote at the low end for holders with clean records under 5,000 candidate wallets, and at the upper end for higher complexity.</p>
+        </details>
+
+        <details class="faq">
+          <summary>Do you charge per wallet?</summary>
+          <p>No. The complexity of the filing is what we price against — not the raw wallet count. A holder with 50,000 wallets but only 200 candidates pays the same as a holder with 5,000 wallets and 200 candidates.</p>
+        </details>
+
+        <details class="faq">
+          <summary>Is the tool license included or separate?</summary>
+          <p>Included in all plans. We don't sell software-only licenses — Anchor Compliance is paired with services because the regulatory interpretation needs a human in the loop on attestation.</p>
+        </details>
+
+        <details class="faq">
+          <summary>Do you offer multi-year discounts?</summary>
+          <p>Yes — 10% off year two, 15% off year three for Annual Retainer customers who commit upfront.</p>
+        </details>
+
+        <details class="faq">
+          <summary>What's your refund policy?</summary>
+          <p>Pilot tier: if we don't deliver the filing artifacts to your specifications, you don't pay the final 50%. Annual tier: pro-rated refund for unused months minus delivered services.</p>
+        </details>
+
+        <details class="faq">
+          <summary>Can we run Anchor on our own infrastructure?</summary>
+          <p>On Enterprise, yes — we'll deploy to your environment. On Pilot and Annual, the tool runs on your laptop or your operator's machine; your data stays local.</p>
+        </details>
+
+        <details class="faq">
+          <summary>Do you carry E&amp;O insurance?</summary>
+          <p>Yes. Certificate of insurance available on request to Annual and Enterprise customers.</p>
+        </details>
+
+      </div>
+
+      <div class="terms-strip">
+        <div class="term"><strong>Pilot</strong>50% deposit on SOW · 50% on delivery · Net-15</div>
+        <div class="term"><strong>Annual</strong>Quarterly or annual prepay · Net-30</div>
+        <div class="term"><strong>Enterprise</strong>Custom · tied to integration milestones</div>
+        <div class="term"><strong>Accepted</strong>ACH · wire · USDC on Base (1% discount)</div>
+      </div>
+
+      <div class="cta-block">
+        <h3>Ready to talk about your filing?</h3>
+        <p>The first annual § 74.101 deadline is <strong>July 1</strong>. A small number of pilot slots are open before then.</p>
+        <a href="mailto:justin@nauti-labs.com?subject=Anchor%20Compliance%20—%20demo%20request" class="btn-primary">Book a 30-minute demo →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- 03 · CUSTOM AI                                  -->
+  <!-- ============================================== -->
+  <section class="pillar-section" id="ai">
+    <div class="container">
+      <div class="section-eyebrow">03 · Custom AI</div>
+      <h2>Approval-aware AI. Built to ship.</h2>
+      <p class="lede">
+        If you can describe the workflow, I can build the agent. Bots, headless tools, integrations — with human approval at the seams where money or risk moves.
+        Two live products show the pattern.
+      </p>
+
+      <div class="detail-grid">
+        <div>
+          <h4>What I build</h4>
+          <ul class="check-list">
+            <li>Telegram, Discord, and SMS bots with payment integration</li>
+            <li>Headless agents — scheduled jobs, scrapers, monitors with approval gates</li>
+            <li>Custom dashboards and operational tools</li>
+            <li>Integration scopes — your CRM / database / vendor API into AI workflows</li>
+            <li>Clearance-style approval flows for high-risk AI actions</li>
+          </ul>
+
+          <h4>How a build engagement works</h4>
+          <ul class="check-list">
+            <li>Free 30-min scoping call</li>
+            <li>10-hour starter ($1,250 upfront) — spec, prototype, first usable build</li>
+            <li>Continuation at $125/hr or fixed-scope quotes</li>
+            <li>Open-source artifacts where it makes sense; private repos when you need them</li>
+          </ul>
+        </div>
+
+        <aside class="rate-card">
+          <div class="rate-name">Custom AI / bot builds</div>
+          <div class="rate-price">$125<span class="rate-period">/ hr</span></div>
+          <div class="rate-floor">10-hr minimum · $1,250 upfront</div>
+          <ul class="rate-includes">
+            <li>Spec, prototype, and ship</li>
+            <li>Code &amp; docs you own</li>
+            <li>Pair with Codex / Claude in the build loop</li>
+            <li>Approval-aware patterns by default</li>
+          </ul>
+          <a href="mailto:justin@nauti-labs.com?subject=Custom%20AI%20build" class="btn-primary">Start a build</a>
+          <a href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener" class="btn-secondary">See Clearance live →</a>
+        </aside>
+      </div>
+
+      <h3>Live products</h3>
+      <div class="demo-cards">
+        <div class="demo-card">
+          <div class="demo-eyebrow"><span class="dot"></span>Live · API</div>
+          <h4>Clearance</h4>
+          <p>The auth layer between human intent and agent execution. One API call. Human approves. Agent proceeds. Token verifies on-chain.</p>
+          <a href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener" class="btn-secondary">Open Clearance →</a>
+        </div>
+        <div class="demo-card">
+          <div class="demo-eyebrow"><span class="dot"></span>Live · Personal AI</div>
+          <h4>Promptly</h4>
+          <p>Hosted personal LLM with crypto checkout — Lightning / USDC gated access. $4.99 day, $12.99 week, $29.99 month tiers.</p>
+          <a href="https://promptly.enviroware.ai/" target="_blank" rel="noopener" class="btn-secondary">Open Promptly →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- FOOTER                                          -->
+  <!-- ============================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand">
+            <span class="brand-mark">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="2" fill="none"/>
+                <circle cx="16" cy="16" r="3" fill="currentColor"/>
+                <line x1="16" y1="2" x2="16" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="16" y1="25" x2="16" y2="30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="2" y1="16" x2="7" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="25" y1="16" x2="30" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="brand-name">Nauti-Labs</span>
+          </div>
+          <p>Maritime ops, crypto compliance, and applied AI from Mont Belvieu, Texas. Built for operators who'd rather use the thing than read about it.</p>
+        </div>
+        <div>
+          <h5>Practice</h5>
+          <ul>
+            <li><a href="#maritime">Maritime</a></li>
+            <li><a href="#crypto">Crypto Compliance</a></li>
+            <li><a href="#ai">Custom AI</a></li>
+            <li><a href="/neighbors/">Neighbors (local help)</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Live products</h5>
+          <ul>
+            <li><a href="https://bridge.nauti-labs.com/" target="_blank" rel="noopener">Triton — Bridge</a></li>
+            <li><a href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener">Clearance</a></li>
+            <li><a href="https://promptly.enviroware.ai/" target="_blank" rel="noopener">Promptly</a></li>
+            <li><a href="/suite/">Suite status</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="mailto:justin@nauti-labs.com">justin@nauti-labs.com</a></li>
+            <li><a href="https://www.linkedin.com/in/justin-leblanc-79b242101" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="/brand/">Brand system</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div><span class="amber">NAUTI-LABS LLC</span> · Mont Belvieu / Baytown, TX · Est. 2026</div>
+        <div>© 2026 Nauti-Labs LLC. All rights reserved.</div>
+      </div>
+    </div>
   </footer>
 
 </body>

@@ -1,53 +1,86 @@
-<svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="gearTitle gearDesc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" role="img" aria-labelledby="gearTitle gearDesc">
   <title id="gearTitle">Nauti-Labs gear wheel logo</title>
-  <desc id="gearDesc">A cyan gear wheel with radar rings, crosshairs, and small amber, violet, and red accent strokes.</desc>
+  <desc id="gearDesc">A gunmetal eight-tooth gear with a bright cyan ship's helm at center. Four small accent dots at the cardinal positions represent the sub-brands: cyan (Triton) at top, purple (Castle) at right, red (Felipe) at bottom, orange (Clearance) at left.</desc>
   <defs>
-    <linearGradient id="gearCyan" x1="20" y1="18" x2="118" y2="122" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#66E5FF"/>
-      <stop offset="0.5" stop-color="#20B8FF"/>
-      <stop offset="1" stop-color="#0077FF"/>
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#00e5ff" stop-opacity="0.22"/>
+      <stop offset="55%"  stop-color="#00b3c8" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gunmetal" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%"   stop-color="#4a5462"/>
+      <stop offset="35%"  stop-color="#2a3140"/>
+      <stop offset="70%"  stop-color="#161b24"/>
+      <stop offset="100%" stop-color="#080a10"/>
     </linearGradient>
-    <filter id="gearGlow" filterUnits="userSpaceOnUse" x="5" y="5" width="130" height="130" color-interpolation-filters="sRGB">
-      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#00C8F0" flood-opacity="0.38"/>
+    <linearGradient id="helmCyan" x1="20%" y1="10%" x2="80%" y2="100%">
+      <stop offset="0%"   stop-color="#a8fbff"/>
+      <stop offset="50%"  stop-color="#1ee0e0"/>
+      <stop offset="100%" stop-color="#0a8d96"/>
+    </linearGradient>
+    <radialGradient id="hub" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="55%"  stop-color="#5cf3ff"/>
+      <stop offset="100%" stop-color="#0a7c84"/>
+    </radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <symbol id="tooth" overflow="visible">
+      <path d="M -52 -195 L -46 -224 Q -42 -232 -34 -232 L 34 -232 Q 42 -232 46 -224 L 52 -195 Z"
+            fill="url(#gunmetal)" stroke="#0a0d13" stroke-width="1.4" stroke-linejoin="round"/>
+      <path d="M -42 -222 Q -34 -228 -28 -228 L 28 -228 Q 34 -228 42 -222"
+            stroke="#5e6a7c" stroke-width="1" fill="none" opacity="0.6"/>
+    </symbol>
+    <symbol id="spoke" overflow="visible">
+      <rect x="-4" y="-118" width="8" height="100" rx="2.5" fill="url(#helmCyan)"/>
+    </symbol>
+    <symbol id="handle" overflow="visible">
+      <rect x="-4.5" y="-160" width="9" height="38" rx="3.5" fill="url(#helmCyan)"/>
+      <circle cx="0" cy="-167" r="10" fill="url(#helmCyan)" stroke="#bafbff" stroke-width="1"/>
+    </symbol>
   </defs>
 
-  <circle cx="70" cy="70" r="58" fill="#07111d" stroke="#1c2a3a" stroke-width="1.2" opacity="0.86"/>
-  <g filter="url(#gearGlow)" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="70,14 80.9,15.1 87.6,27.5 95.6,31.8 109.6,30.4 116.6,38.9 112.5,52.4 115.1,61 126,70 124.9,80.9 112.5,87.6 108.2,95.6 109.6,109.6 101.1,116.6 87.6,112.5 79,115.1 70,126 59.1,124.9 52.4,112.5 44.4,108.2 30.4,109.6 23.4,101.1 27.5,87.6 24.9,79 14,70 15.1,59.1 27.5,52.4 31.8,44.4 30.4,30.4 38.9,23.4 52.4,27.5 61,24.9" fill="#20B8FF" opacity="0.95"/>
-    <circle cx="70" cy="70" r="49" fill="#07111d"/>
-    <circle cx="70" cy="70" r="45" stroke="url(#gearCyan)" stroke-width="3" fill="none"/>
-    <circle cx="70" cy="70" r="35" stroke="#67DFFF" stroke-width="1.4" fill="none" opacity="0.8"/>
-    <circle cx="70" cy="70" r="25" stroke="#67DFFF" stroke-width="1.2" fill="none" opacity="0.68"/>
-    <circle cx="70" cy="70" r="13" stroke="#67DFFF" stroke-width="1.5" fill="none"/>
-    <circle cx="70" cy="70" r="4.7" stroke="#F4FAFF" stroke-width="1.3" fill="#07111d"/>
-    <circle cx="70" cy="70" r="2.1" fill="#FFAA00"/>
+  <circle cx="256" cy="256" r="248" fill="url(#halo)"/>
 
-    <g stroke="#67DFFF" stroke-width="1.25" opacity="0.82">
-      <path d="M70 28V112"/>
-      <path d="M28 70H112"/>
-      <path d="M40.3 40.3L99.7 99.7"/>
-      <path d="M99.7 40.3L40.3 99.7"/>
-    </g>
+  <g transform="translate(256 256)">
+    <use href="#tooth"/><use href="#tooth" transform="rotate(45)"/>
+    <use href="#tooth" transform="rotate(90)"/><use href="#tooth" transform="rotate(135)"/>
+    <use href="#tooth" transform="rotate(180)"/><use href="#tooth" transform="rotate(225)"/>
+    <use href="#tooth" transform="rotate(270)"/><use href="#tooth" transform="rotate(315)"/>
+  </g>
+  <circle cx="256" cy="256" r="208" fill="url(#gunmetal)"/>
+  <circle cx="256" cy="256" r="208" stroke="#4a5462" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <circle cx="256" cy="256" r="206" stroke="#0a0d13" stroke-width="1" fill="none" opacity="0.9"/>
+  <circle cx="256" cy="256" r="178" fill="#03060a"/>
+  <circle cx="256" cy="256" r="178" stroke="#1a2230" stroke-width="2" fill="none"/>
+  <circle cx="256" cy="256" r="174" stroke="#3a4654" stroke-width="0.8" fill="none" opacity="0.5"/>
 
-    <g stroke="#67DFFF" stroke-width="0.9" opacity="0.75">
-      <path d="M70 35V48"/>
-      <path d="M70 92V105"/>
-      <path d="M35 70H48"/>
-      <path d="M92 70H105"/>
-      <path d="M52 52L60.5 60.5"/>
-      <path d="M79.5 79.5L88 88"/>
-      <path d="M88 52L79.5 60.5"/>
-      <path d="M60.5 79.5L52 88"/>
-    </g>
+  <g filter="url(#glow)">
+    <circle cx="256" cy="38"  r="10" fill="#22dde0" opacity="0.25"/>
+    <circle cx="474" cy="256" r="10" fill="#b766ff" opacity="0.25"/>
+    <circle cx="256" cy="474" r="10" fill="#ff2d55" opacity="0.25"/>
+    <circle cx="38"  cy="256" r="10" fill="#ff8a1f" opacity="0.25"/>
+    <circle cx="256" cy="38"  r="5.5" fill="#22dde0"/>
+    <circle cx="474" cy="256" r="5.5" fill="#b766ff"/>
+    <circle cx="256" cy="474" r="5.5" fill="#ff2d55"/>
+    <circle cx="38"  cy="256" r="5.5" fill="#ff8a1f"/>
+  </g>
 
-    <path d="M38 39A48 48 0 0 1 52 28" stroke="#8B5CF6" stroke-width="3.2"/>
-    <path d="M87 28A48 48 0 0 1 101 39" stroke="#FF3B5C" stroke-width="3.2"/>
-    <path d="M40 101A48 48 0 0 1 30 87" stroke="#FFAA00" stroke-width="3.2"/>
-    <path d="M101 101A48 48 0 0 0 111 87" stroke="#00C8F0" stroke-width="3.2"/>
-    <rect x="36" y="31" width="18" height="4" rx="2" fill="#8B5CF6" transform="rotate(-44 45 33)"/>
-    <rect x="88" y="31" width="18" height="4" rx="2" fill="#FF3B5C" transform="rotate(44 97 33)"/>
-    <rect x="33" y="103" width="18" height="4" rx="2" fill="#FFAA00" transform="rotate(44 42 105)"/>
-    <rect x="89" y="103" width="18" height="4" rx="2" fill="#00C8F0" transform="rotate(-44 98 105)"/>
+  <g transform="translate(256 256)" filter="url(#glow)">
+    <use href="#handle"/><use href="#handle" transform="rotate(45)"/>
+    <use href="#handle" transform="rotate(90)"/><use href="#handle" transform="rotate(135)"/>
+    <use href="#handle" transform="rotate(180)"/><use href="#handle" transform="rotate(225)"/>
+    <use href="#handle" transform="rotate(270)"/><use href="#handle" transform="rotate(315)"/>
+    <circle r="120" stroke="url(#helmCyan)" stroke-width="11" fill="none"/>
+    <circle r="106" stroke="#7ff5ff" stroke-width="1.5" fill="none" opacity="0.75"/>
+    <use href="#spoke"/><use href="#spoke" transform="rotate(45)"/>
+    <use href="#spoke" transform="rotate(90)"/><use href="#spoke" transform="rotate(135)"/>
+    <use href="#spoke" transform="rotate(180)"/><use href="#spoke" transform="rotate(225)"/>
+    <use href="#spoke" transform="rotate(270)"/><use href="#spoke" transform="rotate(315)"/>
+    <circle r="24" fill="url(#hub)"/>
+    <circle r="24" stroke="#7ff5ff" stroke-width="1.5" fill="none"/>
+    <circle r="6"  fill="#ffffff"/>
   </g>
 </svg>

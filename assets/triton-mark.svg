@@ -1,24 +1,69 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Triton mark">
-  <rect width="256" height="256" rx="44" fill="#070807"/>
-  <g fill="none" stroke="#c8c6bd" stroke-width="8" stroke-linecap="butt" opacity=".92">
-    <path d="M74 162a70 70 0 0 1 18-81"/>
-    <path d="M164 81a70 70 0 0 1 18 81"/>
-    <path d="M85 183a70 70 0 0 0 33 15"/>
-    <path d="M138 198a70 70 0 0 0 33-15"/>
-    <path d="M98 69a70 70 0 0 1 37-13"/>
-    <path d="M151 56a70 70 0 0 1 37 26"/>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="44%" r="78%">
+      <stop offset="0" stop-color="#181715"/>
+      <stop offset="0.56" stop-color="#0b0b0a"/>
+      <stop offset="1" stop-color="#030403"/>
+    </radialGradient>
+    <linearGradient id="silver" x1="58" x2="197" y1="54" y2="210" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fffdf5"/>
+      <stop offset="0.28" stop-color="#d9d7ce"/>
+      <stop offset="0.55" stop-color="#8e918b"/>
+      <stop offset="1" stop-color="#eff0eb"/>
+    </linearGradient>
+    <linearGradient id="silverDark" x1="76" x2="183" y1="58" y2="219" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f8f7f0"/>
+      <stop offset="0.48" stop-color="#9ea19b"/>
+      <stop offset="1" stop-color="#252927"/>
+    </linearGradient>
+    <linearGradient id="amber" x1="128" x2="128" y1="30" y2="205" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffe04f"/>
+      <stop offset="0.48" stop-color="#f5a118"/>
+      <stop offset="1" stop-color="#c56700"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 1 0 0.54 0 0 0.06 0 0 0 0 0 0 0 0.45 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <rect width="256" height="256" rx="28" fill="url(#bg)"/>
+  <circle cx="128" cy="128" r="94" fill="none" stroke="#11110f" stroke-width="1.5" opacity=".8"/>
+
+  <g fill="none" stroke="url(#silver)" stroke-width="8" stroke-linecap="butt" filter="url(#shadow)" opacity=".94">
+    <path d="M74 162a72 72 0 0 1 17-82"/>
+    <path d="M98 68a72 72 0 0 1 30-8"/>
+    <path d="M136 60a72 72 0 0 1 45 27"/>
+    <path d="M184 101a72 72 0 0 1-2 61"/>
+    <path d="M84 183a72 72 0 0 0 36 16"/>
+    <path d="M137 199a72 72 0 0 0 35-17"/>
   </g>
-  <path d="M128 38 139 131 128 125 117 131z" fill="#f5a118"/>
-  <path d="M65 70 108 130 92 123z" fill="#d6d3cb"/>
-  <path d="M191 70 148 130 164 123z" fill="#d6d3cb"/>
-  <path d="M39 128h54l35-9 35 9h54l-89 13z" fill="#e4e0d7"/>
-  <path d="M128 141 136 205 128 228 120 205z" fill="#a8a9a3"/>
-  <circle cx="128" cy="128" r="17" fill="#f2f0e8"/>
-  <circle cx="128" cy="128" r="10" fill="#080909"/>
-  <circle cx="128" cy="128" r="6" fill="#f5a118"/>
-  <circle cx="128" cy="198" r="13" fill="#d5d1c8"/>
-  <circle cx="128" cy="198" r="8" fill="#080909"/>
-  <circle cx="128" cy="198" r="5" fill="#f5a118"/>
-  <rect x="55" y="125" width="20" height="6" fill="#c7c5bd" opacity=".86"/>
-  <rect x="181" y="125" width="20" height="6" fill="#c7c5bd" opacity=".86"/>
+
+  <g filter="url(#glow)">
+    <path d="M128 30c7 43 12 72 17 99l-17-9-17 9c5-27 10-56 17-99z" fill="url(#amber)"/>
+    <path d="M79 72l38 55-19-8z" fill="url(#silverDark)"/>
+    <path d="M177 72l-38 55 19-8z" fill="url(#silverDark)"/>
+    <path d="M44 128l49-5 35-11 35 11 49 5-49 5-35 11-35-11z" fill="url(#silver)"/>
+    <path d="M128 143l10 62-10 24-10-24z" fill="url(#silverDark)"/>
+  </g>
+
+  <g fill="#d8d6cf" opacity=".88">
+    <rect x="55" y="125" width="20" height="6"/>
+    <rect x="181" y="125" width="20" height="6"/>
+  </g>
+
+  <circle cx="128" cy="128" r="18" fill="#efeee7" filter="url(#shadow)"/>
+  <circle cx="128" cy="128" r="11" fill="#070807"/>
+  <circle cx="128" cy="128" r="7" fill="url(#amber)"/>
+
+  <circle cx="128" cy="198" r="15" fill="#d9d6ce" filter="url(#shadow)"/>
+  <circle cx="128" cy="198" r="10" fill="#070807"/>
+  <circle cx="128" cy="198" r="7" fill="url(#amber)"/>
 </svg>

@@ -197,6 +197,7 @@
       background: var(--surface-2);
       transform: translateY(-1px);
     }
+    a.btn-secondary { text-decoration: none; }
     .hero-pills {
       display: flex; flex-wrap: wrap; gap: 8px;
     }
@@ -632,8 +633,16 @@
       border-radius: var(--radius);
       padding: 26px;
       transition: border-color 0.2s;
+      color: inherit;
+      text-decoration: none;
+      display: block;
     }
     .demo-card:hover { border-color: var(--amber); }
+    .product-card-link { cursor: pointer; }
+    .product-card-link:focus-visible {
+      outline: 2px solid var(--amber);
+      outline-offset: 4px;
+    }
     .demo-card-head {
       display: flex;
       align-items: flex-start;
@@ -754,6 +763,21 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 36px 40px;
+      color: inherit;
+      text-decoration: none;
+      display: block;
+    }
+    .neighbors-link-card {
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .neighbors-link-card:hover {
+      border-color: var(--amber);
+      background: var(--surface-2);
+    }
+    .neighbors-link-card:focus-visible {
+      outline: 2px solid var(--amber);
+      outline-offset: 4px;
     }
     .neighbors-eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
@@ -927,7 +951,7 @@
         <a href="#maritime">Maritime</a>
         <a href="#crypto">Crypto Compliance</a>
         <a href="#ai">Custom AI</a>
-        <a href="#neighbors">Neighbors</a>
+        <a href="https://neighbors.nauti-labs.com/">Neighbors</a>
         <a href="mailto:consulting@nauti-labs.com" class="nav-cta">Book intro</a>
       </div>
     </div>
@@ -1024,8 +1048,8 @@
             <li>Agency software — data flows, document handoffs, scheduling</li>
             <li>Triton Dashboard — vessel operations surface</li>
             <li>Process audits — find where time and money leak</li>
-            <li>Vessel agent &amp; ship owner consulting (MOL / Ultratank scale)</li>
-            <li>Pre-launch and field-test partnership (PortXchange-style debug work)</li>
+            <li>Vessel agent &amp; ship owner consulting for regional and global operators</li>
+            <li>Pre-launch and field-test partnership for port-call workflow tools</li>
           </ul>
 
           <h4>How an engagement works</h4>
@@ -1054,15 +1078,15 @@
 
       <h3>Live · Triton platform</h3>
       <div class="demo-cards compact">
-        <div class="demo-card">
+        <a class="demo-card product-card-link" href="https://ops.nauti-labs.com/" target="_blank" rel="noopener" aria-label="Open Triton Dashboard">
           <div class="demo-card-head">
             <div class="demo-eyebrow"><span class="dot"></span>Live · Dashboard</div>
             <span class="product-logo triton" aria-hidden="true"><img src="/assets/triton-mark.svg" alt=""></span>
           </div>
           <h4>Triton Dashboard</h4>
           <p>Workflow surface for vessel agents and ship owners. Vessel deck, schedule, and event log built from the agency desk perspective.</p>
-          <a href="https://ops.nauti-labs.com/" target="_blank" rel="noopener" class="btn-secondary">Open live demo →</a>
-        </div>
+          <span class="btn-secondary">Open live demo →</span>
+        </a>
       </div>
     </div>
   </section>
@@ -1344,7 +1368,7 @@
 
       <h3>Live products</h3>
       <div class="demo-cards">
-        <div class="demo-card">
+        <a class="demo-card product-card-link" href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener" aria-label="Open Clearance">
           <div class="demo-card-head">
             <div class="demo-eyebrow"><span class="dot"></span>Live · API</div>
             <span class="product-logo clearance" aria-hidden="true">
@@ -1357,9 +1381,9 @@
           </div>
           <h4>Clearance</h4>
           <p>The auth layer between human intent and agent execution. One API call. Human approves. Agent proceeds. Token verifies on-chain.</p>
-          <a href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener" class="btn-secondary">Open Clearance →</a>
-        </div>
-        <div class="demo-card">
+          <span class="btn-secondary">Open Clearance →</span>
+        </a>
+        <a class="demo-card product-card-link" href="https://promptly.nauti-labs.com/" aria-label="Open Promptly">
           <div class="demo-card-head">
             <div class="demo-eyebrow"><span class="dot"></span>Live · Personal AI</div>
             <span class="product-logo promptly" aria-hidden="true">
@@ -1373,8 +1397,8 @@
           </div>
           <h4>Promptly</h4>
           <p>Hosted personal LLM passes with live card and wallet checkout. $2.99 day, $7.99 week, $19.99 month tiers.</p>
-          <a href="/promptly/" class="btn-secondary">Open Promptly →</a>
-        </div>
+          <span class="btn-secondary">Open Promptly →</span>
+        </a>
       </div>
 
     </div>
@@ -1385,7 +1409,7 @@
   <!-- ============================================== -->
   <section class="neighbors" id="neighbors">
     <div class="container">
-      <div class="neighbors-card">
+      <a class="neighbors-card neighbors-link-card" href="https://neighbors.nauti-labs.com/" aria-label="Open Nauti-Labs Neighbors services and rates">
         <div class="neighbors-eyebrow">
           <span class="dot"></span>
           <span>For neighbors · Mont Belvieu · Baytown · Barbers Hill</span>
@@ -1408,10 +1432,10 @@
           <aside class="neighbors-cta">
             <div class="neighbors-tag">Local only</div>
             <p>Residents and owner-operated businesses inside the Mont Belvieu / Baytown / Barbers Hill area.</p>
-            <a href="mailto:consulting@nauti-labs.com?subject=Local%20help%20%E2%80%94%20Mont%20Belvieu" class="btn-secondary">Get in touch →</a>
+            <span class="btn-secondary">View services and rates →</span>
           </aside>
         </div>
-      </div>
+      </a>
     </div>
   </section>
 
@@ -1443,7 +1467,7 @@
             <li><a href="#maritime">Maritime</a></li>
             <li><a href="#crypto">Crypto Compliance</a></li>
             <li><a href="#ai">Custom AI</a></li>
-            <li><a href="#neighbors">Neighbors (local help)</a></li>
+            <li><a href="https://neighbors.nauti-labs.com/">Neighbors (local help)</a></li>
           </ul>
         </div>
         <div>
@@ -1451,7 +1475,7 @@
           <ul>
             <li><a href="https://ops.nauti-labs.com/" target="_blank" rel="noopener">Triton Dashboard</a></li>
             <li><a href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener">Clearance</a></li>
-            <li><a href="/promptly/">Promptly</a></li>
+            <li><a href="https://promptly.nauti-labs.com/">Promptly</a></li>
             <li><a href="/suite/">Suite status</a></li>
           </ul>
         </div>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Triton mark">
+  <rect width="256" height="256" rx="44" fill="#070807"/>
+  <g fill="none" stroke="#c8c6bd" stroke-width="8" stroke-linecap="butt" opacity=".92">
+    <path d="M74 162a70 70 0 0 1 18-81"/>
+    <path d="M164 81a70 70 0 0 1 18 81"/>
+    <path d="M85 183a70 70 0 0 0 33 15"/>
+    <path d="M138 198a70 70 0 0 0 33-15"/>
+    <path d="M98 69a70 70 0 0 1 37-13"/>
+    <path d="M151 56a70 70 0 0 1 37 26"/>
+  </g>
+  <path d="M128 38 139 131 128 125 117 131z" fill="#f5a118"/>
+  <path d="M65 70 108 130 92 123z" fill="#d6d3cb"/>
+  <path d="M191 70 148 130 164 123z" fill="#d6d3cb"/>
+  <path d="M39 128h54l35-9 35 9h54l-89 13z" fill="#e4e0d7"/>
+  <path d="M128 141 136 205 128 228 120 205z" fill="#a8a9a3"/>
+  <circle cx="128" cy="128" r="17" fill="#f2f0e8"/>
+  <circle cx="128" cy="128" r="10" fill="#080909"/>
+  <circle cx="128" cy="128" r="6" fill="#f5a118"/>
+  <circle cx="128" cy="198" r="13" fill="#d5d1c8"/>
+  <circle cx="128" cy="198" r="8" fill="#080909"/>
+  <circle cx="128" cy="198" r="5" fill="#f5a118"/>
+  <rect x="55" y="125" width="20" height="6" fill="#c7c5bd" opacity=".86"/>
+  <rect x="181" y="125" width="20" height="6" fill="#c7c5bd" opacity=".86"/>
+</svg>

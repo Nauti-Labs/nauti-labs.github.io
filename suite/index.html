@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nauti-Labs Suite Status</title>
-  <meta name="description" content="Public Nauti-Labs suite status: Bridge, Castle, Triton, Turbo, Navisales, Felipe, Clearance, Factory, Ollama, and always-on watchdog state." />
+  <meta name="description" content="Public Nauti-Labs suite status: Triton Dashboard, Castle, Turbo, Navisales, Felipe, Clearance, Factory, Ollama, and always-on watchdog state." />
   <link rel="canonical" href="https://nauti-labs.com/suite/" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#00c8f0" />
@@ -110,7 +110,7 @@
         <p class="sub">A safe status snapshot for the Nauti-Labs product family. The private fleet stays behind operator access; this page only shows what is healthy, what is pending, and when the last heartbeat landed.</p>
         <div class="chips" aria-label="Suite posture">
           <span class="chip"><span class="chip-dot"></span>Brand locked</span>
-          <span class="chip"><span class="chip-dot"></span>Bridge domain set</span>
+          <span class="chip"><span class="chip-dot"></span>Triton domain live</span>
           <span class="chip"><span class="chip-dot"></span>Captain in control</span>
         </div>
       </div>
@@ -140,8 +140,7 @@
         <h2>Operator Access</h2>
         <ul>
           <li>Private dashboards stay behind Mac mini auth/Tailscale.</li>
-          <li>Bridge remains the command surface at <code>bridge.nauti-labs.com</code>.</li>
-          <li>Triton remains the maritime desk at <code>ops.nauti-labs.com</code>.</li>
+          <li>Triton Dashboard remains the maritime desk at <code>ops.nauti-labs.com</code>.</li>
           <li>Clearance remains approval-gated.</li>
           <li>Castle/Blacksmith uses local Ollama.</li>
         </ul>
@@ -165,8 +164,8 @@
     };
 
     const labels = {
-      triton: 'Bridge',
-      bridge: 'Bridge',
+      triton: 'Triton Dashboard',
+      bridge: 'Triton Dashboard',
       nauti_ops: 'Triton'
     };
 

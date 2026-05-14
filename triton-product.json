@@ -2,8 +2,8 @@
   "version": "1.0",
   "product": {
     "id": "triton-pilot",
-    "name": "Bridge Pilot",
-    "summary": "A human-supervised command surface with owner-approved AI crew spending and monthly subscription support.",
+    "name": "Triton Dashboard",
+    "summary": "A maritime operations surface for vessel decks, schedules, event logs, and owner-approved workflow support.",
     "category": "human-ai-operations",
     "deployment_time": "90-day pilot",
     "audiences": [
@@ -49,7 +49,7 @@
       ],
       "settlement_mode": "invoice_or_verified_payment_intent",
       "settlement_wallets": [],
-      "note": "Bridge remains invoice or verified-intent only because it is a custom sales-led product. Fixed-price self-serve products in the ecosystem can publish a public payment identity when price, asset, and verification rules are standardized.",
+      "note": "Triton remains invoice or verified-intent only because it is a custom sales-led product. Fixed-price self-serve products in the ecosystem can publish a public payment identity when price, asset, and verification rules are standardized.",
       "checkout_policy": {
         "default_payment_method": "USDC on Base",
         "other_assets_policy": "Other assets or networks are accepted only through invoice-confirmed instructions.",
@@ -84,10 +84,10 @@
       "Audit trail for owner-authorized spending"
     ],
     "links": {
-      "landing_page": "./triton-pilot.html",
-      "demo": "./lab-demo.html",
+      "landing_page": "https://ops.nauti-labs.com/",
+      "demo": "https://ops.nauti-labs.com/",
       "contact": "/labs/#contact",
-      "buy_now_email": "mailto:consulting@nauti-labs.com?subject=Start%20Bridge",
+      "buy_now_email": "mailto:consulting@nauti-labs.com?subject=Start%20Triton",
       "agent_policy_template": "./agent-spend-policy.example.json",
       "related_clearance": {
         "landing_page": "https://clearance.nauti-labs.com/",

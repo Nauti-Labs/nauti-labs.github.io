@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nauti-Labs Labs | Bridge, Clearance, Felipe</title>
-  <meta name="description" content="Nauti-Labs Labs is the approval-aware AI product family behind Bridge, Clearance, Felipe, and the Nauti-Labs crew workflow." />
+  <title>Nauti-Labs Labs | Triton, Clearance, Felipe</title>
+  <meta name="description" content="Nauti-Labs Labs is the approval-aware AI product family behind Triton Dashboard, Clearance, Felipe, and the Nauti-Labs workflow." />
   <link rel="canonical" href="https://nauti-labs.com/labs/" />
   <meta name="robots" content="index,follow" />
   <meta property="og:site_name" content="Nauti-Labs" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Nauti-Labs Labs | Bridge, Clearance, Felipe" />
-  <meta property="og:description" content="One ship. Many stations. The Nauti-Labs product lab for Bridge, Clearance, Felipe, and approval-aware AI work." />
+  <meta property="og:title" content="Nauti-Labs Labs | Triton, Clearance, Felipe" />
+  <meta property="og:description" content="One ship. Many stations. The Nauti-Labs product lab for Triton Dashboard, Clearance, Felipe, and approval-aware AI work." />
   <meta property="og:url" content="https://nauti-labs.com/labs/" />
   <meta property="og:image" content="https://nauti-labs.com/og/labs-share.png" />
   <meta property="og:image:secure_url" content="https://nauti-labs.com/og/labs-share.png" />
@@ -19,7 +19,7 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Nauti-Labs Labs product family." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Nauti-Labs Labs | Bridge, Clearance, Felipe" />
+  <meta name="twitter:title" content="Nauti-Labs Labs | Triton, Clearance, Felipe" />
   <meta name="twitter:description" content="One ship. Many stations. Approval-aware AI products by Nauti-Labs." />
   <meta name="twitter:image" content="https://nauti-labs.com/og/labs-share.png" />
   <meta name="theme-color" content="#00c8f0" />
@@ -295,9 +295,11 @@
       text-decoration: none;
     }
     .stack-card:hover { background: rgba(0, 200, 240, 0.055); }
-    .stack-card svg {
+    .stack-card svg,
+    .stack-card img {
       width: 66px;
       height: 66px;
+      object-fit: contain;
       filter: drop-shadow(0 0 14px rgba(0, 200, 240, 0.32));
     }
     .stack-name {
@@ -370,10 +372,12 @@
       background: rgba(6, 10, 20, 0.72);
       box-shadow: 0 18px 56px rgba(0, 0, 0, 0.28);
     }
-    .card-mark {
+    .card-mark,
+    .card-mark-img {
       width: 86px;
       height: 86px;
       margin-bottom: 18px;
+      object-fit: contain;
       filter: drop-shadow(0 0 18px rgba(0, 200, 240, 0.32));
     }
     h3 {
@@ -633,7 +637,7 @@
         </g>
         <path d="M 26 122 Q 47 104, 70 122 T 114 122" stroke="#66e5ff" stroke-width="3.6" fill="none" stroke-linecap="round"/>
       </symbol>
-      <symbol id="mark-bridge" viewBox="0 0 140 140">
+      <symbol id="mark-triton-legacy" viewBox="0 0 140 140">
         <g transform="translate(70 60)" fill="none">
           <circle cx="0" cy="0" r="40" stroke="#00c8f0" stroke-width="3"/>
           <circle cx="0" cy="0" r="3.6" fill="#ffaa00" stroke="none"/>
@@ -694,7 +698,7 @@
       </a>
       <ul class="nav-links">
         <li><a href="#stack">Stack</a></li>
-        <li><a href="#bridge">Bridge</a></li>
+        <li><a href="#triton">Triton</a></li>
         <li><a href="#clearance">Clearance</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -712,12 +716,12 @@
         <div class="eyebrow">Nauti-Labs Labs · One ship. Many stations.</div>
         <h1>Approval-aware AI products.</h1>
         <p class="hero-copy">
-          Labs is where the Nauti-Labs product family gets built: <strong>Bridge</strong> for AI crew work,
+          Labs is where the Nauti-Labs product family gets built: <strong>Triton Dashboard</strong> for maritime operations,
           <strong>Clearance</strong> for human approval, <strong>Felipe</strong> for acquisition research, and
           <strong>Castle</strong> for permission boundaries. Same mark system. Same voice. Same captain in control.
         </p>
         <div class="hero-actions">
-          <a class="button primary" href="https://bridge.nauti-labs.com/" target="_blank" rel="noopener">Open Bridge</a>
+          <a class="button primary" href="https://ops.nauti-labs.com/" target="_blank" rel="noopener">Open Triton Dashboard</a>
           <a class="button" href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener">Open Clearance</a>
           <a class="button amber" href="/brand/">Brand System</a>
         </div>
@@ -728,12 +732,12 @@
           <span class="pulse">Crew ready</span>
         </div>
         <div class="stack-list">
-          <a class="stack-card" href="https://bridge.nauti-labs.com/" target="_blank" rel="noopener">
-            <svg viewBox="0 0 140 140" aria-hidden="true"><use href="#mark-bridge"/></svg>
+          <a class="stack-card" href="https://ops.nauti-labs.com/" target="_blank" rel="noopener">
+            <img src="/assets/triton-mark.svg" alt="" aria-hidden="true">
             <div>
-              <div class="stack-name">Bridge</div>
+              <div class="stack-name">Triton Dashboard</div>
               <div class="stack-by">by Nauti-Labs</div>
-              <div class="stack-role">The command surface for AI crew, stations, approval, and logs.</div>
+              <div class="stack-role">The live dashboard for vessel decks, schedules, event logs, and operations context.</div>
             </div>
             <span class="stack-state">Live</span>
           </a>
@@ -769,19 +773,19 @@
           <p class="section-note">The old page made each tool feel like a separate experiment. This version keeps the whole family in one Nauti-Labs system with product marks, shared language, and a single approval posture.</p>
         </div>
         <div class="cards">
-          <article class="card" id="bridge">
+          <article class="card" id="triton">
             <div>
-              <svg class="card-mark" viewBox="0 0 140 140" aria-hidden="true"><use href="#mark-bridge"/></svg>
-              <h3>Bridge</h3>
+              <img class="card-mark-img" src="/assets/triton-mark.svg" alt="" aria-hidden="true">
+              <h3>Triton Dashboard</h3>
               <div class="byline">by Nauti-Labs</div>
-              <p>The bridge of your computer. Send crew to stations, watch work become visible, and keep every important action under Captain&apos;s Approval.</p>
+              <p>The live maritime desk. Track vessels, schedules, events, and agency workflow from a single operating surface.</p>
               <ul class="mini-list">
-                <li>Crew Mode for AI workflows</li>
-                <li>Captain&apos;s Log and approval queue</li>
+                <li>Vessel deck and schedule context</li>
+                <li>Event log and SOF-ready workflow</li>
                 <li>Color Bomb ready, brand locked</li>
               </ul>
             </div>
-            <a class="card-link" href="https://bridge.nauti-labs.com/" target="_blank" rel="noopener">Open Bridge →</a>
+            <a class="card-link" href="https://ops.nauti-labs.com/" target="_blank" rel="noopener">Open Triton Dashboard →</a>
           </article>
           <article class="card" id="clearance">
             <div>
@@ -820,12 +824,12 @@
         <div>
           <div class="eyebrow">02 · Operating model</div>
           <h2>Simple enough to explain. Strict enough to trust.</h2>
-          <p class="section-note">The system language is public-friendly: AI work starts from Bridge, moves through stations, writes to the log, and stops at approval when the real world is involved.</p>
+          <p class="section-note">The system language is public-friendly: operational work starts from Triton, moves through the right tools, writes to the log, and stops at approval when the real world is involved.</p>
         </div>
         <div class="flow" aria-label="Labs operating flow">
           <div class="flow-step" data-step="01">
             <strong>Send crew</strong>
-            <p>Bridge sends the right crew member to the right station.</p>
+            <p>Triton routes the right context to the right workflow.</p>
           </div>
           <div class="flow-step" data-step="02">
             <strong>Prepare work</strong>
@@ -847,20 +851,20 @@
       <div class="container split">
         <div>
           <div class="eyebrow">03 · Live preview</div>
-          <h2>Bridge is the front door.</h2>
-          <p class="section-note">This is the Labs promise in one sentence: your computer is the ship, Bridge is the command surface, and every tool waits for the captain before anything consequential happens.</p>
+          <h2>Triton is the front door.</h2>
+          <p class="section-note">This is the Labs promise in one sentence: your operation gets a clear dashboard, every tool stays visible, and sensitive actions wait for human approval.</p>
           <div class="hero-actions">
-            <a class="button primary" href="https://bridge.nauti-labs.com/" target="_blank" rel="noopener">Open Bridge</a>
+            <a class="button primary" href="https://ops.nauti-labs.com/" target="_blank" rel="noopener">Open Triton Dashboard</a>
             <a class="button" href="/suite/">Suite Status</a>
           </div>
         </div>
-        <div class="console" aria-label="Bridge preview">
+        <div class="console" aria-label="Triton preview">
           <div class="console-head">
-            <span>Bridge watch</span>
+            <span>Triton watch</span>
             <span>crew ready</span>
           </div>
           <div class="console-body">
-            <div class="log-row"><span>Bridge</span><p>Code Mate prepared a change plan and returned to Captain&apos;s Approval.</p></div>
+            <div class="log-row"><span>Triton</span><p>Voyage context is staged for human review before any outside action.</p></div>
             <div class="log-row"><span>Clearance</span><p>Action is held until the captain approves the receipt.</p></div>
             <div class="log-row"><span>Felipe</span><p>Candidate research is ready for review before any purchase step.</p></div>
             <div class="approval-card">
@@ -877,11 +881,11 @@
         <div class="contact-panel">
           <div>
             <div class="eyebrow">04 · Contact</div>
-            <h2>Bring a workflow to the bridge.</h2>
-            <p>Clearance integrations, Bridge pilots, Felipe research workflows, and Nauti-Labs product demos all start with a short brief. Send the workflow, what needs approval, and the fastest useful deadline.</p>
+            <h2>Bring a workflow to Triton.</h2>
+            <p>Clearance integrations, Triton deployments, Felipe research workflows, and Nauti-Labs product demos all start with a short brief. Send the workflow, what needs approval, and the fastest useful deadline.</p>
           </div>
           <div class="hero-actions">
-            <a class="button primary" href="mailto:consulting@nauti-labs.com?subject=Nauti-Labs%20Labs%20Inquiry&amp;body=Project%3A%0AWorkflow%20to%20bring%20to%20Bridge%3A%0AWhat%20needs%20approval%3A%0ATimeline%3A%0A">Send Brief</a>
+            <a class="button primary" href="mailto:consulting@nauti-labs.com?subject=Nauti-Labs%20Labs%20Inquiry&amp;body=Project%3A%0AWorkflow%20to%20bring%20to%20Triton%3A%0AWhat%20needs%20approval%3A%0ATimeline%3A%0A">Send Brief</a>
             <a class="button" href="https://github.com/Nauti-Labs" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>

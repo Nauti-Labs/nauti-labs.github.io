@@ -702,6 +702,102 @@
       font-weight: 600;
     }
 
+    /* === NEIGHBORS (local) === */
+    .neighbors {
+      padding: 64px 0 48px;
+      border-top: 1px solid var(--border);
+    }
+    .neighbors-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 40px;
+    }
+    .neighbors-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .neighbors-eyebrow .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--amber);
+      box-shadow: 0 0 6px var(--amber);
+    }
+    .neighbors-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: start;
+    }
+    .neighbors-text h3 {
+      font-size: clamp(22px, 2.6vw, 28px);
+      font-weight: 700;
+      color: #fafafd;
+      letter-spacing: -0.015em;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .neighbors-text p {
+      color: var(--text-dim);
+      font-size: 15px;
+      margin-bottom: 20px;
+      max-width: 560px;
+      line-height: 1.55;
+    }
+    .neighbors-features {
+      list-style: none; padding: 0;
+      margin: 0;
+    }
+    .neighbors-features li {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--muted);
+      padding: 6px 0 6px 18px;
+      position: relative;
+    }
+    .neighbors-features li::before {
+      content: '–';
+      position: absolute; left: 0;
+      color: var(--amber);
+    }
+    .neighbors-cta {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 24px 22px;
+    }
+    .neighbors-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      background: var(--amber-soft);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+    .neighbors-cta p {
+      color: var(--text-dim);
+      font-size: 13px;
+      margin-bottom: 18px;
+      line-height: 1.55;
+    }
+    .neighbors-cta .btn-secondary {
+      width: 100%;
+      justify-content: center;
+    }
+    @media (max-width: 720px) {
+      .neighbors-body { grid-template-columns: 1fr; gap: 28px; }
+      .neighbors-card { padding: 28px 24px; }
+    }
+
     /* === FOOTER === */
     footer.site-footer {
       border-top: 1px solid var(--border);
@@ -883,7 +979,7 @@
           <ul class="check-list">
             <li>Port-call &amp; pre-arrival workflow design</li>
             <li>Agency software — data flows, document handoffs, scheduling</li>
-            <li>Triton platform — bridge agent deck for vessel operations</li>
+            <li>Triton Dashboard — vessel operations surface</li>
             <li>Process audits — find where time and money leak</li>
             <li>Vessel agent &amp; ship owner consulting (MOL / Ultratank scale)</li>
             <li>Pre-launch and field-test partnership (PortXchange-style debug work)</li>
@@ -909,17 +1005,17 @@
             <li>Houston Ship Channel focus</li>
           </ul>
           <a href="mailto:consulting@nauti-labs.com?subject=Maritime%20consulting%20—%20intro" class="btn-primary">Start an engagement</a>
-          <a href="https://bridge.nauti-labs.com/" target="_blank" rel="noopener" class="btn-secondary">Open Triton live demo →</a>
+          <a href="https://ops.nauti-labs.com/" target="_blank" rel="noopener" class="btn-secondary">Open Triton Dashboard →</a>
         </aside>
       </div>
 
       <h3>Live · Triton platform</h3>
       <div class="demo-cards">
         <div class="demo-card">
-          <div class="demo-eyebrow"><span class="dot"></span>Live · Bridge</div>
-          <h4>Triton — Bridge Agent Deck</h4>
-          <p>Workflow surface for vessel agents and ship owners. Port-call orchestration with approval gates so AI assistance never moves on a tasking the human didn't sign off.</p>
-          <a href="https://bridge.nauti-labs.com/" target="_blank" rel="noopener" class="btn-secondary">Open live demo →</a>
+          <div class="demo-eyebrow"><span class="dot"></span>Live · Dashboard</div>
+          <h4>Triton Dashboard</h4>
+          <p>Workflow surface for vessel agents and ship owners. Vessel deck, schedule, and event log built from the agency desk perspective.</p>
+          <a href="https://ops.nauti-labs.com/" target="_blank" rel="noopener" class="btn-secondary">Open live demo →</a>
         </div>
         <div class="demo-card">
           <div class="demo-eyebrow"><span class="dot"></span>Live · Ops</div>
@@ -1226,6 +1322,41 @@
   </section>
 
   <!-- ============================================== -->
+  <!-- NEIGHBORS (local)                               -->
+  <!-- ============================================== -->
+  <section class="neighbors" id="neighbors">
+    <div class="container">
+      <div class="neighbors-card">
+        <div class="neighbors-eyebrow">
+          <span class="dot"></span>
+          <span>For neighbors · Mont Belvieu · Baytown · Barbers Hill</span>
+        </div>
+        <div class="neighbors-body">
+          <div class="neighbors-text">
+            <h3>Local AI help, in plain English.</h3>
+            <p>
+              Practical device, account, website, and AI setup help for residents and owner-operated businesses in the local area.
+              If you're nearby and something on your computer, phone, or business stack has you stuck — drop me a line.
+              No jargon, no upsell.
+            </p>
+            <ul class="neighbors-features">
+              <li>Anchor &amp; Ollama setup on your own machine</li>
+              <li>Security hardening — devices, Wi-Fi, accounts</li>
+              <li>Google Business, website, email, and domain cleanup</li>
+              <li>Plain-English explanations of whatever's confusing</li>
+            </ul>
+          </div>
+          <aside class="neighbors-cta">
+            <div class="neighbors-tag">Local only</div>
+            <p>Residents and owner-operated businesses inside the Mont Belvieu / Baytown / Barbers Hill area.</p>
+            <a href="mailto:consulting@nauti-labs.com?subject=Local%20help%20%E2%80%94%20Mont%20Belvieu" class="btn-secondary">Get in touch →</a>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
   <!-- FOOTER                                          -->
   <!-- ============================================== -->
   <footer class="site-footer">
@@ -1253,13 +1384,13 @@
             <li><a href="#maritime">Maritime</a></li>
             <li><a href="#crypto">Crypto Compliance</a></li>
             <li><a href="#ai">Custom AI</a></li>
-            <li><a href="/neighbors/">Neighbors (local help)</a></li>
+            <li><a href="#neighbors">Neighbors (local help)</a></li>
           </ul>
         </div>
         <div>
           <h5>Live products</h5>
           <ul>
-            <li><a href="https://bridge.nauti-labs.com/" target="_blank" rel="noopener">Triton — Bridge</a></li>
+            <li><a href="https://ops.nauti-labs.com/" target="_blank" rel="noopener">Triton Dashboard</a></li>
             <li><a href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener">Clearance</a></li>
             <li><a href="/promptly/">Promptly</a></li>
             <li><a href="/suite/">Suite status</a></li>

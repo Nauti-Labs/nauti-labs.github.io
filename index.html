@@ -623,6 +623,9 @@
       gap: 18px;
       margin-top: 32px;
     }
+    .demo-cards.compact {
+      grid-template-columns: minmax(280px, 620px);
+    }
     .demo-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -631,6 +634,13 @@
       transition: border-color 0.2s;
     }
     .demo-card:hover { border-color: var(--amber); }
+    .demo-card-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
     .demo-card .demo-eyebrow {
       display: inline-flex; align-items: center; gap: 6px;
       font-family: var(--font-mono);
@@ -638,7 +648,7 @@
       color: var(--green);
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 14px;
+      margin-bottom: 0;
     }
     .demo-card .demo-eyebrow .dot {
       width: 6px; height: 6px; border-radius: 50%;
@@ -653,6 +663,38 @@
       color: var(--text-dim);
       font-size: 14px;
       margin-bottom: 18px;
+    }
+    .product-logo {
+      width: 48px;
+      height: 48px;
+      flex: 0 0 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-2);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.03);
+    }
+    .product-logo svg,
+    .product-logo img {
+      width: 36px;
+      height: 36px;
+      display: block;
+    }
+    .product-logo.triton {
+      border-color: rgba(255, 170, 0, 0.28);
+      background: rgba(8, 9, 9, 0.42);
+      box-shadow: 0 0 20px rgba(245, 161, 24, 0.08);
+    }
+    .product-logo.clearance {
+      border-color: rgba(255, 170, 0, 0.32);
+      background: rgba(255, 170, 0, 0.08);
+      box-shadow: 0 0 20px rgba(255, 170, 0, 0.08);
+    }
+    .product-logo.promptly {
+      border-color: rgba(102, 209, 255, 0.28);
+      background: linear-gradient(145deg, rgba(102, 209, 255, 0.10), rgba(255, 170, 0, 0.08));
+      box-shadow: 0 0 20px rgba(102, 209, 255, 0.08);
     }
 
     /* CTA block */
@@ -1010,17 +1052,14 @@
       </div>
 
       <h3>Live · Triton platform</h3>
-      <div class="demo-cards">
+      <div class="demo-cards compact">
         <div class="demo-card">
-          <div class="demo-eyebrow"><span class="dot"></span>Live · Dashboard</div>
+          <div class="demo-card-head">
+            <div class="demo-eyebrow"><span class="dot"></span>Live · Dashboard</div>
+            <span class="product-logo triton" aria-hidden="true"><img src="/assets/triton-mark.svg" alt=""></span>
+          </div>
           <h4>Triton Dashboard</h4>
           <p>Workflow surface for vessel agents and ship owners. Vessel deck, schedule, and event log built from the agency desk perspective.</p>
-          <a href="https://ops.nauti-labs.com/" target="_blank" rel="noopener" class="btn-secondary">Open live demo →</a>
-        </div>
-        <div class="demo-card">
-          <div class="demo-eyebrow"><span class="dot"></span>Live · Ops</div>
-          <h4>Triton — Ops Surface</h4>
-          <p>Operational view at <span class="mono">ops.nauti-labs.com</span>. Vessel deck, schedule, and event log built from the agency desk perspective.</p>
           <a href="https://ops.nauti-labs.com/" target="_blank" rel="noopener" class="btn-secondary">Open live demo →</a>
         </div>
       </div>
@@ -1305,13 +1344,32 @@
       <h3>Live products</h3>
       <div class="demo-cards">
         <div class="demo-card">
-          <div class="demo-eyebrow"><span class="dot"></span>Live · API</div>
+          <div class="demo-card-head">
+            <div class="demo-eyebrow"><span class="dot"></span>Live · API</div>
+            <span class="product-logo clearance" aria-hidden="true">
+              <svg viewBox="0 0 64 48" role="img" aria-label="Clearance three-chevron mark">
+                <path d="M6 8h8l12 16-12 16H6l12-16z" fill="#ff9f1a"/>
+                <path d="M23 8h8l12 16-12 16h-8l12-16z" fill="#ffb23b"/>
+                <path d="M40 8h8l12 16-12 16h-8l12-16z" fill="#ffd166"/>
+              </svg>
+            </span>
+          </div>
           <h4>Clearance</h4>
           <p>The auth layer between human intent and agent execution. One API call. Human approves. Agent proceeds. Token verifies on-chain.</p>
           <a href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener" class="btn-secondary">Open Clearance →</a>
         </div>
         <div class="demo-card">
-          <div class="demo-eyebrow"><span class="dot"></span>Live · Personal AI</div>
+          <div class="demo-card-head">
+            <div class="demo-eyebrow"><span class="dot"></span>Live · Personal AI</div>
+            <span class="product-logo promptly" aria-hidden="true">
+              <svg viewBox="0 0 48 48" role="img" aria-label="Promptly prompt mark">
+                <rect x="6" y="8" width="36" height="30" rx="8" fill="#f7f1e7"/>
+                <path d="M16 19l7 5-7 5" fill="none" stroke="#20211d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M26 29h8" fill="none" stroke="#d68a36" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="37" cy="13" r="4" fill="#9ccdb3"/>
+              </svg>
+            </span>
+          </div>
           <h4>Promptly</h4>
           <p>Hosted personal LLM passes with live card and wallet checkout. $2.99 day, $7.99 week, $19.99 month tiers.</p>
           <a href="/promptly/" class="btn-secondary">Open Promptly →</a>

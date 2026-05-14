@@ -1,44 +1,378 @@
+<!-- Copyright (c) 2026 Nauti-Labs LLC. All rights reserved. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Promptly | Nauti-Labs</title>
-  <meta name="description" content="Promptly now lives at promptly.nauti-labs.com.">
-  <link rel="canonical" href="https://promptly.nauti-labs.com/">
-  <meta http-equiv="refresh" content="0; url=https://promptly.nauti-labs.com/">
-  <meta name="robots" content="noindex,follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Promptly | Pay-per-prompt AI by Nauti-Labs</title>
+  <meta name="description" content="Promptly is a hosted personal AI menu with day, week, and monthly passes for Promptly and Promptly Lens." />
+  <link rel="canonical" href="https://nauti-labs.com/promptly/" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:site_name" content="Nauti-Labs" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Promptly | Pay-per-prompt AI" />
+  <meta property="og:description" content="Hosted personal AI passes for everyday help, learning, and strategy." />
+  <meta property="og:url" content="https://nauti-labs.com/promptly/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="theme-color" content="#181916" />
+  <link rel="icon" type="image/svg+xml" href="/assets/nauti-gear-wheel.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
   <style>
-    * { box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #181916;
+      --surface: #f7f1e7;
+      --surface-2: #fffaf0;
+      --ink: #20211d;
+      --muted: #69685f;
+      --line: #d8ccbd;
+      --mint: #9ccdb3;
+      --mint-dark: #486b57;
+      --blush: #e7a7a6;
+      --amber: #d68a36;
+      --blue: #496579;
+      --shadow: rgba(0, 0, 0, 0.28);
+      --sans: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      --serif: "Fraunces", Georgia, serif;
+      --mono: "JetBrains Mono", Menlo, monospace;
+    }
     body {
       min-height: 100vh;
-      margin: 0;
+      background: var(--bg);
+      color: var(--surface);
+      font-family: var(--sans);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1140px, calc(100% - 40px)); margin: 0 auto; }
+    .topbar {
+      border-bottom: 1px solid rgba(247, 241, 231, 0.12);
+      background: rgba(24, 25, 22, 0.92);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+    }
+    .topbar-inner {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 800;
+    }
+    .brand img { width: 30px; height: 30px; display: block; }
+    .brand span:last-child {
+      color: rgba(247, 241, 231, 0.55);
+      font: 700 11px var(--mono);
+      border-left: 1px solid rgba(247, 241, 231, 0.18);
+      padding-left: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .nav-links { display: flex; align-items: center; gap: 22px; color: rgba(247, 241, 231, 0.72); font-size: 14px; }
+    .nav-links a:hover { color: var(--surface); }
+    .hero {
+      padding: 84px 0 58px;
       display: grid;
-      place-items: center;
-      background: #181916;
-      color: #f7f1e7;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      grid-template-columns: minmax(0, 1fr) minmax(340px, 460px);
+      gap: 48px;
+      align-items: center;
     }
-    main {
-      width: min(520px, calc(100vw - 32px));
-      padding: 28px;
-      border: 1px solid rgba(247, 241, 231, 0.16);
+    .eyebrow {
+      color: var(--mint);
+      font: 700 12px var(--mono);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    h1 {
+      max-width: 720px;
+      font-family: var(--serif);
+      font-size: clamp(50px, 8vw, 88px);
+      line-height: 0.95;
+      font-weight: 600;
+      letter-spacing: 0;
+      margin-bottom: 24px;
+    }
+    h1 em {
+      color: var(--blush);
+      font-style: italic;
+      font-weight: 400;
+    }
+    .lede {
+      max-width: 610px;
+      color: rgba(247, 241, 231, 0.74);
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
       border-radius: 8px;
-      background: rgba(247, 241, 231, 0.05);
+      padding: 0 18px;
+      font-weight: 800;
+      font-size: 14px;
+      border: 1px solid transparent;
     }
-    h1 { margin: 0 0 10px; font-size: 1.55rem; }
-    p { margin: 0 0 18px; color: rgba(247, 241, 231, 0.72); line-height: 1.5; }
-    a { color: #d68a36; font-weight: 800; }
+    .btn.primary { background: var(--surface); color: var(--ink); box-shadow: 0 18px 42px var(--shadow); }
+    .btn.secondary { border-color: rgba(247, 241, 231, 0.18); color: var(--surface); background: rgba(247, 241, 231, 0.05); }
+    .product-panel {
+      background: var(--surface);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 28px 90px var(--shadow);
+    }
+    .panel-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface-2);
+    }
+    .lights { display: flex; gap: 7px; }
+    .lights span { width: 10px; height: 10px; border-radius: 50%; display: block; }
+    .lights span:nth-child(1) { background: var(--blush); }
+    .lights span:nth-child(2) { background: var(--amber); }
+    .lights span:nth-child(3) { background: var(--mint); }
+    .panel-title { font: 800 12px var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+    .chat-preview { padding: 22px; display: grid; gap: 14px; }
+    .bubble {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px 15px;
+      background: #fffdf7;
+    }
+    .bubble strong { display: block; margin-bottom: 6px; }
+    .bubble.user {
+      margin-left: 36px;
+      background: #eaf3ed;
+      border-color: #bddcca;
+    }
+    .model-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      padding-top: 4px;
+    }
+    .model-pill {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      font: 800 11px var(--mono);
+      color: var(--muted);
+      background: var(--surface-2);
+      text-align: center;
+    }
+    section { padding: 56px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 22px; }
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(32px, 5vw, 54px);
+      line-height: 1;
+      font-weight: 600;
+      color: var(--surface);
+    }
+    .section-note { max-width: 470px; color: rgba(247, 241, 231, 0.68); }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .price-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--ink);
+      padding: 20px;
+    }
+    .price-card.featured { background: var(--surface-2); border-color: var(--mint); }
+    .tier { color: var(--mint-dark); font: 800 11px var(--mono); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px; }
+    .price-card h3 { font-size: 22px; margin-bottom: 8px; }
+    .price { font-family: var(--serif); font-size: 48px; line-height: 1; margin: 18px 0 4px; }
+    .period { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
+    .price-card p { color: var(--muted); margin-bottom: 18px; }
+    .price-card .btn { width: 100%; background: var(--ink); color: var(--surface); }
+    .lens { background: #eef0ed; }
+    .lens .tier { color: var(--blue); }
+    .status-strip {
+      border-top: 1px solid rgba(247, 241, 231, 0.12);
+      border-bottom: 1px solid rgba(247, 241, 231, 0.12);
+      padding: 20px 0;
+      color: rgba(247, 241, 231, 0.72);
+      font: 700 12px var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .status-strip .wrap { display: flex; flex-wrap: wrap; gap: 18px; justify-content: space-between; }
+    .dot { color: var(--mint); }
+    footer { padding: 42px 0; color: rgba(247, 241, 231, 0.62); font-size: 14px; }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; }
+    footer a { color: var(--surface); }
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; padding-top: 54px; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .section-note { margin-top: 14px; }
+      .nav-links { display: none; }
+      .model-row { grid-template-columns: 1fr; }
+    }
   </style>
-  <script>
-    window.location.replace('https://promptly.nauti-labs.com/');
-  </script>
 </head>
 <body>
+  <nav class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="/">
+        <img src="/assets/nauti-gear-wheel.svg" alt="" />
+        <strong>Nauti-Labs</strong>
+        <span>Promptly</span>
+      </a>
+      <div class="nav-links">
+        <a href="#passes">Passes</a>
+        <a href="#lens">Lens</a>
+        <a href="mailto:consulting@nauti-labs.com?subject=Promptly%20access">Contact</a>
+      </div>
+    </div>
+  </nav>
+
   <main>
-    <h1>Opening Promptly</h1>
-    <p>Promptly now lives at promptly.nauti-labs.com.</p>
-    <a href="https://promptly.nauti-labs.com/">Continue to Promptly</a>
+    <div class="wrap hero">
+      <div>
+        <div class="eyebrow">Promptly / pay-per-prompt AI</div>
+        <h1>A personal AI menu for <em>useful answers</em>.</h1>
+        <p class="lede">Promptly gives you everyday help, guided learning, and a higher-signal Lens tier without the software theater. Pick a pass, open the model menu, and get moving.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://buy.stripe.com/eVq5kC8XN96wbpI1Vg1Fe03" target="_blank" rel="noopener">Start with a day pass</a>
+          <a class="btn secondary" href="#passes">View passes</a>
+        </div>
+      </div>
+
+      <aside class="product-panel" aria-label="Promptly product preview">
+        <div class="panel-top">
+          <div class="lights"><span></span><span></span><span></span></div>
+          <div class="panel-title">promptly live menu</div>
+        </div>
+        <div class="chat-preview">
+          <div class="bubble">
+            <strong>Promptly</strong>
+            Everyday writing, planning, coding help, and practical answers.
+          </div>
+          <div class="bubble user">
+            <strong>You</strong>
+            Turn this messy thought into a clean plan I can actually follow.
+          </div>
+          <div class="bubble">
+            <strong>Promptly Lens</strong>
+            Clean plan, tradeoffs, and next move in one pass.
+          </div>
+          <div class="model-row">
+            <div class="model-pill">Promptly</div>
+            <div class="model-pill">Learn</div>
+            <div class="model-pill">Lens</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="status-strip">
+      <div class="wrap">
+        <span><span class="dot">●</span> Stripe live mode</span>
+        <span><span class="dot">●</span> Promptly + Learn passes</span>
+        <span><span class="dot">●</span> Lens upgrade available</span>
+      </div>
+    </div>
+
+    <section id="passes">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Promptly passes</h2>
+          <p class="section-note">Promptly unlocks the everyday model and Promptly Learn. Use a short pass when you need a burst, or keep the monthly plan open.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <div class="tier">Promptly</div>
+            <h3>Day Pass</h3>
+            <p>24 hours of everyday Promptly and guided learning.</p>
+            <div class="price">$2.99</div>
+            <div class="period">24 hours</div>
+            <a class="btn" href="https://buy.stripe.com/eVq5kC8XN96wbpI1Vg1Fe03" target="_blank" rel="noopener">Open checkout</a>
+          </article>
+          <article class="price-card featured">
+            <div class="tier">Promptly</div>
+            <h3>7-Day Pass</h3>
+            <p>A week of access for projects, homework, writing, and planning.</p>
+            <div class="price">$7.99</div>
+            <div class="period">7 days</div>
+            <a class="btn" href="https://buy.stripe.com/14A4gyei75Uk2Tc2Zk1Fe04" target="_blank" rel="noopener">Open checkout</a>
+          </article>
+          <article class="price-card">
+            <div class="tier">Promptly</div>
+            <h3>Monthly</h3>
+            <p>Keep Promptly and Promptly Learn available month to month.</p>
+            <div class="price">$19.99</div>
+            <div class="period">per month</div>
+            <a class="btn" href="https://buy.stripe.com/bJe7sKgqfaaA79s6bw1Fe05" target="_blank" rel="noopener">Open checkout</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="lens">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Promptly Lens</h2>
+          <p class="section-note">Lens adds the strategy and synthesis model for harder decisions, deeper analysis, and cleaner executive output.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card lens">
+            <div class="tier">Lens</div>
+            <h3>Lens Day Pass</h3>
+            <p>Promptly, Learn, and Lens for one focused day.</p>
+            <div class="price">$4.99</div>
+            <div class="period">24 hours</div>
+            <a class="btn" href="https://buy.stripe.com/eVq7sK2zp3Mc3Xg43o1Fe06" target="_blank" rel="noopener">Open checkout</a>
+          </article>
+          <article class="price-card lens featured">
+            <div class="tier">Lens</div>
+            <h3>Lens 7-Day Pass</h3>
+            <p>A week of higher-signal help for messy work.</p>
+            <div class="price">$12.99</div>
+            <div class="period">7 days</div>
+            <a class="btn" href="https://buy.stripe.com/3cI5kCde3gyYgK2fM61Fe07" target="_blank" rel="noopener">Open checkout</a>
+          </article>
+          <article class="price-card lens">
+            <div class="tier">Lens</div>
+            <h3>Lens Monthly</h3>
+            <p>Promptly, Learn, and Lens kept ready every month.</p>
+            <div class="price">$29.99</div>
+            <div class="period">per month</div>
+            <a class="btn" href="https://buy.stripe.com/bJeeVc1vldmM8dw8jE1Fe08" target="_blank" rel="noopener">Open checkout</a>
+          </article>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="wrap">
+      <div>Promptly by Nauti-Labs LLC</div>
+      <div><a href="/">Nauti-Labs</a> · <a href="mailto:consulting@nauti-labs.com?subject=Promptly%20access">consulting@nauti-labs.com</a></div>
+    </div>
+  </footer>
 </body>
 </html>

@@ -1,0 +1,69 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#15151A"/>
+  <rect width="1200" height="630" fill="url(#amberField)"/>
+  <rect width="1200" height="630" fill="url(#cyanField)"/>
+
+  <g opacity="0.22">
+    <path d="M0 105H1200M0 210H1200M0 315H1200M0 420H1200M0 525H1200" stroke="#353541" stroke-width="1"/>
+    <path d="M120 0V630M240 0V630M360 0V630M480 0V630M600 0V630M720 0V630M840 0V630M960 0V630M1080 0V630" stroke="#353541" stroke-width="1"/>
+  </g>
+
+  <g transform="translate(72 70)">
+    <path d="M0 0H1056V490" stroke="#353541" stroke-width="2"/>
+    <path d="M0 0H330" stroke="#E8912D" stroke-width="5"/>
+  </g>
+
+  <g transform="translate(72 72)">
+    <image href="../assets/nauti-gear-wheel.svg" x="0" y="0" width="112" height="112" preserveAspectRatio="xMidYMid meet"/>
+    <text x="138" y="42" fill="#FAFAFD" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="800">Nauti-Labs</text>
+    <text x="140" y="78" fill="#A0A0A8" font-family="Courier New, monospace" font-size="16" font-weight="700" letter-spacing="2.5">MONT BELVIEU · TX</text>
+  </g>
+
+  <g transform="translate(72 220)">
+    <text x="0" y="0" fill="#FAFAFD" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="800">Maritime ops.</text>
+    <text x="0" y="76" fill="#FAFAFD" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="800">Crypto compliance.</text>
+    <text x="0" y="152" fill="#E8912D" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="800">Custom AI.</text>
+    <text x="0" y="220" fill="#B8B8C0" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="500">Four practical lanes. Live tools, published rates, no fluff.</text>
+  </g>
+
+  <g transform="translate(802 116)">
+    <circle cx="176" cy="176" r="176" fill="#0E1016" opacity="0.74"/>
+    <circle cx="176" cy="176" r="154" stroke="#353541" stroke-width="2"/>
+    <image href="../assets/nauti-gear-wheel.svg" x="16" y="16" width="320" height="320" preserveAspectRatio="xMidYMid meet"/>
+  </g>
+
+  <g transform="translate(72 530)">
+    <rect width="224" height="58" rx="8" fill="#1F1F27" stroke="#353541"/>
+    <text x="18" y="23" fill="#E8912D" font-family="Courier New, monospace" font-size="12" font-weight="700" letter-spacing="2">MARITIME</text>
+    <text x="18" y="45" fill="#ECECF0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700">Triton Dashboard</text>
+  </g>
+  <g transform="translate(316 530)">
+    <rect width="224" height="58" rx="8" fill="#1F1F27" stroke="#353541"/>
+    <text x="18" y="23" fill="#E8912D" font-family="Courier New, monospace" font-size="12" font-weight="700" letter-spacing="2">CRYPTO</text>
+    <text x="18" y="45" fill="#ECECF0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700">SB 1244 Reports</text>
+  </g>
+  <g transform="translate(560 530)">
+    <rect width="224" height="58" rx="8" fill="#1F1F27" stroke="#353541"/>
+    <text x="18" y="23" fill="#E8912D" font-family="Courier New, monospace" font-size="12" font-weight="700" letter-spacing="2">AI</text>
+    <text x="18" y="45" fill="#ECECF0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700">Custom Builds</text>
+  </g>
+  <g transform="translate(804 530)">
+    <rect width="224" height="58" rx="8" fill="#1F1F27" stroke="#353541"/>
+    <text x="18" y="23" fill="#E8912D" font-family="Courier New, monospace" font-size="12" font-weight="700" letter-spacing="2">LOCAL</text>
+    <text x="18" y="45" fill="#ECECF0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700">Neighbors Help</text>
+  </g>
+
+  <text x="944" y="472" fill="#7A7A85" font-family="Courier New, monospace" font-size="21" font-weight="700">nauti-labs.com</text>
+
+  <defs>
+    <radialGradient id="amberField" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(700 -24) rotate(124) scale(760 520)">
+      <stop stop-color="#E8912D" stop-opacity="0.16"/>
+      <stop offset="0.62" stop-color="#15151A" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#15151A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cyanField" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1000 310) rotate(180) scale(420 320)">
+      <stop stop-color="#00C8F0" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#15151A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

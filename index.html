@@ -41,14 +41,10 @@
       --muted: #b8b8c0;
       --dim: #7a7a85;
 
-      --cyan: #00c8f0;
-      --cyan-hi: #66e5ff;
-      --orange: #ffaa00;
-      --orange-hi: #ffd166;
-      --green: #7ad68a;
-      --green-hi: #b7f4c0;
-      --red: #ff5c5c;
-      --red-hi: #ff9b9b;
+      --cyan: #23bdd3;
+      --orange: #d7902c;
+      --green: #79c978;
+      --red: #d76363;
 
       --font: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
       --mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
@@ -63,10 +59,8 @@
       font-family: var(--font);
       line-height: 1.55;
       background:
-        radial-gradient(ellipse 72% 50% at 50% -12%, rgba(0, 200, 240, 0.09), transparent 64%),
-        radial-gradient(ellipse 48% 42% at 95% 22%, rgba(255, 170, 0, 0.06), transparent 58%),
-        radial-gradient(ellipse 46% 42% at 4% 78%, rgba(122, 214, 138, 0.055), transparent 58%),
-        var(--bg);
+        radial-gradient(ellipse 70% 45% at 50% -14%, rgba(255,255,255,0.055), transparent 66%),
+        linear-gradient(180deg, var(--bg), #121216 68%);
       -webkit-font-smoothing: antialiased;
     }
 
@@ -104,7 +98,7 @@
       width: 36px;
       height: 36px;
       display: block;
-      filter: drop-shadow(0 0 14px rgba(0, 200, 240, 0.24));
+      filter: drop-shadow(0 0 12px rgba(255,255,255,0.12));
     }
 
     .brand strong {
@@ -172,8 +166,8 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: var(--cyan);
-      box-shadow: 0 0 14px rgba(0, 200, 240, 0.8);
+      background: rgba(255,255,255,0.76);
+      box-shadow: 0 0 14px rgba(255,255,255,0.22);
     }
 
     h1 {
@@ -187,11 +181,7 @@
 
     .accent-line {
       display: block;
-      color: transparent;
-      background: linear-gradient(90deg, var(--cyan-hi), var(--orange-hi), var(--green-hi), var(--red-hi));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--muted);
     }
 
     .lede {
@@ -240,12 +230,18 @@
       text-transform: uppercase;
     }
 
+    .signal.maritime { --signal: var(--cyan); }
+    .signal.crypto { --signal: var(--orange); }
+    .signal.neighbors { --signal: var(--green); }
+    .signal.ai-practice { --signal: var(--red); }
+
     .signal::before {
       content: "";
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: currentColor;
+      background: var(--signal);
+      opacity: 0.82;
     }
 
     .pillars {
@@ -299,52 +295,39 @@
     .pillar-card::before {
       content: "";
       position: absolute;
-      inset: 0;
+      inset: 0 0 auto 0;
+      height: 3px;
       pointer-events: none;
-      background:
-        linear-gradient(180deg, var(--wash), transparent 48%),
-        radial-gradient(circle at 78% 18%, var(--glow), transparent 34%);
-      opacity: 0.88;
+      background: var(--color);
+      opacity: 0.72;
     }
 
     .pillar-card:hover {
       transform: translateY(-4px);
-      border-color: var(--color);
-      box-shadow: 0 18px 60px rgba(0,0,0,0.28), 0 0 0 1px var(--edge);
+      border-color: var(--border-strong);
+      box-shadow: 0 18px 60px rgba(0,0,0,0.28);
     }
 
     .pillar-card > * { position: relative; z-index: 1; }
 
     .pillar-card.maritime {
       --color: var(--cyan);
-      --hi: var(--cyan-hi);
-      --wash: rgba(0, 200, 240, 0.12);
-      --glow: rgba(0, 200, 240, 0.22);
-      --edge: rgba(0, 200, 240, 0.22);
+      --edge: rgba(35, 189, 211, 0.24);
     }
 
     .pillar-card.crypto {
       --color: var(--orange);
-      --hi: var(--orange-hi);
-      --wash: rgba(255, 170, 0, 0.12);
-      --glow: rgba(255, 170, 0, 0.22);
-      --edge: rgba(255, 170, 0, 0.22);
+      --edge: rgba(215, 144, 44, 0.24);
     }
 
     .pillar-card.neighbors {
       --color: var(--green);
-      --hi: var(--green-hi);
-      --wash: rgba(122, 214, 138, 0.12);
-      --glow: rgba(122, 214, 138, 0.20);
-      --edge: rgba(122, 214, 138, 0.22);
+      --edge: rgba(121, 201, 120, 0.24);
     }
 
     .pillar-card.ai {
       --color: var(--red);
-      --hi: var(--red-hi);
-      --wash: rgba(255, 92, 92, 0.12);
-      --glow: rgba(255, 92, 92, 0.20);
-      --edge: rgba(255, 92, 92, 0.22);
+      --edge: rgba(215, 99, 99, 0.24);
     }
 
     .card-top {
@@ -360,7 +343,7 @@
       padding: 0 9px;
       border: 1px solid var(--edge);
       border-radius: 999px;
-      color: var(--hi);
+      color: var(--muted);
       font-family: var(--mono);
       font-size: 0.72rem;
       font-weight: 800;
@@ -403,7 +386,7 @@
       margin-top: 0.62em;
       border-radius: 50%;
       background: var(--color);
-      box-shadow: 0 0 9px var(--color);
+      opacity: 0.82;
     }
 
     .card-link {
@@ -416,8 +399,8 @@
       padding: 0 14px;
       border: 1px solid var(--edge);
       border-radius: 8px;
-      color: var(--hi);
-      background: rgba(0,0,0,0.16);
+      color: var(--text);
+      background: rgba(0,0,0,0.12);
       font-family: var(--mono);
       font-size: 0.74rem;
       font-weight: 800;
@@ -497,10 +480,10 @@
             Start with the card that matches the problem. The home page stays quiet; the subdomains carry the details.
           </p>
           <div class="signal-list">
-            <div class="signal" style="color: var(--cyan-hi)">Maritime systems</div>
-            <div class="signal" style="color: var(--orange-hi)">Crypto compliance</div>
-            <div class="signal" style="color: var(--green-hi)">Neighbors local help</div>
-            <div class="signal" style="color: var(--red-hi)">Custom AI builds</div>
+            <div class="signal maritime">Maritime systems</div>
+            <div class="signal crypto">Crypto compliance</div>
+            <div class="signal neighbors">Neighbors local help</div>
+            <div class="signal ai-practice">Custom AI builds</div>
           </div>
         </aside>
       </section>
@@ -515,7 +498,7 @@
           <div class="pillar-grid">
             <a class="pillar-card maritime" href="https://maritime.nauti-labs.com/" aria-label="Open Maritime practice">
               <div class="card-top">
-                <span class="card-num">01 · CYAN</span>
+                <span class="card-num">01</span>
                 <h3>Maritime</h3>
                 <p>Chemical tanker operations, port-call workflows, agency software, and Triton systems.</p>
                 <ul class="mini-list">
@@ -529,7 +512,7 @@
 
             <a class="pillar-card crypto" href="https://crypto.nauti-labs.com/" aria-label="Open Crypto Compliance practice">
               <div class="card-top">
-                <span class="card-num">02 · ORANGE</span>
+                <span class="card-num">02</span>
                 <h3>Crypto</h3>
                 <p>Texas SB 1244 and holder reporting work for crypto custodians and compliance teams.</p>
                 <ul class="mini-list">
@@ -543,7 +526,7 @@
 
             <a class="pillar-card neighbors" href="https://neighbors.nauti-labs.com/" aria-label="Open Neighbors local services">
               <div class="card-top">
-                <span class="card-num">03 · GREEN</span>
+                <span class="card-num">03</span>
                 <h3>Neighbors</h3>
                 <p>Plain-English local tech help for residents and owner-operated businesses nearby.</p>
                 <ul class="mini-list">
@@ -557,7 +540,7 @@
 
             <a class="pillar-card ai" href="https://ai.nauti-labs.com/" aria-label="Open Custom AI practice">
               <div class="card-top">
-                <span class="card-num">04 · RED</span>
+                <span class="card-num">04</span>
                 <h3>AI</h3>
                 <p>Approval-aware AI agents, bots, dashboards, and product builds for real workflows.</p>
                 <ul class="mini-list">

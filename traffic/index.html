@@ -393,11 +393,15 @@
     .tab-icon svg { width: 100%; height: 100%; display: block; }
     .tab-icon.clearance { color: var(--amber); }
     .tab-icon.felipe { color: var(--red); }
-    .tab-icon.triton { color: var(--blue); opacity: 0.85; }
+    .tab-icon.triton img,
     .tab-icon.scram img {
       width: 100%;
-      height: auto;
+      height: 100%;
       display: block;
+      object-fit: contain;
+    }
+    .tab-icon.triton img { opacity: 0.92; }
+    .tab-icon.scram img {
       filter: drop-shadow(0 3px 9px rgba(255, 138, 31, 0.28));
     }
     .surface-meta {
@@ -433,11 +437,13 @@
         radial-gradient(circle at center, rgba(23, 121, 255, 0.09), transparent 36%),
         var(--bg-2);
     }
-    .parked-board svg {
-      width: 54px;
-      height: 54px;
-      color: var(--blue);
-      margin-bottom: 16px;
+    .parked-board img {
+      width: 64px;
+      height: 64px;
+      display: block;
+      margin: 0 auto 18px;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 22px rgba(23, 121, 255, 0.22));
     }
     .parked-board strong {
       display: block;
@@ -722,17 +728,7 @@
 
         <button class="traffic-tab triton" data-board="triton" type="button" role="tab" aria-selected="false" aria-controls="board-triton" aria-disabled="true">
           <span class="tab-icon triton" aria-hidden="true">
-            <svg viewBox="0 0 44 44" fill="none">
-              <circle cx="22" cy="22" r="18" fill="#06090f" stroke="currentColor" stroke-width="1.4"/>
-              <path d="M6.4 4.4Q9 11 12.6 18.4h4.8Q13 10 7.4 5Z" fill="#1779ff"/>
-              <path d="M37.6 4.4Q35 11 31.4 18.4h-4.8Q31 10 36.6 5Z" fill="#1779ff"/>
-              <path d="M22 2Q20.6 9 19.2 18.4H22Z" fill="#ffaa00"/>
-              <path d="M22 2Q23.4 9 24.8 18.4H22Z" fill="#7b5600"/>
-              <path d="M10.6 18.6Q13.5 17.4 22 17.4Q30.5 17.4 33.4 18.6L33.6 19.5L32.4 20.6Q27 21.4 22 21.4Q17 21.4 11.6 20.6L10.4 19.5Z" fill="#0b4bad"/>
-              <path d="M20.6 20.7H23.4L22.7 32.4H21.3Z" fill="#1779ff"/>
-              <circle cx="22" cy="34.2" r="2" fill="#06090f" stroke="currentColor" stroke-width="0.7"/>
-              <circle cx="22" cy="19.5" r="1.55" fill="#06090f" stroke="currentColor" stroke-width="0.55"/>
-            </svg>
+            <img src="/assets/triton-mark.png?v=20260515" alt="" />
           </span>
           Triton // traffic
         </button>
@@ -758,17 +754,7 @@
     <section class="board" id="board-triton" role="tabpanel" aria-hidden="true">
       <div class="parked-board">
         <div>
-          <svg viewBox="0 0 44 44" fill="none" aria-hidden="true">
-            <circle cx="22" cy="22" r="18" fill="#06090f" stroke="currentColor" stroke-width="1.4"/>
-            <path d="M6.4 4.4Q9 11 12.6 18.4h4.8Q13 10 7.4 5Z" fill="#1779ff"/>
-            <path d="M37.6 4.4Q35 11 31.4 18.4h-4.8Q31 10 36.6 5Z" fill="#1779ff"/>
-            <path d="M22 2Q20.6 9 19.2 18.4H22Z" fill="#ffaa00"/>
-            <path d="M22 2Q23.4 9 24.8 18.4H22Z" fill="#7b5600"/>
-            <path d="M10.6 18.6Q13.5 17.4 22 17.4Q30.5 17.4 33.4 18.6L33.6 19.5L32.4 20.6Q27 21.4 22 21.4Q17 21.4 11.6 20.6L10.4 19.5Z" fill="#0b4bad"/>
-            <path d="M20.6 20.7H23.4L22.7 32.4H21.3Z" fill="#1779ff"/>
-            <circle cx="22" cy="34.2" r="2" fill="#06090f" stroke="currentColor" stroke-width="0.7"/>
-            <circle cx="22" cy="19.5" r="1.55" fill="#06090f" stroke="currentColor" stroke-width="0.55"/>
-          </svg>
+          <img src="/assets/triton-mark.png?v=20260515" alt="Triton mark" />
           <strong>Triton Traffic</strong>
           <span>Reserved until the Triton board exists.</span>
         </div>

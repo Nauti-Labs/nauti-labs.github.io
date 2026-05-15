@@ -369,14 +369,10 @@
       border-color: rgba(255, 40, 86, 0.48);
       background: rgba(255, 40, 86, 0.13);
     }
-    .traffic-tab.triton {
-      color: rgba(183, 184, 194, 0.54);
-      cursor: default;
-    }
-    .traffic-tab.triton:hover {
-      color: rgba(183, 184, 194, 0.54);
-      background: transparent;
-      border-color: transparent;
+    .traffic-tab.triton.active {
+      color: #edf4ff;
+      border-color: rgba(23, 121, 255, 0.50);
+      background: rgba(23, 121, 255, 0.14);
     }
     .traffic-tab.scram.active {
       color: #fff4e9;
@@ -743,14 +739,14 @@
           Felipe // traffic
         </button>
 
-        <button class="traffic-tab triton" data-board="triton" type="button" role="tab" aria-selected="false" aria-controls="board-triton" aria-disabled="true">
+        <button class="traffic-tab triton" data-board="triton" type="button" role="tab" aria-selected="false" aria-controls="board-triton">
           <span class="tab-icon triton" aria-hidden="true">
             <img src="/assets/triton-mark.svg?v=20260515" alt="" />
           </span>
           Triton // traffic
         </button>
 
-        <button class="traffic-tab promptly" data-board="promptly" type="button" role="tab" aria-selected="false" aria-controls="board-promptly" aria-disabled="true">
+        <button class="traffic-tab promptly" data-board="promptly" type="button" role="tab" aria-selected="false" aria-controls="board-promptly">
           <span class="tab-icon promptly" aria-hidden="true">
             <img src="/assets/promptly-mark.svg" alt="" />
           </span>
@@ -776,23 +772,11 @@
     </section>
 
     <section class="board" id="board-triton" role="tabpanel" aria-hidden="true">
-      <div class="parked-board">
-        <div>
-          <img src="/assets/triton-mark.png?v=20260515" alt="Triton mark" />
-          <strong>Triton Traffic</strong>
-          <span>Reserved until the Triton board exists.</span>
-        </div>
-      </div>
+      <iframe class="board-frame" title="Triton Traffic board" data-src="https://promptly.nauti-labs.com/triton-traffic" src="about:blank" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
     <section class="board" id="board-promptly" role="tabpanel" aria-hidden="true">
-      <div class="parked-board promptly">
-        <div>
-          <img src="/assets/promptly-mark.svg" alt="Promptly mark" />
-          <strong>Promptly Traffic</strong>
-          <span>Reserved until promptly.nauti-labs.com/nauti-traffic ships.</span>
-        </div>
-      </div>
+      <iframe class="board-frame" title="Promptly Traffic board" data-src="https://promptly.nauti-labs.com/nauti-traffic" src="about:blank" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
     <section class="board" id="board-scram" role="tabpanel" aria-hidden="true">
@@ -871,8 +855,8 @@
     const meta = {
       clearance: "clearance.nauti-labs.com/nauti-traffic",
       felipe: "felipe traffic - management login required",
-      triton: "triton traffic - parked",
-      promptly: "promptly traffic - parked, board pending",
+      triton: "promptly.nauti-labs.com/triton-traffic",
+      promptly: "promptly.nauti-labs.com/nauti-traffic",
       scram: "scram.nauti-labs.com traffic - setup watch"
     };
     const scramEvents = [
@@ -1006,6 +990,10 @@
       surfaceMeta.textContent = meta[board] || "";
       if (board === "felipe" && felipeFrame && felipeFrame.src === "about:blank") {
         felipeFrame.src = felipeFrame.dataset.src;
+      }
+      const activeFrame = document.querySelector(`#board-${board} iframe[data-src]`);
+      if (activeFrame && activeFrame.src === "about:blank") {
+        activeFrame.src = activeFrame.dataset.src;
       }
       if (board === "scram" && !scramProtected.hidden) renderScramBoard();
     }

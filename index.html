@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nauti-Labs | Four Practical Technology Practices</title>
-  <meta name="description" content="Nauti-Labs is organized into four practices: maritime systems, crypto compliance, neighbors local tech help, and custom AI builds." />
+  <title>Nauti-Labs | We Build Useful Stuff</title>
+  <meta name="description" content="Nauti-Labs builds maritime systems, crypto compliance tools, neighbor tech help, and AI projects." />
   <link rel="canonical" href="https://nauti-labs.com/" />
   <meta name="robots" content="index,follow" />
 
   <meta property="og:site_name" content="Nauti-Labs" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Nauti-Labs | Maritime, Crypto, Neighbors, AI" />
-  <meta property="og:description" content="Four practical technology practices from Mont Belvieu, Texas." />
+  <meta property="og:title" content="Nauti-Labs | We Build Useful Stuff" />
+  <meta property="og:description" content="Maritime systems, crypto compliance, neighbor help, and AI projects from Mont Belvieu, Texas." />
   <meta property="og:url" content="https://nauti-labs.com/" />
   <meta property="og:image" content="https://nauti-labs.com/og/home-share.png" />
   <meta property="og:image:secure_url" content="https://nauti-labs.com/og/home-share.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Nauti-Labs | Four Practices" />
-  <meta name="twitter:description" content="Maritime systems, crypto compliance, neighbors local tech help, and custom AI builds." />
+  <meta name="twitter:title" content="Nauti-Labs | We Build Useful Stuff" />
+  <meta name="twitter:description" content="Maritime systems, crypto compliance, neighbor help, and AI projects." />
   <meta name="twitter:image" content="https://nauti-labs.com/og/home-share.png" />
 
   <meta name="theme-color" content="#15151a" />
@@ -138,6 +138,21 @@
       font-weight: 650;
       transition: color 160ms ease, background 160ms ease;
     }
+
+    .nav-links a::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      margin-right: 8px;
+      border-radius: 50%;
+      background: var(--nav-color);
+      opacity: 0.86;
+    }
+
+    .nav-links a.maritime { --nav-color: var(--cyan); }
+    .nav-links a.crypto { --nav-color: var(--orange); }
+    .nav-links a.neighbors { --nav-color: var(--green); }
+    .nav-links a.ai-practice { --nav-color: var(--red); }
 
     .nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.055); }
 
@@ -258,9 +273,12 @@
 
     .section-head h2 {
       margin: 0;
-      font-size: clamp(1.6rem, 3vw, 2.25rem);
+      font-family: var(--mono);
+      font-size: 0.82rem;
       line-height: 1.1;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
     .section-head p {
@@ -456,10 +474,10 @@
           </span>
         </a>
         <nav class="nav-links" aria-label="Primary">
-          <a href="https://maritime.nauti-labs.com/">Maritime</a>
-          <a href="https://crypto.nauti-labs.com/">Crypto</a>
-          <a href="https://neighbors.nauti-labs.com/">Neighbors</a>
-          <a href="https://ai.nauti-labs.com/">AI</a>
+          <a class="maritime" href="https://maritime.nauti-labs.com/">Maritime</a>
+          <a class="crypto" href="https://crypto.nauti-labs.com/">Crypto</a>
+          <a class="neighbors" href="https://neighbors.nauti-labs.com/">Neighbors</a>
+          <a class="ai-practice" href="https://ai.nauti-labs.com/">AI</a>
         </nav>
       </div>
     </header>
@@ -467,17 +485,17 @@
     <main>
       <section class="container hero">
         <div>
-          <div class="eyebrow">Nauti-Labs LLC</div>
-          <h1>Four practices. <span class="accent-line">One operating company.</span></h1>
+          <div class="eyebrow">Simple. Premium. We build stuff.</div>
+          <h1>Hello... <span class="accent-line">we are glad you're here.</span><span class="accent-line">How can we help?</span></h1>
           <p class="lede">
-            Maritime systems, crypto compliance, local neighbor tech help, and custom AI builds. Each practice has its own page with projects, screenshots, rates, and the right next step.
+            We build maritime systems, crypto compliance, help neighbors, and build awesome projects with AI.
           </p>
         </div>
 
         <aside class="intro-panel" aria-label="Company summary">
-          <h2>How to use this site</h2>
+          <h2>How can we help?</h2>
           <p>
-            Start with the card that matches the problem. The home page stays quiet; the subdomains carry the details.
+            Pick the area that matches what you need. Each page has the projects, screenshots, rates, and next steps.
           </p>
           <div class="signal-list">
             <div class="signal maritime">Maritime systems</div>
@@ -491,8 +509,8 @@
       <section class="pillars" id="pillars">
         <div class="container">
           <div class="section-head">
-            <h2>The four pillars</h2>
-            <p>Separate rooms for separate work. Same standard: useful tools, clear rates, and practical delivery.</p>
+            <h2>// Four pillars</h2>
+            <p>Same team, separate doors. Choose the lane that fits the work.</p>
           </div>
 
           <div class="pillar-grid">

@@ -4,22 +4,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nauti-Labs — Maritime Compliance · Crypto Compliance · Custom AI</title>
-  <meta name="description" content="Maritime ops consulting, Texas SB 1244 crypto compliance, and custom AI builds. One company, three disciplines. Built by someone who's worked the operation." />
+  <title>Nauti-Labs — Maritime · Crypto · AI · Neighbors</title>
+  <meta name="description" content="Maritime ops consulting, Texas SB 1244 crypto compliance, custom AI builds, and plain-English local tech help. Four practical pillars from Mont Belvieu, Texas." />
   <link rel="canonical" href="https://nauti-labs.com/" />
   <meta name="robots" content="index,follow" />
 
   <meta property="og:site_name" content="Nauti-Labs" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Nauti-Labs — Maritime Compliance · Crypto Compliance · Custom AI" />
-  <meta property="og:description" content="Maritime ops consulting, Texas SB 1244 crypto compliance, and custom AI builds." />
+  <meta property="og:title" content="Nauti-Labs — Maritime · Crypto · AI · Neighbors" />
+  <meta property="og:description" content="Maritime ops consulting, Texas SB 1244 crypto compliance, custom AI builds, and local tech help." />
   <meta property="og:url" content="https://nauti-labs.com/" />
   <meta property="og:image" content="https://nauti-labs.com/og/home-share-20260514.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Nauti-Labs — Maritime · Crypto · AI" />
-  <meta name="twitter:description" content="Maritime ops consulting, Texas SB 1244 crypto compliance, and custom AI builds." />
+  <meta name="twitter:title" content="Nauti-Labs — Maritime · Crypto · AI · Neighbors" />
+  <meta name="twitter:description" content="Maritime ops consulting, Texas SB 1244 crypto compliance, custom AI builds, and local tech help." />
   <meta name="twitter:image" content="https://nauti-labs.com/og/home-share-20260514.png" />
 
   <meta name="theme-color" content="#15151a" />
@@ -214,31 +214,52 @@
     .hero-pill .pill-dot { color: var(--green); margin-right: 6px; }
 
     /* === PILLAR CARDS (overview) === */
-    .pillars-strip { padding: 24px 0 80px; }
+    .pillars-strip {
+      position: relative;
+      overflow: hidden;
+      padding: 36px 0 88px;
+      border-top: 1px solid rgba(232, 145, 45, 0.18);
+      border-bottom: 1px solid rgba(232, 145, 45, 0.14);
+      background:
+        radial-gradient(circle at 18% 0%, rgba(232, 145, 45, 0.18), transparent 31%),
+        radial-gradient(circle at 84% 100%, rgba(138, 138, 138, 0.12), transparent 34%),
+        linear-gradient(135deg, rgba(47, 31, 23, 0.88), rgba(21, 21, 26, 0.94) 46%, rgba(33, 26, 23, 0.92));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), inset 0 32px 90px rgba(0, 0, 0, 0.24);
+    }
+    .pillars-strip::before {
+      content: '';
+      position: absolute;
+      inset: 18px 0 auto;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(232, 145, 45, 0.32), transparent);
+    }
     .pillars-strip .strip-eyebrow {
       font-family: var(--font-mono);
       font-size: 11px; font-weight: 600;
-      color: var(--muted);
+      color: var(--steel-soft);
       letter-spacing: 0.08em; text-transform: uppercase;
       margin-bottom: 18px;
     }
     .pillar-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
     }
     .pillar-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(31, 31, 39, 0.9), rgba(22, 20, 20, 0.94));
+      border: 1px solid rgba(232, 145, 45, 0.18);
       border-radius: var(--radius);
-      padding: 28px 26px;
-      transition: border-color 0.2s, transform 0.2s, background 0.2s;
+      padding: 24px 22px;
+      min-height: 296px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045), 0 18px 42px rgba(0, 0, 0, 0.2);
+      transition: border-color 0.2s, transform 0.2s, background 0.2s, box-shadow 0.2s;
       display: flex; flex-direction: column;
     }
     .pillar-card:hover {
-      border-color: var(--amber);
-      background: var(--surface-2);
+      border-color: rgba(232, 145, 45, 0.48);
+      background: linear-gradient(180deg, rgba(37, 37, 46, 0.94), rgba(24, 22, 22, 0.98));
       transform: translateY(-2px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.055), 0 22px 52px rgba(0, 0, 0, 0.28);
     }
     .pillar-card .num {
       font-family: var(--font-mono);
@@ -248,14 +269,14 @@
       margin-bottom: 14px;
     }
     .pillar-card h3 {
-      font-size: 22px; font-weight: 700;
+      font-size: 20px; font-weight: 700;
       color: var(--text);
       margin-bottom: 10px;
       letter-spacing: -0.01em;
     }
     .pillar-card p {
       color: var(--text-dim);
-      font-size: 14px;
+      font-size: 13px;
       margin-bottom: 18px;
       line-height: 1.55;
     }
@@ -266,7 +287,7 @@
     }
     .pillar-card ul li {
       font-family: var(--font-mono);
-      font-size: 12px;
+      font-size: 11px;
       color: var(--muted);
       padding: 5px 0;
       padding-left: 16px;
@@ -913,13 +934,15 @@
     /* === RESPONSIVE === */
     @media (max-width: 920px) {
       nav.site-nav .nav-links a:not(.nav-cta) { display: none; }
-      .pillar-grid { grid-template-columns: 1fr; }
+      .pillar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .detail-grid { grid-template-columns: 1fr; }
       .rate-card { position: static; }
       footer.site-footer .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 560px) {
       .hero { padding: 60px 0 40px; }
+      .pillars-strip { padding: 28px 0 64px; }
+      .pillar-grid { grid-template-columns: 1fr; }
       .pillar-section { padding: 56px 0; }
       footer.site-footer .footer-grid { grid-template-columns: 1fr; }
       .container { padding: 0 20px; }
@@ -952,11 +975,11 @@
     <div class="container">
       <div class="hero-eyebrow">
         <span class="dot"></span>
-        <span>NAUTI-LABS LLC · MARITIME · COMPLIANCE · APPLIED AI</span>
+        <span>NAUTI-LABS LLC · MARITIME · COMPLIANCE · AI · NEIGHBORS</span>
       </div>
-      <h1>Maritime ops. Crypto compliance. <span class="accent">Custom AI.</span></h1>
+      <h1>Maritime ops. Crypto compliance. Custom AI. <span class="accent">Local help.</span></h1>
       <p class="lede">
-        One company, three disciplines. Built by someone who's worked the operation — not someone who's read about it.
+        Four practical lanes. Built by someone who's worked the operation — not someone who's read about it.
         Live tools. Published rates. No fluff.
       </p>
       <div class="hero-actions">
@@ -967,7 +990,7 @@
         <span class="hero-pill"><span class="pill-dot">●</span> Triton — live</span>
         <span class="hero-pill"><span class="pill-dot">●</span> Clearance — live</span>
         <span class="hero-pill"><span class="pill-dot">●</span> Promptly — live</span>
-        <span class="hero-pill"><span class="pill-dot" style="color: var(--amber)">●</span> Anchor Compliance — pilot</span>
+        <span class="hero-pill"><span class="pill-dot" style="color: var(--amber)">●</span> Neighbors — local</span>
       </div>
     </div>
   </section>
@@ -975,7 +998,7 @@
   <!-- PILLAR OVERVIEW CARDS -->
   <section class="pillars-strip" id="pillars">
     <div class="container">
-      <div class="strip-eyebrow">// Three pillars</div>
+      <div class="strip-eyebrow">// Four practical pillars</div>
       <div class="pillar-grid">
 
         <a href="#maritime" class="pillar-card">
@@ -1012,6 +1035,18 @@
             <li>$125 / hr · $1,250 starter (10 hrs)</li>
           </ul>
           <span class="pillar-link">Read more →</span>
+        </a>
+
+        <a href="https://neighbors.nauti-labs.com/" class="pillar-card">
+          <div class="num">04</div>
+          <h3>Neighbors</h3>
+          <p>Plain-English tech help for nearby residents and owner-operated businesses. AI setup, security, websites, email, and domains.</p>
+          <ul>
+            <li>Local AI setup on your own machine</li>
+            <li>Device, Wi-Fi, account, and domain cleanup</li>
+            <li>Published services and rates</li>
+          </ul>
+          <span class="pillar-link">View rates →</span>
         </a>
 
       </div>
@@ -1071,7 +1106,7 @@
         <a class="demo-card product-card-link" href="https://ops.nauti-labs.com/" target="_blank" rel="noopener" aria-label="Open Triton Dashboard">
           <div class="demo-card-head">
             <div class="demo-eyebrow"><span class="dot"></span>Live · Dashboard</div>
-            <span class="product-logo triton" aria-hidden="true"><img src="/assets/triton-mark.svg" alt=""></span>
+            <span class="product-logo triton" aria-hidden="true"><img src="/assets/triton-mark.png?v=20260515" alt=""></span>
           </div>
           <h4>Triton Dashboard</h4>
           <p>Workflow surface for vessel agents and ship owners. Vessel deck, schedule, and event log built from the agency desk perspective.</p>
@@ -1442,7 +1477,7 @@
             </span>
             <span class="brand-name">Nauti-Labs</span>
           </div>
-          <p>Maritime ops, crypto compliance, and applied AI from Mont Belvieu, Texas. Built for operators who'd rather use the thing than read about it.</p>
+          <p>Maritime ops, crypto compliance, applied AI, and local tech help from Mont Belvieu, Texas. Built for people who'd rather use the thing than read about it.</p>
         </div>
         <div>
           <h5>Practice</h5>

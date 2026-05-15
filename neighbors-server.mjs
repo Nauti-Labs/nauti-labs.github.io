@@ -6,6 +6,16 @@ import { fileURLToPath } from 'node:url'
 
 const root = fileURLToPath(new URL('.', import.meta.url))
 const port = Number(process.env.PORT || 8088)
+const hostRoots = {
+  'neighbors.nauti-labs.com': 'neighbors',
+  'maritime.nauti-labs.com': 'maritime',
+}
+const localHosts = new Set(['', '127.0.0.1', 'localhost'])
+
+const hostRedirects = {
+  'ai.nauti-labs.com': 'https://nauti-labs.com/#ai',
+  'crypto.nauti-labs.com': 'https://nauti-labs.com/#crypto',
+}
 
 const types = {
   '.css': 'text/css; charset=utf-8',
@@ -17,9 +27,17 @@ const types = {
   '.webp': 'image/webp',
 }
 
-function resolvePath(urlPath) {
+function getHost(req) {
+  return String(req.headers.host || '').split(':')[0].toLowerCase()
+}
+
+function resolvePath(req) {
+  const host = getHost(req)
+  const hostRoot = hostRoots[host] || (localHosts.has(host) ? 'neighbors' : null)
+  if (!hostRoot) return null
+  const urlPath = req.url || '/'
   const path = decodeURIComponent(urlPath.split('?')[0] || '/')
-  if (path === '/' || path === '/index.html') return join(root, 'neighbors', 'index.html')
+  if (path === '/' || path === '/index.html') return join(root, hostRoot, 'index.html')
 
   const safePath = normalize(path).replace(/^(\.\.(\/|\\|$))+/, '')
   const candidate = resolve(root, safePath.replace(/^\/+/, ''))
@@ -29,7 +47,14 @@ function resolvePath(urlPath) {
 }
 
 createServer((req, res) => {
-  const file = resolvePath(req.url || '/')
+  const redirect = hostRedirects[getHost(req)]
+  if (redirect) {
+    res.writeHead(302, { location: redirect })
+    res.end()
+    return
+  }
+
+  const file = resolvePath(req)
   if (!file) {
     res.writeHead(404, { 'content-type': 'text/plain; charset=utf-8' })
     res.end('Not found')
@@ -42,5 +67,5 @@ createServer((req, res) => {
   })
   createReadStream(file).pipe(res)
 }).listen(port, '127.0.0.1', () => {
-  console.log(`Neighbors static server listening on http://127.0.0.1:${port}`)
+  console.log(`Practice static server listening on http://127.0.0.1:${port}`)
 })

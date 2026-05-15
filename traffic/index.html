@@ -383,6 +383,11 @@
       border-color: rgba(255, 138, 31, 0.52);
       background: rgba(255, 138, 31, 0.14);
     }
+    .traffic-tab.promptly.active {
+      color: #fde6ea;
+      border-color: rgba(232, 160, 176, 0.55);
+      background: rgba(232, 160, 176, 0.14);
+    }
     .tab-icon {
       width: 18px;
       height: 18px;
@@ -394,15 +399,21 @@
     .tab-icon.clearance { color: var(--amber); }
     .tab-icon.felipe { color: var(--red); }
     .tab-icon.triton img,
-    .tab-icon.scram img {
+    .tab-icon.scram img,
+    .tab-icon.promptly img {
       width: 100%;
       height: 100%;
       display: block;
       object-fit: contain;
     }
-    .tab-icon.triton img { opacity: 0.92; }
+    .tab-icon.triton img { border-radius: 4px; }
     .tab-icon.scram img {
       filter: drop-shadow(0 3px 9px rgba(255, 138, 31, 0.28));
+    }
+    .tab-icon.promptly img {
+      background: #f7f1e7;
+      border-radius: 4px;
+      padding: 1px;
     }
     .surface-meta {
       color: var(--muted);
@@ -438,12 +449,18 @@
         var(--bg-2);
     }
     .parked-board img {
-      width: 64px;
-      height: 64px;
+      width: 112px;
+      height: 112px;
       display: block;
-      margin: 0 auto 18px;
+      margin: 0 auto 22px;
       object-fit: contain;
-      filter: drop-shadow(0 8px 22px rgba(23, 121, 255, 0.22));
+      border-radius: 14px;
+      filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.45));
+    }
+    .parked-board.promptly img {
+      background: #f7f1e7;
+      padding: 8px;
+      filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.5));
     }
     .parked-board strong {
       display: block;
@@ -728,9 +745,16 @@
 
         <button class="traffic-tab triton" data-board="triton" type="button" role="tab" aria-selected="false" aria-controls="board-triton" aria-disabled="true">
           <span class="tab-icon triton" aria-hidden="true">
-            <img src="/assets/triton-mark.png?v=20260515" alt="" />
+            <img src="/assets/triton-mark.svg?v=20260515" alt="" />
           </span>
           Triton // traffic
+        </button>
+
+        <button class="traffic-tab promptly" data-board="promptly" type="button" role="tab" aria-selected="false" aria-controls="board-promptly" aria-disabled="true">
+          <span class="tab-icon promptly" aria-hidden="true">
+            <img src="/assets/promptly-mark.svg" alt="" />
+          </span>
+          Promptly // traffic
         </button>
 
         <button class="traffic-tab scram" data-board="scram" type="button" role="tab" aria-selected="false" aria-controls="board-scram">
@@ -757,6 +781,16 @@
           <img src="/assets/triton-mark.png?v=20260515" alt="Triton mark" />
           <strong>Triton Traffic</strong>
           <span>Reserved until the Triton board exists.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="board" id="board-promptly" role="tabpanel" aria-hidden="true">
+      <div class="parked-board promptly">
+        <div>
+          <img src="/assets/promptly-mark.svg" alt="Promptly mark" />
+          <strong>Promptly Traffic</strong>
+          <span>Reserved until promptly.nauti-labs.com/nauti-traffic ships.</span>
         </div>
       </div>
     </section>
@@ -838,6 +872,7 @@
       clearance: "clearance.nauti-labs.com/nauti-traffic",
       felipe: "felipe traffic - management login required",
       triton: "triton traffic - parked",
+      promptly: "promptly traffic - parked, board pending",
       scram: "scram.nauti-labs.com traffic - setup watch"
     };
     const scramEvents = [

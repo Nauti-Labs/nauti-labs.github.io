@@ -286,6 +286,22 @@
       margin-top: 3px;
     }
 
+    .coffee-note {
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      background: var(--neighbor-soft);
+      border: 1px solid rgba(122, 214, 138, 0.28);
+      border-radius: var(--radius-sm);
+      color: var(--text-dim);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .coffee-note .cup { font-size: 24px; line-height: 1; flex-shrink: 0; }
+    .coffee-note strong { color: var(--text); }
+
     .simple-list {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -451,6 +467,11 @@
               <li>Review links, contact forms, and basic SEO</li>
             </ul>
           </article>
+        </div>
+
+        <div class="coffee-note">
+          <span class="cup" aria-hidden="true">☕</span>
+          <p><strong>Not sure what you even need? The coffee's always free.</strong> Sit down, tell me what's going on, and we'll figure out together whether there's anything worth fixing — no pressure, no charge just to ask.</p>
         </div>
       </div>
     </section>

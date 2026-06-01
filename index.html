@@ -4,26 +4,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nauti-Labs — Maritime · Crypto · AI · Neighbors</title>
-  <meta name="description" content="Maritime ops consulting, Texas SB 1244 crypto compliance, custom AI builds, and plain-English local tech help. Four practical pillars from Mont Belvieu, Texas." />
+  <title>Nauti-Labs — Maritime · AI · Neighbors</title>
+  <meta name="description" content="Maritime ops consulting and cargo representation, custom AI builds, and plain-English local tech help. Three practical pillars from Mont Belvieu, Texas." />
   <link rel="canonical" href="https://nauti-labs.com/" />
   <meta name="robots" content="index,follow" />
 
   <meta property="og:site_name" content="Nauti-Labs" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Nauti-Labs — Maritime · Crypto · AI · Neighbors" />
-  <meta property="og:description" content="Maritime ops consulting, Texas SB 1244 crypto compliance, custom AI builds, and local tech help." />
+  <meta property="og:title" content="Nauti-Labs — Maritime · AI · Neighbors" />
+  <meta property="og:description" content="Maritime ops consulting, cargo representation, custom AI builds, and local tech help." />
   <meta property="og:url" content="https://nauti-labs.com/" />
   <meta property="og:image" content="https://nauti-labs.com/og/home-share-20260515.png?v=2" />
   <meta property="og:image:secure_url" content="https://nauti-labs.com/og/home-share-20260515.png?v=2" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Nauti-Labs gear helm mark with Maritime Ops, Crypto Compliance, Custom AI, and Neighbors." />
+  <meta property="og:image:alt" content="Nauti-Labs gear helm mark — Maritime Ops, Custom AI, and Neighbors." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Nauti-Labs — Maritime · Crypto · AI · Neighbors" />
-  <meta name="twitter:description" content="Maritime ops consulting, Texas SB 1244 crypto compliance, custom AI builds, and local tech help." />
+  <meta name="twitter:title" content="Nauti-Labs — Maritime · AI · Neighbors" />
+  <meta name="twitter:description" content="Maritime ops consulting, cargo representation, custom AI builds, and local tech help." />
   <meta name="twitter:image" content="https://nauti-labs.com/og/home-share-20260515.png?v=2" />
-  <meta name="twitter:image:alt" content="Nauti-Labs gear helm mark with Maritime Ops, Crypto Compliance, Custom AI, and Neighbors." />
+  <meta name="twitter:image:alt" content="Nauti-Labs gear helm mark — Maritime Ops, Custom AI, and Neighbors." />
 
   <meta name="theme-color" content="#15151a" />
 
@@ -245,7 +245,7 @@
     }
     .pillar-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
     }
     .pillar-card {
@@ -934,6 +934,83 @@
     }
     footer.site-footer .footer-bottom .amber { color: var(--amber); }
 
+    /* === FROM THE CHANNEL (video) === */
+    .channel {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+    .channel h2 {
+      font-size: clamp(28px, 3.6vw, 40px);
+      font-weight: 700;
+      color: #fafafd;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      max-width: 800px;
+    }
+    .channel > .container > .lede {
+      color: var(--text-dim);
+      font-size: 17px;
+      max-width: 720px;
+      margin-bottom: 32px;
+    }
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-2);
+      background: var(--bg-2);
+    }
+    .yt-facade {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 16px;
+      cursor: pointer; border: 0;
+      background-size: cover; background-position: center;
+      background-color: var(--bg-2);
+    }
+    .yt-facade.is-soon { cursor: default; }
+    .yt-facade::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(21,21,26,0.28), rgba(21,21,26,0.66));
+    }
+    .yt-facade > * { position: relative; z-index: 1; }
+    .yt-play {
+      width: 74px; height: 74px;
+      display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      background: var(--amber); color: #1a1a1f;
+      font-size: 26px; padding-left: 5px;
+      box-shadow: 0 8px 28px rgba(232, 145, 45, 0.42);
+      transition: transform 0.15s, background 0.15s;
+    }
+    .yt-facade:not(.is-soon):hover .yt-play { transform: scale(1.06); background: var(--amber-bright); }
+    .yt-facade.is-soon .yt-play { opacity: 0.5; }
+    .yt-soon {
+      font-family: var(--font-mono);
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text);
+      background: rgba(21,21,26,0.62);
+      border: 1px solid var(--border-2);
+      padding: 6px 12px; border-radius: 6px;
+    }
+    .video-wrap video,
+    .video-wrap iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; border: 0;
+      object-fit: cover;
+    }
+    .channel-actions {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
     /* === RESPONSIVE === */
     @media (max-width: 920px) {
       nav.site-nav .nav-links a:not(.nav-cta) { display: none; }
@@ -965,8 +1042,8 @@
       </a>
       <div class="nav-links">
         <a href="#maritime">Maritime</a>
-        <a href="#crypto">Crypto Compliance</a>
         <a href="#ai">Custom AI</a>
+        <a href="#channel">Channel</a>
         <a href="https://neighbors.nauti-labs.com/">Neighbors</a>
         <a href="mailto:consulting@nauti-labs.com" class="nav-cta">Book intro</a>
       </div>
@@ -978,11 +1055,11 @@
     <div class="container">
       <div class="hero-eyebrow">
         <span class="dot"></span>
-        <span>NAUTI-LABS LLC · MARITIME · COMPLIANCE · AI · NEIGHBORS</span>
+        <span>NAUTI-LABS LLC · MARITIME · AI · NEIGHBORS</span>
       </div>
-      <h1>Maritime ops. Crypto compliance. Custom AI. <span class="accent">Local help.</span></h1>
+      <h1>Maritime ops. Custom AI. <span class="accent">Local help.</span></h1>
       <p class="lede">
-        Four practical lanes. Built by someone who's worked the operation — not someone who's read about it.
+        Three practical lanes. Built by someone who's worked the operation — not someone who's read about it.
         Live tools. Published rates. No fluff.
       </p>
       <div class="hero-actions">
@@ -1001,35 +1078,23 @@
   <!-- PILLAR OVERVIEW CARDS -->
   <section class="pillars-strip" id="pillars">
     <div class="container">
-      <div class="strip-eyebrow">// Four practical pillars</div>
+      <div class="strip-eyebrow">// Three practical pillars</div>
       <div class="pillar-grid">
 
         <a href="#maritime" class="pillar-card">
           <div class="num">01</div>
-          <h3>Maritime Compliance</h3>
-          <p>Chemical tanker ops, port-call workflows, and vessel-agency consulting. Houston Ship Channel and beyond.</p>
+          <h3>Maritime Ops</h3>
+          <p>Chemical tanker ops, port-call workflows, vessel-agency consulting, and cargo representation. Houston Ship Channel and beyond.</p>
           <ul>
             <li>Triton platform — port-call workflows</li>
-            <li>Agency software & process design</li>
+            <li>Cargo representation — loss control & blending</li>
             <li>$125 / hr · $1,250 starter (10 hrs)</li>
           </ul>
           <span class="pillar-link">Read more →</span>
         </a>
 
-        <a href="#crypto" class="pillar-card">
-          <div class="num">02</div>
-          <h3>Crypto Compliance</h3>
-          <p>Texas SB 1244 / § 74.101 holder reporting for crypto custodians. First annual deadline: July 1.</p>
-          <ul>
-            <li>Anchor Compliance tool + filing services</li>
-            <li>SB 1244 key-control attestation</li>
-            <li>Pilot from $7,500 · 3 design-partner slots</li>
-          </ul>
-          <span class="pillar-link">Read more →</span>
-        </a>
-
         <a href="#ai" class="pillar-card">
-          <div class="num">03</div>
+          <div class="num">02</div>
           <h3>Custom AI</h3>
           <p>Approval-aware AI agents, bots, and product builds. Open source where it counts, premium where it pays.</p>
           <ul>
@@ -1041,7 +1106,7 @@
         </a>
 
         <a href="https://neighbors.nauti-labs.com/" class="pillar-card">
-          <div class="num">04</div>
+          <div class="num">03</div>
           <h3>Neighbors</h3>
           <p>Plain-English tech help for nearby residents and owner-operated businesses. AI setup, security, websites, email, and domains.</p>
           <ul>
@@ -1061,7 +1126,7 @@
   <!-- ============================================== -->
   <section class="pillar-section" id="maritime">
     <div class="container">
-      <div class="section-eyebrow">01 · Maritime Compliance</div>
+      <div class="section-eyebrow">01 · Maritime Ops</div>
       <h2>Built by someone who's worked the operation.</h2>
       <p class="lede">
         Ten-plus years inside chemical tanker operations on the Houston Ship Channel — agency desks, pre-arrival, port calls.
@@ -1104,6 +1169,34 @@
         </aside>
       </div>
 
+      <h3>Cargo representation</h3>
+      <p>
+        Independent, cargo-side representation on the Houston Ship Channel and Gulf Coast — protecting cargo quantity and quality
+        from load to discharge, with hands-on attendance and coordination.
+      </p>
+      <div class="detail-grid">
+        <div>
+          <h4>Services</h4>
+          <ul class="check-list">
+            <li>Loss control — independent attendance at load and discharge to protect quantity and quality</li>
+            <li>Cargo blending — on-spec blending supervision and coordination</li>
+            <li>Cargo-side coordination between vessel, terminal, and surveyor</li>
+          </ul>
+        </div>
+
+        <aside class="rate-card">
+          <div class="rate-name">Cargo representation</div>
+          <div class="rate-price" style="font-size: 30px;">Contact<span class="rate-period">for pricing</span></div>
+          <div class="rate-floor">Day-rate · scope-dependent</div>
+          <ul class="rate-includes">
+            <li>Loss-control attendance</li>
+            <li>Cargo blending supervision</li>
+            <li>Independent, cargo-side representation</li>
+          </ul>
+          <a href="mailto:consulting@nauti-labs.com?subject=Cargo%20representation%20—%20pricing" class="btn-primary">Contact for pricing</a>
+        </aside>
+      </div>
+
       <h3>Live · Triton platform</h3>
       <div class="demo-cards compact">
         <a class="demo-card product-card-link" href="https://ops.nauti-labs.com/" target="_blank" rel="noopener" aria-label="Open Triton Dashboard">
@@ -1120,239 +1213,11 @@
   </section>
 
   <!-- ============================================== -->
-  <!-- 02 · CRYPTO COMPLIANCE                         -->
-  <!-- ============================================== -->
-  <section class="pillar-section" id="crypto">
-    <div class="container">
-      <div class="section-eyebrow">02 · Crypto Compliance</div>
-      <h2>Anchor Compliance — built for Texas SB 1244 holder reporting.</h2>
-      <p class="lede">
-        Pricing reflects the size and complexity of your filing, not the size of your wallet inventory.
-        Texas-domiciled crypto custodians: the first annual § 74.101 deadline is <strong>July 1</strong>.
-      </p>
-
-      <h3>Anchor Compliance — same tool, two themes</h3>
-      <div class="anchor-gallery">
-        <figure class="anchor-shot">
-          <img src="/assets/anchor/inventory-dark-20260515.png?v=2" alt="Anchor Compliance Wallet Inventory — dark mode" loading="lazy">
-          <figcaption>
-            <span>Wallet Inventory · SB 1244 candidates</span>
-            <span class="theme-tag">Dark</span>
-          </figcaption>
-        </figure>
-        <figure class="anchor-shot">
-          <img src="/assets/anchor/inventory-light-20260515.png?v=2" alt="Anchor Compliance Wallet Inventory — light mode" loading="lazy">
-          <figcaption>
-            <span>Wallet Inventory · SB 1244 candidates</span>
-            <span class="theme-tag light">Light</span>
-          </figcaption>
-        </figure>
-      </div>
-
-      <h3>Plans</h3>
-      <div class="pricing-table-wrap">
-        <table class="pricing-table">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Pilot</th>
-              <th>Annual Retainer</th>
-              <th>Enterprise</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Best for</td>
-              <td>Your first § 74.101 filing</td>
-              <td>Year-round compliance partnership</td>
-              <td>Multi-state, integration-heavy holders</td>
-            </tr>
-            <tr>
-              <td>Price</td>
-              <td class="price-cell">$7,500–$15,000<small>fixed, one filing cycle</small></td>
-              <td class="price-cell">$25,000–$45,000<small>per year · 12-month engagement</small></td>
-              <td class="price-cell">Contact us<small>typically $60k+</small></td>
-            </tr>
-            <tr>
-              <td>§ 74.101 + NAUPA II artifacts</td>
-              <td><span class="check-yes">✓</span> One annual filing</td>
-              <td><span class="check-yes">✓</span> Annual + ad-hoc</td>
-              <td><span class="check-yes">✓</span> Multi-state</td>
-            </tr>
-            <tr>
-              <td>SB 1244 key-control attestation</td>
-              <td><span class="check-yes">✓</span></td>
-              <td><span class="check-yes">✓</span></td>
-              <td><span class="check-yes">✓</span></td>
-            </tr>
-            <tr>
-              <td>Tool license</td>
-              <td><span class="check-yes">✓</span> 12 months</td>
-              <td><span class="check-yes">✓</span> Included</td>
-              <td><span class="check-yes">✓</span> Included</td>
-            </tr>
-            <tr>
-              <td>Compliance audit-log handoff</td>
-              <td><span class="check-yes">✓</span> At delivery</td>
-              <td><span class="check-yes">✓</span> Ongoing</td>
-              <td><span class="check-yes">✓</span> Real-time</td>
-            </tr>
-            <tr>
-              <td>Quarterly compliance reviews</td>
-              <td><span class="check-no">—</span></td>
-              <td><span class="check-yes">✓</span> 4/yr</td>
-              <td><span class="check-yes">✓</span> 4/yr + exec briefing</td>
-            </tr>
-            <tr>
-              <td>Ad-hoc dormancy scans</td>
-              <td><span class="check-no">—</span></td>
-              <td><span class="check-yes">✓</span> Unlimited</td>
-              <td><span class="check-yes">✓</span> Unlimited</td>
-            </tr>
-            <tr>
-              <td>Priority email response</td>
-              <td>5 business days</td>
-              <td>2 business days</td>
-              <td>1 business day SLA</td>
-            </tr>
-            <tr>
-              <td>On-call support</td>
-              <td><span class="check-no">—</span></td>
-              <td><span class="check-no">—</span></td>
-              <td><span class="check-yes">✓</span> Defined SLA</td>
-            </tr>
-            <tr>
-              <td>Custom integration (CRM / wallet DB)</td>
-              <td><span class="check-no">—</span></td>
-              <td><span class="check-no">—</span></td>
-              <td><span class="check-yes">✓</span></td>
-            </tr>
-            <tr>
-              <td>On-prem / air-gapped deployment</td>
-              <td><span class="check-no">—</span></td>
-              <td><span class="check-no">—</span></td>
-              <td><span class="check-yes">✓</span></td>
-            </tr>
-            <tr>
-              <td>SSO + role-based access</td>
-              <td><span class="check-no">—</span></td>
-              <td><span class="check-no">—</span></td>
-              <td><span class="check-yes">✓</span></td>
-            </tr>
-            <tr>
-              <td>Training</td>
-              <td>1 session</td>
-              <td>2 sessions / yr</td>
-              <td>Custom curriculum</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h3>Add-ons</h3>
-      <p class="muted" style="font-size: 14px;">For holders who don't fit a full plan or need targeted help.</p>
-      <table class="addon-table">
-        <tbody>
-          <tr>
-            <td><strong>Compliance advisory</strong> — hourly, no tool license</td>
-            <td>$275 / hr</td>
-          </tr>
-          <tr>
-            <td><strong>One-time § 74.101 filing prep</strong> — we run the filing, you keep the artifacts</td>
-            <td>$5,000 flat</td>
-          </tr>
-          <tr>
-            <td><strong>Custom integration scope</strong> — your CRM ↔ Anchor</td>
-            <td>$10,000–$50,000</td>
-          </tr>
-          <tr>
-            <td><strong>Additional training session</strong></td>
-            <td>$1,500</td>
-          </tr>
-          <tr>
-            <td><strong>Rush filing surcharge</strong> — engagement starts &lt; 60 days from deadline</td>
-            <td>+ 25%</td>
-          </tr>
-          <tr>
-            <td><strong>Holder-side audit support</strong> — Comptroller comes asking</td>
-            <td>$3,500 + $275/hr</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <!-- Design-partner callout -->
-      <div class="callout">
-        <h4>Design-Partner Program · 3 slots open</h4>
-        <ul>
-          <li><strong>30% off Pilot</strong> — floor drops to <strong>$5,250</strong></li>
-          <li><strong>20% off year-one Annual Retainer</strong></li>
-          <li>Exchange: 2-3 paragraph case study (your approval) + one peer intro</li>
-        </ul>
-        <p>First-come, first-served. Closes once 3 slots fill.</p>
-      </div>
-
-      <h3>Frequently asked</h3>
-      <div class="faq-list">
-
-        <details class="faq">
-          <summary>Why is there a price range within each tier?</summary>
-          <p>Each filing is sized by candidate-wallet count, owner-record completeness, and how much remediation we need on your authorized address list. We quote at the low end for holders with clean records under 5,000 candidate wallets, and at the upper end for higher complexity.</p>
-        </details>
-
-        <details class="faq">
-          <summary>Do you charge per wallet?</summary>
-          <p>No. The complexity of the filing is what we price against — not the raw wallet count. A holder with 50,000 wallets but only 200 candidates pays the same as a holder with 5,000 wallets and 200 candidates.</p>
-        </details>
-
-        <details class="faq">
-          <summary>Is the tool license included or separate?</summary>
-          <p>Included in all plans. We don't sell software-only licenses — Anchor Compliance is paired with services because the regulatory interpretation needs a human in the loop on attestation.</p>
-        </details>
-
-        <details class="faq">
-          <summary>Do you offer multi-year discounts?</summary>
-          <p>Yes — 10% off year two, 15% off year three for Annual Retainer customers who commit upfront.</p>
-        </details>
-
-        <details class="faq">
-          <summary>What's your refund policy?</summary>
-          <p>Pilot tier: if we don't deliver the filing artifacts to your specifications, you don't pay the final 50%. Annual tier: pro-rated refund for unused months minus delivered services.</p>
-        </details>
-
-        <details class="faq">
-          <summary>Can we run Anchor on our own infrastructure?</summary>
-          <p>On Enterprise, yes — we'll deploy to your environment. On Pilot and Annual, the tool runs on your laptop or your operator's machine; your data stays local.</p>
-        </details>
-
-        <details class="faq">
-          <summary>Do you carry E&amp;O insurance?</summary>
-          <p>Yes. Certificate of insurance available on request to Annual and Enterprise customers.</p>
-        </details>
-
-      </div>
-
-      <div class="terms-strip">
-        <div class="term"><strong>Pilot</strong>50% deposit on SOW · 50% on delivery · Net-15</div>
-        <div class="term"><strong>Annual</strong>Quarterly or annual prepay · Net-30</div>
-        <div class="term"><strong>Enterprise</strong>Custom · tied to integration milestones</div>
-        <div class="term"><strong>Accepted</strong>ACH · wire · USDC on Base (1% discount)</div>
-      </div>
-
-      <div class="cta-block">
-        <h3>Ready to talk about your filing?</h3>
-        <p>The first annual § 74.101 deadline is <strong>July 1</strong>. A small number of pilot slots are open before then.</p>
-        <a href="mailto:consulting@nauti-labs.com?subject=Anchor%20Compliance%20—%20demo%20request" class="btn-primary">Book a 30-minute demo →</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================== -->
   <!-- 03 · CUSTOM AI                                  -->
   <!-- ============================================== -->
   <section class="pillar-section" id="ai">
     <div class="container">
-      <div class="section-eyebrow">03 · Custom AI</div>
+      <div class="section-eyebrow">02 · Custom AI</div>
       <h2>Approval-aware AI. Built to ship.</h2>
       <p class="lede">
         If you can describe the workflow, I can build the agent. Bots, headless tools, integrations — with human approval at the seams where money or risk moves.
@@ -1433,6 +1298,33 @@
   </section>
 
   <!-- ============================================== -->
+  <!-- FROM THE CHANNEL (YouTube)                      -->
+  <!-- ============================================== -->
+  <section class="channel" id="channel">
+    <div class="container">
+      <div class="section-eyebrow">From the channel</div>
+      <h2>How I ended up living on a chemical tanker.</h2>
+      <p class="lede">
+        The origin story behind Nauti-Labs — and the no-degree maritime career door most people never hear about.
+        Episode one's below — more on the way.
+      </p>
+
+      <div class="video-wrap">
+        <video controls preload="none" playsinline poster="/assets/video/nautilabs-ep01-poster.jpg">
+          <source src="/assets/video/nautilabs-ep01.mp4" type="video/mp4" />
+          Your browser can't play embedded video — <a href="/assets/video/nautilabs-ep01.mp4">download the episode</a>.
+        </video>
+      </div>
+
+      <div class="channel-actions">
+        <!-- TODO: replace YOUTUBE_CHANNEL_URL and X_PROFILE_URL with the real links. -->
+        <a href="YOUTUBE_CHANNEL_URL" target="_blank" rel="noopener" class="btn-primary">▶ Watch on YouTube</a>
+        <a href="X_PROFILE_URL" target="_blank" rel="noopener" class="btn-secondary">Follow on X →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
   <!-- NEIGHBORS (local)                               -->
   <!-- ============================================== -->
   <section class="neighbors" id="neighbors">
@@ -1448,7 +1340,7 @@
             <p>
               Practical device, account, website, and AI setup help for residents and owner-operated businesses in the local area.
               If you're nearby and something on your computer, phone, or business stack has you stuck — drop me a line.
-              No jargon, no upsell.
+              No jargon, no upsell — and if you're not sure you even need help, the coffee's always free. ☕
             </p>
             <ul class="neighbors-features">
               <li>Anchor &amp; Ollama setup on your own machine</li>
@@ -1480,14 +1372,14 @@
             </span>
             <span class="brand-name">Nauti-Labs</span>
           </div>
-          <p>Maritime ops, crypto compliance, applied AI, and local tech help from Mont Belvieu, Texas. Built for people who'd rather use the thing than read about it.</p>
+          <p>Maritime ops, applied AI, and local tech help from Mont Belvieu, Texas. Built for people who'd rather use the thing than read about it.</p>
         </div>
         <div>
           <h5>Practice</h5>
           <ul>
-            <li><a href="#maritime">Maritime</a></li>
-            <li><a href="#crypto">Crypto Compliance</a></li>
+            <li><a href="#maritime">Maritime Ops</a></li>
             <li><a href="#ai">Custom AI</a></li>
+            <li><a href="#channel">Channel</a></li>
             <li><a href="https://neighbors.nauti-labs.com/">Neighbors (local help)</a></li>
           </ul>
         </div>
@@ -1505,6 +1397,8 @@
           <ul>
             <li><a href="mailto:consulting@nauti-labs.com">consulting@nauti-labs.com</a></li>
             <li><a href="https://www.linkedin.com/in/justin-leblanc-79b242101" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="YOUTUBE_CHANNEL_URL" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a href="X_PROFILE_URL" target="_blank" rel="noopener">X (Twitter)</a></li>
             <li><a href="/brand/">Brand system</a></li>
           </ul>
         </div>
@@ -1515,6 +1409,20 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Hide the YouTube/X links until their real URLs are set — keeps placeholders from shipping as dead links.
+    (function () {
+      document.querySelectorAll('a[href="YOUTUBE_CHANNEL_URL"], a[href="X_PROFILE_URL"]').forEach(function (a) {
+        var li = a.closest('li');
+        (li || a).style.display = 'none';
+      });
+      document.querySelectorAll('.channel-actions').forEach(function (box) {
+        var anyVisible = Array.prototype.some.call(box.querySelectorAll('a'), function (a) { return a.style.display !== 'none'; });
+        if (!anyVisible) box.style.display = 'none';
+      });
+    })();
+  </script>
 
 </body>
 </html>

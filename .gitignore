@@ -1,4 +1,5 @@
 .DS_Store
+*.bak
 GO_LIVE.md
 LICENSE
 logs/

@@ -1006,10 +1006,6 @@
       width: 100%; height: 100%; border: 0;
       object-fit: cover;
     }
-    .channel-actions {
-      display: flex; gap: 12px; flex-wrap: wrap;
-      margin-top: 24px;
-    }
 
     /* === RESPONSIVE === */
     @media (max-width: 920px) {
@@ -1315,12 +1311,6 @@
           Your browser can't play embedded video — <a href="/assets/video/nautilabs-ep01-v6.mp4">download the episode</a>.
         </video>
       </div>
-
-      <div class="channel-actions">
-        <!-- TODO: replace YOUTUBE_CHANNEL_URL and X_PROFILE_URL with the real links. -->
-        <a href="YOUTUBE_CHANNEL_URL" target="_blank" rel="noopener" class="btn-primary">▶ Watch on YouTube</a>
-        <a href="X_PROFILE_URL" target="_blank" rel="noopener" class="btn-secondary">Follow on X →</a>
-      </div>
     </div>
   </section>
 
@@ -1397,8 +1387,6 @@
           <ul>
             <li><a href="mailto:consulting@nauti-labs.com">consulting@nauti-labs.com</a></li>
             <li><a href="https://www.linkedin.com/in/justin-leblanc-79b242101" target="_blank" rel="noopener">LinkedIn</a></li>
-            <li><a href="YOUTUBE_CHANNEL_URL" target="_blank" rel="noopener">YouTube</a></li>
-            <li><a href="X_PROFILE_URL" target="_blank" rel="noopener">X (Twitter)</a></li>
             <li><a href="/brand/">Brand system</a></li>
           </ul>
         </div>
@@ -1409,20 +1397,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    // Hide the YouTube/X links until their real URLs are set — keeps placeholders from shipping as dead links.
-    (function () {
-      document.querySelectorAll('a[href="YOUTUBE_CHANNEL_URL"], a[href="X_PROFILE_URL"]').forEach(function (a) {
-        var li = a.closest('li');
-        (li || a).style.display = 'none';
-      });
-      document.querySelectorAll('.channel-actions').forEach(function (box) {
-        var anyVisible = Array.prototype.some.call(box.querySelectorAll('a'), function (a) { return a.style.display !== 'none'; });
-        if (!anyVisible) box.style.display = 'none';
-      });
-    })();
-  </script>
 
 </body>
 </html>

@@ -2,497 +2,801 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nauti-Labs Labs | Triton, Clearance, Felipe</title>
-  <meta name="description" content="Nauti-Labs Labs — the product workshop. Triton operations dashboard, Clearance approval API, Felipe research engine.">
-  <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://nauti-labs.com/labs/">
-  <meta property="og:site_name" content="Nauti-Labs">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Nauti-Labs Labs">
-  <meta property="og:description" content="The product workshop: Triton, Clearance, Felipe.">
-  <meta property="og:url" content="https://nauti-labs.com/labs/">
-  <meta property="og:image" content="https://nauti-labs.com/assets/nauti-gear-wheel.png">
-  <meta name="twitter:card" content="summary">
-  <meta name="theme-color" content="#15151a">
-  <link rel="icon" type="image/svg+xml" href="/assets/nauti-gear-wheel.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Nauti-Labs Labs is the approval-aware AI product family behind Triton Dashboard, Clearance, Felipe, and the Nauti-Labs workflow." />
+  <link rel="canonical" href="https://nauti-labs.com/labs/" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:site_name" content="Nauti-Labs" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nauti-Labs Labs | Triton, Clearance, Felipe" />
+  <meta property="og:description" content="One ship. Many stations. The Nauti-Labs product lab for Triton Dashboard, Clearance, Felipe, and approval-aware AI work." />
+  <meta property="og:url" content="https://nauti-labs.com/labs/" />
+  <meta property="og:image" content="https://nauti-labs.com/og/labs-share.png" />
+  <meta property="og:image:secure_url" content="https://nauti-labs.com/og/labs-share.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Nauti-Labs Labs product family." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nauti-Labs Labs | Triton, Clearance, Felipe" />
+  <meta name="twitter:description" content="One ship. Many stations. Approval-aware AI products by Nauti-Labs." />
+  <meta name="twitter:image" content="https://nauti-labs.com/og/labs-share.png" />
+  <meta name="theme-color" content="#00c8f0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/nauti-brand.css" />
   <style>
-    :root {
-      --bg: #0c1017;
-      --bg-deep: #080b10;
-      --surface: #121722;
-      --surface-2: #171e2c;
-      --border: #232c3f;
-      --border-strong: #33415e;
-      --text: #eef2f8;
-      --text-dim: #b9c2d4;
-      --muted: #8593ad;
-      --cyan: #69e4f9;
-      --cyan-strong: #3cd2f1;
-      --cyan-soft: rgba(105, 228, 249, 0.14);
-      --amber: #f2a950;
-      --amber-soft: rgba(242, 169, 80, 0.14);
-      --green: #55d68b;
-      --red: #ef7f7f;
-      --violet: #a48ef8;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-      --font-display: 'Fraunces', Georgia, serif;
-      --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
-      --radius: 14px;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: var(--font-sans);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
       min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.55;
+      background:
+        radial-gradient(ellipse 60% 50% at 18% 4%, rgba(0, 200, 240, 0.14), transparent 62%),
+        radial-gradient(ellipse 52% 46% at 88% 12%, rgba(255, 170, 0, 0.08), transparent 58%),
+        linear-gradient(180deg, var(--bg) 0%, #00030a 100%);
+      overflow-x: hidden;
     }
     body::before {
-      content: '';
+      content: "";
       position: fixed;
       inset: 0;
-      z-index: -1;
-      background:
-        radial-gradient(ellipse 70% 45% at 12% -8%, rgba(105, 228, 249, 0.08), transparent 60%),
-        radial-gradient(ellipse 55% 45% at 95% 12%, rgba(242, 169, 80, 0.05), transparent 60%),
-        radial-gradient(ellipse 65% 55% at 50% 115%, rgba(164, 142, 248, 0.06), transparent 60%),
-        var(--bg);
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(0, 200, 240, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 200, 240, 0.02) 1px, transparent 1px);
+      background-size: 100% 112px, 112px 100%;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.82), transparent 78%);
+      z-index: 0;
     }
-
-    .container { max-width: 1160px; margin: 0 auto; padding: 0 26px; }
-    a { color: var(--cyan); text-decoration: none; }
-    a:hover { color: var(--cyan-strong); }
-    .mono { font-family: var(--font-mono); }
-
-    /* ============ HEADER ============ */
-    .site-header {
+    a { color: inherit; }
+    .site {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+    }
+    .mark-sprite {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+    .topbar {
       position: sticky;
       top: 0;
-      z-index: 60;
-      backdrop-filter: blur(14px) saturate(140%);
-      -webkit-backdrop-filter: blur(14px) saturate(140%);
-      background: rgba(12, 16, 23, 0.82);
+      z-index: 20;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 18px;
+      min-height: 76px;
+      padding: 0 36px;
       border-bottom: 1px solid var(--border);
+      background: rgba(1, 2, 10, 0.88);
+      backdrop-filter: blur(16px);
     }
-    .site-header .inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 15px 0;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--text);
-    }
-    .brand-mark {
-      width: 34px;
-      height: 34px;
-      flex-shrink: 0;
-    }
-    .brand-mark img { width: 100%; height: 100%; display: block; }
-    .brand-text { display: flex; flex-direction: column; }
-    .brand-name {
-      font-family: var(--font-display);
-      font-size: 17px;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-    }
-    .brand-sub {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--muted);
-      letter-spacing: 0.14em;
+    .back-link {
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.1em;
+      text-decoration: none;
       text-transform: uppercase;
     }
-    .header-nav { display: flex; align-items: center; gap: 24px; }
-    .header-nav a {
-      color: var(--text-dim);
-      font-size: 13.5px;
-      font-weight: 500;
-      transition: color 0.15s;
-    }
-    .header-nav a:hover { color: var(--text); }
-    .header-nav .nav-cta {
-      color: var(--bg) !important;
-      background: var(--cyan);
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: background 0.15s, transform 0.15s;
-    }
-    .header-nav .nav-cta:hover { background: var(--cyan-strong); transform: translateY(-1px); }
-
-    /* ============ HERO ============ */
-    .hero { padding: 84px 0 64px; }
-    .eyebrow {
+    .back-link:hover { color: var(--cyan-hi); }
+    .nav-brand {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-family: var(--font-mono);
-      font-size: 11.5px;
-      color: var(--muted);
-      letter-spacing: 0.1em;
+      justify-self: center;
+      gap: 11px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-brand svg {
+      width: 44px;
+      height: 44px;
+      filter: drop-shadow(0 0 13px rgba(0, 200, 240, 0.35));
+    }
+    .nav-brand strong {
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+    .nav-brand span {
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      margin-bottom: 22px;
     }
-    .eyebrow .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 9px var(--green);
+    .nav-links {
+      justify-self: end;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
     }
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(40px, 5.6vw, 62px);
-      font-weight: 600;
-      line-height: 1.06;
-      letter-spacing: -0.015em;
-      margin-bottom: 20px;
-      max-width: 760px;
+    .nav-links a {
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      text-transform: uppercase;
     }
-    .hero h1 em {
-      font-style: italic;
+    .nav-links a:hover { color: var(--cyan-hi); }
+    .hero {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      min-height: calc(100vh - 76px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
+      align-items: center;
+      gap: 44px;
+      padding: 70px 0 64px;
+    }
+    .eyebrow {
       color: var(--cyan);
+      font-family: var(--mono);
+      font-size: 0.76rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 18px;
+      text-transform: uppercase;
     }
-    .hero .lede {
-      font-size: 17.5px;
-      color: var(--text-dim);
-      max-width: 640px;
-      margin-bottom: 32px;
+    h1 {
+      max-width: 740px;
+      color: transparent;
+      background: linear-gradient(135deg, #fff 0%, var(--cyan-hi) 48%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: clamp(3.5rem, 8.6vw, 7rem);
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 0.92;
+      margin-bottom: 24px;
     }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .hero-lockup svg {
+      width: 72px;
+      height: 72px;
+      filter: drop-shadow(0 0 18px rgba(0, 200, 240, 0.32));
+    }
+    .hero-lockup strong {
+      display: block;
+      color: var(--text);
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1;
+    }
+    .hero-lockup span {
+      display: block;
+      margin-top: 4px;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .hero-copy {
+      max-width: 660px;
+      color: var(--text-muted);
+      font-size: clamp(1.02rem, 2vw, 1.24rem);
+    }
+    .hero-copy strong { color: var(--text); }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
     .button {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 13px 22px;
-      border-radius: 9px;
-      font-size: 14px;
-      font-weight: 600;
-      border: 1px solid var(--border-strong);
-      color: var(--text);
-      background: var(--surface);
-      transition: transform 0.15s, border-color 0.15s, background 0.15s;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 1px solid var(--border-hi);
+      border-radius: 8px;
+      background: rgba(0, 200, 240, 0.06);
+      color: var(--cyan-hi);
+      font-family: var(--mono);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
     }
-    .button:hover { transform: translateY(-1px); border-color: var(--cyan); color: var(--text); }
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(102, 229, 255, 0.55);
+      background: rgba(0, 200, 240, 0.12);
+      box-shadow: 0 14px 36px rgba(0, 200, 240, 0.16);
+      outline: none;
+    }
     .button.primary {
-      background: var(--cyan);
-      border-color: var(--cyan);
-      color: var(--bg);
+      color: #001018;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--cyan-hi), var(--cyan));
+      box-shadow: 0 18px 46px rgba(0, 200, 240, 0.22);
     }
-    .button.primary:hover { background: var(--cyan-strong); border-color: var(--cyan-strong); color: var(--bg); }
-
-    /* ============ SECTIONS ============ */
-    .band { padding: 64px 0; border-top: 1px solid var(--border); }
-    .band.alt { background: rgba(18, 23, 34, 0.4); }
-    .band h2 {
-      font-family: var(--font-display);
-      font-size: clamp(28px, 3.4vw, 38px);
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      margin-bottom: 12px;
+    .button.amber {
+      color: #160c00;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--amber-hi), var(--amber));
+      box-shadow: 0 18px 46px rgba(255, 170, 0, 0.16);
     }
-    .band .section-note {
-      color: var(--text-dim);
-      max-width: 620px;
-      margin-bottom: 34px;
-      font-size: 15.5px;
+    .hero-panel {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: rgba(6, 10, 20, 0.72);
+      box-shadow: var(--shadow-panel);
+      overflow: hidden;
     }
-
-    /* ============ PRODUCT CARDS ============ */
-    .product-grid {
+    .panel-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px 18px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .panel-label {
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .pulse {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .pulse::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cyan-hi);
+      box-shadow: 0 0 14px rgba(102, 229, 255, 0.8);
+    }
+    .stack-list {
+      display: grid;
+      gap: 1px;
+      background: var(--border);
+    }
+    .stack-card {
+      display: grid;
+      grid-template-columns: 74px 1fr auto;
+      gap: 16px;
+      align-items: center;
+      min-height: 116px;
+      padding: 18px;
+      color: var(--text);
+      background: rgba(1, 2, 10, 0.84);
+      text-decoration: none;
+    }
+    .stack-card:hover { background: rgba(0, 200, 240, 0.055); }
+    .stack-card svg,
+    .stack-card img {
+      width: 66px;
+      height: 66px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 14px rgba(0, 200, 240, 0.32));
+    }
+    .stack-name {
+      font-size: 1.42rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+    .stack-by {
+      margin-top: 2px;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .stack-role {
+      margin-top: 8px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .stack-state {
+      align-self: start;
+      color: var(--cyan-hi);
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .band {
+      border-top: 1px solid var(--border);
+      padding: 74px 0;
+    }
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 26px;
+    }
+    h2 {
+      max-width: 720px;
+      color: var(--text);
+      font-size: clamp(2rem, 4.8vw, 3.25rem);
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1.02;
+    }
+    .section-note {
+      max-width: 520px;
+      color: var(--text-muted);
+    }
+    .cards {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+      gap: 14px;
     }
     .card {
-      position: relative;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 26px;
+      min-height: 320px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 300px;
-      transition: border-color 0.2s, transform 0.2s, background 0.2s;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 22px;
+      background: rgba(6, 10, 20, 0.72);
+      box-shadow: 0 18px 56px rgba(0, 0, 0, 0.28);
     }
-    .card:hover {
-      border-color: var(--border-strong);
-      transform: translateY(-2px);
-      background: var(--surface-2);
+    .card-mark,
+    .card-mark-img {
+      width: 86px;
+      height: 86px;
+      margin-bottom: 18px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 18px rgba(0, 200, 240, 0.32));
     }
-    .card .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
-    .card h3 {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 4px;
+    h3 {
+      color: transparent;
+      background: linear-gradient(135deg, #fff 0%, var(--cyan-hi) 55%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 1.7rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1.05;
     }
-    .card .tag {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
+    .byline {
+      margin-top: 5px;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      padding: 4px 9px;
-      border-radius: 5px;
-      white-space: nowrap;
-    }
-    .tag.live { color: var(--green); background: rgba(85, 214, 139, 0.12); }
-    .tag.building { color: var(--amber); background: var(--amber-soft); }
-    .tag.preview { color: var(--violet); background: rgba(164, 142, 248, 0.12); }
-    .card .role {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
     }
     .card p {
-      color: var(--text-dim);
-      font-size: 14px;
-      margin-bottom: 20px;
+      margin-top: 16px;
+      color: var(--text-muted);
+      line-height: 1.58;
     }
-    .card .mini-list {
+    .mini-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 18px;
       list-style: none;
-      padding: 0;
-      margin: 0 0 22px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
     }
-    .card .mini-list li {
-      font-family: var(--font-mono);
-      font-size: 11.5px;
-      color: var(--muted);
-      padding: 4px 0 4px 16px;
-      position: relative;
+    .mini-list li {
+      display: flex;
+      gap: 8px;
     }
-    .card .mini-list li::before {
-      content: '–';
-      position: absolute;
-      left: 0;
-      color: var(--cyan);
+    .mini-list li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      margin-top: 0.58em;
+      border-radius: 50%;
+      background: var(--amber);
+      box-shadow: 0 0 10px rgba(255, 170, 0, 0.4);
+      flex: 0 0 auto;
     }
-    .card .card-link {
-      font-family: var(--font-mono);
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--cyan);
-      letter-spacing: 0.02em;
-      margin-top: auto;
+    .card-link {
+      margin-top: 22px;
+      color: var(--cyan-hi);
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      text-transform: uppercase;
     }
-    .card .card-link:hover { color: var(--cyan-strong); }
-
-    /* ============ FLOW ============ */
     .flow {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      counter-reset: flow;
+      gap: 12px;
     }
     .flow-step {
-      background: var(--surface);
+      min-height: 190px;
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-radius: 8px;
       padding: 20px;
+      background: rgba(255, 255, 255, 0.025);
       position: relative;
+      overflow: hidden;
     }
     .flow-step::before {
-      counter-increment: flow;
-      content: counter(flow, decimal-leading-zero);
+      content: attr(data-step);
+      color: rgba(102, 229, 255, 0.18);
+      font-family: var(--mono);
+      font-size: 3.2rem;
+      font-weight: 900;
+      line-height: 1;
       position: absolute;
-      top: 16px;
-      right: 18px;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--muted);
+      right: 14px;
+      top: 12px;
     }
     .flow-step strong {
       display: block;
-      font-size: 14.5px;
-      margin-bottom: 6px;
+      color: var(--text);
+      font-size: 1.05rem;
+      margin-bottom: 9px;
+      position: relative;
+      z-index: 1;
     }
     .flow-step p {
-      font-size: 12.5px;
-      color: var(--text-dim);
+      color: var(--text-muted);
+      position: relative;
+      z-index: 1;
     }
-
-    /* ============ SPLIT / PREVIEW ============ */
     .split {
       display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-      gap: 44px;
+      grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
       align-items: center;
+      gap: 36px;
     }
     .console {
-      background: var(--bg-deep);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-radius: 8px;
+      background: rgba(1, 2, 10, 0.78);
       overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 22px 66px rgba(0, 0, 0, 0.34);
     }
     .console-head {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 11px 16px;
+      gap: 14px;
+      padding: 14px 16px;
       border-bottom: 1px solid var(--border);
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--muted);
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
-    .console-body { padding: 16px; display: grid; gap: 10px; }
+    .console-body {
+      display: grid;
+      gap: 12px;
+      padding: 18px;
+      font-family: var(--mono);
+    }
     .log-row {
       display: grid;
-      grid-template-columns: 92px 1fr;
-      gap: 12px;
-      font-size: 12.5px;
-      align-items: baseline;
+      grid-template-columns: 110px 1fr;
+      gap: 14px;
+      align-items: start;
+      color: var(--text-muted);
+      font-size: 0.88rem;
     }
     .log-row span {
-      font-family: var(--font-mono);
-      font-size: 10.5px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
+      color: var(--cyan-hi);
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--cyan);
-      text-align: right;
     }
-    .log-row p { color: var(--text-dim); }
     .approval-card {
-      margin-top: 4px;
-      border: 1px solid var(--amber);
-      background: var(--amber-soft);
-      border-radius: 10px;
-      padding: 14px 16px;
+      border: 1px solid rgba(255, 170, 0, 0.28);
+      border-radius: 8px;
+      padding: 18px;
+      background: rgba(255, 170, 0, 0.06);
     }
     .approval-card strong {
+      color: var(--amber-hi);
       display: block;
-      font-size: 13px;
-      color: var(--amber);
-      margin-bottom: 4px;
+      margin-bottom: 7px;
     }
-    .approval-card p { font-size: 12.5px; color: var(--text-dim); }
-
-    /* ============ CONTACT ============ */
+    .approval-card p {
+      color: var(--text-muted);
+    }
     .contact-panel {
-      background: linear-gradient(135deg, rgba(105, 228, 249, 0.08), rgba(18, 23, 34, 0.6) 45%), var(--surface);
-      border: 1px solid var(--border-strong);
-      border-radius: 18px;
-      padding: 42px;
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-      gap: 32px;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
       align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px;
+      background: rgba(6, 10, 20, 0.72);
     }
-    .contact-panel h2 { margin-bottom: 10px; }
-    .contact-panel p { color: var(--text-dim); margin-bottom: 0; }
-
-    /* ============ FOOTER ============ */
+    .contact-panel p {
+      margin-top: 10px;
+      max-width: 780px;
+      color: var(--text-muted);
+    }
     footer {
       border-top: 1px solid var(--border);
-      padding: 28px 0 34px;
-      font-family: var(--font-mono);
-      font-size: 11.5px;
-      color: var(--muted);
+      padding: 28px 32px;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-align: center;
+      text-transform: uppercase;
     }
-    footer a { color: var(--text-dim); }
-    footer a:hover { color: var(--cyan); }
-
-    /* ============ RESPONSIVE ============ */
-    @media (max-width: 960px) {
-      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .split { grid-template-columns: 1fr; gap: 28px; }
-      .contact-panel { grid-template-columns: 1fr; padding: 30px; }
+    footer a {
+      color: var(--cyan-hi);
+      text-decoration: none;
     }
-    @media (max-width: 620px) {
-      .header-nav a:not(.nav-cta) { display: none; }
-      .hero { padding: 58px 0 44px; }
-      .product-grid { grid-template-columns: 1fr; }
-      .flow { grid-template-columns: 1fr; }
+    @media (max-width: 980px) {
+      .topbar {
+        grid-template-columns: 1fr;
+        justify-items: start;
+        gap: 10px;
+        padding: 16px;
+      }
+      .nav-brand { justify-self: start; }
+      .nav-links {
+        justify-self: start;
+        flex-wrap: wrap;
+      }
+      .hero,
+      .split,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        min-height: auto;
+        padding-top: 52px;
+      }
+      .cards,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+      .section-head {
+        display: block;
+      }
+      .section-note {
+        margin-top: 12px;
+      }
+      .stack-card {
+        grid-template-columns: 56px 1fr;
+      }
+      .stack-card svg {
+        width: 54px;
+        height: 54px;
+      }
+      .stack-state {
+        grid-column: 2;
+      }
+      .hero-lockup svg {
+        width: 58px;
+        height: 58px;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container inner">
-      <a class="brand" href="/">
-        <span class="brand-mark"><img src="/assets/nauti-gear-wheel.svg" alt="Nauti-Labs gear wheel"></span>
-        <span class="brand-text">
-          <span class="brand-name">Nauti-Labs</span>
-          <span class="brand-sub">Labs · Product Workshop</span>
-        </span>
-      </a>
-      <nav class="header-nav" aria-label="Labs navigation">
-        <a href="/">Home</a>
-        <a href="/maritime/">Maritime</a>
-        <a href="/suite/">Suite Status</a>
-        <a class="nav-cta" href="mailto:consulting@nauti-labs.com?subject=Nauti-Labs%20Labs%20Inquiry">Send Brief</a>
-      </nav>
-    </div>
-  </header>
+  <div class="site">
+    <svg class="mark-sprite" aria-hidden="true" focusable="false">
+      <symbol id="mark-parent" viewBox="0 0 140 100">
+        <path d="M 38 22 L 14 50 L 38 78" stroke="#00c8f0" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M 50 50 Q 60 30, 70 50 T 90 50" stroke="#66e5ff" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+        <path d="M 102 22 L 126 50 L 102 78" stroke="#00c8f0" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="mark-labs" viewBox="0 0 140 140">
+        <g transform="translate(70 60)">
+          <ellipse cx="0" cy="38" rx="34" ry="5" stroke="#00c8f0" stroke-width="1.4" fill="none" opacity="0.45"/>
+          <path d="M -20 28 L -20 16 L -12 4 L 12 4 L 20 16 L 20 28 Z" stroke="#00c8f0" stroke-width="2.6" fill="rgba(0,200,240,0.05)"/>
+          <line x1="-22" y1="28" x2="22" y2="28" stroke="#00c8f0" stroke-width="1.4" opacity="0.7" stroke-linecap="round"/>
+          <circle cx="-13" cy="20" r="1.2" fill="#66e5ff"/>
+          <circle cx="13" cy="20" r="1.2" fill="#66e5ff"/>
+          <circle cx="0" cy="22" r="1.2" fill="#66e5ff"/>
+          <line x1="0" y1="4" x2="0" y2="-30" stroke="#00c8f0" stroke-width="2.4" stroke-linecap="round"/>
+          <line x1="-12" y1="-12" x2="12" y2="-12" stroke="#00c8f0" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="-12" cy="-12" r="1.6" fill="#66e5ff"/>
+          <circle cx="12" cy="-12" r="1.6" fill="#66e5ff"/>
+          <circle cx="0" cy="-32" r="6" stroke="#ff4dc4" stroke-width="2" fill="rgba(255,77,196,0.18)"/>
+          <circle cx="0" cy="-32" r="2.8" fill="#ff4dc4"/>
+          <circle cx="0" cy="-32" r="11" stroke="#ff4dc4" stroke-width="1" opacity="0.45" fill="none"/>
+          <circle cx="0" cy="-32" r="16" stroke="#ff4dc4" stroke-width="0.7" opacity="0.25" fill="none"/>
+          <line x1="0" y1="-38" x2="0" y2="-42" stroke="#00c8f0" stroke-width="1.2" stroke-linecap="round"/>
+        </g>
+        <path d="M 26 122 Q 47 104, 70 122 T 114 122" stroke="#66e5ff" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="mark-triton-legacy" viewBox="0 0 140 140">
+        <g transform="translate(70 60)" fill="none">
+          <circle cx="0" cy="0" r="40" stroke="#00c8f0" stroke-width="3"/>
+          <circle cx="0" cy="0" r="3.6" fill="#ffaa00" stroke="none"/>
+          <g stroke="#00c8f0" stroke-width="2.8" stroke-linecap="round">
+            <line x1="0" y1="-32" x2="0" y2="-12"/><line x1="0" y1="32" x2="0" y2="12"/>
+            <line x1="-32" y1="0" x2="-12" y2="0"/><line x1="32" y1="0" x2="12" y2="0"/>
+            <line x1="-22.6" y1="-22.6" x2="-8.5" y2="-8.5"/><line x1="22.6" y1="22.6" x2="8.5" y2="8.5"/>
+            <line x1="22.6" y1="-22.6" x2="8.5" y2="-8.5"/><line x1="-22.6" y1="22.6" x2="-8.5" y2="8.5"/>
+          </g>
+        </g>
+        <path d="M 26 122 Q 47 104, 70 122 T 114 122" stroke="#66e5ff" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="mark-clearance" viewBox="0 0 140 140">
+        <g transform="translate(70 58)" fill="none">
+          <circle cx="0" cy="0" r="38" stroke="#00c8f0" stroke-width="2.8"/>
+          <circle cx="0" cy="0" r="30" stroke="#66e5ff" stroke-width="1.2" opacity="0.55"/>
+          <path d="M 0 -24 L 22 -14 L 22 4 Q 22 22 0 31 Q -22 22 -22 4 L -22 -14 Z" stroke="#00c8f0" stroke-width="2.5" fill="rgba(0,200,240,0.06)"/>
+          <path d="M -10 3 L -2 11 L 15 -8" stroke="#ffaa00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <path d="M 26 122 Q 47 104, 70 122 T 114 122" stroke="#66e5ff" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="mark-felipe" viewBox="0 0 140 140">
+        <g transform="translate(70 60)" stroke="#00c8f0" stroke-width="2.6" stroke-linecap="round" fill="none">
+          <path d="M -34 18 A 42 42 0 0 1 34 18"/>
+          <line x1="-24" y1="12" x2="0" y2="-28"/>
+          <line x1="24" y1="12" x2="0" y2="-28"/>
+          <circle cx="0" cy="-28" r="7"/>
+          <circle cx="0" cy="-28" r="2.8" fill="#ffaa00" stroke="none"/>
+          <path d="M -28 18 L 28 18"/>
+        </g>
+        <path d="M 26 122 Q 47 104, 70 122 T 114 122" stroke="#66e5ff" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="mark-castle" viewBox="0 0 140 140">
+        <g transform="translate(70 60)" fill="none">
+          <line x1="-40" y1="34" x2="40" y2="34" stroke="#00c8f0" stroke-width="2" opacity="0.5" stroke-linecap="round"/>
+          <rect x="-32" y="0" width="64" height="34" stroke="#00c8f0" stroke-width="2.6"/>
+          <g stroke="#00c8f0" stroke-width="2.6" stroke-linecap="square">
+            <rect x="-32" y="-14" width="14" height="14"/>
+            <rect x="-7" y="-22" width="14" height="22"/>
+            <rect x="18" y="-14" width="14" height="14"/>
+            <line x1="-18" y1="-4" x2="-7" y2="-4"/>
+            <line x1="7" y1="-4" x2="18" y2="-4"/>
+          </g>
+          <rect x="-9" y="14" width="18" height="20" stroke="#ffaa00" stroke-width="2" fill="rgba(255,170,0,0.1)"/>
+          <line x1="0" y1="-22" x2="0" y2="-32" stroke="#00c8f0" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M 0 -32 L 7 -29 L 0 -26 Z" fill="#66e5ff"/>
+        </g>
+        <path d="M 26 122 Q 47 104, 70 122 T 114 122" stroke="#66e5ff" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+      </symbol>
+    </svg>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <div class="eyebrow"><span class="dot"></span> Nauti-Labs LLC · Labs · Triton / Clearance / Felipe</div>
-        <h1>One ship.<br><em>Many stations.</em></h1>
-        <p class="lede">Labs is the workshop: the place where operational tools get built in the open, tested against real workflows, and only kept if they earn their seat. Triton runs the operation. Clearance guards the spend. Felipe does the reading.</p>
+    <nav class="topbar" aria-label="Labs navigation">
+      <a class="back-link" href="/">← nauti-labs.com</a>
+      <a class="nav-brand" href="#top" aria-label="Nauti-Labs Labs">
+        <svg viewBox="0 0 140 140" aria-hidden="true"><use href="#mark-labs"/></svg>
+        <strong>Labs</strong>
+        <span>by Nauti-Labs</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#triton">Triton</a></li>
+        <li><a href="#clearance">Clearance</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <header class="hero" id="top">
+      <div>
+        <div class="hero-lockup" aria-label="Labs by Nauti-Labs">
+          <svg viewBox="0 0 140 140" aria-hidden="true"><use href="#mark-labs"/></svg>
+          <div>
+            <strong>Labs</strong>
+            <span>by Nauti-Labs</span>
+          </div>
+        </div>
+        <div class="eyebrow">Nauti-Labs Labs · One ship. Many stations.</div>
+        <h1>Approval-aware AI products.</h1>
+        <p class="hero-copy">
+          Labs is where the Nauti-Labs product family gets built: <strong>Triton Dashboard</strong> for maritime operations,
+          <strong>Clearance</strong> for human approval, <strong>Felipe</strong> for acquisition research, and
+          <strong>Castle</strong> for permission boundaries. Same mark system. Same voice. Same captain in control.
+        </p>
         <div class="hero-actions">
           <a class="button primary" href="https://ops.nauti-labs.com/" target="_blank" rel="noopener">Open Triton Dashboard</a>
           <a class="button" href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener">Open Clearance</a>
-          <a class="button" href="/suite/">Suite Status</a>
+          <a class="button amber" href="/brand/">Brand System</a>
         </div>
       </div>
-    </section>
+      <aside class="hero-panel" aria-label="Nauti-Labs Labs product stack">
+        <div class="panel-top">
+          <span class="panel-label">Labs stack</span>
+          <span class="pulse">Crew ready</span>
+        </div>
+        <div class="stack-list">
+          <a class="stack-card" href="https://ops.nauti-labs.com/" target="_blank" rel="noopener">
+            <img src="/assets/triton-mark.svg" alt="" aria-hidden="true">
+            <div>
+              <div class="stack-name">Triton Dashboard</div>
+              <div class="stack-by">by Nauti-Labs</div>
+              <div class="stack-role">The live dashboard for vessel decks, schedules, event logs, and operations context.</div>
+            </div>
+            <span class="stack-state">Live</span>
+          </a>
+          <a class="stack-card" href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 140 140" aria-hidden="true"><use href="#mark-clearance"/></svg>
+            <div>
+              <div class="stack-name">Clearance</div>
+              <div class="stack-by">by Nauti-Labs</div>
+              <div class="stack-role">The approval rail for sensitive actions and signed receipts.</div>
+            </div>
+            <span class="stack-state">Live</span>
+          </a>
+          <a class="stack-card" href="#felipe">
+            <svg viewBox="0 0 140 140" aria-hidden="true"><use href="#mark-felipe"/></svg>
+            <div>
+              <div class="stack-name">Felipe</div>
+              <div class="stack-by">by Nauti-Labs</div>
+              <div class="stack-role">Researches acquisition candidates and routes approval needs.</div>
+            </div>
+            <span class="stack-state">Lab</span>
+          </a>
+        </div>
+      </aside>
+    </header>
 
-    <section class="band alt" id="products">
+    <section class="band" id="stack">
       <div class="container">
-        <div class="eyebrow">01 · The crew</div>
-        <h2>Three tools, one workflow.</h2>
-        <p class="section-note">Each product covers a different failure mode: visibility, control, and research. They work alone; they compound together.</p>
-        <div class="product-grid">
-
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">01 · Product family</div>
+            <h2>Every Labs surface belongs to the same ship.</h2>
+          </div>
+          <p class="section-note">The old page made each tool feel like a separate experiment. This version keeps the whole family in one Nauti-Labs system with product marks, shared language, and a single approval posture.</p>
+        </div>
+        <div class="cards">
           <article class="card" id="triton">
             <div>
-              <div class="card-top">
-                <h3>Triton</h3>
-                <span class="tag live">Live</span>
-              </div>
-              <div class="role">Operations dashboard</div>
-              <p>Vessel agency and port-call surface. The desk sees the schedule, the documents, and the crew changes in one place — instead of across six spreadsheets and a chat thread.</p>
+              <img class="card-mark-img" src="/assets/triton-mark.svg" alt="" aria-hidden="true">
+              <h3>Triton Dashboard</h3>
+              <div class="byline">by Nauti-Labs</div>
+              <p>The live maritime desk. Track vessels, schedules, events, and agency workflow from a single operating surface.</p>
               <ul class="mini-list">
-                <li>Port-call &amp; schedule tracking</li>
-                <li>Document status at a glance</li>
-                <li>Crew-change and event log</li>
+                <li>Vessel deck and schedule context</li>
+                <li>Event log and SOF-ready workflow</li>
+                <li>Color Bomb ready, brand locked</li>
               </ul>
             </div>
-            <a class="card-link" href="https://ops.nauti-labs.com/" target="_blank" rel="noopener">Open Triton →</a>
+            <a class="card-link" href="https://ops.nauti-labs.com/" target="_blank" rel="noopener">Open Triton Dashboard →</a>
           </article>
-
           <article class="card" id="clearance">
             <div>
-              <div class="card-top">
-                <h3>Clearance</h3>
-                <span class="tag live">Live</span>
-              </div>
-              <div class="role">Approval &amp; spend control</div>
-              <p>The auth layer between human intent and agent execution. When an agent wants to spend money or send the message, a named human approves first — with a receipt you can verify.</p>
+              <svg class="card-mark" viewBox="0 0 140 140" aria-hidden="true"><use href="#mark-clearance"/></svg>
+              <h3>Clearance</h3>
+              <div class="byline">by Nauti-Labs</div>
+              <p>The human approval rail. When AI work needs to send, spend, publish, or trigger a sensitive step, Clearance turns that moment into a clear yes or hold.</p>
               <ul class="mini-list">
-                <li>One-call human approval API</li>
-                <li>On-chain verifiable receipts</li>
-                <li>x402 machine payments</li>
+                <li>Human sign-off before consequence</li>
+                <li>Signed approval receipts</li>
+                <li>Free tier live now</li>
               </ul>
             </div>
             <div>
@@ -500,33 +804,31 @@
               <a class="card-link" href="https://clearance.nauti-labs.com/agent-income/review" target="_blank" rel="noopener" style="display:block; margin-top:10px;">$199 payment-flow review →</a>
             </div>
           </article>
-
           <article class="card" id="felipe">
             <div>
-              <div class="card-top">
-                <h3>Felipe</h3>
-                <span class="tag building">Building</span>
-              </div>
-              <div class="role">Research engine</div>
-              <p>Candidate and vendor research with sources attached. Felipe reads, cross-checks, and summarizes — then waits for a human before anything leaves the building.</p>
+              <svg class="card-mark" viewBox="0 0 140 140" aria-hidden="true"><use href="#mark-felipe"/></svg>
+              <h3>Felipe</h3>
+              <div class="byline">by Nauti-Labs</div>
+              <p>The acquisition research lab. Felipe watches candidates, prepares rationale, and routes higher-stakes decisions back to the captain.</p>
               <ul class="mini-list">
-                <li>Sourced research briefs</li>
-                <li>Vendor &amp; candidate digests</li>
-                <li>Human review before action</li>
+                <li>Domain candidate research</li>
+                <li>Signal scoring and notes</li>
+                <li>Approval-aware purchase flow</li>
               </ul>
             </div>
-            <a class="card-link" href="mailto:consulting@nauti-labs.com?subject=Felipe%20preview">Request preview →</a>
+            <a class="card-link" href="#contact">Ask about Felipe →</a>
           </article>
-
         </div>
       </div>
     </section>
 
-    <section class="band" id="flow">
-      <div class="container">
-        <div class="eyebrow">02 · How work moves</div>
-        <h2>Context in. Approval out.</h2>
-        <p class="section-note">The Labs pattern: agents prepare, humans decide. Every tool in the suite respects the same loop.</p>
+    <section class="band">
+      <div class="container split">
+        <div>
+          <div class="eyebrow">02 · Operating model</div>
+          <h2>Simple enough to explain. Strict enough to trust.</h2>
+          <p class="section-note">The system language is public-friendly: operational work starts from Triton, moves through the right tools, writes to the log, and stops at approval when the real world is involved.</p>
+        </div>
         <div class="flow" aria-label="Labs operating flow">
           <div class="flow-step" data-step="01">
             <strong>Send crew</strong>

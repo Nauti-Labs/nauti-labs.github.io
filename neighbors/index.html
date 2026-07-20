@@ -4,163 +4,387 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nauti-Labs Neighbors — Local AI, Security, Web & Email Help</title>
+  <title>Nauti-Labs Neighbors — Local AI, Security, Web &amp; Email Help</title>
   <meta name="description" content="Plain-English local AI setup, device and account security, website, email, and Google Business help for Mont Belvieu, Baytown, and Barbers Hill neighbors." />
-  <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://neighbors.nauti-labs.com/" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:site_name" content="Nauti-Labs" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nauti-Labs Neighbors — Local AI, Security, Web &amp; Email Help" />
+  <meta property="og:description" content="Simple local help for AI setup, devices, accounts, websites, email, and Google Business." />
+  <meta property="og:url" content="https://neighbors.nauti-labs.com/" />
+  <meta property="og:image" content="https://nauti-labs.com/og/neighbors-share.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nauti-Labs Neighbors" />
+  <meta name="twitter:description" content="Local AI setup, device security, website, email, and Google Business help." />
+  <meta name="twitter:image" content="https://nauti-labs.com/og/neighbors-share.png" />
+
   <meta name="theme-color" content="#15151a" />
   <link rel="icon" type="image/svg+xml" href="/assets/nauti-gear-wheel.svg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #15151a;
-      --surface: #1f1f27;
-      --border: #2a2a33;
-      --amber: #e8912d;
-      --amber-soft: rgba(232, 145, 45, 0.12);
-      --text: #ececf0;
-      --text-dim: #b8b8c0;
-      --muted: #7a7a85;
-      --green: #4ade80;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-      --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+      --bg:           #15151a;
+      --bg-2:         #1a1a1f;
+      --surface:      #1f1f27;
+      --surface-2:    #25252e;
+      --border:       #2a2a33;
+      --border-2:     #353541;
+
+      --neighbor:     #7ad68a;
+      --neighbor-hi:  #b7f4c0;
+      --neighbor-soft: rgba(122, 214, 138, 0.12);
+      --neighbor-glow: rgba(122, 214, 138, 0.20);
+
+      --steel:        #8a8a8a;
+      --steel-soft:   #a0a0a8;
+
+      --text:         #ececf0;
+      --text-dim:     #b8b8c0;
+      --muted:        #7a7a85;
+      --dim:          #4a4a55;
+
+      --font-sans:    'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      --font-mono:    'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+      --radius:       12px;
+      --radius-sm:    8px;
+      --radius-lg:    16px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       font-family: var(--font-sans);
       background: var(--bg);
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(122, 214, 138, 0.08), transparent 60%),
+        radial-gradient(ellipse 60% 50% at 100% 100%, rgba(138, 138, 138, 0.05), transparent 60%);
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
     }
-    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-    a { color: var(--amber); text-decoration: none; }
-    a:hover { text-decoration: underline; }
 
-    .site-header {
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+    .mono { font-family: var(--font-mono); }
+    .accent { color: var(--neighbor); }
+    a { color: var(--neighbor); text-decoration: none; }
+    a:hover { color: var(--neighbor-hi); }
+
+    nav.site-nav {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px) saturate(140%);
+      -webkit-backdrop-filter: blur(12px) saturate(140%);
+      background: rgba(21, 21, 26, 0.78);
       border-bottom: 1px solid var(--border);
-      padding: 18px 0;
+    }
+    nav.site-nav .inner {
       display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0;
+      gap: 20px;
     }
-    .site-header .wrap {
-      max-width: 1080px; margin: 0 auto; padding: 0 24px;
-      display: flex; align-items: center; justify-content: space-between;
-      width: 100%;
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      color: var(--text);
+      min-width: 0;
     }
-    .brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 700; }
-    .brand img { width: 28px; height: 28px; }
-    .brand small { display: block; font-size: 11px; color: var(--muted); font-weight: 500; }
-    .nav a { margin-left: 18px; font-size: 14px; color: var(--text-dim); }
-    .nav a:hover { color: var(--amber); text-decoration: none; }
+    .brand-mark {
+      width: 30px; height: 30px;
+      display: block; flex-shrink: 0;
+      filter: drop-shadow(0 0 12px var(--neighbor-glow));
+    }
+    .brand-mark img { width: 100%; height: 100%; display: block; object-fit: contain; }
+    .brand-name { font-size: 16px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; }
+    .brand-by {
+      font-family: var(--font-mono); font-size: 11px;
+      color: var(--muted);
+      border-left: 1px solid var(--border-2);
+      padding-left: 10px; margin-left: 4px;
+      white-space: nowrap;
+    }
+    nav.site-nav .nav-links { display: flex; gap: 24px; align-items: center; }
+    nav.site-nav .nav-links a {
+      color: var(--text-dim); font-size: 14px; font-weight: 500;
+      transition: color 0.15s;
+      white-space: nowrap;
+    }
+    nav.site-nav .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--neighbor); color: #111611 !important;
+      padding: 8px 14px; border-radius: var(--radius-sm);
+      font-weight: 700 !important; font-size: 13px !important;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--neighbor-hi); transform: translateY(-1px); }
 
-    .hero { padding: 72px 0 48px; }
-    .eyebrow {
+    .hero { padding: 92px 0 64px; }
+    .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
-      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 18px;
+      font-family: var(--font-mono); font-size: 12px;
+      color: var(--steel-soft);
+      margin-bottom: 24px;
     }
-    .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 6px var(--amber); }
-    h1 { font-size: clamp(34px, 5vw, 52px); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 18px; }
-    h1 .accent { color: var(--amber); }
-    .lede { font-size: 18px; color: var(--text-dim); max-width: 640px; margin-bottom: 28px; }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 13px 22px; border-radius: 8px; font-size: 14px; font-weight: 600;
-      border: 1px solid transparent; cursor: pointer;
+    .hero-eyebrow .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--neighbor);
+      box-shadow: 0 0 8px var(--neighbor);
+      animation: pulse 2s ease-in-out infinite;
     }
-    .btn-primary { background: var(--amber); color: #1a1a1f; }
-    .btn-primary:hover { background: #f0a040; text-decoration: none; }
-    .btn-ghost { background: var(--surface); color: var(--text); border-color: var(--border); font-family: var(--font-mono); font-weight: 500; }
-    .btn-ghost:hover { border-color: var(--amber); text-decoration: none; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
 
-    section { padding: 56px 0; border-top: 1px solid var(--border); }
+    .hero h1 {
+      font-size: clamp(40px, 5.6vw, 64px);
+      font-weight: 700;
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+      color: #fafafd;
+      margin-bottom: 22px;
+      max-width: 880px;
+    }
+    .hero h1 .accent {
+      color: var(--neighbor);
+      font-style: italic;
+      font-weight: 600;
+    }
+    .hero p.lede {
+      font-size: 18px; color: var(--text-dim);
+      max-width: 660px;
+      margin-bottom: 32px; line-height: 1.55;
+    }
+    .hero-actions {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .btn-primary {
+      background: var(--neighbor); color: #111611;
+      padding: 13px 22px; border-radius: var(--radius-sm);
+      font-size: 14px; font-weight: 700;
+      display: inline-flex; align-items: center; gap: 8px;
+      border: none; cursor: pointer;
+      transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 8px 24px rgba(122, 214, 138, 0.16);
+    }
+    .btn-primary:hover {
+      background: var(--neighbor-hi); color: #111611;
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(122, 214, 138, 0.22);
+    }
+    .btn-secondary {
+      color: var(--text-dim);
+      padding: 12px 18px; border-radius: var(--radius-sm);
+      border: 1px solid var(--border-2);
+      font-size: 14px; font-weight: 600;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+    .btn-secondary:hover {
+      border-color: rgba(122, 214, 138, 0.45);
+      color: var(--text);
+      background: var(--neighbor-soft);
+    }
+
+    .status-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .status-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 10px; border: 1px solid var(--border);
+      border-radius: 999px; color: var(--muted);
+      font-family: var(--font-mono); font-size: 11px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .status-chip .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--neighbor);
+      box-shadow: 0 0 8px var(--neighbor);
+    }
+
+    .section { padding: 66px 0; border-top: 1px solid rgba(255,255,255,0.04); }
     .section-eyebrow {
-      font-family: var(--font-mono); font-size: 11px; font-weight: 600;
-      color: var(--amber); letter-spacing: 0.12em; text-transform: uppercase;
+      font-family: var(--font-mono);
+      color: var(--neighbor);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       margin-bottom: 12px;
     }
-    h2 { font-size: clamp(26px, 3.4vw, 36px); letter-spacing: -0.02em; margin-bottom: 14px; }
-    .section-lede { color: var(--text-dim); max-width: 680px; margin-bottom: 32px; }
+    h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .section-lede {
+      color: var(--text-dim);
+      max-width: 680px;
+      font-size: 16px;
+      margin-bottom: 28px;
+    }
 
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
-    .card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
-      padding: 24px;
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
     }
-    .card h3 { font-size: 17px; margin-bottom: 8px; }
-    .card p { font-size: 14px; color: var(--text-dim); margin-bottom: 14px; }
-    .card ul { list-style: none; padding: 0; margin: 0 0 16px; }
-    .card ul li {
-      font-size: 13px; color: var(--text-dim);
-      padding: 4px 0 4px 18px; position: relative;
+    .service-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 22px;
+      min-height: 100%;
     }
-    .card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+    .service-num {
+      font-family: var(--font-mono);
+      color: var(--neighbor);
+      font-size: 12px;
+      margin-bottom: 28px;
+    }
+    .service-card h3 {
+      font-size: 20px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
     .price {
-      font-family: var(--font-mono); font-size: 13px; font-weight: 600;
-      color: var(--amber); background: var(--amber-soft);
-      padding: 5px 10px; border-radius: 6px; display: inline-block;
+      font-size: 30px;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
     }
-    .price small { color: var(--muted); font-weight: 400; }
+    .price small {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0;
+    }
+    .fine {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+    .service-card ul {
+      list-style: none;
+      display: grid;
+      gap: 9px;
+      color: var(--text-dim);
+      font-size: 14px;
+    }
+    .service-card li {
+      display: grid;
+      grid-template-columns: 14px 1fr;
+      gap: 8px;
+    }
+    .service-card li::before {
+      content: "◆";
+      color: var(--neighbor);
+      font-size: 10px;
+      margin-top: 3px;
+    }
 
-    .steps { counter-reset: step; }
+    .coffee-note {
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      background: var(--neighbor-soft);
+      border: 1px solid rgba(122, 214, 138, 0.28);
+      border-radius: var(--radius-sm);
+      color: var(--text-dim);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .coffee-note .cup { font-size: 24px; line-height: 1; flex-shrink: 0; }
+    .coffee-note strong { color: var(--text); }
+
+    .simple-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .line-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+    .line-item strong { display: block; line-height: 1.25; }
+    .line-item span {
+      color: var(--muted);
+      font-size: 13px;
+      display: block;
+      margin-top: 4px;
+    }
+    .line-price {
+      color: var(--neighbor);
+      font-family: var(--font-mono);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .work-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
     .step {
-      display: grid; grid-template-columns: 44px 1fr; gap: 16px;
-      padding: 18px 0; border-bottom: 1px solid var(--border);
+      border-left: 2px solid var(--neighbor);
+      padding: 3px 0 3px 16px;
     }
-    .step:last-child { border-bottom: 0; }
-    .step::before {
-      counter-increment: step; content: counter(step, decimal-leading-zero);
-      font-family: var(--font-mono); font-size: 13px; font-weight: 600; color: var(--amber);
-      width: 44px; height: 44px; border-radius: 10px;
-      background: var(--amber-soft); display: flex; align-items: center; justify-content: center;
+    .step h3 {
+      font-size: 16px;
+      margin-bottom: 4px;
     }
-    .step h3 { font-size: 16px; margin-bottom: 4px; }
-    .step p { font-size: 14px; color: var(--text-dim); }
-
-    .area-list { display: flex; flex-wrap: wrap; gap: 10px; }
-    .area-pill {
-      font-family: var(--font-mono); font-size: 12px;
-      color: var(--text-dim); border: 1px solid var(--border);
-      padding: 8px 14px; border-radius: 999px; background: var(--surface);
+    .step p {
+      color: var(--text-dim);
+      font-size: 14px;
     }
 
-    .faq details { border-bottom: 1px solid var(--border); padding: 16px 0; }
-    .faq summary {
-      cursor: pointer; font-weight: 600; font-size: 15px; list-style: none;
-      display: flex; justify-content: space-between; align-items: center;
+    .cta-block {
+      margin-top: 18px;
+      background:
+        linear-gradient(135deg, rgba(122, 214, 138, 0.12), rgba(255,255,255,0.02)),
+        var(--surface);
+      border: 1px solid rgba(122, 214, 138, 0.28);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
-    .faq summary::-webkit-details-marker { display: none; }
-    .faq summary::after { content: '+'; color: var(--amber); font-size: 18px; }
-    .faq details[open] summary::after { transform: rotate(45deg); }
-    .faq details p { color: var(--text-dim); font-size: 14px; margin-top: 10px; max-width: 700px; }
-
-    .cta-band {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
-      padding: 40px 32px; text-align: center;
-    }
-    .cta-band h2 { margin-bottom: 10px; }
-    .cta-band p { color: var(--text-dim); max-width: 520px; margin: 0 auto 22px; }
+    .cta-block h2 { margin-bottom: 6px; }
+    .cta-block p { color: var(--text-dim); max-width: 600px; }
 
     footer {
-      border-top: 1px solid var(--border); padding: 28px 0 36px;
-      color: var(--muted); font-size: 13px;
-      display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between;
+      padding: 42px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
     }
-    footer .wrap {
-      max-width: 1080px; margin: 0 auto; padding: 0 24px; width: 100%;
-      display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between;
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
     }
-    footer a { color: var(--text-dim); }
 
-    @media (max-width: 640px) {
-      .nav { display: none; }
-      .hero { padding: 48px 0 32px; }
+    @media (max-width: 820px) {
+      nav.site-nav .inner { align-items: flex-start; flex-direction: column; }
+      nav.site-nav .nav-links { gap: 14px; flex-wrap: wrap; }
+      .brand-by { display: none; }
+      .hero { padding-top: 62px; }
+      .hero h1 { font-size: 40px; }
+      .service-grid, .simple-list, .work-strip { grid-template-columns: 1fr; }
+      .cta-block { align-items: flex-start; flex-direction: column; }
     }
   </style>
 
@@ -216,204 +440,167 @@
   </script>
 </head>
 <body>
-
-  <header class="site-header">
-    <div class="wrap">
-      <a class="brand" href="https://nauti-labs.com/">
-        <img src="/assets/nauti-gear-wheel.svg" alt="Nauti-Labs" />
-        <span>Nauti-Labs<small>Neighbors · Mont Belvieu TX</small></span>
+  <nav class="site-nav">
+    <div class="container inner">
+      <a class="brand" href="/">
+        <span class="brand-mark"><img src="/assets/nauti-gear-wheel.svg" alt="" aria-hidden="true"></span>
+        <span class="brand-name">Nauti-Labs</span>
+        <span class="brand-by">Neighbors · Mont Belvieu</span>
       </a>
-      <nav class="nav">
+      <div class="nav-links">
         <a href="#services">Services</a>
-        <a href="#rates">Rates</a>
-        <a href="#how">How it works</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="container">
-      <div class="eyebrow"><span class="dot"></span> Local help · Mont Belvieu · Baytown · Barbers Hill</div>
-      <h1>Tech help from a <span class="accent">neighbor</span>, not a call center.</h1>
-      <p class="lede">
-        AI setup on your own machine, device and account security, websites, email, and Google Business cleanup —
-        explained in plain English, done at your kitchen table or over a call.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="mailto:consulting@nauti-labs.com?subject=Neighbors%20help%20request">Ask for help →</a>
-        <a class="btn btn-ghost" href="#rates">See rates</a>
+        <a href="#pricing">Prices</a>
+        <a href="#process">How it works</a>
+        <a href="mailto:consulting@nauti-labs.com?subject=Nauti-Labs%20Neighbors%20help" class="nav-cta">Contact</a>
       </div>
     </div>
-  </section>
+  </nav>
 
-  <section id="services">
-    <div class="container">
-      <div class="section-eyebrow">Services</div>
-      <h2>What I can help with</h2>
-      <p class="section-lede">If it plugs in, logs in, or shows up on Google — I can probably fix it, set it up, or explain it.</p>
-      <div class="card-grid">
-
-        <div class="card">
-          <h3>Local AI setup</h3>
-          <p>Run AI on your own computer — private, no subscription. I install it, show you how to use it, and leave notes you'll actually understand.</p>
-          <ul>
-            <li>Ollama / local LLM install & setup</li>
-            <li>Anchor — my free open-source AI kit</li>
-            <li>Plain-English AI training for you or your team</li>
-          </ul>
-          <span class="price">$125/hr <small>· 2-hr min for setups</small></span>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-eyebrow"><span class="dot"></span><span>03 · Neighbors · Local help</span></div>
+        <h1>Plain-English tech help for <span class="accent">neighbors.</span></h1>
+        <p class="lede">
+          Local AI setup, device and account security, websites, email, and Google Business cleanup for residents and owner-operated businesses around Mont Belvieu, Baytown, and Barbers Hill.
+        </p>
+        <div class="hero-actions">
+          <a href="mailto:consulting@nauti-labs.com?subject=Nauti-Labs%20Neighbors%20help" class="btn-primary">Request help →</a>
+          <a href="#pricing" class="btn-secondary">See simple prices</a>
         </div>
-
-        <div class="card">
-          <h3>Device & account security</h3>
-          <p>Lock down the stuff that matters — without buying a suite of subscriptions you don't need.</p>
-          <ul>
-            <li>Wi-Fi & router security check</li>
-            <li>Password manager setup</li>
-            <li>Account cleanup — email, banking, social</li>
-          </ul>
-          <span class="price">$125/hr</span>
+        <div class="status-row">
+          <div class="status-chip"><span class="dot"></span> Local house calls</div>
+          <div class="status-chip"><span class="dot"></span> Remote sessions</div>
+          <div class="status-chip"><span class="dot"></span> Small-business friendly</div>
         </div>
-
-        <div class="card">
-          <h3>Web, email & Google Business</h3>
-          <p>For owner-operated businesses: be findable, look legit, and stop missing customer emails.</p>
-          <ul>
-            <li>Google Business Profile setup & cleanup</li>
-            <li>Simple website fixes & contact forms</li>
-            <li>Business email & domain help</li>
-          </ul>
-          <span class="price">from $500 <small>quick cleanup</small></span>
-        </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="rates">
-    <div class="container">
-      <div class="section-eyebrow">Rates</div>
-      <h2>Posted prices. No surprises.</h2>
-      <p class="section-lede">You know the cost before I start. If it takes less time than estimated, you pay for the time it took.</p>
-      <div class="card-grid">
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-eyebrow">Services</div>
+        <h2>Simple fixes. Useful setups. No jargon.</h2>
+        <p class="section-lede">I keep the scope practical: get the thing working, explain what changed, and leave you with the passwords, docs, and settings in your control.</p>
 
-        <div class="card">
-          <h3>Hourly help</h3>
-          <p>Most fixes, setups, and training sessions.</p>
-          <span class="price">$125/hr</span>
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-num">01</div>
+            <h3>Local AI setup</h3>
+            <div class="price">$125 <small>/ hr</small></div>
+            <p class="fine">2-hour minimum</p>
+            <ul>
+              <li>Ollama, ChatGPT, Claude, and Codex basics</li>
+              <li>Private local AI setup on your computer</li>
+              <li>Prompt templates for daily work</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-num">02</div>
+            <h3>Device, Wi-Fi &amp; account security</h3>
+            <div class="price">$125 <small>/ hr</small></div>
+            <p class="fine">2-hour minimum</p>
+            <ul>
+              <li>Password manager and two-factor setup</li>
+              <li>Router, Wi-Fi, phone, and laptop cleanup</li>
+              <li>Account recovery and security review</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-num">03</div>
+            <h3>Web, email &amp; Google Business help</h3>
+            <div class="price">$500 <small>quick cleanup</small></div>
+            <p class="fine">Or $125/hr for smaller fixes</p>
+            <ul>
+              <li>Domain, email, and website fixes</li>
+              <li>Google Business Profile cleanup</li>
+              <li>Review links, contact forms, and basic SEO</li>
+            </ul>
+          </article>
         </div>
 
-        <div class="card">
-          <h3>House call</h3>
-          <p>Onsite within the local area — Mont Belvieu, Baytown, Barbers Hill.</p>
-          <span class="price">$250 min</span>
+        <div class="coffee-note">
+          <span class="cup" aria-hidden="true">☕</span>
+          <p><strong>Not sure what you even need? The coffee's always free.</strong> Sit down, tell me what's going on, and we'll figure out together whether there's anything worth fixing — no pressure, no charge just to ask.</p>
         </div>
-
-        <div class="card">
-          <h3>Website / Google cleanup</h3>
-          <p>Basic site, email, contact, profile, and review-link tuneup.</p>
-          <span class="price">$500</span>
-        </div>
-
-        <div class="card">
-          <h3>Small-business starter</h3>
-          <p>10-hour block for AI, website, email, security, or workflow setup.</p>
-          <span class="price">$1,250</span>
-        </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="how">
-    <div class="container">
-      <div class="section-eyebrow">How it works</div>
-      <h2>Simple, start to finish</h2>
-      <div class="steps">
-        <div class="step">
-          <div>
-            <h3>Tell me what's going on</h3>
-            <p>Email me a sentence or two about the problem. Screenshots help. No forms, no ticket system.</p>
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-eyebrow">Simple Prices</div>
+        <h2>Pick the size that matches the problem.</h2>
+        <p class="section-lede">Most local requests fit one of these. If it does not, I quote it before work starts.</p>
+
+        <div class="simple-list">
+          <div class="line-item">
+            <div>
+              <strong>Remote quick fix</strong>
+              <span>One focused computer, account, email, or AI question.</span>
+            </div>
+            <div class="line-price">$125/hr</div>
           </div>
-        </div>
-        <div class="step">
-          <div>
-            <h3>Get a straight answer and a price</h3>
-            <p>I reply within a day with what I think is wrong, what it costs to fix, and whether you could fix it yourself for free.</p>
+          <div class="line-item">
+            <div>
+              <strong>Local house call</strong>
+              <span>Mont Belvieu, Baytown, Barbers Hill area.</span>
+            </div>
+            <div class="line-price">$250 min</div>
           </div>
-        </div>
-        <div class="step">
-          <div>
-            <h3>Fix it together</h3>
-            <p>House call or video call. I fix it, show you what I did, and leave written notes in plain English.</p>
+          <div class="line-item">
+            <div>
+              <strong>Website / Google cleanup</strong>
+              <span>Basic site, email, contact, profile, and review-link tuneup.</span>
+            </div>
+            <div class="line-price">$500</div>
+          </div>
+          <div class="line-item">
+            <div>
+              <strong>Small-business starter</strong>
+              <span>10-hour block for AI, website, email, security, or workflow setup.</span>
+            </div>
+            <div class="line-price">$1,250</div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="area">
-    <div class="container">
-      <div class="section-eyebrow">Service area</div>
-      <h2>Local only, on purpose</h2>
-      <p class="section-lede">I keep the service area small so house calls stay quick and cheap.</p>
-      <div class="area-list">
-        <span class="area-pill">Mont Belvieu</span>
-        <span class="area-pill">Baytown</span>
-        <span class="area-pill">Barbers Hill</span>
-        <span class="area-pill">Old River-Winfree</span>
-        <span class="area-pill">Cove</span>
-        <span class="area-pill">Beach City</span>
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-eyebrow">How It Works</div>
+        <h2>Fast, direct, and documented.</h2>
+        <div class="work-strip">
+          <div class="step">
+            <h3>1. Send the problem</h3>
+            <p>Use the contact page and describe what is broken or what you want set up.</p>
+          </div>
+          <div class="step">
+            <h3>2. I size it</h3>
+            <p>You get a simple recommendation: remote fix, house call, cleanup, or starter block.</p>
+          </div>
+          <div class="step">
+            <h3>3. You keep control</h3>
+            <p>I leave notes, links, account ownership, and next steps with you.</p>
+          </div>
+        </div>
+
+        <div class="cta-block">
+          <div>
+            <h2>Need help with something local?</h2>
+            <p>AI setup, account security, website/email cleanup, Google Business, or a computer problem that needs a practical answer.</p>
+          </div>
+          <a href="mailto:consulting@nauti-labs.com?subject=Nauti-Labs%20Neighbors%20help" class="btn-primary">Contact Nauti-Labs →</a>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <section id="faq" class="faq">
-    <div class="container">
-      <div class="section-eyebrow">FAQ</div>
-      <h2>Common questions</h2>
-
-      <details>
-        <summary>Do you work on both Mac and Windows?</summary>
-        <p>Yes — Mac, Windows, iPhone, Android, and the router in the closet. If it has a power button, I've probably fixed one.</p>
-      </details>
-
-      <details>
-        <summary>Is my data safe with local AI?</summary>
-        <p>That's the point of running AI locally: your documents and questions stay on your machine. I'll show you exactly where everything lives before I leave.</p>
-      </details>
-
-      <details>
-        <summary>What if you can't fix it?</summary>
-        <p>You don't pay for unsuccessful time. If it's beyond me, I'll tell you who can fix it and what a fair price looks like.</p>
-      </details>
-
-      <details>
-        <summary>Do you do remote help?</summary>
-        <p>Yes — anything that doesn't require touching hardware can be done over a video call with screen sharing, usually same-week.</p>
-      </details>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container">
-      <div class="cta-band">
-        <div class="section-eyebrow">Contact</div>
-        <h2>Something broken, confusing, or slow?</h2>
-        <p>Send me two sentences about what's going on. I'll reply within a day with a straight answer and a price.</p>
-        <a class="btn btn-primary" href="mailto:consulting@nauti-labs.com?subject=Neighbors%20help%20request">Email consulting@nauti-labs.com →</a>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
-    <div class="wrap">
-      <span>© 2026 Nauti-Labs LLC · Neighbors · Mont Belvieu, TX</span>
-      <span><a href="https://nauti-labs.com/">nauti-labs.com</a> · <a href="https://nauti-labs.com/maritime/">Maritime Ops</a></span>
+    <div class="container footer-row">
+      <div>Nauti-Labs LLC · Mont Belvieu / Baytown, TX · Est. 2026</div>
+      <div><a href="mailto:consulting@nauti-labs.com">consulting@nauti-labs.com</a></div>
     </div>
   </footer>
-
 </body>
 </html>

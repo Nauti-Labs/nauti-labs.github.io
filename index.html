@@ -889,6 +889,57 @@
       .neighbors-card { padding: 28px 24px; }
     }
 
+    /* === CONTACT / BOOKING === */
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      max-width: 680px;
+    }
+    .contact-form { display: grid; gap: 16px; }
+    .contact-form .field-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .contact-form label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 11px; font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      background: var(--surface-2);
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      padding: 11px 12px;
+      transition: border-color 0.15s;
+    }
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--amber);
+    }
+    .contact-form textarea { min-height: 110px; resize: vertical; }
+    .contact-form .btn-primary { justify-content: center; }
+    .contact-sent p { color: var(--text-dim); margin-bottom: 0; }
+    .contact-alt {
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    @media (max-width: 720px) {
+      .contact-form .field-row { grid-template-columns: 1fr; }
+    }
+
     /* === FOOTER === */
     footer.site-footer {
       border-top: 1px solid var(--border);
@@ -1024,6 +1075,40 @@
       .container { padding: 0 20px; }
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://nauti-labs.com/#website",
+        "url": "https://nauti-labs.com/",
+        "name": "Nauti-Labs",
+        "publisher": { "@id": "https://nauti-labs.com/#business" }
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://nauti-labs.com/#business",
+        "name": "Nauti-Labs LLC",
+        "url": "https://nauti-labs.com/",
+        "description": "Maritime ops consulting and cargo representation, custom AI builds, and plain-English local tech help. Three practical pillars from Mont Belvieu, Texas.",
+        "email": "consulting@nauti-labs.com",
+        "priceRange": "$125–$1,600",
+        "areaServed": [
+          { "@type": "City", "name": "Mont Belvieu, TX" },
+          { "@type": "City", "name": "Baytown, TX" },
+          { "@type": "City", "name": "Barbers Hill, TX" }
+        ],
+        "founder": {
+          "@type": "Person",
+          "name": "Justin LeBlanc",
+          "sameAs": "https://www.linkedin.com/in/justin-leblanc-79b242101"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -1041,7 +1126,7 @@
         <a href="#ai">Custom AI</a>
         <a href="#channel">Channel</a>
         <a href="https://neighbors.nauti-labs.com/">Neighbors</a>
-        <a href="mailto:consulting@nauti-labs.com" class="nav-cta">Book intro</a>
+        <a href="#contact" class="nav-cta">Book intro</a>
       </div>
     </div>
   </nav>
@@ -1059,7 +1144,7 @@
         Live tools. Published rates. No fluff.
       </p>
       <div class="hero-actions">
-        <a href="mailto:consulting@nauti-labs.com?subject=Nauti-Labs%20intro" class="btn-primary">Book a 30-min intro →</a>
+        <a href="#contact" class="btn-primary">Book a 30-min intro →</a>
         <a href="#pillars" class="btn-secondary">See what we do</a>
       </div>
       <div class="hero-pills">
@@ -1084,7 +1169,7 @@
           <ul>
             <li>Triton platform — port-call workflows</li>
             <li>Cargo representation — loss control & blending</li>
-            <li>$125 / hr · $1,250 starter (10 hrs)</li>
+            <li>$150 / hr · $1,250 starter (10 hrs)</li>
           </ul>
           <span class="pillar-link">Read more →</span>
         </a>
@@ -1145,22 +1230,23 @@
           <ul class="check-list">
             <li>30-min intro call — scope the problem, no charge</li>
             <li>10-hour starter ($1,250 upfront) — discovery, audit, first deliverable</li>
-            <li>Ongoing at $125/hr or fixed-scope quotes after that</li>
+            <li>Ongoing at $150/hr or fixed-scope quotes after that</li>
             <li>Mileage / travel billed separately for onsite work</li>
           </ul>
         </div>
 
         <aside class="rate-card">
           <div class="rate-name">Maritime ops consulting</div>
-          <div class="rate-price">$125<span class="rate-period">/ hr</span></div>
+          <div class="rate-price">$150<span class="rate-period">/ hr</span></div>
           <div class="rate-floor">10-hr minimum · $1,250 upfront</div>
+          <div class="rate-floor">Field attendance $1,250–1,600/day · per-port-call packages from $600</div>
           <ul class="rate-includes">
             <li>Async or scheduled calls</li>
             <li>Process docs you keep</li>
             <li>Triton platform access</li>
             <li>Houston Ship Channel focus</li>
           </ul>
-          <a href="mailto:consulting@nauti-labs.com?subject=Maritime%20consulting%20—%20intro" class="btn-primary">Start an engagement</a>
+          <a href="#contact" class="btn-primary">Start an engagement</a>
           <a href="https://ops.nauti-labs.com/" target="_blank" rel="noopener" class="btn-secondary">Open Triton Dashboard →</a>
         </aside>
       </div>
@@ -1189,7 +1275,7 @@
             <li>Cargo blending supervision</li>
             <li>Independent, cargo-side representation</li>
           </ul>
-          <a href="mailto:consulting@nauti-labs.com?subject=Cargo%20representation%20—%20pricing" class="btn-primary">Contact for pricing</a>
+          <a href="#contact" class="btn-primary">Contact for pricing</a>
         </aside>
       </div>
 
@@ -1250,7 +1336,7 @@
             <li>Pair with Codex / Claude in the build loop</li>
             <li>Approval-aware patterns by default</li>
           </ul>
-          <a href="mailto:consulting@nauti-labs.com?subject=Custom%20AI%20build" class="btn-primary">Start a build</a>
+          <a href="#contact" class="btn-primary">Start a build</a>
           <a href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener" class="btn-secondary">See Clearance live →</a>
         </aside>
       </div>
@@ -1305,6 +1391,7 @@
         Episode one's below — more on the way.
       </p>
 
+      <!-- TODO(Justin): restore YouTube/X links once channels exist -->
       <div class="video-wrap">
         <video controls preload="none" playsinline poster="/assets/video/nautilabs-ep01-poster.jpg">
           <source src="/assets/video/nautilabs-ep01-v6.mp4" type="video/mp4" />
@@ -1346,6 +1433,56 @@
           </aside>
         </div>
       </a>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- CONTACT / BOOKING                               -->
+  <!-- ============================================== -->
+  <section class="pillar-section" id="contact">
+    <div class="container">
+      <div class="section-eyebrow">03 · Contact</div>
+      <h2>Book a free 30-minute intro call</h2>
+      <p class="lede">
+        Tell me what's on your desk — a port call, an AI build, or a local tech headache.
+        You get a scoped reply within one business day, and a calendar link if the intro call makes sense.
+      </p>
+
+      <!-- TODO(Justin): FormSubmit sends a one-time activation email on first submission — click it. To replace with Cal.com later, swap this form for the Cal embed snippet. -->
+      <div class="contact-card">
+        <form id="contact-form" class="contact-form" action="https://formsubmit.co/consulting@nauti-labs.com" method="POST">
+          <input type="hidden" name="_subject" value="Nauti-Labs intro call request" />
+          <input type="hidden" name="_next" value="https://nauti-labs.com/?sent=1#contact" />
+          <input type="hidden" name="_captcha" value="false" />
+          <div class="field-row">
+            <div>
+              <label for="contact-name">Name</label>
+              <input id="contact-name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div>
+              <label for="contact-email">Email</label>
+              <input id="contact-email" name="email" type="email" autocomplete="email" required />
+            </div>
+          </div>
+          <div>
+            <label for="contact-lane">Lane</label>
+            <select id="contact-lane" name="lane" required>
+              <option value="Maritime Ops">Maritime Ops</option>
+              <option value="Custom AI">Custom AI</option>
+              <option value="Neighbors">Neighbors</option>
+            </select>
+          </div>
+          <div>
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" placeholder="What are you trying to fix or build?" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Request the intro call →</button>
+        </form>
+        <div id="contact-sent" class="contact-sent" hidden>
+          <p><strong>Request received.</strong> Thanks — you'll get a scoped reply within one business day. If it's urgent, email <a href="mailto:consulting@nauti-labs.com">consulting@nauti-labs.com</a> directly.</p>
+        </div>
+        <p class="contact-alt">Prefer plain email? <a href="mailto:consulting@nauti-labs.com">consulting@nauti-labs.com</a></p>
+      </div>
     </div>
   </section>
 
@@ -1398,5 +1535,17 @@
     </div>
   </footer>
 
+  <script>
+    // FormSubmit redirects back to /?sent=1#contact after a successful send — swap the form for the confirmation.
+    (function () {
+      if (!/[?&]sent=1/.test(window.location.search)) return;
+      var form = document.getElementById('contact-form');
+      var sent = document.getElementById('contact-sent');
+      if (!form || !sent) return;
+      form.hidden = true;
+      sent.hidden = false;
+      sent.scrollIntoView({ block: 'center' });
+    })();
+  </script>
 </body>
 </html>

@@ -6,7 +6,7 @@
   <title>Triton Dashboard | Nauti-Labs</title>
   <meta name="description" content="Triton Dashboard is the live maritime operations surface for vessel decks, schedules, SOF-ready workflows, and event logs.">
   <link rel="canonical" href="https://ops.nauti-labs.com/">
-  <link rel="icon" type="image/png" href="/assets/triton-mark.png?v=20260515">
+  <link rel="icon" type="image/png" href="/assets/triton-mark.png?v=20261019">
   <meta http-equiv="refresh" content="0; url=https://ops.nauti-labs.com/">
   <meta name="robots" content="index,follow">
   <meta property="og:site_name" content="Nauti-Labs">
@@ -39,6 +39,7 @@
       padding: 32px;
       text-align: center;
     }
+    picture { display: block; }
     img {
       width: 136px;
       height: 136px;
@@ -76,7 +77,10 @@
 </head>
 <body>
   <main>
-    <img src="/assets/triton-mark.png?v=20260515" alt="Triton mark">
+    <picture>
+      <source srcset="/assets/triton-mark.webp?v=20261019" type="image/webp">
+      <img src="/assets/triton-mark.png?v=20261019" alt="Triton mark" width="512" height="512">
+    </picture>
     <h1>Triton Dashboard</h1>
     <p>The old demo is offline for now. Opening the live maritime operations dashboard.</p>
     <a href="https://ops.nauti-labs.com/">Continue to Triton Dashboard</a>

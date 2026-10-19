@@ -8,6 +8,148 @@
   <meta name="description" content="Maritime ops consulting and cargo representation, custom AI builds, and plain-English local tech help. Three practical pillars from Mont Belvieu, Texas." />
   <link rel="canonical" href="https://nauti-labs.com/" />
   <meta name="robots" content="index,follow" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["Organization", "ProfessionalService"],
+        "@id": "https://nauti-labs.com/#organization",
+        "name": "Nauti-Labs",
+        "legalName": "Nauti-Labs LLC",
+        "url": "https://nauti-labs.com/",
+        "description": "Maritime ops consulting and cargo representation, custom AI builds, and plain-English local tech help. Three practical pillars from Mont Belvieu, Texas.",
+        "slogan": "One ship. Many stations.",
+        "email": "consulting@nauti-labs.com",
+        "foundingDate": "2026",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://nauti-labs.com/assets/nauti-gear-wheel.svg",
+          "width": 512,
+          "height": 512
+        },
+        "image": "https://nauti-labs.com/og/home-share-20260515.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Mont Belvieu",
+          "addressRegion": "TX",
+          "addressCountry": "US"
+        },
+        "areaServed": [
+          "Mont Belvieu, Texas",
+          "Baytown, Texas",
+          "Barbers Hill, Texas",
+          "Houston Ship Channel",
+          "Gulf Coast"
+        ],
+        "founder": {
+          "@type": "Person",
+          "name": "Justin LeBlanc",
+          "sameAs": "https://www.linkedin.com/in/justin-leblanc-79b242101"
+        },
+        "sameAs": [
+          "https://github.com/Nauti-Labs",
+          "https://www.linkedin.com/in/justin-leblanc-79b242101"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "consulting@nauti-labs.com",
+          "contactType": "consulting",
+          "areaServed": "US",
+          "availableLanguage": "English"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Nauti-Labs services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "name": "Maritime ops consulting",
+              "url": "https://nauti-labs.com/#maritime",
+              "price": "125.00",
+              "priceCurrency": "USD",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "125.00",
+                "priceCurrency": "USD",
+                "unitText": "HOUR",
+                "description": "10-hour minimum, $1,250 upfront"
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Maritime ops consulting",
+                "description": "Chemical tanker ops, port-call workflows, vessel-agency consulting, and cargo representation. Houston Ship Channel and beyond.",
+                "areaServed": "Houston Ship Channel",
+                "provider": { "@id": "https://nauti-labs.com/#organization" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Cargo representation",
+              "url": "https://nauti-labs.com/#maritime",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Cargo representation",
+                "description": "Independent, cargo-side representation on the Houston Ship Channel and Gulf Coast. Contact for pricing.",
+                "areaServed": "Gulf Coast",
+                "provider": { "@id": "https://nauti-labs.com/#organization" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Custom AI builds",
+              "url": "https://nauti-labs.com/#ai",
+              "price": "125.00",
+              "priceCurrency": "USD",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "125.00",
+                "priceCurrency": "USD",
+                "unitText": "HOUR",
+                "description": "10-hour minimum, $1,250 upfront"
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Custom AI builds",
+                "description": "Approval-aware AI agents, bots, and product builds.",
+                "provider": { "@id": "https://nauti-labs.com/#organization" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Neighbors local tech help",
+              "url": "https://neighbors.nauti-labs.com/",
+              "price": "125.00",
+              "priceCurrency": "USD",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "125.00",
+                "priceCurrency": "USD",
+                "unitText": "HOUR"
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Neighbors local tech help",
+                "description": "Plain-English tech help for nearby residents and owner-operated businesses. Hourly work is $125/hr.",
+                "areaServed": ["Mont Belvieu, Texas", "Baytown, Texas", "Barbers Hill, Texas"],
+                "provider": { "@id": "https://nauti-labs.com/#organization" }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://nauti-labs.com/#website",
+        "url": "https://nauti-labs.com/",
+        "name": "Nauti-Labs",
+        "description": "Maritime ops consulting and cargo representation, custom AI builds, and plain-English local tech help.",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://nauti-labs.com/#organization" }
+      }
+    ]
+  }
+  </script>
 
   <meta property="og:site_name" content="Nauti-Labs" />
   <meta property="og:type" content="website" />
@@ -709,6 +851,11 @@
       border-radius: 8px;
       background: rgba(255,255,255,0.03);
     }
+    .product-logo picture {
+      width: 36px;
+      height: 36px;
+      display: block;
+    }
     .product-logo svg,
     .product-logo img {
       width: 36px;
@@ -1031,7 +1178,7 @@
     <div class="container inner">
       <a class="brand" href="/">
         <span class="brand-mark">
-          <img src="/assets/nauti-gear-wheel.svg" alt="" aria-hidden="true">
+          <img src="/assets/nauti-gear-wheel.svg" alt="" aria-hidden="true" width="512" height="512">
         </span>
         <span class="brand-name">Nauti-Labs</span>
         <span class="brand-by">Mont Belvieu · TX</span>
@@ -1198,7 +1345,7 @@
         <a class="demo-card product-card-link" href="https://ops.nauti-labs.com/" target="_blank" rel="noopener" aria-label="Open Triton Dashboard">
           <div class="demo-card-head">
             <div class="demo-eyebrow"><span class="dot"></span>Live · Dashboard</div>
-            <span class="product-logo triton" aria-hidden="true"><img src="/assets/triton-mark.png?v=20260515" alt=""></span>
+            <span class="product-logo triton" aria-hidden="true"><picture><source srcset="/assets/triton-mark.webp?v=20261019" type="image/webp"><img src="/assets/triton-mark.png?v=20261019" alt="" width="512" height="512"></picture></span>
           </div>
           <h4>Triton Dashboard</h4>
           <p>Workflow surface for vessel agents and ship owners. Vessel deck, schedule, and event log built from the agency desk perspective.</p>
@@ -1358,7 +1505,7 @@
         <div class="footer-brand">
           <div class="brand">
             <span class="brand-mark">
-              <img src="/assets/nauti-gear-wheel.svg" alt="" aria-hidden="true">
+              <img src="/assets/nauti-gear-wheel.svg" alt="" aria-hidden="true" width="512" height="512">
             </span>
             <span class="brand-name">Nauti-Labs</span>
           </div>

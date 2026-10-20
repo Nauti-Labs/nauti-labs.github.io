@@ -220,14 +220,15 @@
       gap: 0.7rem;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      padding-bottom: 0.4rem;
+      padding-bottom: 0.6rem;
       margin: 0.4rem 0 0;
       list-style: none;
     }
     .photos li { scroll-snap-align: start; margin: 0; }
     .photos img {
       width: 100%;
-      height: 16rem;
+      height: auto;
+      aspect-ratio: 3 / 4;
       object-fit: cover;
       background: var(--cream-deep);
       border: 3px solid var(--ink);
@@ -263,8 +264,7 @@
 
     @media (min-width: 48rem) {
       .sign { margin-top: -3.2rem; padding: 1.6rem 1.7rem 1.7rem; }
-      .photos { grid-auto-columns: minmax(18rem, 32%); }
-      .photos img { height: 18rem; }
+      .photos { grid-auto-columns: 16rem; }
       section { padding: 3rem 0; }
     }
   </style>
@@ -375,14 +375,13 @@
     <div class="wrap">
       <p class="label">The copilots</p>
       <h2 id="dogs-title">Sally and Sacha</h2>
-      <!-- Drop dogs-1.jpg through dogs-6.jpg in /assets/t2t/. dogs-6 includes Sacha. A missing file drops out of this strip. -->
       <ul class="photos">
-        <li><img src="/assets/t2t/dogs-1.jpg" width="1200" height="800" alt="Justin with Sally." decoding="async" /></li>
-        <li><img src="/assets/t2t/dogs-2.jpg" width="1200" height="800" alt="Justin with Sally, a cream-colored dog." decoding="async" /></li>
-        <li><img src="/assets/t2t/dogs-3.jpg" width="1200" height="800" alt="Sally beside Justin." decoding="async" /></li>
-        <li><img src="/assets/t2t/dogs-4.jpg" width="1200" height="800" alt="Justin and Sally." decoding="async" /></li>
-        <li><img src="/assets/t2t/dogs-5.jpg" width="1200" height="800" alt="Justin with his dog Sally." decoding="async" /></li>
-        <li><img src="/assets/t2t/dogs-6.jpg" width="1200" height="800" alt="Justin with Sally and her sister Sacha." decoding="async" /></li>
+        <li><img src="/assets/t2t/dogs-1.webp" width="600" height="800" alt="Justin and Sally, a cream dog with one blue eye, close together in front of a log wall." loading="lazy" decoding="async" /></li>
+        <li><img src="/assets/t2t/dogs-2.webp" width="600" height="800" alt="Justin crouching in the grass with Sally, a red ranch building and mountains behind them." loading="lazy" decoding="async" /></li>
+        <li><img src="/assets/t2t/dogs-3.webp" width="600" height="800" alt="Justin kneeling beside Sally in the grass, with a red ranch building and mountains behind them." loading="lazy" decoding="async" /></li>
+        <li><img src="/assets/t2t/dogs-4.webp" width="600" height="800" alt="Justin in a ranch doorway while Sally looks up at him." loading="lazy" decoding="async" /></li>
+        <li><img src="/assets/t2t/dogs-5.webp" width="600" height="800" alt="Justin on the tailgate of a white truck, with Sally sitting in front of him." loading="lazy" decoding="async" /></li>
+        <li><img src="/assets/t2t/dogs-6.webp" width="600" height="800" alt="Justin with Sally and Sacha, two cream dogs, beside the open door of a white truck." loading="lazy" decoding="async" /></li>
       </ul>
     </div>
   </section>

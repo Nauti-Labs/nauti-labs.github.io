@@ -1,0 +1,96 @@
+<!-- Copyright (c) 2026 Nauti-Labs LLC. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Continue to Wheaton Creek Ranch</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <meta http-equiv="refresh" content="2;url=https://www.wheatoncreekranch.com/?utm_source=nauti-labs&amp;utm_medium=ambassador&amp;utm_campaign=justin" />
+  <meta name="theme-color" content="#F3E6CC" />
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #F3E6CC;
+      color: #281A10;
+      font-family: Georgia, "Iowan Old Style", Palatino, serif;
+      padding: 1.5rem;
+    }
+    main { max-width: 28rem; }
+    h1 { font-size: 1.7rem; line-height: 1.2; margin: 0 0 0.6rem; }
+    p { margin: 0 0 1rem; font-size: 1.05rem; }
+    a {
+      display: inline-block;
+      background: #FFD640;
+      color: #281A10;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 0.75rem 0.9rem;
+      box-shadow: 4px 4px 0 #BE582C;
+    }
+    a:hover { background: #fff; }
+    a:focus-visible { outline: 3px solid #281A10; outline-offset: 3px; }
+  </style>
+  <script>
+    /* PLACEHOLDER — Justin, confirm this is your GoatCounter count address.
+       In GoatCounter: Settings → your site → the address that ends in /count.
+       Clicks are recorded only at this address. Swap it if the code is different. */
+    var GOATCOUNTER_ENDPOINT = "https://nautilabs.goatcounter.com/count";
+
+    (function () {
+      var DEST = "https://www.wheatoncreekranch.com/?utm_source=nauti-labs&utm_medium=ambassador&utm_campaign=justin";
+      var gone = false;
+      function leave() {
+        if (gone) return;
+        gone = true;
+        location.replace(DEST);
+      }
+      setTimeout(leave, 1500);
+
+      var src = "";
+      try {
+        src = (new URLSearchParams(location.search).get("src") || "")
+          .toLowerCase()
+          .replace(/[^a-z0-9_-]/g, "")
+          .slice(0, 32);
+      } catch (err) { src = ""; }
+      var eventPath = src ? ("/go/wheaton-creek/" + src) : "/go/wheaton-creek";
+
+      var sent = false;
+      function countUrl() {
+        var q = [
+          "p=" + encodeURIComponent(eventPath),
+          "t=" + encodeURIComponent("Wheaton Creek Ranch"),
+          "e=true",
+          "rnd=" + Math.random().toString(36).slice(2, 7)
+        ];
+        if (document.referrer) q.push("r=" + encodeURIComponent(document.referrer));
+        return GOATCOUNTER_ENDPOINT + "?" + q.join("&");
+      }
+      function fire() {
+        if (sent) return;
+        sent = true;
+        var url = countUrl();
+        var queued = false;
+        try { queued = !!(navigator.sendBeacon && navigator.sendBeacon(url)); } catch (err) { queued = false; }
+        if (!queued) {
+          var img = new Image();
+          img.src = url;
+        }
+        setTimeout(leave, 300);
+      }
+      fire();
+    })();
+  </script>
+</head>
+<body>
+  <main>
+    <h1>Heading to Wheaton Creek Ranch</h1>
+    <p>I work there. This page counts the click, then sends you on.</p>
+    <a rel="nofollow noopener" href="https://www.wheatoncreekranch.com/?utm_source=nauti-labs&amp;utm_medium=ambassador&amp;utm_campaign=justin">Continue to Wheaton Creek Ranch</a>
+  </main>
+</body>
+</html>

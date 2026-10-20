@@ -7,8 +7,8 @@ When someone taps a Nauti-Labs link to the ranch, they land on a short stop firs
 1. Sign in to GoatCounter.
 2. Open the Nauti-Labs site inside GoatCounter.
 3. Look at **Events**, not the regular page list.
-4. The event is named `go-wheaton-creek`.
-5. A link that says where it was posted shows that place after a slash. A YouTube click is `go-wheaton-creek/youtube`. An X click is `go-wheaton-creek/x`. The homepage footer is `go-wheaton-creek/footer`.
+4. The event is named `/go/wheaton-creek`.
+5. A link that says where it was posted shows that place after the path. A YouTube click is `/go/wheaton-creek/youtube`. An X click is `/go/wheaton-creek/x`. The homepage footer is `/go/wheaton-creek/footer`.
 
 If the events list stays empty, the count address is still the placeholder. Open `go/wheaton-creek/index.html` and find `GOATCOUNTER_ENDPOINT` at the top. Replace it with the count address GoatCounter shows you. It looks like `https://your-code.goatcounter.com/count`. The placeholder sitting there now is `https://nautilabs.goatcounter.com/count`.
 
@@ -22,4 +22,4 @@ X bio:
 
 https://nauti-labs.com/go/wheaton-creek/?src=x
 
-A link with no `src` still counts. It shows up as `go-wheaton-creek`.
+A link with no `src` still counts. It shows up as `/go/wheaton-creek`.

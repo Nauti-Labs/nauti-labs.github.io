@@ -59,13 +59,6 @@
       } catch (err) { src = ""; }
       var eventPath = src ? ("/go/wheaton-creek/" + src) : "/go/wheaton-creek";
 
-      var script = document.createElement("script");
-      script.async = true;
-      script.src = "https://gc.zgo.at/count.js";
-      script.setAttribute("data-goatcounter", GOATCOUNTER_ENDPOINT);
-      script.setAttribute("data-goatcounter-settings", "{\"no_onload\":true}");
-      document.head.appendChild(script);
-
       var sent = false;
       function countUrl() {
         var q = [
@@ -80,30 +73,15 @@
       function fire() {
         if (sent) return;
         sent = true;
+        var url = countUrl();
         var queued = false;
-        try {
-          if (window.goatcounter && typeof window.goatcounter.count === "function") {
-            window.goatcounter.count({
-              path: eventPath,
-              title: "Wheaton Creek Ranch",
-              referrer: document.referrer,
-              event: true
-            });
-            queued = true;
-          }
-        } catch (err) { queued = false; }
+        try { queued = !!(navigator.sendBeacon && navigator.sendBeacon(url)); } catch (err) { queued = false; }
         if (!queued) {
-          var url = countUrl();
-          try { queued = !!(navigator.sendBeacon && navigator.sendBeacon(url)); } catch (err) { queued = false; }
-          if (!queued) {
-            var img = new Image();
-            img.src = url;
-          }
+          var img = new Image();
+          img.src = url;
         }
         setTimeout(leave, 300);
       }
-      script.addEventListener("load", fire);
-      script.addEventListener("error", fire);
       fire();
     })();
   </script>

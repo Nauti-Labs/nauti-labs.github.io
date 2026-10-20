@@ -31,16 +31,19 @@
         "headline": "Tankers to Timber: From VP to Ranch Hand",
         "description": "Justin LeBlanc on trading a VP role in Houston maritime and oil and gas for ranch work at Wheaton Creek Ranch in northern New Mexico.",
         "datePublished": "2026-10-20",
+        "dateModified": "2026-10-20",
         "image": "https://nauti-labs.com/assets/t2t/og-ranch.jpg",
         "mainEntityOfPage": "https://nauti-labs.com/tankers-to-timber/",
-        "author": { "@type": "Person", "name": "Justin LeBlanc" },
+        "author": { "@type": "Person", "name": "Justin LeBlanc", "url": "https://nauti-labs.com/" },
         "publisher": { "@type": "Organization", "@id": "https://nauti-labs.com/#organization", "name": "Nauti-Labs" }
       },
       {
         "@type": "VideoObject",
         "name": "VP to Ranch Hand",
+        "description": "Three months ago I left a corporate role in oil and gas in Houston, Texas, for a hunting ranch in northern New Mexico. My rescue dog Sally came along for the ride. In this video I go over the honest pros and cons so far, for anyone thinking about leaving corporate life and the subdivision for something more hands-on.",
         "uploadDate": "2026-10-19",
         "thumbnailUrl": "https://i.ytimg.com/vi/X1QBIT0TqrA/hqdefault.jpg",
+        "contentUrl": "https://www.youtube.com/watch?v=X1QBIT0TqrA",
         "embedUrl": "https://www.youtube.com/embed/X1QBIT0TqrA"
       }
     ]
@@ -318,7 +321,7 @@
       <article class="beat">
         <div class="num" aria-hidden="true">04</div>
         <div>
-          <h3>Homesteading, learned in place</h3>
+          <h3>Homesteading skills</h3>
           <p>The homesteading skills have arrived the same way the maritime ones did. Something needs doing, you learn it, and the next time your hands already know. I like that part.</p>
         </div>
       </article>
@@ -374,12 +377,12 @@
       <h2 id="dogs-title">Sally and Sacha</h2>
       <!-- Drop dogs-1.jpg through dogs-6.jpg in /assets/t2t/. dogs-6 includes Sacha. A missing file drops out of this strip. -->
       <ul class="photos">
-        <li><img src="/assets/t2t/dogs-1.jpg" width="1200" height="800" alt="Justin with Sally." loading="lazy" decoding="async" /></li>
-        <li><img src="/assets/t2t/dogs-2.jpg" width="1200" height="800" alt="Justin with Sally, a cream-colored dog." loading="lazy" decoding="async" /></li>
-        <li><img src="/assets/t2t/dogs-3.jpg" width="1200" height="800" alt="Sally beside Justin." loading="lazy" decoding="async" /></li>
-        <li><img src="/assets/t2t/dogs-4.jpg" width="1200" height="800" alt="Justin and Sally." loading="lazy" decoding="async" /></li>
-        <li><img src="/assets/t2t/dogs-5.jpg" width="1200" height="800" alt="Justin with his dog Sally." loading="lazy" decoding="async" /></li>
-        <li><img src="/assets/t2t/dogs-6.jpg" width="1200" height="800" alt="Justin with Sally and her sister Sacha." loading="lazy" decoding="async" /></li>
+        <li><img src="/assets/t2t/dogs-1.jpg" width="1200" height="800" alt="Justin with Sally." decoding="async" /></li>
+        <li><img src="/assets/t2t/dogs-2.jpg" width="1200" height="800" alt="Justin with Sally, a cream-colored dog." decoding="async" /></li>
+        <li><img src="/assets/t2t/dogs-3.jpg" width="1200" height="800" alt="Sally beside Justin." decoding="async" /></li>
+        <li><img src="/assets/t2t/dogs-4.jpg" width="1200" height="800" alt="Justin and Sally." decoding="async" /></li>
+        <li><img src="/assets/t2t/dogs-5.jpg" width="1200" height="800" alt="Justin with his dog Sally." decoding="async" /></li>
+        <li><img src="/assets/t2t/dogs-6.jpg" width="1200" height="800" alt="Justin with Sally and her sister Sacha." decoding="async" /></li>
       </ul>
     </div>
   </section>
@@ -404,15 +407,17 @@
     (function () {
       var strip = document.querySelector(".photos");
       if (strip) {
+        function drop(img) {
+          var item = img.closest("li");
+          if (item) item.remove();
+          if (!strip.querySelector("img")) {
+            var section = strip.closest("section");
+            if (section) section.remove();
+          }
+        }
         strip.querySelectorAll("img").forEach(function (img) {
-          img.addEventListener("error", function () {
-            var item = img.closest("li");
-            if (item) item.remove();
-            if (!strip.querySelector("img")) {
-              var section = strip.closest("section");
-              if (section) section.remove();
-            }
-          });
+          img.addEventListener("error", function () { drop(img); });
+          if (img.complete && img.naturalWidth === 0) drop(img);
         });
       }
       var root = document.getElementById("player");

@@ -8,7 +8,7 @@
   <meta name="description" content="From Houston oil &amp; gas VP to New Mexico ranch hand: ranch life, homesteading, and my dog Sally." />
   <link rel="canonical" href="https://nauti-labs.com/tankers-to-timber/" />
   <meta name="theme-color" content="#F3E6CC" />
-  <link rel="icon" type="image/svg+xml" href="/assets/nauti-gear-wheel.svg" />
+  <link rel="icon" type="image/png" href="/assets/t2t/nauti-ranch-badge.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Barlow+Condensed:wght@600;700&amp;family=Ultra&amp;display=swap" rel="stylesheet" />
@@ -50,13 +50,22 @@
     }
     .top a { color: var(--cream); text-decoration: none; font-family: "Barlow Condensed", "Arial Narrow", Impact, sans-serif; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; font-size: 0.95rem; }
     .top a:hover { color: var(--yellow); }
+    .brand { display: inline-flex; align-items: center; gap: 0.65rem; }
     .brand-mark { color: var(--yellow); }
+    .badge {
+      width: 2.75rem; height: 2.75rem;
+      border-radius: 50%;
+      object-fit: cover;
+      flex: 0 0 auto;
+      max-width: none;
+    }
+    .sign .badge { width: 5.75rem; height: 5.75rem; margin: 0 0 0.75rem; }
 
     .wrap { width: min(100% - 2rem, var(--max)); margin-inline: auto; }
     .narrow { width: min(100% - 2rem, 44rem); margin-inline: auto; }
 
     .hero { padding: 0 0 0.5rem; }
-    .hero img {
+    .hero-art {
       width: 100%;
       height: auto;
       aspect-ratio: 16 / 9;
@@ -222,13 +231,17 @@
 <body>
   <a class="skip" href="#story">Skip to the story</a>
   <header class="top">
-    <a href="/"><span class="brand-mark">Nauti</span>-Labs</a>
+    <a class="brand" href="/">
+      <img class="badge" src="/assets/t2t/nauti-ranch-badge.png" width="512" height="512" alt="Nauti Ranch. Cream NR over a sepia mountain, ringed with Nauti Ranch, Ocate, New Mexico." />
+      <span><span class="brand-mark">Nauti</span>-Labs</span>
+    </a>
     <a href="/#channel">Channel</a>
   </header>
 
   <section class="hero" aria-labelledby="page-title">
-    <img src="/assets/t2t/banner.jpg" width="1600" height="900" alt="Painted western sign reading Tankers to Timber, with a ranch sunset on the left and a tanker at sea on the right. The line under the title says From Houston to the high country." fetchpriority="high" decoding="async" />
+    <img class="hero-art" src="/assets/t2t/banner.jpg" width="1600" height="900" alt="Painted western sign reading Tankers to Timber, with a ranch sunset on the left and a tanker at sea on the right. The line under the title says From Houston to the high country." fetchpriority="high" decoding="async" />
     <div class="sign">
+      <img class="badge" src="/assets/t2t/nauti-ranch-badge.png" width="512" height="512" alt="" />
       <p class="kicker">Nauti Ranch · Northern New Mexico</p>
       <h1 id="page-title">Tankers to Timber</h1>
       <p class="lede">From Houston oil &amp; gas VP to New Mexico ranch hand: ranch life, homesteading, and my dog Sally.</p>

@@ -4,16 +4,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Opening Promptly | Nauti-Labs</title>
-  <meta name="description" content="Opening the live Promptly app." />
-  <link rel="canonical" href="https://promptly.nauti-labs.com/" />
-  <meta http-equiv="refresh" content="0; url=https://promptly.nauti-labs.com/" />
+  <title>Promptly | Nauti-Labs</title>
+  <meta name="description" content="Promptly is coming back soon." />
+  <link rel="canonical" href="https://nauti-labs.com/promptly/" />
   <meta name="robots" content="noindex,follow" />
   <meta property="og:site_name" content="Nauti-Labs" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Promptly | Nauti-Labs" />
-  <meta property="og:description" content="Open the live Promptly app." />
-  <meta property="og:url" content="https://promptly.nauti-labs.com/" />
+  <meta property="og:description" content="Promptly is coming back soon." />
+  <meta property="og:url" content="https://nauti-labs.com/promptly/" />
   <meta name="twitter:card" content="summary" />
   <meta name="theme-color" content="#181916" />
   <link rel="icon" type="image/svg+xml" href="/assets/promptly-mark.svg" />
@@ -22,6 +21,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    [hidden] { display: none !important; }
     :root {
       --bg: #181916;
       --surface: #f7f1e7;
@@ -235,7 +235,7 @@
     }
   </style>
 </head>
-<body>
+<body data-product-redirect="promptly">
   <nav class="topbar">
     <div class="wrap topbar-inner">
       <a class="brand" href="/">
@@ -244,8 +244,8 @@
         <span>Promptly</span>
       </a>
       <div class="nav-links">
-        <a href="#passes">Passes</a>
-        <a href="#lens">Lens</a>
+        <a href="#passes" data-show-when-live="promptly" hidden>Passes</a>
+        <a href="#lens" data-show-when-live="promptly" hidden>Lens</a>
         <a href="mailto:consulting@nauti-labs.com?subject=Promptly%20access">Contact</a>
       </div>
     </div>
@@ -256,10 +256,12 @@
       <div>
         <div class="eyebrow">Promptly / pay-per-prompt AI</div>
         <h1>A personal AI menu for <em>useful answers</em>.</h1>
-        <p class="lede">Promptly gives you everyday help, guided learning, and a higher-signal Lens tier without the software theater. Pick a pass, open the model menu, and get moving.</p>
+        <p class="lede" data-show-when-parked="promptly">Promptly is paused. Passes open again when the service is back.</p>
+        <p class="lede" data-show-when-live="promptly" hidden>Promptly gives you everyday help, guided learning, and a higher-signal Lens tier without the software theater. Pick a pass, open the model menu, and get moving.</p>
         <div class="actions">
-          <a class="btn primary" href="https://buy.stripe.com/eVq5kC8XN96wbpI1Vg1Fe03" target="_blank" rel="noopener">Start with a day pass</a>
-          <a class="btn secondary" href="#passes">View passes</a>
+          <p class="btn primary is-parked" data-show-when-parked="promptly">Coming back soon</p>
+          <a class="btn primary" data-enable-when="promptly" data-external data-href="https://buy.stripe.com/eVq5kC8XN96wbpI1Vg1Fe03" data-label-only data-live-label="Start with a day pass" data-show-when-live="promptly" hidden>Start with a day pass</a>
+          <a class="btn secondary" href="#passes" data-show-when-live="promptly" hidden>View passes</a>
         </div>
       </div>
 
@@ -290,7 +292,7 @@
       </aside>
     </div>
 
-    <div class="status-strip">
+    <div class="status-strip" data-show-when-live="promptly" hidden>
       <div class="wrap">
         <span><span class="dot">●</span> Stripe live mode</span>
         <span><span class="dot">●</span> Promptly + Learn passes</span>
@@ -298,7 +300,7 @@
       </div>
     </div>
 
-    <section id="passes">
+    <section id="passes" data-show-when-live="promptly" hidden>
       <div class="wrap">
         <div class="section-head">
           <h2>Promptly passes</h2>
@@ -311,7 +313,7 @@
             <p>24 hours of everyday Promptly and guided learning.</p>
             <div class="price">$2.99</div>
             <div class="period">24 hours</div>
-            <a class="btn" href="https://buy.stripe.com/eVq5kC8XN96wbpI1Vg1Fe03" target="_blank" rel="noopener">Open checkout</a>
+            <a class="btn is-parked" data-enable-when="promptly" data-external data-href="https://buy.stripe.com/eVq5kC8XN96wbpI1Vg1Fe03" data-label-only data-soon-label="Coming back soon" data-live-label="Open checkout" aria-disabled="true">Coming back soon</a>
           </article>
           <article class="price-card featured">
             <div class="tier">Promptly</div>
@@ -319,7 +321,7 @@
             <p>A week of access for projects, homework, writing, and planning.</p>
             <div class="price">$7.99</div>
             <div class="period">7 days</div>
-            <a class="btn" href="https://buy.stripe.com/14A4gyei75Uk2Tc2Zk1Fe04" target="_blank" rel="noopener">Open checkout</a>
+            <a class="btn is-parked" data-enable-when="promptly" data-external data-href="https://buy.stripe.com/14A4gyei75Uk2Tc2Zk1Fe04" data-label-only data-soon-label="Coming back soon" data-live-label="Open checkout" aria-disabled="true">Coming back soon</a>
           </article>
           <article class="price-card">
             <div class="tier">Promptly</div>
@@ -327,13 +329,13 @@
             <p>Keep Promptly and Promptly Learn available month to month.</p>
             <div class="price">$19.99</div>
             <div class="period">per month</div>
-            <a class="btn" href="https://buy.stripe.com/bJe7sKgqfaaA79s6bw1Fe05" target="_blank" rel="noopener">Open checkout</a>
+            <a class="btn is-parked" data-enable-when="promptly" data-external data-href="https://buy.stripe.com/bJe7sKgqfaaA79s6bw1Fe05" data-label-only data-soon-label="Coming back soon" data-live-label="Open checkout" aria-disabled="true">Coming back soon</a>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="lens">
+    <section id="lens" data-show-when-live="promptly" hidden>
       <div class="wrap">
         <div class="section-head">
           <h2>Promptly Lens</h2>
@@ -346,7 +348,7 @@
             <p>Promptly, Learn, and Lens for one focused day.</p>
             <div class="price">$4.99</div>
             <div class="period">24 hours</div>
-            <a class="btn" href="https://buy.stripe.com/eVq7sK2zp3Mc3Xg43o1Fe06" target="_blank" rel="noopener">Open checkout</a>
+            <a class="btn is-parked" data-enable-when="promptly" data-external data-href="https://buy.stripe.com/eVq7sK2zp3Mc3Xg43o1Fe06" data-label-only data-soon-label="Coming back soon" data-live-label="Open checkout" aria-disabled="true">Coming back soon</a>
           </article>
           <article class="price-card lens featured">
             <div class="tier">Lens</div>
@@ -354,7 +356,7 @@
             <p>A week of higher-signal help for messy work.</p>
             <div class="price">$12.99</div>
             <div class="period">7 days</div>
-            <a class="btn" href="https://buy.stripe.com/3cI5kCde3gyYgK2fM61Fe07" target="_blank" rel="noopener">Open checkout</a>
+            <a class="btn is-parked" data-enable-when="promptly" data-external data-href="https://buy.stripe.com/3cI5kCde3gyYgK2fM61Fe07" data-label-only data-soon-label="Coming back soon" data-live-label="Open checkout" aria-disabled="true">Coming back soon</a>
           </article>
           <article class="price-card lens">
             <div class="tier">Lens</div>
@@ -362,7 +364,7 @@
             <p>Promptly, Learn, and Lens kept ready every month.</p>
             <div class="price">$29.99</div>
             <div class="period">per month</div>
-            <a class="btn" href="https://buy.stripe.com/bJeeVc1vldmM8dw8jE1Fe08" target="_blank" rel="noopener">Open checkout</a>
+            <a class="btn is-parked" data-enable-when="promptly" data-external data-href="https://buy.stripe.com/bJeeVc1vldmM8dw8jE1Fe08" data-label-only data-soon-label="Coming back soon" data-live-label="Open checkout" aria-disabled="true">Coming back soon</a>
           </article>
         </div>
       </div>
@@ -375,5 +377,6 @@
       <div><a href="/">Nauti-Labs</a> · <a href="mailto:consulting@nauti-labs.com?subject=Promptly%20access">consulting@nauti-labs.com</a></div>
     </div>
   </footer>
+  <script src="/assets/product-switch.js"></script>
 </body>
 </html>

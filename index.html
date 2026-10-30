@@ -118,7 +118,7 @@
             {
               "@type": "Offer",
               "name": "Neighbors local tech help",
-              "url": "https://neighbors.nauti-labs.com/",
+              "url": "https://nauti-labs.com/neighbors/",
               "price": "125.00",
               "priceCurrency": "USD",
               "priceSpecification": {
@@ -810,6 +810,8 @@
       outline: 2px solid var(--amber);
       outline-offset: 4px;
     }
+    a.is-parked { cursor: default; }
+    a.demo-card.is-parked:hover { border-color: var(--border); }
     .demo-card-head {
       display: flex;
       align-items: flex-start;
@@ -1156,7 +1158,7 @@
 
     /* === RESPONSIVE === */
     @media (max-width: 920px) {
-      nav.site-nav .nav-links a:not(.nav-cta) { display: none; }
+      nav.site-nav .nav-links a:not(.nav-cta):not(.nav-products) { display: none; }
       .pillar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .detail-grid { grid-template-columns: 1fr; }
       .rate-card { position: static; }
@@ -1188,7 +1190,8 @@
         <a href="#ai">Custom AI</a>
         <a href="#channel">Channel</a>
         <a href="/tankers-and-tumbleweeds/">Tankers AND Tumbleweeds</a>
-        <a href="https://neighbors.nauti-labs.com/">Neighbors</a>
+        <a href="/products/" class="nav-products">Products</a>
+        <a href="/products/#neighbors">Neighbors</a>
         <a href="mailto:consulting@nauti-labs.com" class="nav-cta">Book intro</a>
       </div>
     </div>
@@ -1212,8 +1215,8 @@
       </div>
       <div class="hero-pills">
         <span class="hero-pill"><span class="pill-dot">●</span> Triton — live</span>
-        <span class="hero-pill"><span class="pill-dot">●</span> Clearance — live</span>
-        <span class="hero-pill"><span class="pill-dot">●</span> Promptly — live</span>
+        <span class="hero-pill" data-product="clearance" data-soon-label="Clearance — coming back soon" data-live-label="Clearance — live"><span class="pill-dot" style="color: var(--amber)">●</span><span data-product-label>Clearance — coming back soon</span></span>
+        <span class="hero-pill" data-product="promptly" data-soon-label="Promptly — coming back soon" data-live-label="Promptly — live"><span class="pill-dot" style="color: var(--amber)">●</span><span data-product-label>Promptly — coming back soon</span></span>
         <span class="hero-pill"><span class="pill-dot" style="color: var(--amber)">●</span> Neighbors — local</span>
       </div>
     </div>
@@ -1249,7 +1252,7 @@
           <span class="pillar-link">Read more →</span>
         </a>
 
-        <a href="https://neighbors.nauti-labs.com/" class="pillar-card">
+        <a class="pillar-card is-parked" data-product="neighbors" data-external data-soon-label="Coming back soon" data-live-label="View rates →" aria-disabled="true">
           <div class="num">03</div>
           <h3>Neighbors</h3>
           <p>Plain-English tech help for nearby residents and owner-operated businesses. AI setup, security, websites, email, and domains.</p>
@@ -1258,7 +1261,7 @@
             <li>Device, Wi-Fi, account, and domain cleanup</li>
             <li>Published services and rates</li>
           </ul>
-          <span class="pillar-link">View rates →</span>
+          <span class="pillar-link" data-product-label>Coming back soon</span>
         </a>
 
       </div>
@@ -1365,7 +1368,7 @@
       <h2>Approval-aware AI. Built to ship.</h2>
       <p class="lede">
         If you can describe the workflow, I can build the agent. Bots, headless tools, integrations — with human approval at the seams where money or risk moves.
-        Two live products show the pattern.
+        Two products show the pattern.
       </p>
 
       <div class="detail-grid">
@@ -1399,15 +1402,15 @@
             <li>Approval-aware patterns by default</li>
           </ul>
           <a href="mailto:consulting@nauti-labs.com?subject=Custom%20AI%20build" class="btn-primary">Start a build</a>
-          <a href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener" class="btn-secondary">See Clearance live →</a>
+          <a class="btn-secondary is-parked" data-product="clearance" data-external data-label-only data-soon-label="Coming back soon" data-live-label="See Clearance live →" aria-disabled="true">Coming back soon</a>
         </aside>
       </div>
 
-      <h3>Live products</h3>
+      <h3>Products</h3>
       <div class="demo-cards">
-        <a class="demo-card product-card-link" href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener" aria-label="Open Clearance">
+        <a class="demo-card product-card-link is-parked" data-product="clearance" data-external data-soon-label="Coming back soon" data-live-label="Open Clearance →" data-soon-state="Coming back soon" data-live-state="Live · API" aria-disabled="true" aria-label="Clearance, coming back soon">
           <div class="demo-card-head">
-            <div class="demo-eyebrow"><span class="dot"></span>Live · API</div>
+            <div class="demo-eyebrow"><span class="dot"></span><span data-product-state>Coming back soon</span></div>
             <span class="product-logo clearance" aria-hidden="true">
               <svg viewBox="0 0 64 48" role="img" aria-label="Clearance three-chevron mark">
                 <path d="M6 8h8l12 16-12 16H6l12-16z" fill="#ff9f1a"/>
@@ -1418,11 +1421,11 @@
           </div>
           <h4>Clearance</h4>
           <p>The auth layer between human intent and agent execution. One API call. Human approves. Agent proceeds. Token verifies on-chain.</p>
-          <span class="btn-secondary">Open Clearance →</span>
+          <span class="btn-secondary" data-product-label>Coming back soon</span>
         </a>
-        <a class="demo-card product-card-link" href="https://promptly.nauti-labs.com/" target="_blank" rel="noopener" aria-label="Open Promptly">
+        <a class="demo-card product-card-link is-parked" data-product="promptly" data-external data-soon-label="Coming back soon" data-live-label="Open Promptly →" data-soon-state="Coming back soon" data-live-state="Live · Personal AI" aria-disabled="true" aria-label="Promptly, coming back soon">
           <div class="demo-card-head">
-            <div class="demo-eyebrow"><span class="dot"></span>Live · Personal AI</div>
+            <div class="demo-eyebrow"><span class="dot"></span><span data-product-state>Coming back soon</span></div>
             <span class="product-logo promptly" aria-hidden="true">
               <svg viewBox="0 0 64 64" role="img" aria-label="Promptly mark">
                 <text x="8" y="46" text-anchor="start" font-family="'Cormorant Garamond','Playfair Display','EB Garamond',Georgia,'Times New Roman',serif" font-style="italic" font-weight="500" font-size="48" fill="#2C1418">p</text>
@@ -1433,8 +1436,8 @@
             </span>
           </div>
           <h4>Promptly</h4>
-          <p>Hosted personal LLM passes with live card and wallet checkout. $2.99 day, $7.99 week, $19.99 month tiers.</p>
-          <span class="btn-secondary">Open Promptly →</span>
+          <p>Hosted personal LLM passes. Checkout stays closed until Promptly is back.</p>
+          <span class="btn-secondary" data-product-label>Coming back soon</span>
         </a>
       </div>
 
@@ -1479,7 +1482,7 @@
   <!-- ============================================== -->
   <section class="neighbors" id="neighbors">
     <div class="container">
-      <a class="neighbors-card neighbors-link-card" href="https://neighbors.nauti-labs.com/" aria-label="Open Nauti-Labs Neighbors services and rates">
+      <a class="neighbors-card neighbors-link-card is-parked" data-product="neighbors" data-external data-soon-label="Coming back soon" data-live-label="View services and rates →" aria-disabled="true" aria-label="Neighbors, coming back soon">
         <div class="neighbors-eyebrow">
           <span class="dot"></span>
           <span>For neighbors · Mont Belvieu · Baytown · Barbers Hill</span>
@@ -1502,7 +1505,7 @@
           <aside class="neighbors-cta">
             <div class="neighbors-tag">Local only</div>
             <p>Residents and owner-operated businesses inside the Mont Belvieu / Baytown / Barbers Hill area.</p>
-            <span class="btn-secondary">View services and rates →</span>
+            <span class="btn-secondary" data-product-label>Coming back soon</span>
           </aside>
         </div>
       </a>
@@ -1531,15 +1534,17 @@
             <li><a href="#ai">Custom AI</a></li>
             <li><a href="#channel">Channel</a></li>
             <li><a href="/tankers-and-tumbleweeds/">Tankers AND Tumbleweeds</a></li>
-            <li><a href="https://neighbors.nauti-labs.com/">Neighbors (local help)</a></li>
+            <li><a href="/products/">Products</a></li>
+            <li><a class="is-parked" data-product="neighbors" data-external data-label-only data-soon-label="Neighbors — coming back soon" data-live-label="Neighbors" aria-disabled="true">Neighbors — coming back soon</a></li>
           </ul>
         </div>
         <div>
-          <h5>Live products</h5>
+          <h5>Products</h5>
           <ul>
+            <li><a href="/products/">What is open today</a></li>
             <li><a href="https://ops.nauti-labs.com/" target="_blank" rel="noopener">Triton Dashboard</a></li>
-            <li><a href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener">Clearance</a></li>
-            <li><a href="https://promptly.nauti-labs.com/" target="_blank" rel="noopener">Promptly</a></li>
+            <li><a class="is-parked" data-product="clearance" data-external data-label-only data-soon-label="Clearance — coming back soon" data-live-label="Clearance" aria-disabled="true">Clearance — coming back soon</a></li>
+            <li><a class="is-parked" data-product="promptly" data-external data-label-only data-soon-label="Promptly — coming back soon" data-live-label="Promptly" aria-disabled="true">Promptly — coming back soon</a></li>
             <li><a href="/suite/">Suite status</a></li>
           </ul>
         </div>
@@ -1560,5 +1565,6 @@
     </div>
   </footer>
 
+  <script src="/assets/product-switch.js"></script>
 </body>
 </html>

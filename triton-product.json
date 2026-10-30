@@ -90,9 +90,7 @@
       "buy_now_email": "mailto:consulting@nauti-labs.com?subject=Start%20Triton",
       "agent_policy_template": "./agent-spend-policy.example.json",
       "related_clearance": {
-        "landing_page": "https://clearance.nauti-labs.com/",
-        "docs": "https://clearance.nauti-labs.com/v1/docs",
-        "payment_info": "https://clearance.nauti-labs.com/v1/payments/info",
+        "status": "coming_back_soon",
         "role": "Self-serve approval API and fixed-price USDC checkout layer for AI crew and humans."
       }
     }

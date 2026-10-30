@@ -434,6 +434,7 @@
       display: block;
       background: var(--bg-2);
     }
+    .board-frame[hidden] { display: none !important; }
     .parked-board {
       min-height: 520px;
       display: grid;
@@ -697,7 +698,7 @@
         <span class="brand-name">Nauti-Traffic</span>
         <span class="brand-by">by Nauti-Labs</span>
       </a>
-      <span class="top-status">clearance live</span>
+      <span class="top-status" id="topStatus">coming back soon</span>
     </div>
   </header>
 
@@ -710,7 +711,7 @@
       </div>
       <div class="receipt" aria-label="Build note">
         <span>build receipt</span>
-        <strong>clearance public // SCRAM diagnostics locked</strong>
+        <strong>boards parked // SCRAM diagnostics locked</strong>
       </div>
     </section>
 
@@ -760,23 +761,39 @@
           SCRAM // traffic
         </button>
       </div>
-      <div class="surface-meta" id="surfaceMeta">clearance.nauti-labs.com/nauti-traffic</div>
+      <div class="surface-meta" id="surfaceMeta">Coming back soon</div>
     </section>
 
-    <section class="board active" id="board-clearance" role="tabpanel">
-      <iframe class="board-frame deferred-frame" title="Clearance Traffic board" data-src="https://clearance.nauti-labs.com/nauti-traffic" src="about:blank" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <section class="board active" id="board-clearance" role="tabpanel" data-product-board>
+      <div class="parked-board" data-product-soon>
+        <strong>Clearance</strong>
+        <span>Coming back soon</span>
+      </div>
+      <iframe class="board-frame deferred-frame" title="Clearance Traffic board" data-product="clearance" data-surface="traffic" src="about:blank" hidden loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
-    <section class="board" id="board-felipe" role="tabpanel" aria-hidden="true">
-      <iframe class="board-frame" id="felipeFrame" title="Felipe Traffic sign-in and board" data-src="https://felipe-production-8624.up.railway.app/auth/traffic?next=%2Ffelipe-traffic" src="about:blank" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <section class="board" id="board-felipe" role="tabpanel" aria-hidden="true" data-product-board>
+      <div class="parked-board" data-product-soon>
+        <strong>Felipe</strong>
+        <span>Coming back soon</span>
+      </div>
+      <iframe class="board-frame" id="felipeFrame" title="Felipe Traffic sign-in and board" data-product="felipe" data-surface="traffic" src="about:blank" hidden loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
-    <section class="board" id="board-triton" role="tabpanel" aria-hidden="true">
-      <iframe class="board-frame" title="Triton Traffic board" data-src="https://promptly.nauti-labs.com/triton-traffic" src="about:blank" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <section class="board" id="board-triton" role="tabpanel" aria-hidden="true" data-product-board>
+      <div class="parked-board" data-product-soon>
+        <strong>Triton traffic</strong>
+        <span>Coming back soon</span>
+      </div>
+      <iframe class="board-frame" title="Triton Traffic board" data-product="promptly" data-surface="tritonTraffic" src="about:blank" hidden loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
-    <section class="board" id="board-promptly" role="tabpanel" aria-hidden="true">
-      <iframe class="board-frame" title="Promptly Traffic board" data-src="https://promptly.nauti-labs.com/nauti-traffic" src="about:blank" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <section class="board" id="board-promptly" role="tabpanel" aria-hidden="true" data-product-board>
+      <div class="parked-board" data-product-soon>
+        <strong>Promptly</strong>
+        <span>Coming back soon</span>
+      </div>
+      <iframe class="board-frame" title="Promptly Traffic board" data-product="promptly" data-surface="traffic" src="about:blank" hidden loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
     <section class="board" id="board-scram" role="tabpanel" aria-hidden="true">
@@ -853,10 +870,6 @@
     const trafficPass = document.getElementById("trafficPass");
 
     const meta = {
-      clearance: "clearance.nauti-labs.com/nauti-traffic",
-      felipe: "felipe traffic - management login required",
-      triton: "promptly.nauti-labs.com/triton-traffic",
-      promptly: "promptly.nauti-labs.com/nauti-traffic",
       scram: "scram.nauti-labs.com traffic - setup watch"
     };
     const scramEvents = [
@@ -908,7 +921,6 @@
       }
     ];
     const surfaceMeta = document.getElementById("surfaceMeta");
-    const felipeFrame = document.getElementById("felipeFrame");
     const eventRows = document.getElementById("eventRows");
     const fixList = document.getElementById("fixList");
     const statusClass = { ok: "good", warning: "warn", broken: "bad" };
@@ -919,10 +931,24 @@
       return btoa(String.fromCharCode(...new Uint8Array(digest)));
     }
 
-    function loadDeferredFrames() {
-      document.querySelectorAll(".deferred-frame[data-src]").forEach((frame) => {
-        if (frame.src === "about:blank") frame.src = frame.dataset.src;
-      });
+    function boardLabel(board) {
+      const frame = document.querySelector(`#board-${board} iframe`);
+      if (frame && frame.dataset.src) {
+        try {
+          const url = new URL(frame.dataset.src);
+          return `${url.host}${url.pathname}`;
+        } catch (err) {
+          return frame.dataset.src;
+        }
+      }
+      return meta[board] || "Coming back soon";
+    }
+
+    function loadFrame(frame) {
+      if (!frame || !frame.dataset.src) return;
+      if (!frame.src || frame.src === "about:blank" || frame.src.endsWith("/about:blank")) {
+        frame.src = frame.dataset.src;
+      }
     }
 
     function unlockScram() {
@@ -987,14 +1013,10 @@
         panel.classList.toggle("active", active);
         panel.setAttribute("aria-hidden", active ? "false" : "true");
       });
-      surfaceMeta.textContent = meta[board] || "";
-      if (board === "felipe" && felipeFrame && felipeFrame.src === "about:blank") {
-        felipeFrame.src = felipeFrame.dataset.src;
-      }
-      const activeFrame = document.querySelector(`#board-${board} iframe[data-src]`);
-      if (activeFrame && activeFrame.src === "about:blank") {
-        activeFrame.src = activeFrame.dataset.src;
-      }
+      surfaceMeta.textContent = boardLabel(board);
+      const topStatus = document.getElementById("topStatus");
+      if (topStatus && board !== "scram") topStatus.textContent = boardLabel(board) === "Coming back soon" ? "coming back soon" : "board live";
+      loadFrame(document.querySelector(`#board-${board} iframe`));
       if (board === "scram" && !scramProtected.hidden) renderScramBoard();
     }
 
@@ -1012,10 +1034,14 @@
       tab.addEventListener("click", () => showBoard(tab.dataset.board));
     });
     gateForm.addEventListener("submit", submitGate);
-    loadDeferredFrames();
+    document.addEventListener("nauti-products-ready", () => {
+      const active = document.querySelector(".traffic-tab.active");
+      if (active) showBoard(active.dataset.board);
+    });
     if (sessionStorage.getItem("scramTrafficUnlocked") === "true") {
       unlockScram();
     }
   </script>
+  <script src="/assets/product-switch.js"></script>
 </body>
 </html>

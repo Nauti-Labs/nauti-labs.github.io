@@ -100,15 +100,17 @@
           <path d="M10 52h36" stroke="#ef233c" stroke-width="8" stroke-linecap="square"/>
         </svg>
         <h1>Felipe</h1>
-        <p>Opening the live trial desk.</p>
-        <a href="https://felipe-production-8624.up.railway.app/crypto">Open directly</a>
+        <p data-show-when-parked="felipe">Coming back soon.</p>
+        <a data-product="felipe" data-external data-label-only data-live-label="Open directly" data-show-when-live="felipe" hidden>Open directly</a>
       </section>
     </main>
 
     <iframe
       title="Felipe live trial desk"
-      src="https://felipe-production-8624.up.railway.app/crypto"
+      data-product="felipe"
+      hidden
       allow="clipboard-read; clipboard-write"
     ></iframe>
+    <script src="/assets/product-switch.js"></script>
   </body>
 </html>

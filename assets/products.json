@@ -1,0 +1,26 @@
+{
+  "clearance": {
+    "live": false,
+    "href": "https://clearance.nauti-labs.com/",
+    "traffic": "https://clearance.nauti-labs.com/nauti-traffic"
+  },
+  "clearance-mcp": {
+    "live": false,
+    "href": ""
+  },
+  "promptly": {
+    "live": false,
+    "href": "https://promptly.nauti-labs.com/",
+    "traffic": "https://promptly.nauti-labs.com/nauti-traffic",
+    "tritonTraffic": "https://promptly.nauti-labs.com/triton-traffic"
+  },
+  "neighbors": {
+    "live": false,
+    "href": "https://neighbors.nauti-labs.com/"
+  },
+  "felipe": {
+    "live": false,
+    "href": "https://felipe-production-8624.up.railway.app/crypto",
+    "traffic": "https://felipe-production-8624.up.railway.app/auth/traffic?next=%2Ffelipe-traffic"
+  }
+}

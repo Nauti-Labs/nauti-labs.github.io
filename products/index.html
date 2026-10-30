@@ -1,0 +1,218 @@
+<!-- Copyright (c) 2026 Nauti-Labs LLC. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products | Nauti-Labs</title>
+  <meta name="description" content="What is open at Nauti-Labs today: Triton pilot, maritime consulting, custom AI builds, and Neighbors help." />
+  <link rel="canonical" href="https://nauti-labs.com/products/" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:site_name" content="Nauti-Labs" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Products | Nauti-Labs" />
+  <meta property="og:description" content="What is open at Nauti-Labs today." />
+  <meta property="og:url" content="https://nauti-labs.com/products/" />
+  <meta property="og:image" content="https://nauti-labs.com/og/home-share-20260515.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Products | Nauti-Labs" />
+  <meta name="twitter:description" content="What is open at Nauti-Labs today." />
+  <meta name="twitter:image" content="https://nauti-labs.com/og/home-share-20260515.png" />
+  <meta name="theme-color" content="#15151a" />
+  <link rel="icon" type="image/svg+xml" href="/assets/nauti-gear-wheel.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #15151a;
+      --surface: #1f1f27;
+      --border: #2a2a33;
+      --border-2: #353541;
+      --amber: #E8912D;
+      --amber-bright: #f0a040;
+      --text: #ececf0;
+      --text-dim: #b8b8c0;
+      --muted: #7a7a85;
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      font-family: var(--font-sans);
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(232, 145, 45, 0.07), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--amber); text-decoration: none; }
+    .container { width: min(880px, calc(100% - 40px)); margin: 0 auto; }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: rgba(21, 21, 26, 0.82);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 68px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 700; }
+    .brand img { width: 30px; height: 30px; }
+    .nav-links { display: flex; gap: 18px; align-items: center; }
+    .nav-links a { color: var(--text-dim); font-size: 14px; font-weight: 500; }
+    header { padding: 72px 0 28px; }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    h1 { font-size: clamp(36px, 6vw, 56px); letter-spacing: -0.03em; line-height: 1.05; }
+    .lede { margin-top: 16px; max-width: 38rem; color: var(--text-dim); font-size: 18px; }
+    .list { display: grid; gap: 14px; padding-bottom: 28px; }
+    article {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 22px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    h2 { font-size: 22px; letter-spacing: -0.02em; }
+    p { color: var(--text-dim); margin-top: 6px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      white-space: nowrap;
+      background: var(--amber);
+      color: #1a1a1f;
+    }
+    .btn:hover { background: var(--amber-bright); }
+    a.btn.is-parked,
+    a.btn.is-parked:hover {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border-2);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: default;
+    }
+    h3 {
+      margin: 28px 0 12px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    footer { padding: 28px 0 48px; color: var(--muted); font-size: 14px; }
+    @media (max-width: 680px) {
+      article { grid-template-columns: 1fr; }
+      .nav-links a:not(.nav-home) { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a class="brand" href="/">
+        <img src="/assets/nauti-gear-wheel.svg" alt="" width="512" height="512" />
+        Nauti-Labs
+      </a>
+      <div class="nav-links">
+        <a class="nav-home" href="/">Home</a>
+        <a href="/maritime/">Maritime</a>
+        <a href="/#ai">Custom AI</a>
+        <a href="/neighbors/">Neighbors</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container">
+      <p class="eyebrow">Open today</p>
+      <h1>Products</h1>
+      <p class="lede">Four things you can open right now. Clearance stays parked until the service is back.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="list">
+      <article id="triton">
+        <div>
+          <h2>Triton pilot</h2>
+          <p>Maritime operations desk for the vessel, the schedule, and the port-call paper trail.</p>
+        </div>
+        <a class="btn" href="https://ops.nauti-labs.com/" target="_blank" rel="noopener">Open Triton pilot</a>
+      </article>
+
+      <article id="maritime">
+        <div>
+          <h2>Maritime consulting</h2>
+          <p>Port-call workflow, agency systems, and cargo representation on the Houston Ship Channel and Gulf Coast.</p>
+        </div>
+        <a class="btn" href="/maritime/">Maritime consulting</a>
+      </article>
+
+      <article id="ai">
+        <div>
+          <h2>AI build</h2>
+          <p>Approval-aware agents, bots, and product builds. Start with the scoping note already on the books.</p>
+        </div>
+        <a class="btn" href="mailto:consulting@nauti-labs.com?subject=Custom%20AI%20build">Start a build</a>
+      </article>
+
+      <article id="neighbors">
+        <div>
+          <h2>Neighbors help</h2>
+          <p>Plain-English tech help for nearby residents and owner-operated businesses.</p>
+        </div>
+        <a class="btn" href="/neighbors/">Neighbors help</a>
+      </article>
+    </div>
+
+    <h3>Coming back soon</h3>
+    <div class="list">
+      <article id="clearance">
+        <div>
+          <h2>Clearance</h2>
+          <p>A person approves, then the agent moves.</p>
+        </div>
+        <a class="btn is-parked" data-product="clearance" data-external data-label-only data-soon-label="Coming back soon" data-live-label="Open Clearance" aria-disabled="true">Coming back soon</a>
+      </article>
+
+      <article id="clearance-mcp">
+        <div>
+          <h2>clearance-mcp</h2>
+          <p>The Clearance connector for agents.</p>
+        </div>
+        <a class="btn is-parked" data-product="clearance-mcp" data-external data-label-only data-soon-label="Coming back soon" data-live-label="Open clearance-mcp" aria-disabled="true">Coming back soon</a>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container"><a href="/">Nauti-Labs</a></div>
+  </footer>
+  <script src="/assets/product-switch.js"></script>
+</body>
+</html>

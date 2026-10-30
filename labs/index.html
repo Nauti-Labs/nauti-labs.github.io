@@ -295,6 +295,9 @@
       text-decoration: none;
     }
     .stack-card:hover { background: rgba(0, 200, 240, 0.055); }
+    a.is-parked,
+    a.is-parked:hover { cursor: default; transform: none; }
+    a.stack-card.is-parked:hover { background: rgba(1, 2, 10, 0.84); transform: none; box-shadow: none; }
     .stack-card svg,
     .stack-card img {
       width: 66px;
@@ -722,7 +725,7 @@
         </p>
         <div class="hero-actions">
           <a class="button primary" href="https://ops.nauti-labs.com/" target="_blank" rel="noopener">Open Triton Dashboard</a>
-          <a class="button" href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener">Open Clearance</a>
+          <a class="button is-parked" data-product="clearance" data-external data-label-only data-soon-label="Coming back soon" data-live-label="Open Clearance" aria-disabled="true">Coming back soon</a>
           <a class="button amber" href="/brand/">Brand System</a>
         </div>
       </div>
@@ -741,14 +744,14 @@
             </div>
             <span class="stack-state">Live</span>
           </a>
-          <a class="stack-card" href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener">
+          <a class="stack-card is-parked" data-product="clearance" data-external data-soon-state="Coming back soon" data-live-state="Live" aria-disabled="true">
             <svg viewBox="0 0 140 140" aria-hidden="true"><use href="#mark-clearance"/></svg>
             <div>
               <div class="stack-name">Clearance</div>
               <div class="stack-by">by Nauti-Labs</div>
               <div class="stack-role">The approval rail for sensitive actions and signed receipts.</div>
             </div>
-            <span class="stack-state">Live</span>
+            <span class="stack-state" data-product-state>Coming back soon</span>
           </a>
           <a class="stack-card" href="#felipe">
             <svg viewBox="0 0 140 140" aria-hidden="true"><use href="#mark-felipe"/></svg>
@@ -796,10 +799,10 @@
               <ul class="mini-list">
                 <li>Human sign-off before consequence</li>
                 <li>Signed approval receipts</li>
-                <li>Free tier live now</li>
+                <li>Paused until the service is back</li>
               </ul>
             </div>
-            <a class="card-link" href="https://clearance.nauti-labs.com/" target="_blank" rel="noopener">Open Clearance →</a>
+            <a class="card-link is-parked" data-product="clearance" data-external data-label-only data-soon-label="Coming back soon" data-live-label="Open Clearance →" aria-disabled="true">Coming back soon</a>
           </article>
           <article class="card" id="felipe">
             <div>
@@ -896,5 +899,6 @@
       Nauti-Labs LLC · Labs · One ship. Many stations. · <a href="/brand/">Brand system locked</a>
     </footer>
   </div>
+  <script src="/assets/product-switch.js"></script>
 </body>
 </html>

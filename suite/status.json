@@ -1,83 +1,12 @@
 {
   "generated_at": "2026-08-14T07:55:14.446579Z",
-  "summary": "0/7 services online",
-  "watchdog": {
-    "online": true,
-    "awake_guard": true
-  },
-  "ollama": {
-    "online": true,
-    "models": [
-      "promptly-lens:latest",
-      "promptly-liberated:latest",
-      "promptly-core:latest",
-      "promptly-learn:latest",
-      "CognitiveComputations/dolphin-2.9.2-qwen2-7b:Q4_0",
-      "llama3.1:latest",
-      "dolphin-qwen2:7b-4k",
-      "daredevil-8b-abliterated:latest",
-      "nomic-embed-text:latest",
-      "qwen2.5-coder:7b",
-      "gemma3:latest",
-      "qwen3:14b"
-    ]
-  },
   "services": [
-    {
-      "id": "triton",
-      "label": "Triton",
-      "role": "Command hub",
-      "port": 8600,
-      "online": false,
-      "private": true
-    },
-    {
-      "id": "nauti_ops",
-      "label": "Nauti-Ops",
-      "role": "Maritime operations",
-      "port": 8200,
-      "online": false,
-      "private": true
-    },
-    {
-      "id": "turbo",
-      "label": "Turbo",
-      "role": "Strategic advisor",
-      "port": 8301,
-      "online": false,
-      "private": true
-    },
-    {
-      "id": "castle",
-      "label": "Castle",
-      "role": "Security and Blacksmith",
-      "port": 8080,
-      "online": false,
-      "private": true
-    },
-    {
-      "id": "navisales",
-      "label": "Navi-Sales",
-      "role": "Sales intelligence",
-      "port": 8500,
-      "online": false,
-      "private": true
-    },
-    {
-      "id": "felipe",
-      "label": "Felipe",
-      "role": "Finance and domains",
-      "port": 8100,
-      "online": false,
-      "private": true
-    },
-    {
-      "id": "clearance",
-      "label": "Clearance",
-      "role": "Approval gate",
-      "port": 8700,
-      "online": false,
-      "private": true
-    }
+    {"id": "triton", "label": "Triton", "online": false},
+    {"id": "nauti_ops", "label": "Nauti-Ops", "online": false},
+    {"id": "turbo", "label": "Turbo", "online": false},
+    {"id": "castle", "label": "Castle", "online": false},
+    {"id": "navisales", "label": "Navi-Sales", "online": false},
+    {"id": "felipe", "label": "Felipe", "online": false},
+    {"id": "clearance", "label": "Clearance", "online": false}
   ]
 }

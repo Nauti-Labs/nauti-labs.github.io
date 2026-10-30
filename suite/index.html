@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nauti-Labs Suite Status</title>
-  <meta name="description" content="Public Nauti-Labs suite status: Triton Dashboard, Castle, Turbo, Navisales, Felipe, Clearance, Factory, Ollama, and always-on watchdog state." />
+  <meta name="description" content="Public up or down status for Nauti-Labs services." />
   <link rel="canonical" href="https://nauti-labs.com/suite/" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#00c8f0" />
@@ -57,7 +57,7 @@
     .chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0 0; }
     .chip { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); font-family: var(--mono); font-size: 0.75rem; border: 1px solid var(--border); border-radius: 999px; padding: 8px 11px; background: rgba(255,255,255,0.025); }
     .chip-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan-hi); box-shadow: 0 0 14px rgba(102, 229, 255, 0.75); }
-    .summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 22px; }
+    .summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 22px; }
     .stat, .card {
       background: rgba(6, 10, 20, 0.76); border: 1px solid var(--border); border-radius: 8px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.04);
@@ -107,7 +107,7 @@
           </div>
         </div>
         <div class="eyebrow">Public heartbeat</div>
-        <p class="sub">A safe status snapshot for the Nauti-Labs product family. The private fleet stays behind operator access; this page only shows what is healthy, what is pending, and when the last heartbeat landed.</p>
+        <p class="sub">A public up or down snapshot. Private dashboards stay off this page. This view only shows which services are up and when the last update landed.</p>
         <div class="chips" aria-label="Suite posture">
           <span class="chip"><span class="chip-dot"></span>Brand locked</span>
           <span class="chip"><span class="chip-dot"></span>Triton domain live</span>
@@ -123,9 +123,7 @@
     </header>
 
     <section class="summary" aria-label="Status summary">
-      <div class="stat"><div class="stat-label">Fleet</div><div class="stat-value" id="fleetValue">Checking</div><div class="stat-note" id="fleetNote">Loading status.json</div></div>
-      <div class="stat"><div class="stat-label">Watchdog</div><div class="stat-value" id="watchdogValue">--</div><div class="stat-note">Mac mini self-check layer</div></div>
-      <div class="stat"><div class="stat-label">Local AI</div><div class="stat-value" id="modelValue">--</div><div class="stat-note">Ollama local runtime</div></div>
+      <div class="stat"><div class="stat-label">Services</div><div class="stat-value" id="fleetValue">Checking</div><div class="stat-note" id="fleetNote">Loading status</div></div>
       <div class="stat"><div class="stat-label">Updated</div><div class="stat-value" id="updatedValue">--</div><div class="stat-note" id="updatedNote">Awaiting first publish</div></div>
     </section>
 
@@ -134,15 +132,15 @@
     <section class="panel-row">
       <div class="card wide">
         <h2>What This Page Is</h2>
-        <p>This is the public operational surface for Nauti-Labs. It reports service health, watchdog state, and local AI readiness without exposing private dashboards or control routes to the open internet.</p>
+        <p>This page reports which services are up or down. It does not list machines, ports, or models.</p>
       </div>
       <div class="card wide">
         <h2>Operator Access</h2>
         <ul>
-          <li>Private dashboards stay behind Mac mini auth/Tailscale.</li>
+          <li>Private dashboards stay behind operator access.</li>
           <li>Triton Dashboard remains the maritime desk at <code>ops.nauti-labs.com</code>.</li>
           <li>Clearance remains approval-gated.</li>
-          <li>Castle/Blacksmith uses local Ollama.</li>
+          <li>Everything else on this page is only up or down.</li>
         </ul>
       </div>
     </section>
@@ -189,12 +187,10 @@
         <div class="card-head">
           <div>
             <div class="name">${label}</div>
-            <div class="role">${service.role || service.id}</div>
           </div>
           <span class="dot"></span>
         </div>
         <div class="status">${state}</div>
-        <div class="meta">route ${service.port || '--'} · ${service.private ? 'private operator route' : 'public route'}</div>
       </article>`;
     }
 
@@ -206,16 +202,14 @@
         const services = data.services || [];
         const online = services.filter(s => s.online).length;
         document.getElementById('fleetValue').textContent = `${online}/${services.length}`;
-        document.getElementById('fleetNote').textContent = data.summary || 'Fleet status loaded';
-        document.getElementById('watchdogValue').textContent = data.watchdog?.online ? 'Online' : 'Check';
-        document.getElementById('modelValue').textContent = data.ollama?.online ? 'Online' : 'Offline';
+        document.getElementById('fleetNote').textContent = 'up / listed';
         document.getElementById('updatedValue').textContent = ago(data.generated_at);
         document.getElementById('updatedNote').textContent = data.generated_at || '';
-        document.getElementById('footerTime').textContent = 'last heartbeat ' + (data.generated_at || 'unknown');
+        document.getElementById('footerTime').textContent = 'last update ' + (data.generated_at || 'unknown');
         document.getElementById('serviceGrid').innerHTML = services.map(serviceCard).join('');
       } catch (err) {
         document.getElementById('fleetValue').textContent = 'Pending';
-        document.getElementById('fleetNote').textContent = 'Waiting for Mac mini publisher';
+        document.getElementById('fleetNote').textContent = 'Waiting for the next status update';
         document.getElementById('serviceGrid').innerHTML = '';
       }
     }
